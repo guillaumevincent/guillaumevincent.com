@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>{{ page.title }}</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Le site personnel de Guillaume Vincent">
+        <meta name="author" content="Guillaume Vincent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/lib/bootstrap/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/static/css/style.css" />
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div id="footer" class="span10">
+                <div class="row-fluid">
+                    <div id="about" class="span8">
+                        <p>
+                        <h3>About</h3>
+                        I'm Guillaume Vincent, a 26-year-old software craftsman living in Bordeaux, France and working for CDiscount.<br>
+                        Read more →
+                        </p>
+                    </div>
+
+                    <div id="thumbnail" class="span4">
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34916388-1']);
+          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+    </body>
+</html>

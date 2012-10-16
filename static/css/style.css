@@ -1,0 +1,26 @@
+﻿body {
+    background-color: #555 !important;
+    font-family: 'Droid Serif', serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+    margin: 0 auto !important;
+    padding: 0;
+}
+
+#footer{
+	background:#f4f4f4;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+	margin: 0px auto !important;
+	float: none;
+}
+
+#thumbnail{
+	height: 100%;
+	background-image:url('/static/img/profil.jpg');
+	background-repeat:no-repeat;
+	background-position:right;
+	background-size: auto 100%;	
+}
