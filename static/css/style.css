@@ -257,7 +257,6 @@ footer{
   }
 
   .post{
-
     padding: 0 10px;
   }
 
@@ -289,6 +288,7 @@ footer{
   .post-date{
     width: 100%;
     float: none; 
-    text-align: center;
+    text-align: center; 
+    text-transform: uppercase;
   }
 }
