@@ -1,0 +1,141 @@
+html, body{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #FCFDFD;
+}
+#header-container{
+	height:118px;
+	overflow: hidden;
+	background-color: #30438F;
+
+    border-bottom: 1px solid black;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
+
+header{    
+    background-color: red;
+    height: 100%;
+    margin: 0 auto;
+    background: url('../img/smoke.png') #30438F no-repeat;
+}
+header a{
+	text-decoration: none;
+	color: white;
+}
+header h1{
+	background: url('../img/logo_akema.png') transparent no-repeat;
+	width: 288px;
+	text-indent: -9999px;
+	margin: 0;
+	float: left;
+	height: 63px;
+	margin-top: 30px;
+	/*todo:delete
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid blue;
+	*/
+}
+
+nav{
+	float: right;
+	height: 100%;
+	width: 500px;
+	/*todo:delete
+    box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid black;
+	*/
+}
+
+nav ul {
+    margin: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li:first-child a {
+    margin-left: 0;
+}
+
+nav li:last-child a {
+    margin-right: 0;
+}
+
+
+nav a {
+	margin-right:15px;
+	margin-top:48px;
+	float: left;
+	display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    text-transform: uppercase;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 1;
+    padding: 5px;
+
+    /*todo:delete
+    box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid green;
+    */
+}
+
+nav .current{
+	background-color:black;
+}
+nav a:hover {
+	background-color:black;
+}
+.wrapper{
+	width: 960px;
+}
+
+/*< 641px mobile view*/
+@media (max-width : 320px) {
+.wrapper{
+	width:90%;
+}
+header{display:block;
+	height: 236px;
+margin:0 auto;
+background: transparent;}
+header h1{width:288px;margin-top: 10px;}
+
+nav{width:288px; margin-top: 10px}
+nav a{
+	margin:0px;
+width:288px;
+    /*todo:delete
+    */
+    box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid black;
+display: block;
+margin-bottom: 10px;
+text-align: center;
+text-decoration: none;
+
+color: white;
+}
+
+#header-container{height: 236px;}
+    nav ul li {
+        display: block;
+    }
+}
