@@ -34,24 +34,12 @@ header h1{
 	float: left;
 	height: 63px;
 	margin-top: 30px;
-	/*todo:delete
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	border: 1px solid blue;
-	*/
 }
 
 nav{
 	float: right;
 	height: 100%;
 	width: 500px;
-	/*todo:delete
-    box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	border: 1px solid black;
-	*/
 }
 
 nav ul {
@@ -86,13 +74,6 @@ nav a {
     border-radius: 2px;
     line-height: 1;
     padding: 5px;
-
-    /*todo:delete
-    box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	border: 1px solid green;
-    */
 }
 
 nav .current{
@@ -105,37 +86,66 @@ nav a:hover {
 	width: 960px;
 }
 
+
 /*< 641px mobile view*/
-@media (max-width : 320px) {
-.wrapper{
-	width:90%;
+@media (max-width : 960px) {
+
+	.wrapper{
+		width:90%;
+	}
+	#header-container{
+		height: 128px;
+	}
+	header{
+		display:block;
+		margin:0 auto;
+		height:60px;
+		background: transparent;
+	}
+	header h1{
+		width:288px;
+		margin: auto;
+		margin-top: 10px;
+	}
+	nav{
+		height:60px;
+		width:100%;
+		margin:auto;
+		margin-top: 10px;
+	}
+	nav a{
+		margin:0px;
+		margin-right: 10px;
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		border: 1px solid black;
+		display: block;
+		margin-bottom: 10px;
+		text-align: center;
+		text-decoration: none;
+		color: white;
+	}
+
+	nav ul li {
+		display: block;
+	}
 }
-header{display:block;
-	height: 236px;
-margin:0 auto;
-background: transparent;}
-header h1{width:288px;margin-top: 10px;}
 
-nav{width:288px; margin-top: 10px}
-nav a{
-	margin:0px;
-width:288px;
-    /*todo:delete
-    */
-    box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	border: 1px solid black;
-display: block;
-margin-bottom: 10px;
-text-align: center;
-text-decoration: none;
+/*< 641px mobile view*/
+@media (max-width : 530px) {
+	#header-container{
+		height: 236px;
+	}
+	header{
+		height: 236px;
+	}
+	header h1{
+		width:288px;
+	}
 
-color: white;
-}
-
-#header-container{height: 236px;}
-    nav ul li {
-        display: block;
-    }
+	nav a{
+		width:100%;
+		min-width: 288px;
+	}
 }
