@@ -28,8 +28,8 @@ header a{
 }
 header h1{
 	background: url('../img/logo_akema.png') transparent no-repeat;
-	width: 288px;
 	text-indent: -9999px;
+	width: 288px;
 	margin: 0;
 	float: left;
 	height: 63px;
@@ -94,7 +94,7 @@ nav a:hover {
 		width:90%;
 	}
 	#header-container{
-		height: 128px;
+		height: 118px;
 	}
 	header{
 		display:block;
@@ -108,10 +108,9 @@ nav a:hover {
 		margin-top: 10px;
 	}
 	nav{
-		height:60px;
 		width:100%;
 		margin:auto;
-		margin-top: 10px;
+		margin-top: 6px;
 	}
 	nav a{
 		margin:0px;
