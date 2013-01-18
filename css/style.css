@@ -2,44 +2,47 @@ html, body{
 	margin: 0;
 	padding: 0;
 }
+
 body{
-	background: #FCFDFD;
+	background-color: #F3F3F3;
+	font-family: Helvetica!important;
 }
+
+a{
+	color:#BC1518;
+}
+
 #header-container{
 	height:118px;
 	overflow: hidden;
-	background-color: #30438F;
-
-    border-bottom: 1px solid black;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
 }
 
 header{    
-    background-color: red;
     height: 100%;
     margin: 0 auto;
-    background: url('../img/smoke.png') #30438F no-repeat;
 }
+
 header a{
 	text-decoration: none;
-	color: white;
+	color: black;
 }
+
 header h1{
-	background: url('../img/logo_akema.png') transparent no-repeat;
-	text-indent: -9999px;
 	width: 288px;
 	margin: 0;
 	float: left;
-	height: 63px;
-	margin-top: 30px;
+	height: 40px;
+	margin-top: 42px;
+}
+
+#nom{
+	color:#CF2F19;
 }
 
 nav{
 	float: right;
 	height: 100%;
-	width: 500px;
+	width: 275px;
 }
 
 nav ul {
@@ -65,7 +68,7 @@ nav a {
 	display: block;
     text-decoration: none;
     font-weight: bold;
-    color: white;
+    color: black;
     white-space: nowrap;
     text-transform: uppercase;
 
@@ -74,56 +77,66 @@ nav a {
     border-radius: 2px;
     line-height: 1;
     padding: 5px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid black;
 }
 
 nav .current{
 	background-color:black;
+	color:white;
 }
+
+nav a.current:hover{
+	cursor:default;
+}
+
 nav a:hover {
 	background-color:black;
+	color: white;
 }
+
 .wrapper{
 	width: 960px;
 }
 
 
-/*< 641px mobile view*/
-@media (max-width : 960px) {
+/*< 500px mobile view*/
+@media (max-width : 630px) {
 
-	.wrapper{
-		width:90%;
-	}
 	#header-container{
 		height: 118px;
 	}
+
 	header{
 		display:block;
 		margin:0 auto;
 		height:60px;
-		background: transparent;
 	}
+
 	header h1{
 		width:288px;
 		margin: auto;
 		margin-top: 10px;
 	}
+
 	nav{
 		width:100%;
 		margin:auto;
 		margin-top: 6px;
 	}
+
 	nav a{
 		margin:0px;
 		margin-right: 10px;
-		box-sizing:border-box;
-		-moz-box-sizing:border-box;
-		-webkit-box-sizing:border-box;
-		border: 1px solid black;
 		display: block;
 		margin-bottom: 10px;
 		text-align: center;
-		text-decoration: none;
-		color: white;
+	}
+
+	nav li:first-child a {
+	    margin-left: 8px;
 	}
 
 	nav ul li {
@@ -131,20 +144,10 @@ nav a:hover {
 	}
 }
 
-/*< 641px mobile view*/
-@media (max-width : 530px) {
-	#header-container{
-		height: 236px;
-	}
-	header{
-		height: 236px;
-	}
-	header h1{
-		width:288px;
-	}
+/*< 960px mobile view*/
+@media (max-width : 960px) {
 
-	nav a{
-		width:100%;
-		min-width: 288px;
+	.wrapper{
+		width:90%;
 	}
 }
