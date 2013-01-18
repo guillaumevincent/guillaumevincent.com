@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/reset.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/rainbow.css" type="text/css" />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container" class="gradient">
+            <header class="wrapper clearfix">
+                <a href="{{ site.baseurl }}/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/index.html" class="current">Accueil</a></li>
+                        <li><a href="{{ site.baseurl }}/#">Code</a></li>
+                        <li><a href="{{ site.baseurl }}/#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            {{ content }}
+        </div>
+
+        <!-- rainbow -->
+        <script src="{{ site.baseurl }}/js/rainbow.min.js"></script>
+        <script src="{{ site.baseurl }}/js/rainbow/language/generic.js"></script>
+        <script src="{{ site.baseurl }}/js/rainbow/language/python.js"></script>
+
+    </body>
+</html>
