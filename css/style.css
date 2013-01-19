@@ -136,8 +136,37 @@ p{
 	text-align: justify;
 }
 
+/*****************************************************************************/
+/*
+/* About
+/*
+/*****************************************************************************/
 
-/*< 500px mobile view*/
+#about_content {
+float: left;
+margin-right: 260px;
+}
+
+#profil{
+width: 240px;
+float: right;
+margin-left: -240px;
+text-align: center;
+margin-top: 20px;
+}
+
+#profil a{
+  color: #000;
+text-decoration: none;
+}
+/*****************************************************************************/
+/*
+/* Media queries
+/*
+/*****************************************************************************/
+
+
+/*< 630px mobile view*/
 @media (max-width : 630px) {
 
 	#header-container{
@@ -176,6 +205,15 @@ p{
 
 	nav ul li {
 		display: block;
+	}
+
+	#about_content{
+		margin:0;
+	}
+	#profil{
+		width: 100%;
+		margin: auto;
+
 	}
 }
 
