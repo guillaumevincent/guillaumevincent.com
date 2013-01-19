@@ -26,9 +26,9 @@
                 </a>
                 <nav>
                     <ul>
-                        <li><a href="{{ site.baseurl }}/index.html" class="current">Accueil</a></li>
+                        <li><a href="{{ site.baseurl }}/index.html" id="index">Accueil</a></li>
                         <li><a href="{{ site.baseurl }}/#">Code</a></li>
-                        <li><a href="{{ site.baseurl }}/#">Contact</a></li>
+                        <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </header>
@@ -42,6 +42,19 @@
         <script src="{{ site.baseurl }}/js/rainbow.min.js"></script>
         <script src="{{ site.baseurl }}/js/rainbow/language/generic.js"></script>
         <script src="{{ site.baseurl }}/js/rainbow/language/python.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var pathname = window.location.pathname;
 
+                $("nav a").each(function(index) {
+                    if (pathname.toUpperCase().indexOf($(this).text().toUpperCase()) != -1)
+                        $(this).addClass("current");
+                });
+
+                if ($("a.current").length == 0)
+                    $("a#index").addClass("current");
+            });
+        </script>
     </body>
 </html>
