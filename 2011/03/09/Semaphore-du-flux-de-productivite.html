@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Sémaphore du flux de productivité</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/rainbow/obsidian.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <a href="/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" id="index">Accueil</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            <div id="post_header" class="clearfix">
+	<h1>Sémaphore du flux de productivité</h1> 
+	<div class="post_date"> 09 Mar 2011	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	<div style='float: left; margin:10px;'><img src='https://lh3.googleusercontent.com/-kX4-Uq0Ww0c/Trw4MfU1UNI/AAAAAAAABcw/16SyR8NYb_0/s400/agile_coaching_rds.jpg' /></div>
+<p>Rachel Davies et Liz Sedley dans le livre « Coaching Agile » parlent d’améliorer le feedback sur l’état du build.</p>
+<blockquote><p>
+If the team makes the move to using a Continuous Integration server to run the build and let them know the test results, they won’t need a build token anymore
+</p></blockquote>
+<p>Elle précise que si l’équipe se met à utiliser un serveur d’intégration continue pour exécuter le build et l’informer du résultat des tests, elle n’aura alors plus besoin d’un objet de build (ou jeton de build). Je ne suis pas d’accord avec cette idée. Je vois deux intérêts à ce que l’équipe continue à utiliser un sémaphore d’intégration même si elle utilise un serveur d’intégration continue.</p>
+
+<p>Un sémaphore est un merveilleux indicateur du flux de productivité. Dans une pratique Lean un sémaphore qui ne circule pas signale un flux discontinu. Le premier intérêt est donc de permettre à une équipe de s’arrêter et d’aider l’acteur en difficulté à venir « pousser son code ». La plus grosse difficulté pour l’équipe est de se rendre compte, d’elle-même, que le jeton n’a pas beaucoup circulé. En parler lors de la réunion journalière est une très bonne idée.</p>
+
+<p>L’autre intérêt de continuer à utiliser un sémaphore d’intégration est que son utilisation, outre le fait qu’elle fasse ressortir un problème de flux, montre que l’équipe commence à s’auto-organiser. Dans un processus difficile d’équipe auto-organisée, un sémaphore bloqué pendant une journée est très révélateur d’une mauvaise communication. Pourquoi à un moment donné, un binôme se lève et essaye d’aider un autre binôme ? Est-ce que la fonctionnalité attendue est bloquante ? Ce transfert de ressource n’est pas naturel. L’encourager par des indicateurs comme le sémaphore de build est une excellente idée.</p>
+
+<p>Pour poursuivre la lecture je vous conseille ce billet d’Emmanuel CHENU: <a href='http://emmanuelchenu.blogspot.com/2009/04/lintegration-continue-est-un-systeme.html'>L’Intégration continue est un système multitache</a></p>
+</div>
+
+<div id="social" class="wrapper clearfix">
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
+</div>
+
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Sémaphore du flux de productivité&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+        </div>
+
+        <!-- rainbow -->
+        <script src="/js/rainbow-custom.min.js"></script>
+
+    </body>
+</html>

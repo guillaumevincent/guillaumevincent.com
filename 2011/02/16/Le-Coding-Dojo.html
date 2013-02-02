@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Le Coding Dojo</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/rainbow/obsidian.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <a href="/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" id="index">Accueil</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            <div id="post_header" class="clearfix">
+	<h1>Le Coding Dojo</h1> 
+	<div class="post_date"> 16 Feb 2011	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	<div style='float: right; margin:10px;'><img src='https://lh4.googleusercontent.com/-toWRjGqc3Mo/Trw4NjyltQI/AAAAAAAABcs/EO2Dk5EB-us/s800/dojoO.jpg' /></div>
+<p>Un coding dojo est une session amusante et intense pendant laquelle des développeurs améliorent leurs compétences en programmation. Ils cherchent collectivement à résoudre un problème informatique. Il existe différentes formes de coding dojo, et de plus en plus, cette pratique voit le jour dans les entreprises. Pour ma part je pratique le coding dojo au sein des locaux de l’entreprise Yaal et des locaux de l&#8217;entreprise Arpinum. Deux jeunes entreprises innovantes agiles du tissu bordelais. Généralement nous sommes entre 5 et 10 et nous développons une application ou un jeu.</p>
+
+<h3 id='le_but_dun_coding_dojo_'>Le but d’un coding dojo ?</h3>
+
+<p>Le but d’un coding dojo est de permettre à l’auditoire d’apprendre de manière collective différentes pratiques du développement logiciel. Pour vulgariser, je dirais qu’un coding dojo est un savant mélange entre une formation et un tutoriel. Ajoutez à cela que la pratique est bon enfant, et vous obtenez un cocktail détonnant.</p>
+
+<blockquote>
+<p>J’ai jamais autant appris en 5 mois de coding dojo qu’en 3 ans d’études en école d’ingénieur.</p>
+</blockquote>
+
+<h3 id='quest_ce_que_cela_ma_apport'>Qu’est ce que cela m’a apporté?</h3>
+
+<p>Actuellement nous nous appuyons sur le TDD (développement piloté par les tests) et la programmation en binômes. Durant toutes les sessions auxquelles j’ai assisté, j’ai toujours appris quelque chose et c’est dans mon travail que j’utilise cet apprentissage. Autre élément important, nous nous permettons d’exprimer nos craintes ou nos désaccords. Démarche moins aisée en entreprise (il est difficile de venir critiquer une façon de faire surtout si ça dérange). Plus les coding dojo avancent, plus nous prenons des risques. Nous avons de moins en moins peur de dire :</p>
+
+<blockquote>
+<p>Je ne sais pas</p>
+</blockquote>
+
+<p>Humilité, courage et intelligence sont trois qualités que nous développons.</p>
+</div>
+
+<div id="social" class="wrapper clearfix">
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
+</div>
+
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Le Coding Dojo&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+        </div>
+
+        <!-- rainbow -->
+        <script src="/js/rainbow-custom.min.js"></script>
+
+    </body>
+</html>

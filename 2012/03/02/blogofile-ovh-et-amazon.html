@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Blogofile, Ovh et Amazon</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/rainbow/obsidian.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <a href="/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" id="index">Accueil</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            <div id="post_header" class="clearfix">
+	<h1>Blogofile, Ovh et Amazon</h1> 
+	<div class="post_date"> 02 Mar 2012	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	<blockquote>
+Depuis peu je suis passé sous Jekyll et Github Page
+</blockquote>
+<p>Quand j&#8217;ai commencé à bloguer, j&#8217;utilisais Joomla puis très vite j&#8217;ai migré sur Wordpress. Et j&#8217;ai eu ma claque des mises à jour à effectuer tous les trois mois sous peine d&#8217;avoir des failles béantes sur mon site internet.</p>
+
+<p>Début janvier 2012, j&#8217;ai cherché une solution <a href='http://en.wikipedia.org/wiki/KISS_principle'>KISS (Keep It Simple Sir)</a>. Grâce à <a href='http://twitter.com/sdouche'>Sébastien Douche</a> lors d&#8217;une conférence sur GIT, j&#8217;ai découvert <a href='http://www.blogofile.com/'>Blogofile</a>. Blogofile est un système qui permet de créer un site statique simplement. J&#8217;écris des billets dans mon éditeur de texte favori. Je l&#8217;enregistre dans un dossier, je lance la génération automatique de mon site et je copie l&#8217;ensemble des fichiers générés sur mon hébergeur. Pas de base de données, seulement un hébergeur.</p>
+
+<p>C&#8217;est aussi en janvier que j&#8217;ai dû me réabonner chez Ovh pour un ans. Je possédais un nom de domaine principal <strong>vincentguillaume.fr</strong>, un nom de domaine secondaire <strong>rolala.fr</strong> ainsi qu&#8217;un espace de stockage proposé par Ovh (10 go). En calculant simplement le coût pour héberger mon site statique d&#8217;un peu plus d&#8217;1 Mo je devais débourser environ 29€ (12€Ht d&#8217;hébergement + 6€Ht / nom de domaine).</p>
+
+<p>N&#8217;utilisant aucun service mis à part l&#8217;hébergement d&#8217;Ovh, j&#8217;ai décidé de chercher un autre hébergeur sur lequel je pouvais faire pointer mes deux noms de domaine. J&#8217;ai choisi Amazon, car c&#8217;est gratuit pour héberger jusqu&#8217;à 1Go de données. Amazon et son service <a href='http://aws.amazon.com/fr/s3/'>S3 (Amazon Simple Storage Service)</a> associé permet de créer des buckets (conteneurs) et mettre ce que l&#8217;on veut dedans. Je peux par exemple transformer un bucket en site statique, autoriser l&#8217;accès en lecture et accéder à mon site depuis internet http://www.vincentguillaume.fr.s3-website-eu-west-1.amazonaws.com/. Ensuite je fais pointer mon nom de domaine vers mon bucket.</p>
+
+<p>La technique que j&#8217;ai utilisée et qui me satisfais complètement est la suivante:</p>
+
+<ul>
+<li>
+<p>se rendre sur sa <a href='https://console.aws.amazon.com/s3'>console Amazon</a> et nommer son bucket www.votre_nom_de_domaine.fr <br /><strong>bucket name: www.vincentguillaume.fr</strong></p>
+</li>
+
+<li>
+<p>se rendre sur Ovh et rediriger son nom de domaine vers le sous domaine www associé <br /><strong>vincentguillaume.fr redirige vers www.vincentguillaume.fr</strong></p>
+</li>
+
+<li>
+<p>et rediriger (avec un CNAME) le sous domaine www.nom_de_domaine.fr vers le lien du site statique d&#8217;Amazon nom_de_mon_bucket.s3-website-eu-west-1.amazonaws.com <br /> <b>www.vincentguillaume.fr CNAME www.vincentguillaume.fr.s3-website-eu-west-1.amazonaws.com</b></p>
+</li>
+</ul>
+
+<p>Et le tour est joué. J&#8217;ai donc économisé 50% cette année.</p>
+
+<p>La prochaine étape est de transférer sur <a href='http://aws.amazon.com/fr/route53/'>Amazon Route</a> mes deux noms de domaine pour centraliser encore un peu plus mes services. Et ensuite de réaliser un petit script python, qui vient push sur github le code du blog et mettre à jour le site sur Amazon.</p>
+</div>
+
+<div id="social" class="wrapper clearfix">
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
+</div>
+
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Blogofile, Ovh et Amazon&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+        </div>
+
+        <!-- rainbow -->
+        <script src="/js/rainbow-custom.min.js"></script>
+
+    </body>
+</html>

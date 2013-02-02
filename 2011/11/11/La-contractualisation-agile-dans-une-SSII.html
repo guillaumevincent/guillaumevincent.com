@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>La contractualisation agile dans une SSII</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/rainbow/obsidian.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <a href="/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" id="index">Accueil</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            <div id="post_header" class="clearfix">
+	<h1>La contractualisation agile dans une SSII</h1> 
+	<div class="post_date"> 11 Nov 2011	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	<p>Rien qu’en lisant le titre, je fais la grimace. Le contrat a été inventé pour se prémunir des tentatives d’un des deux partis pour exploiter l’autre. Et c’est un outil indispensable dans n’importe quel projet informatique. Dans ce billet j’essaye de répondre à la problématique suivante :</p>
+
+<blockquote>
+<p>Comment aujourd’hui une société de service peut-elle faire de l’agilité sur un projet au forfait avec un engagement de résultat ?</p>
+</blockquote>
+
+<p>Douloureux comme problématique ! Pour simplifier le contexte, je me place dans le cas concret où un client effectue un appel d’offre et la société de service envoie une proposition technique et financière. Généralement le contrat essaye de fixer les délais, les coûts, le périmètre fonctionnel du projet. C’est pour cette raison que souvent, on s’appuie sur le cahier des charges pour valider le contrat.</p>
+
+<p>Engagement de résultat implique une notion de « terminée » du point de vue du client. Le client attend une proposition pour réaliser « l’ensemble » des fonctionnalités du produit décrites dans le cahier des charges. Il s’attend par la même occasion à ce que le produit final comporte aussi l’ensemble des fonctionnalités énoncées dans le besoin initial.</p>
+<center>
+	<img src='https://lh4.googleusercontent.com/-508LddosWQU/Trw4QZNiYiI/AAAAAAAABdY/OJnphuBI2r4/s800/un-pilote-dans-lavion.jpg' />
+</center>
+<p>De plus une prestation au « forfait » nous retire toute possibilité de pilotage. L’ajustement en fonction de l’évolution du projet sur le terrain est impossible. Nous savons que nous avons les mains liées, mais nous continuons à nous engager. Le prix de la prestation augmente.</p>
+
+<p>Vous l’aurez compris tout le monde est perdant!</p>
+
+<h3 id='sadapter_au_changement'>S’adapter au changement</h3>
+
+<p>L’objectif de la contractualisation est de proposer une réponse qui prenne en compte ce « changement » tout en assurant au client que ce qu’il demande sera bien réalisé ! Ne jamais s’engager sur un nombre de fonctionnalité ! Mais engagez-vous sur un volume d’unité d’oeuvre<sup>1</sup>. C’est assez simple comme idée. En fonction du cahier des charges, listez les fonctionnalités. Morceler l’ensemble de ces objectifs fonctionnels pour en extraire les users stories. Effectuez l’évaluation avec une équipe transverse du coût d’une user storie. Avec la matrice ainsi générée vous pouvez piloter votre projet de manière simple. Vous transformez le poids d’une storie en jour homme ou toute autre unité que vous utilisez. Vous vous engagez à livrer à la fin de chaque sprint un produit fonctionnel<sup>2</sup>. Vous explicitez que le client doit en contrepartie s’engager à faire un retour d’expérience sur le produit à la même fréquence.</p>
+
+<h3 id='les_craintes_du_client'>Les craintes du client</h3>
+<div style='float: right; margin:10px;'><img src='https://lh3.googleusercontent.com/-YnQ7QAvEjZE/Trw4NL7S8OI/AAAAAAAABco/tJk8GVaw94E/s400/client-e%25CC%2581tonne%25CC%2581.jpg' width='180' /></div>
+<p>La principale crainte du client devient alors la sur-évaluation d’une storie. Les échanges et la collaboration client fournisseur prennent tout leur sens. Si ce point est très bloquant vous pouvez envisager un planning poker chez le client. Essayer le contrat 50/50. Vous paliez ainsi aux craintes liées au retard éventuel d’un projet et aux craintes de la sur-évaluation du volume utile pour réaliser le produit. En fonction du projet vous pouvez découper le paiement du projet en X fois. Ce qui correspond à un paiement toute les <em>Y</em> itérations<sup>3</sup>.</p>
+
+<p>Pour rassurer un client qui débute dans l’agilité vous pouvez rajouter ces points là :</p>
+
+<ul>
+<li>La possibilité pour un client d’arrêter les frais après n’importe Y* itérations et récupérer ce qui a déjà été réalisé.</li>
+
+<li>A la fin de chaque sprint vous envoyez les indicateurs du suivi du projet (burdown chart, taux de couverture du code).</li>
+
+<li>A la fin de chaque sprint chaque partie analyse la vitesse d’exécution du projet et discute sur les améliorations à apporter.</li>
+</ul>
+
+<p>Les mentalités ne changeront pas, si nous ne changeons pas !</p>
+<blockquote> <sup>1</sup>unité d’œuvre, poids d’une User Storie ça n’a pas d’importance. L’objectif est bien de rattacher une fonctionnalité à une unité pour rendre le pilotage plus facile.</blockquote><blockquote> <sup>2</sup>Oncle Bob estime que c’est la principale raison d’un échec lors de l’utilisation de l’agilité : ne pas produire de manière continue, un logiciel qui fonctionne !</blockquote><blockquote> <sup>3</sup> Y = Durée du projet / ( X * Durée Itération)</blockquote>
+</div>
+
+<div id="social" class="wrapper clearfix">
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
+</div>
+
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=La contractualisation agile dans une SSII&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+        </div>
+
+        <!-- rainbow -->
+        <script src="/js/rainbow-custom.min.js"></script>
+
+    </body>
+</html>
