@@ -3,10 +3,8 @@ layout: post
 title: La retrospective son principal intérêt
 author: gvincent
 lang: fr
+tags: méthodologie agile
 ---
-<h1>La rétrospective, son principal intérêt</h1>
-
-
 <div style="float: right; margin:10px;"><img src="https://lh3.googleusercontent.com/-I40IfhiSgOA/TrwNrLk6YcI/AAAAAAAABcA/3b5gh7sSX6g/s800/retro-300x207.jpg" /></div>
 
 Dans l’application de bonnes pratiques agiles, il est recommandé de faire une rétrospective. A la suite d’un sprint dans une démarche SCRUM, l’équipe est amenée à discuter des différents problèmes qu’elle a pu rencontrer lors du développement de son application. C’est un moment important, qui oblige tout le monde à se remettre en question. Cela favorise l’amélioration continue passive.

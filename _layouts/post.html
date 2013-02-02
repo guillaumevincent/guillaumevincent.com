@@ -1,34 +1,42 @@
 ---
 layout: default
 ---
-<div id="post">
-{{ content }}
+<div id="post_header" class="clearfix">
+	<h1>{{ page.title }}</h1> 
+	<div class="post_date"> {{ page.date | date: "%d %b %Y" }}	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	{{ content }}
 </div>
 
 <div id="social" class="wrapper clearfix">
-	<!-- Place this tag where you want the +1 button to render. -->
-	<div class="g-plusone" data-size="medium" data-annotation="none"></div>
-
-	<!-- Place this tag after the last +1 button tag. -->
-	<script type="text/javascript">
-	  window.___gcfg = {lang: 'fr'};
-
-	  (function() {
-	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	    po.src = 'https://apis.google.com/js/plusone.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	</script>
-
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ post.url }}" data-text="{{ post.title }}" data-via="rolalagile" data-lang="fr">Tweeter</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
 </div>
 
-<div id="disqus_thread" class="wrapper clearfix">
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text={{ page.title }}&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'rolala'; // required: replace example with your forum shortname
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -36,6 +44,9 @@ layout: default
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
 </script>
-<noscript>Activez le JavaScript pour voir <a href="http://disqus.com/?ref_noscript">les commentaires propulsés par Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">commentaires propulsés par <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+

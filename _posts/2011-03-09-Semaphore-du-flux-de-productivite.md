@@ -3,8 +3,8 @@ layout: post
 title: Sémaphore du flux de productivité
 author: gvincent
 lang: fr
+tags: réflexion
 ---
-<h1>Sémaphore du flux de productivité</h1>
 <div style="float: left; margin:10px;"><img src="https://lh3.googleusercontent.com/-kX4-Uq0Ww0c/Trw4MfU1UNI/AAAAAAAABcw/16SyR8NYb_0/s400/agile_coaching_rds.jpg"></div>
 
 

@@ -3,9 +3,8 @@ layout: post
 lang: fr
 title: Supprimer les accents des titres blogofile
 author: gvincent
+tags: hack, blogofile
 ---
-
-<h1>Supprimer les accents des titres blogofile</h1>
 
 Blogofile, le générateur de blog statique que j'utilise, a la fâcheuse tendance de mettre des accents dans les permaliens de nos billets. C'est assez ennuyeux, surtout si comme moi votre hébergeur n'accepte pas les caractères unicodes dans ses urls. J'ai modifié un hack de <a href="http://twitter.com/zzzeek">zzzeek</a> qui corrigeait ce défaut, mais qui supprimait les accents.
 J'ai amélioré cette modification pour remplacer les accents par les lettres correspondantes.
