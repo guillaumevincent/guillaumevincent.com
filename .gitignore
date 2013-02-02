@@ -1,4 +1,5 @@
 *.less
 .gitignore
 .idea/
-_site/*
+_site/
+*.sh
