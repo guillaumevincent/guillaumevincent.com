@@ -3,9 +3,8 @@ layout: post
 lang: fr
 title: Blogofile, Ovh et Amazon
 author: gvincent
+tags: hébergement, site web
 ---
-
-<h1>Blogofile, Ovh et Amazon</h1>
 
 <blockquote>
 Depuis peu je suis passé sous Jekyll et Github Page

@@ -3,8 +3,8 @@ layout: post
 title: Coder en français ou coder en anglais ?
 author: gvincent
 lang: fr
+tags: réflexion
 ---
-<h1>Coder en français ou coder en anglais ?</h1>
 <div style="float: right; margin:10px;"><img src="https://lh6.googleusercontent.com/-pxgLFrsiEd8/Trw4MPbB27I/AAAAAAAABcU/1kZJ2cYQSzQ/s800/476-150x150.jpg"></div>
 
 

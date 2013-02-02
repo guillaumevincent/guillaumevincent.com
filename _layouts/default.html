@@ -12,14 +12,16 @@
         <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png">
         <link rel="stylesheet" href="{{ site.baseurl }}/css/reset.css">
         <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/rainbow.css" type="text/css" />
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/rainbow/obsidian.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="header-container" class="gradient">
+        <div id="header-container">
             <header class="wrapper clearfix">
                 <a href="{{ site.baseurl }}/index.html">
                     <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
@@ -27,7 +29,7 @@
                 <nav>
                     <ul>
                         <li><a href="{{ site.baseurl }}/index.html" id="index">Accueil</a></li>
-                        <li><a href="{{ site.baseurl }}/#">Code</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
                         <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -39,22 +41,7 @@
         </div>
 
         <!-- rainbow -->
-        <script src="{{ site.baseurl }}/js/rainbow.min.js"></script>
-        <script src="{{ site.baseurl }}/js/rainbow/language/generic.js"></script>
-        <script src="{{ site.baseurl }}/js/rainbow/language/python.js"></script>
-        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var pathname = window.location.pathname;
+        <script src="{{ site.baseurl }}/js/rainbow-custom.min.js"></script>
 
-                $("nav a").each(function(index) {
-                    if (pathname.toUpperCase().indexOf($(this).text().toUpperCase()) != -1)
-                        $(this).addClass("current");
-                });
-
-                if ($("a.current").length == 0)
-                    $("a#index").addClass("current");
-            });
-        </script>
     </body>
 </html>
