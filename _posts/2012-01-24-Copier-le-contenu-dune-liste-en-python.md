@@ -3,8 +3,8 @@ layout: post
 title: Copier le contenu d'une liste en python
 author: gvincent
 lang: fr
+tags: astuce, python
 ---
-<h1> Copier le contenu d'une liste en python </h1>
 <p>
 Quand j’ai commencé à coder en python, j’ai passé un peu de temps sur des problèmes de copies de listes. Je veux trouver un moyen simple de copier le contenu d'une liste dans une autre et pas leurs références. Regardez cet exemple :
 </p>

@@ -3,8 +3,8 @@ layout: post
 title: La contractualisation agile dans une SSII
 author: gvincent
 lang: fr
+tags: contractualisation, SSII
 ---
-<h1>La contractualisation agile dans une SSII</h1>
 
 Rien qu’en lisant le titre, je fais la grimace. Le contrat a été inventé pour se prémunir des tentatives d’un des deux partis pour exploiter l’autre. Et c’est un outil indispensable dans n’importe quel projet informatique. Dans ce billet j’essaye de répondre à la problématique suivante :
 

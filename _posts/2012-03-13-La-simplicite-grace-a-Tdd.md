@@ -3,10 +3,8 @@ layout: post
 lang: fr
 title: La simplicité grace à TDD
 author: gvincent
+tags: tdd, simplicité
 ---
-
-<h1>La simplicité grace à TDD</h1>
-
 
 Le développement piloté par les tests est un merveilleux moyen pour s’assurer que le code que nous réalisons fait exactement ce que l’on veut qu’il fasse. TDD permet d’aller plus loin; Il oblige le développeur à faire les choses simplement. Récemment j’ai lu un magnifique billet de Ronald E. Jeffries intitulé [« But We Need a Database … Don’t We? »](http://xprogramming.com/articles/but-we-need-a-database-dont-we/) sur lequel je me suis grandement inspiré pour expliquer cette idée.
 <br>
@@ -19,28 +17,17 @@ Bon mettons nous à écrire notre premier test. Disons qu’ici notre premier te
 
 <pre>
 <code data-language="python">
-def openFile(path):
-    file = open(path, "r")
-    content = file.read()
-    file.close()
-    return content
-</code>
-</pre>
-
-
-<pre>
-<code data-language="python">
 import unittest
 
 class TestsApplicationMagasinDeCafe(unittest.TestCase):
 
-	def test_facturation_produit(self):
-		membre = Membre()
-		montant_produit = membre.facture(10)
-		self.assertEqual(montant_produit, 10)
+    def test_facturation_produit(self):
+        membre = Membre()
+        montant_produit = membre.facture(10)
+        self.assertEqual(montant_produit, 10)
 
 if __name__ == '__main__':
-unittest.main()
+    unittest.main()
 </code>
 </pre>
 
@@ -62,8 +49,8 @@ Mon test est rouge, je le fais donc passer au vert
 
 <pre>
 <code data-language="python">
-	def facture(self, montant):
-		return 10
+    def facture(self, montant):
+        return 10
 </code>
 </pre>
 
@@ -73,12 +60,12 @@ Si je change le montant du produit facturé, notre test est de nouveau rouge.
 
 <pre>
 <code data-language="python">
-	def test_facturation_produit(self):
-		membre = Membre( )
-		montant_produit = member.facture(10)
-		self.assertEqual(montant_produit, 10)
-		montant_produit = member.facture(5)
-		self.assertEqual(montant_produit, 5)
+    def test_facturation_produit(self):
+        membre = Membre( )
+        montant_produit = member.facture(10)
+        self.assertEqual(montant_produit, 10)
+        montant_produit = member.facture(5)
+        self.assertEqual(montant_produit, 5)
 </code>
 </pre>
 
@@ -88,8 +75,8 @@ Erreur que je corrige en modifiant notre méthode facture:
 
 <pre>
 <code data-language="python">
-	def facture(self, montant):
-		return montant
+    def facture(self, montant):
+        return montant
 </code>
 </pre>
 
@@ -99,13 +86,13 @@ Modifions le test pour s’assurer que lorsque j’achète 6 produits le 6ème e
 
 <pre>
 <code data-language="python">
-	def test_facturation_produit(self):
-		membre = Membre( )
-		for i in range(5):
-			montant_produit = member.facture(10)
-			self.assertEqual(montant_produit, 10)
- 		montant_produit = membre.facture(5) 
-		self.assertEqual(montant_produit, 0)
+    def test_facturation_produit(self):
+        membre = Membre( )
+        for i in range(5):
+            montant_produit = member.facture(10)
+            self.assertEqual(montant_produit, 10)
+        montant_produit = membre.facture(5) 
+        self.assertEqual(montant_produit, 0)
 </code>
 </pre>
 
@@ -203,11 +190,11 @@ Ce qui est génial avec cette méthode c’est que nous venons de faire émerger
 
 <pre>
 <code data-language="python">
-	def test_membre_deux_membre_six_obtiennent_leur_reduction(self):
-		membres = CollectionMembre()
-		for achat_deuxieme_membre in range(5):
-			self.assertEqual(membres.get_membre(2).facture(1), 1)
-		self.assertEqual(membres.get_membre(2).facture(5), 0)
+    def test_membre_deux_membre_six_obtiennent_leur_reduction(self):
+        membres = CollectionMembre()
+        for achat_deuxieme_membre in range(5):
+            self.assertEqual(membres.get_membre(2).facture(1), 1)
+        self.assertEqual(membres.get_membre(2).facture(5), 0)
 </code>
 </pre>
 
@@ -218,8 +205,8 @@ CollectionMembre est donc une représentation du modèle de la base de données 
 <pre>
 <code data-language="python">
 Class CollectionMembre(Object):
-	def get_membre(self, numero_membre):
-		return Membre()
+    def get_membre(self, numero_membre):
+        return Membre()
 </code>
 </pre>
 <p>
@@ -363,13 +350,12 @@ Si j’applique maintenant les achats du membre 6, mon code fonctionne parfaitem
             self.assertEqual(membres.membre(4).facture(achat),achat)
 </code>
 </pre>
+<h2>Conclusion:</h2>
 <p>
-Conclusion:
-<br>
 Quand on lit la user storie, il est facile de se méprendre sur ce qui est réellement important. Surtout quand on lit “Chaque fois qu’un client achète quelque chose dans le magasin, on enregistre tous ses achats,...”
 Ca arrive souvent qu’une storie soit mal exprimée. Décripter une storie peut être problématique. Pourtant comme je viens de le montrer, pour cette user storie donnée, enregistrer les achats n’était pas important. 
 Le plus important (ce qui représente le plus de valeur) est qu’un membre puisse obtenir une réduction après 5 achats. 
 <br>
-Et la deuxième chose la plus importante (dont nous avons réellement besoin) c’est que chaque membre puissent obtenir cette réduction. Par contre ce n’est pas forcement évident d’extraire ce besoin. En plus notre modèle de base de donné est très simple, et peut être enrichit au fur et à mesure avec ce qui importe vraiment. Et chose intéressante encore, une donnée importante est apparue (le nombre d’achats de chaque membre).
+Et la deuxième chose la plus importante (dont nous avons réellement besoin) c’est que chaque membre puissent obtenir cette réduction. Par contre ce n’est pas forcement évident d’extraire ce besoin. En plus notre modèle de base de données est très simple, et peut être enrichit au fur et à mesure avec ce qui importe vraiment. Pour finir une donnée importante est apparue (le nombre d’achats de chaque membre).
 Personnellement quand j’ai lu la user storie, je n’ai pas pensé tout de suite à ça. Je me suis dis si j’enregistre tous les achats d’un membre, je n’aurais qu’à les compter et adapter le prix d’un produit en fonction du résultat.
 </p>

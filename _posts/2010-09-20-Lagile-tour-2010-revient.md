@@ -2,9 +2,8 @@
 layout: post
 title: L'agile tour 2010 revient !
 lang: fr
+tags: news
 ---
-<h1>L’agile tour 2010 revient !</h1>
-
 Pour la troisième année consécutive l’Agile Tour revient en France durant tout le mois d’Octobre. Le principal objectif de ses manifestations est de promouvoir massivement l’Agilité en France, de discuter sur différents concepts de développement logiciel et de fédérer les acteurs de l’Agilité autour d’une même synergie.
 
 ###L’agilité qu’est ce que c’est?

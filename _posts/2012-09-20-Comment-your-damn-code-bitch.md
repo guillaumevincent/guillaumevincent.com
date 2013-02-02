@@ -3,9 +3,9 @@ layout: post
 lang: fr
 title: Comment your damn code bitch !
 author: gvincent
+tags: clean code, commentaire
 ---
 
-<h1>Comment your damn code bitch !</h1>
 <p>
 Voilà ce que j'ai essayé d'expliquer à un collègue quand il m'a dit que mon code ne comportait pas de commentaires :
 </p>
@@ -76,7 +76,7 @@ Tu peux voir comment ta méthode a été testée. Les tests sont à jour:
     </code>
 </pre>
 <p>
-    Pour résumer, le code d’un logiciel ne doit pas comporter de commentaire, c'est un aveu d'échec sur sa capacité à rendre son code explicite. Son code doit refléter précisément son intention lors de sa conception. Et la documentation ce sont les tests. Ils doivent être à jour, et chaque bug doit comporter un test de non régression.
+    Pour résumer, le code d’un logiciel ne doit pas comporter de commentaires, c'est un aveu d'échec sur sa capacité à rendre son code explicite. Son code doit refléter précisément son intention lors de sa conception. Et la documentation ce sont les tests. Ils doivent être à jour, et chaque bug doit comporter un test de non régression.
 </p>
 
 <p>

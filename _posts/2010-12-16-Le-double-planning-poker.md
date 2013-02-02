@@ -3,10 +3,8 @@ layout: post
 title: Le double planning poker
 author: gvincent
 lang: fr
+tags: astuce, scrum
 ---
-
-<h1>Le double planning poker!</h1>
-
 <div style="float: right; margin:10px;"><img src="https://lh3.googleusercontent.com/-mz050MogDw4/TyPXWXcWMfI/AAAAAAAABrM/wFoLfx_cXnI/s800/images.jpg" alt="planning poker"></div>
 
 J’ai longtemps mal compris le rôle du planning poker, aujourd’hui je vous propose une vision un peu novatrice de son utilisation : le double planning poker !
