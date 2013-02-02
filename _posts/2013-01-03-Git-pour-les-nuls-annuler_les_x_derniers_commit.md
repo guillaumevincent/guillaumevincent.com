@@ -22,13 +22,11 @@ Et dans mon cas je ne veux pas merger en production tous ces commits inutiles.
 Il existe trois solutions sous Git pour "squash" les X derniers commits ou en français pour "écraser" les X derniers commits pour qu'ils n'en fassent plus qu'un:
 </p>
 <pre>
-<div id="social" class="wrapper clearfix">
-	<ul id="social_icon">
-		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-	</ul>
-</div>
+<code data-language="BashSessionLexer">
+git rebase
+git merge --squash	  	
+git reset
+</code>
 </pre>
 <p>
 	Je préfère la solution git reset plus intuitive à mon goût.
