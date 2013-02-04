@@ -45,7 +45,7 @@
 
 <div id="post" class="clearfix">
 	<img src='https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png' style='float:left; margin: 0 20px;' /><p>
-I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community. I started by creating a CSS sprites for including images in my web page. The solution is pretty simple. I use a fixed size html bloc. And I manualy add 3 links, with all the same background image. I only change the background position to display the good image in each blocks. I use the CSS stripes technique to make a single query when I load my page.
+I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community. I started by creating a CSS sprites for including images in my web page. The solution is pretty simple. I use a fixed size html bloc. And I manualy add 3 links, with all the same background image. I only change the background position to display the good image in each block. I use the CSS stripes technique to make a single query when I load my page.
 </p><br /><div>
   <pre><code data-language='html'>&lt;div id="_social"&gt;
     &lt;ul id="_social_icon"&gt;
@@ -165,6 +165,21 @@ I recently try to make lazy loading social widget. I found a solution I really l
 
         <!-- rainbow -->
         <script src="/js/rainbow-custom.min.js"></script>
+        
+        <!-- google analytics -->
+        <script type="text/javascript">
 
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34916388-1']);
+          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
     </body>
 </html>
