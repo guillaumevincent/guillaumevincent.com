@@ -7,7 +7,7 @@ tags: social widget, lazy loading
 ---
 <img style="float:left; margin: 0 20px;" src="https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png">
 <p>
-I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community. I started by creating a CSS sprites for including images in my web page. The solution is pretty simple. I use a fixed size html bloc. And I manualy add 3 links, with all the same background image. I only change the background position to display the good image in each blocks. I use the CSS stripes technique to make a single query when I load my page.
+I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community. I started by creating a CSS sprites for including images in my web page. The solution is pretty simple. I use a fixed size html bloc. And I manualy add 3 links, with all the same background image. I only change the background position to display the good image in each block. I use the CSS stripes technique to make a single query when I load my page.
 </p>
 <br>
 <div>
