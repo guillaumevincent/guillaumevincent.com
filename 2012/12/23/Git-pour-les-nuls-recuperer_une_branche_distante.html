@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/rainbow/obsidian.css" type="text/css" />        
+        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
         <!-- jquery -->
         <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     </head>
@@ -58,32 +58,26 @@
     <br />
     La première chose que l'on me demande de faire est de récupérer le code du projet. Notre projet est hébergé sur Github, j'ai les accès en lecture et en écriture au dépôt distant du code (dépot distant intitulé par défaut <b>origin</b>)
     <br />
-</p><pre>
-<code data-language='BashSessionLexer'>
-    git clone git@github.com:okiwi/atbdx.git atbdx
-    Cloning into 'atbdx'...
-</code>
-</pre><p>
+</p><div class='highlight'><pre><code class='console'><span class='go'>    git clone git@github.com:okiwi/atbdx.git atbdx</span>
+<span class='go'>    Cloning into &#39;atbdx&#39;...</span>
+</code></pre>
+</div><p>
     Je viens de récupérer la branche principale du projet (commande: <b>clone</b>) sur mon poste et j'ai mis mon environnement de travail dans le dossier atbdx. Une seule branche a été clonée, la branche principale (par défaut cette branche s'appelle <b>master</b>).
     Pour voir l'ensemble des branches du projet, vous pouvez tapper la commande suivante
-</p><pre>
-<code data-language='BashSessionLexer'>
-    git branch
-    * master
-</code>
-</pre><p>
+</p><div class='highlight'><pre><code class='console'><span class='go'>    git branch</span>
+<span class='go'>    * master</span>
+</code></pre>
+</div><p>
     git branch m'indique que je n'ai sur mon poste en local qu'une seule branche intitulé master. Par défaut clone ne copie pas toutes les branches sur mon poste. Je dois lui préciser de récupérer une branche particulière depuis le dépôt distant. 
-</p><pre>
-<code data-language='BashSessionLexer'>
-    git checkout -b dev origin/dev
-    Branch dev set up to track remote branch dev from origin.
-    Switched to a new branch 'dev'
+</p><div class='highlight'><pre><code class='console'><span class='go'>    git checkout -b dev origin/dev</span>
+<span class='go'>    Branch dev set up to track remote branch dev from origin.</span>
+<span class='go'>    Switched to a new branch &#39;dev&#39;</span>
 
-    git branch
-    * dev
-    master
-</code>
-</pre><p>
+<span class='go'>    git branch</span>
+<span class='go'>    * dev</span>
+<span class='go'>    master</span>
+</code></pre>
+</div><p>
     <b>git checkout -b dev origin/dev</b> : créé moi une nouvelle branche locale intitulé dev qui est une copie d'une branche distante du dépôt origin. Et place toi sur la branche dev.
     <br />
     Première victoire, j'ai récupéré depuis le dépôt distant origin la branche de développement, et je peux maintenant travailler en local.
@@ -132,9 +126,6 @@
 
         </div>
 
-        <!-- rainbow -->
-        <script src="/js/rainbow-custom.min.js"></script>
-        
         <!-- google analytics -->
         <script type="text/javascript">
 
