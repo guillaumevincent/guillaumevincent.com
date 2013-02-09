@@ -21,34 +21,28 @@ Je me retrouve souvent dans l'obligation de faire des corrections mineures pour 
 Et dans mon cas je ne veux pas merger en production tous ces commits inutiles.
 Il existe trois solutions sous Git pour "squash" les X derniers commits ou en français pour "écraser" les X derniers commits pour qu'ils n'en fassent plus qu'un:
 </p>
-<pre>
-<code data-language="BashSessionLexer">
+{% highlight console %}
 git rebase
 git merge --squash	  	
 git reset
-</code>
-</pre>
+{% endhighlight %}
 <p>
 	Je préfère la solution git reset plus intuitive à mon goût.
 	Premièrement on s'assure que notre environnement de travail ne comporte pas de modifications en cours:
 </p>
-<pre>
-<code data-language="BashSessionLexer">
+{% highlight console %}
 git status
 # On branch master
 nothing to commit, working directory clean
-</code>
-</pre>
+{% endhighlight %}
 <p>
 	Ensuite j'effectue un rebase pour écraser X commits. Dans mon exemple je veux me re-placer au niveau du tag soit 4 commits avant.
 	Je tappe donc la commande suivante:
 </p>
-<pre>
-<code data-language="BashSessionLexer">
+{% highlight console %}
 git reset --soft HEAD~4
 git commit -m "release v1.0"
-</code>
-</pre>
+{% endhighlight %}
 <img src="https://lh4.googleusercontent.com/-hJev3pzvxdQ/UNb2LAF160I/AAAAAAAAIMQ/O72XSWO6kTI/s826/git%2520rebase%2520example2.png">
 
 
