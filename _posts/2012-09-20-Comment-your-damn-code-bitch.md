@@ -9,15 +9,13 @@ tags: clean code, commentaire
 <p>
 Voilà ce que j'ai essayé d'expliquer à un collègue quand il m'a dit que mon code ne comportait pas de commentaires :
 </p>
-<pre>
-    <code data-language="python">
+{% highlight python %}
     def kos_root(self):
         """Return the pathname of the KOS root directory."""
         if self._kos_root: 
             return self._kos_root
     ...
-    </code>
-</pre>
+{% endhighlight %}
 
 <p>
 - What the fuck Man !
@@ -32,8 +30,7 @@ A quoi sert cette putain de docstring, tu m'expliques ?
 - Tu es sur ? Regarde la suite du code
 </p>
 
-<pre>
-    <code data-language="python">
+{% highlight python %}
     def kos_root(self):
         """Return the pathname of the KOS root directory."""
         if self._kos_root: 
@@ -41,8 +38,8 @@ A quoi sert cette putain de docstring, tu m'expliques ?
         #bug 3154 - 04/25/2009
         else: 
             return 0 
-    </code>
-</pre>
+{% endhighlight %}
+
 
 <p>
 - Ah oui on a eu un bug sur le code de retour de la méthode et ..
@@ -60,8 +57,7 @@ A quoi sert cette putain de docstring, tu m'expliques ?
 Tu peux voir comment ta méthode a été testée. Les tests sont à jour:
 </p>
 
-<pre>
-    <code data-language="python">
+{% highlight python %}
     class TestMain(unittest.TestCase):
 
         def setUp(self):
@@ -73,8 +69,8 @@ Tu peux voir comment ta méthode a été testée. Les tests sont à jour:
         def test_false_kos_root_should_return_zero(self):
             self.main._kos_root = False
             self.assertEqual(0, self.main.kos_root())
-    </code>
-</pre>
+{% endhighlight %}
+   
 <p>
     Pour résumer, le code d’un logiciel ne doit pas comporter de commentaires, c'est un aveu d'échec sur sa capacité à rendre son code explicite. Son code doit refléter précisément son intention lors de sa conception. Et la documentation ce sont les tests. Ils doivent être à jour, et chaque bug doit comporter un test de non régression.
 </p>

@@ -13,6 +13,13 @@ body{
     font: 16px/1.6em Verdana, Helvetica, Arial, sans-serif;
 }
 
+#post img { 
+  border: solid 1px #999;
+    -moz-box-shadow: 1px 1px 5px #000;
+    -webkit-box-shadow: 1px 1px 5px #000;
+        box-shadow: 1px 1px 5px #000;
+}
+
 a{
     color:#BC1518;
 }

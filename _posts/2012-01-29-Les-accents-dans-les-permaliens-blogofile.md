@@ -11,7 +11,7 @@ J'ai amélioré cette modification pour remplacer les accents par les lettres co
 
 <a href="http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/">ancien hack</a>
 
-<pre>
+{% highlight python %}
 diff --git a/_controllers/blog/post.py b/_controllers/blog/post.py
 index c95b580..0a8922e 100644
 --- a/_controllers/blog/post.py
@@ -69,5 +69,5 @@ index c95b580..0a8922e 100644
 	     if not self.date:
 	         self.date = datetime.datetime.now(pytz.timezone(self.__timezone))
 
-</pre>
+{% endhighlight %}
 
