@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Comment your damn code bitch !</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <a href="/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" id="index">Accueil</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            <div id="post_header" class="clearfix">
+	<h1>Comment your damn code bitch !</h1> 
+	<div class="post_date"> 20 Sep 2012	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	<p>
+Voilà ce que j'ai essayé d'expliquer à un collègue quand il m'a dit que mon code ne comportait pas de commentaires :
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>kos_root</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='sd'>&quot;&quot;&quot;Return the pathname of the KOS root directory.&quot;&quot;&quot;</span>
+        <span class='k'>if</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_kos_root</span><span class='p'>:</span> 
+            <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_kos_root</span>
+    <span class='o'>...</span>
+</code></pre></div><p>
+- What the fuck Man !
+A quoi sert cette putain de docstring, tu m'expliques ?
+<br />
+- A expliquer mon code.
+<br />
+- Et ça marche ?
+<br />
+- Oui, je suis capable de te dire que cette fonction retourne une chaine de caractère
+<br />
+- Tu es sur ? Regarde la suite du code
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>kos_root</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='sd'>&quot;&quot;&quot;Return the pathname of the KOS root directory.&quot;&quot;&quot;</span>
+        <span class='k'>if</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_kos_root</span><span class='p'>:</span> 
+            <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_kos_root</span>
+        <span class='c'>#bug 3154 - 04/25/2009</span>
+        <span class='k'>else</span><span class='p'>:</span> 
+            <span class='k'>return</span> <span class='mi'>0</span> 
+</code></pre></div><p>
+- Ah oui on a eu un bug sur le code de retour de la méthode et ..
+<br />
+- Le problème n'est pas de savoir si ton code fonctionne, ici. Le problème est de te montrer que cette docstring n'est plus à jour. C'est pire que du code mort.
+<br />
+- Pour quelle raison ?
+<br />
+- Tu induits d'autres développeurs en erreur. 
+<br />
+- C'est vrai, je vais changer la docstring
+<br />
+- Non ! Ca ne règle pas le souci, ton code ne doit pas comporter de commentaires! <b>Il doit porter son intention</b>. Il doit refléter précisément ce qu'il est censé faire. Et la documentation ce sont tes tests. 
+<br />
+Tu peux voir comment ta méthode a été testée. Les tests sont à jour:
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>class</span> <span class='nc'>TestMain</span><span class='p'>(</span><span class='n'>unittest</span><span class='o'>.</span><span class='n'>TestCase</span><span class='p'>):</span>
+
+        <span class='k'>def</span> <span class='nf'>setUp</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>main</span> <span class='o'>=</span> <span class='n'>Main</span><span class='p'>()</span>
+
+        <span class='k'>def</span> <span class='nf'>test_kos_root</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertTrue</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>main</span><span class='o'>.</span><span class='n'>kos_root</span><span class='p'>())</span>
+
+        <span class='k'>def</span> <span class='nf'>test_false_kos_root_should_return_zero</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>main</span><span class='o'>.</span><span class='n'>_kos_root</span> <span class='o'>=</span> <span class='bp'>False</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='mi'>0</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>main</span><span class='o'>.</span><span class='n'>kos_root</span><span class='p'>())</span>
+</code></pre></div><p>
+    Pour résumer, le code d’un logiciel ne doit pas comporter de commentaires, c'est un aveu d'échec sur sa capacité à rendre son code explicite. Son code doit refléter précisément son intention lors de sa conception. Et la documentation ce sont les tests. Ils doivent être à jour, et chaque bug doit comporter un test de non régression.
+</p><p>
+Ps: cette conversation n'est que pure fiction
+</p>
+</div>
+
+<div id="social" class="wrapper clearfix">
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
+</div>
+
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Comment your damn code bitch !&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+        </div>
+
+        <!-- google analytics -->
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34916388-1']);
+          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+    </body>
+</html>

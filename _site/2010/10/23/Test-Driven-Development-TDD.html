@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Test Driven Development (TDD)</title>
+        <meta name="author" content="Guillaume VINCENT" />
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <a href="/index.html">
+                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" id="index">Accueil</a></li>
+                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main-container" class="wrapper clearfix">
+            <div id="post_header" class="clearfix">
+	<h1>Test Driven Development (TDD)</h1> 
+	<div class="post_date"> 23 Oct 2010	</div>
+</div>
+
+
+<div id="post" class="clearfix">
+	<p>Dans ce tutoriel, je vous propose de comprendre le fonctionnement du TDD, appelé aussi développement piloté par les tests. J’ai essayé de le rendre le plus accessible possible. J’utilise une approche didactique, avec pas mal d’explications. Cette démarche est complétée par un deuxième tutoriel plus pratique, où je vous propose de venir essayer ce que je vous ai appris. Bonne lecture!</p>
+
+<h3 id='questce_que_le_tdd_'>Qu’est-ce que le TDD ?</h3>
+
+<p>C’est une pratique de développement beaucoup utilisé dans la réalisation de logiciels en informatique. C’est une méthode que les développeurs utilisent pour faire ressortir une sorte de patron de conception. TDD n’a rien avoir avec le test ou le développement à proprement parlé. C’est vraiment un motif de conception (une façon de faire) qui indique comment le développeur doit coder une application. C’est pour cette raison que le TDD est difficile à maitriser et à appréhender. Dites ce que vous voulez, avant de le faire et ensuite assurer vous que ce que vous avez obtenu correspond bien à vos attentes. Cela permet de faire émerger de petits modèles de conception.</p>
+<blockquote><p>Un modèle de conception (appelé aussi design pattern) décrit un problème qui apparait encore et encore dans votre environnement de travail. Ensuite il explicite une solution que vous pourrez utiliser à chaque fois pour résoudre ce problème.</p></blockquote>
+<h3 id='comment_faire_du_tdd_'>Comment faire du TDD ?</h3>
+
+<p>C’est très facile à dire et moins facile à faire. Mais très simplement, vous réalisez un test qui échoue, un test qui définit clairement ce que vous voulez que votre code fasse. Donc je sais que je vais devoir écrire du code, donc la première chose que je dois me demander est : A quoi cela va-t-il ressembler ? Et pour mieux définir les choses on pourrait se dire : Comment je sais, que ce morceau de code que je suis en train d’écrire, fait bien ce que je veux qu’il fasse ? Vous savez que votre morceau de code fait bien ce que je veux si… et là vous listez l’ensemble des assertions possibles. Ou alors vous savez que votre objet doit être dans tel ou tel état, l’environnement autour de cet objet doit être de tel ou tel forme. L’objectif est de tester l’ensemble de ces cas. Donc vous décrivez cela dans un test formaté pour votre code. Votre code ne compile pas parce que votre fonctionnalité n’est pas implémentée. Ensuite vous réalisez le code le plus petit possible pour que votre code compile. Le test ne passe toujours pas mais votre programme compile ! Ensuite vous réalisez votre code pour que le test passe. Réalisez ce dernier avec le moins de lignes possibles, c’est important ! La dernière étape est une étape de refactoring ou l’on va chercher à améliorer son code (mise en place des commentaires, suppression des duplicatas, etc). Vous avez donc à suivre ce cheminement tout au long du développement d’une application et vous obtiendrez ce que vous souhaitez réellement. Un test après l’autre, en rajoutant toujours plus de tests à la suite.</p>
+
+<p>Si on résume, vous réaliser un test qui anticipe ce que vous voulez coder. Vous vérifiez que le test échoue (et oui votre fonctionnalité n’est pas réalisée) et vous réalisez votre code pour que votre test devienne vert. Vous améliorez votre test une fois cette étape finie, pour le rendre plus élégant.</p>
+
+<h3 id='pourquoi_le_tdd_'>Pourquoi le TDD ?</h3>
+
+<p>Là où c’est génial c’est que votre logiciel fait exactement ce que vous voulez qu’il fasse. L’architecture est volontairement plus petite, les objets ne font que ce qu’ils doivent faire. C’est l’essence même des designs patterns simples. Votre code est précis, élégant et on évite souvent des effets pervers comme la régression de code, des effets transverses comme les problèmes de maintenance, les effets de surcharge et la dette de code. J’aime bien cette métaphore qui dit que votre code n’est pas plaqué-or mais bien en or massif.</p>
+
+<h3 id='larchitecture_logicielle_dans_tout_a_'>L’architecture logicielle dans tout ça ?</h3>
+
+<p>Beaucoup pense qu’un logiciel développé avec TDD n’a pas besoin d’architecture. Ceci est faux et complètement idiot. L’intérêt du TDD vient du fait que l’on a besoin d’une architecture, complexe ou non, où la modularité est le maître mot. Les classes doivent comporter le moins d’interaction avec les autres. Et le TDD permet de faire évoluer son code en sûreté. Beaucoup de personnes s’entendent pour dire que l’architecture apparaît d’elle-même, il faut poser des bases simples et évolutives.</p>
+
+<p>Le Test Driven Development (TDD) est le principal outil de l’artisan logiciel !</p>
+</div>
+
+<div id="social" class="wrapper clearfix">
+	<ul id="social_icon">
+		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+	</ul>
+</div>
+
+<script>
+	$(document).ready(function() {
+	    var pathname = encodeURI(window.location);
+		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Test Driven Development (TDD)&via=rolalagile';
+	 	$("#twitter").attr("href", tweeturl);
+
+		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	 	$("#googleplus").attr("href", googleplusurl);
+
+	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	 	$("#facebook").attr("href", facebookurl);
+	});
+</script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    document.getElementById('#disqus_thread#footer').style.display = 'none';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+        </div>
+
+        <!-- google analytics -->
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34916388-1']);
+          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+    </body>
+</html>
