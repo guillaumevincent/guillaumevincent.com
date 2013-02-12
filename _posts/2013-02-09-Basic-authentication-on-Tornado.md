@@ -1,10 +1,12 @@
 ---
 layout: post
 lang: en
-title: Basic authentication with Tornado
+title: Basic authentication on Tornado
 author: gvincent
 tags: tornado, python, authentication
 ---
+<blockquote>
+You should look at <a href="/2013/02/12/Basic-authentication-on-Tornado-with-a-decorator.html">this post</a> using a decorator</blockquote>
 <p>
 <a href="http://www.tornadoweb.org/">Tornado</a> is an open source web server developed by Facebook. It implement various third-party authentication schemes to connect to services like Facebook, Google OAuth, Twitter, etc. But Tornado doesn't provide a good documentation when you try to handle your own login service. I tried to do mine. Let's take a look:
 <br>
@@ -59,7 +61,7 @@ When I start my web application i go to http://localhost:8888/ to get connected.
 <center><img src="https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png"></center>
 
 My login handler get the username and password and check permissions.
-If the pair login/passaword is good, LoginHandler set the current user and redirect to /sb/ web application otherwise LoginHandler redirect to the index with an error message.
+If the pair login/password is good, LoginHandler set the current user and redirect to /sb/ web application otherwise LoginHandler redirect to the index with an error message.
 
 {% highlight python %}
 class LoginHandler(BaseHandler):
