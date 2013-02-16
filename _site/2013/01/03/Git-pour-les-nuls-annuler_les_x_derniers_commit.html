@@ -16,7 +16,7 @@
         <!-- jquery -->
         <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     </head>
-    <body>
+    <body id="top">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -57,21 +57,24 @@ Je me retrouve souvent dans l'obligation de faire des corrections mineures pour 
 
 Et dans mon cas je ne veux pas merger en production tous ces commits inutiles.
 Il existe trois solutions sous Git pour "squash" les X derniers commits ou en français pour "écraser" les X derniers commits pour qu'ils n'en fassent plus qu'un:
-</p><div class='highlight'><pre><code class='console'><span class='go'>git rebase</span>
-<span class='go'>git merge --squash	  	</span>
-<span class='go'>git reset</span>
-</code></pre></div><p>
+</p><div>
+  <pre><code class='console'>git rebase
+git merge --squash	  	
+git reset</code></pre>
+</div><p>
 	Je préfère la solution git reset plus intuitive à mon goût.
 	Premièrement on s'assure que notre environnement de travail ne comporte pas de modifications en cours:
-</p><div class='highlight'><pre><code class='console'><span class='go'>git status</span>
-<span class='gp'>#</span> On branch master
-<span class='go'>nothing to commit, working directory clean</span>
-</code></pre></div><p>
+</p><div>
+  <pre><code class='console'>git status
+# On branch master
+nothing to commit, working directory clean</code></pre>
+</div><p>
 	Ensuite j'effectue un rebase pour écraser X commits. Dans mon exemple je veux me re-placer au niveau du tag soit 4 commits avant.
 	Je tappe donc la commande suivante:
-</p><div class='highlight'><pre><code class='console'><span class='go'>git reset --soft HEAD~4</span>
-<span class='go'>git commit -m &quot;release v1.0&quot;</span>
-</code></pre></div><img src='https://lh4.googleusercontent.com/-hJev3pzvxdQ/UNb2LAF160I/AAAAAAAAIMQ/O72XSWO6kTI/s826/git%2520rebase%2520example2.png' />
+</p><div>
+  <pre><code class='console'>git reset --soft HEAD~4
+git commit -m &quot;release v1.0&quot;</code></pre>
+</div><img src='https://lh4.googleusercontent.com/-hJev3pzvxdQ/UNb2LAF160I/AAAAAAAAIMQ/O72XSWO6kTI/s826/git%2520rebase%2520example2.png' />
 </div>
 
 <div id="social" class="wrapper clearfix">
@@ -80,6 +83,7 @@ Il existe trois solutions sous Git pour "squash" les X derniers commits ou en fr
 		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
 		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
 	</ul>
+	<a href="#top" class="top" alt="Back to top"></a>
 </div>
 
 <script>
@@ -107,7 +111,6 @@ Il existe trois solutions sous Git pour "squash" les X derniers commits ou en fr
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-    document.getElementById('#disqus_thread#footer').style.display = 'none';
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
