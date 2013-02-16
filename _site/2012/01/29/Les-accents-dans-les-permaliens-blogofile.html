@@ -16,7 +16,7 @@
         <!-- jquery -->
         <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     </head>
-    <body>
+    <body id="top">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -45,63 +45,64 @@
 
 <div id="post" class="clearfix">
 	<p>Blogofile, le générateur de blog statique que j&#8217;utilise, a la fâcheuse tendance de mettre des accents dans les permaliens de nos billets. C&#8217;est assez ennuyeux, surtout si comme moi votre hébergeur n&#8217;accepte pas les caractères unicodes dans ses urls. J&#8217;ai modifié un hack de <a href='http://twitter.com/zzzeek'>zzzeek</a> qui corrigeait ce défaut, mais qui supprimait les accents. J&#8217;ai amélioré cette modification pour remplacer les accents par les lettres correspondantes.</p>
-<a href='http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/'>ancien hack</a><div class='highlight'><pre><code class='python'><span class='n'>diff</span> <span class='o'>--</span><span class='n'>git</span> <span class='n'>a</span><span class='o'>/</span><span class='n'>_controllers</span><span class='o'>/</span><span class='n'>blog</span><span class='o'>/</span><span class='n'>post</span><span class='o'>.</span><span class='n'>py</span> <span class='n'>b</span><span class='o'>/</span><span class='n'>_controllers</span><span class='o'>/</span><span class='n'>blog</span><span class='o'>/</span><span class='n'>post</span><span class='o'>.</span><span class='n'>py</span>
-<span class='n'>index</span> <span class='n'>c95b580</span><span class='o'>..</span><span class='mi'>0</span><span class='n'>a8922e</span> <span class='mi'>100644</span>
-<span class='o'>---</span> <span class='n'>a</span><span class='o'>/</span><span class='n'>_controllers</span><span class='o'>/</span><span class='n'>blog</span><span class='o'>/</span><span class='n'>post</span><span class='o'>.</span><span class='n'>py</span>
-<span class='o'>+++</span> <span class='n'>b</span><span class='o'>/</span><span class='n'>_controllers</span><span class='o'>/</span><span class='n'>blog</span><span class='o'>/</span><span class='n'>post</span><span class='o'>.</span><span class='n'>py</span>
-<span class='err'>@@</span> <span class='o'>-</span><span class='mi'>24</span><span class='p'>,</span><span class='mi'>6</span> <span class='o'>+</span><span class='mi'>24</span><span class='p'>,</span><span class='mi'>8</span> <span class='err'>@@</span> <span class='kn'>import</span> <span class='nn'>BeautifulSoup</span>
+<a href='http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/'>ancien hack</a><div>
+  <pre><code class='python'>diff --git a/_controllers/blog/post.py b/_controllers/blog/post.py
+index c95b580..0a8922e 100644
+--- a/_controllers/blog/post.py
++++ b/_controllers/blog/post.py
+@@ -24,6 +24,8 @@ import BeautifulSoup
  
- <span class='kn'>import</span> <span class='nn'>blogofile_bf</span> <span class='kn'>as</span> <span class='nn'>bf</span>
+ import blogofile_bf as bf
  
-<span class='o'>+</span><span class='kn'>import</span> <span class='nn'>unicodedata</span>
-<span class='o'>+</span>
- <span class='n'>logger</span> <span class='o'>=</span> <span class='n'>logging</span><span class='o'>.</span><span class='n'>getLogger</span><span class='p'>(</span><span class='s'>&quot;blogofile.post&quot;</span><span class='p'>)</span>
++import unicodedata
++
+ logger = logging.getLogger(&quot;blogofile.post&quot;)
  
- <span class='n'>config</span> <span class='o'>=</span> <span class='n'>bf</span><span class='o'>.</span><span class='n'>config</span><span class='o'>.</span><span class='n'>controllers</span><span class='o'>.</span><span class='n'>blog</span><span class='o'>.</span><span class='n'>post</span>
-<span class='err'>@@</span> <span class='o'>-</span><span class='mi'>158</span><span class='p'>,</span><span class='mi'>7</span> <span class='o'>+</span><span class='mi'>160</span><span class='p'>,</span><span class='mi'>8</span> <span class='err'>@@</span> <span class='k'>class</span> <span class='nc'>Post</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
-	          <span class='n'>text</span> <span class='o'>=</span> <span class='s'>&#39;&#39;</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='n'>s</span><span class='o'>.</span><span class='n'>findAll</span><span class='p'>(</span><span class='n'>text</span><span class='o'>=</span><span class='bp'>True</span><span class='p'>))</span>\
-	                              <span class='o'>.</span><span class='n'>replace</span><span class='p'>(</span><span class='s'>&quot;</span><span class='se'>\n</span><span class='s'>&quot;</span><span class='p'>,</span> <span class='s'>&quot;&quot;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>split</span><span class='p'>(</span><span class='s'>&quot; &quot;</span><span class='p'>)</span>
-	          <span class='k'>return</span> <span class='s'>&quot; &quot;</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='n'>text</span><span class='p'>[:</span><span class='n'>num_words</span><span class='p'>])</span> <span class='o'>+</span> <span class='s'>&#39;...&#39;</span>
-<span class='o'>-</span>        
-<span class='o'>+</span>  	
-<span class='o'>+</span>
-	 <span class='k'>def</span> <span class='nf'>__post_process</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
-	     <span class='c'># fill in empty default value</span>
-	     <span class='k'>if</span> <span class='ow'>not</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>title</span><span class='p'>:</span>
-<span class='err'>@@</span> <span class='o'>-</span><span class='mi'>166</span><span class='p'>,</span><span class='mi'>7</span> <span class='o'>+</span><span class='mi'>169</span><span class='p'>,</span><span class='mi'>31</span> <span class='err'>@@</span> <span class='k'>class</span> <span class='nc'>Post</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
-	                 <span class='n'>datetime</span><span class='o'>.</span><span class='n'>datetime</span><span class='o'>.</span><span class='n'>now</span><span class='p'>()</span><span class='o'>.</span><span class='n'>strftime</span><span class='p'>(</span><span class='s'>&quot;%Y-%m-</span><span class='si'>%d</span><span class='s'> %H:%M:%S&quot;</span><span class='p'>))</span>
+ config = bf.config.controllers.blog.post
+@@ -158,7 +160,8 @@ class Post(object):
+	          text = ''.join(s.findAll(text=True))\
+	                              .replace(&quot;\n&quot;, &quot;&quot;).split(&quot; &quot;)
+	          return &quot; &quot;.join(text[:num_words]) + '...'
+-        
++  	
++
+	 def __post_process(self):
+	     # fill in empty default value
+	     if not self.title:
+@@ -166,7 +169,31 @@ class Post(object):
+	                 datetime.datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;))
 	     
-	     <span class='k'>if</span> <span class='ow'>not</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>slug</span><span class='p'>:</span>
-<span class='o'>-</span>            <span class='bp'>self</span><span class='o'>.</span><span class='n'>slug</span> <span class='o'>=</span> <span class='n'>re</span><span class='o'>.</span><span class='n'>sub</span><span class='p'>(</span><span class='s'>&quot;[ ?]&quot;</span><span class='p'>,</span> <span class='s'>&quot;-&quot;</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>title</span><span class='p'>)</span><span class='o'>.</span><span class='n'>lower</span><span class='p'>()</span>
-<span class='o'>+</span>			<span class='c'>#original blogofile hack by zzzeek			</span>
-<span class='o'>+</span>			<span class='c'>#http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='n'>slug</span> <span class='o'>=</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>title</span><span class='o'>.</span><span class='n'>lower</span><span class='p'>()</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'>#accents replaced by the corresponding letters without accent</span>
-<span class='o'>+</span>			<span class='n'>nkfd_form</span> <span class='o'>=</span> <span class='n'>unicodedata</span><span class='o'>.</span><span class='n'>normalize</span><span class='p'>(</span><span class='s'>&#39;NFKD&#39;</span><span class='p'>,</span> <span class='nb'>unicode</span><span class='p'>(</span><span class='n'>slug</span><span class='p'>))</span>
-<span class='o'>+</span>			<span class='n'>slug</span> <span class='o'>=</span> <span class='s'>u&quot;&quot;</span><span class='o'>.</span><span class='n'>join</span><span class='p'>([</span><span class='n'>c</span> <span class='k'>for</span> <span class='n'>c</span> <span class='ow'>in</span> <span class='n'>nkfd_form</span> <span class='k'>if</span> <span class='ow'>not</span> <span class='n'>unicodedata</span><span class='o'>.</span><span class='n'>combining</span><span class='p'>(</span><span class='n'>c</span><span class='p'>)])</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'># convert ellipses to spaces</span>
-<span class='o'>+</span>			<span class='n'>slug</span> <span class='o'>=</span> <span class='n'>re</span><span class='o'>.</span><span class='n'>sub</span><span class='p'>(</span><span class='s'>r&#39;\.{2,}&#39;</span><span class='p'>,</span> <span class='s'>&#39; &#39;</span><span class='p'>,</span> <span class='n'>slug</span><span class='p'>)</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'># flatten everything non alpha or . into a single -</span>
-<span class='o'>+</span>			<span class='n'>slug</span> <span class='o'>=</span> <span class='n'>re</span><span class='o'>.</span><span class='n'>sub</span><span class='p'>(</span><span class='s'>r&#39;[^0-9a-zA-Z\.]+&#39;</span><span class='p'>,</span> <span class='s'>&#39;-&#39;</span><span class='p'>,</span> <span class='n'>slug</span><span class='p'>)</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'># trim off leading/trailing -</span>
-<span class='o'>+</span>			<span class='n'>slug</span> <span class='o'>=</span> <span class='n'>re</span><span class='o'>.</span><span class='n'>sub</span><span class='p'>(</span><span class='s'>r&#39;^-+|-+$&#39;</span><span class='p'>,</span> <span class='s'>&#39;&#39;</span><span class='p'>,</span> <span class='n'>slug</span><span class='p'>)</span>
-<span class='o'>+</span>			<span class='bp'>self</span><span class='o'>.</span><span class='n'>slug</span> <span class='o'>=</span> <span class='n'>slug</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'>#######################################################</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'># original</span>
-<span class='o'>+</span>			<span class='c'>#self.slug = re.sub(&quot;[ ?]&quot;, &quot;-&quot;, self.title).lower()</span>
-<span class='o'>+</span>
-<span class='o'>+</span>			<span class='c'>#######################################################</span>
+	     if not self.slug:
+-            self.slug = re.sub(&quot;[ ?]&quot;, &quot;-&quot;, self.title).lower()
++			#original blogofile hack by zzzeek			
++			#http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/
++
++			slug = self.title.lower()
++
++			#accents replaced by the corresponding letters without accent
++			nkfd_form = unicodedata.normalize('NFKD', unicode(slug))
++			slug = u&quot;&quot;.join([c for c in nkfd_form if not unicodedata.combining(c)])
++
++			# convert ellipses to spaces
++			slug = re.sub(r'\.{2,}', ' ', slug)
++
++			# flatten everything non alpha or . into a single -
++			slug = re.sub(r'[^0-9a-zA-Z\.]+', '-', slug)
++
++			# trim off leading/trailing -
++			slug = re.sub(r'^-+|-+$', '', slug)
++			self.slug = slug
++
++			#######################################################
++
++			# original
++			#self.slug = re.sub(&quot;[ ?]&quot;, &quot;-&quot;, self.title).lower()
++
++			#######################################################
  
-	     <span class='k'>if</span> <span class='ow'>not</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>date</span><span class='p'>:</span>
-	         <span class='bp'>self</span><span class='o'>.</span><span class='n'>date</span> <span class='o'>=</span> <span class='n'>datetime</span><span class='o'>.</span><span class='n'>datetime</span><span class='o'>.</span><span class='n'>now</span><span class='p'>(</span><span class='n'>pytz</span><span class='o'>.</span><span class='n'>timezone</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>__timezone</span><span class='p'>))</span>
-</code></pre></div>
+	     if not self.date:
+	         self.date = datetime.datetime.now(pytz.timezone(self.__timezone))</code></pre>
+</div>
 </div>
 
 <div id="social" class="wrapper clearfix">
@@ -110,6 +111,7 @@
 		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
 		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
 	</ul>
+	<a href="#top" class="top" alt="Back to top"></a>
 </div>
 
 <script>
@@ -137,7 +139,6 @@
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-    document.getElementById('#disqus_thread#footer').style.display = 'none';
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

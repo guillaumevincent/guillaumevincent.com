@@ -16,7 +16,7 @@
         <!-- jquery -->
         <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     </head>
-    <body>
+    <body id="top">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -46,70 +46,73 @@
 <div id="post" class="clearfix">
 	<img src='https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png' style='float:left; margin: 0 20px;' /><p>
 I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community. I started by creating a CSS sprites for including images in my web page. The solution is pretty simple. I use a fixed size html bloc. And I manualy add 3 links, with all the same background image. I only change the background position to display the good image in each block. I use the CSS stripes technique to make a single query when I load my page.
-</p><br /><div class='highlight'><pre><code class='html'><span class='nt'>&lt;div</span> <span class='na'>id=</span><span class='s'>&quot;_social&quot;</span><span class='nt'>&gt;</span>
-    <span class='nt'>&lt;ul</span> <span class='na'>id=</span><span class='s'>&quot;_social_icon&quot;</span><span class='nt'>&gt;</span>
-        <span class='nt'>&lt;li</span> <span class='na'>id=</span><span class='s'>&quot;panel1c&quot;</span><span class='nt'>&gt;&lt;a</span> <span class='na'>id=</span><span class='s'>&quot;_twitter&quot;</span> <span class='na'>href=</span><span class='s'>&quot;&quot;</span><span class='nt'>&gt;&lt;/a&gt;&lt;/li&gt;</span>
-        <span class='nt'>&lt;li</span> <span class='na'>id=</span><span class='s'>&quot;panel2c&quot;</span><span class='nt'>&gt;&lt;a</span> <span class='na'>id=</span><span class='s'>&quot;_googleplus&quot;</span> <span class='na'>href=</span><span class='s'>&quot;&quot;</span><span class='nt'>&gt;&lt;/a&gt;&lt;/li&gt;</span>
-        <span class='nt'>&lt;li</span> <span class='na'>id=</span><span class='s'>&quot;panel3c&quot;</span><span class='nt'>&gt;&lt;a</span> <span class='na'>id=</span><span class='s'>&quot;_facebook&quot;</span> <span class='na'>href=</span><span class='s'>&quot;&quot;</span><span class='nt'>&gt;&lt;/a&gt;&lt;/li&gt;</span>
-    <span class='nt'>&lt;/ul&gt;</span>
-<span class='nt'>&lt;/div&gt;</span>
-</code></pre></div>
+</p><br /><div>
+  <pre><code class='html'>&lt;div id=&quot;_social&quot;&gt;
+    &lt;ul id=&quot;_social_icon&quot;&gt;
+        &lt;li id=&quot;panel1c&quot;&gt;&lt;a id=&quot;_twitter&quot; href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;panel2c&quot;&gt;&lt;a id=&quot;_googleplus&quot; href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;panel3c&quot;&gt;&lt;a id=&quot;_facebook&quot; href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div>
 <p>I adapt the CSS i found in this <a href='http://alistapart.com/article/sprites'>excellent post</a></p>
-<div class='highlight'><pre><code class='css'><span class='nf'>#_social_icon</span> <span class='p'>{</span>
-    <span class='k'>position</span><span class='o'>:</span> <span class='k'>relative</span><span class='p'>;</span>
-    <span class='k'>margin</span><span class='o'>:</span> <span class='m'>20px</span> <span class='m'>0px</span><span class='p'>;</span>
-    <span class='k'>padding</span><span class='o'>:</span> <span class='m'>0px</span><span class='p'>;</span>
-    <span class='k'>width</span><span class='o'>:</span> <span class='m'>170px</span><span class='p'>;</span>
-    <span class='k'>height</span><span class='o'>:</span> <span class='m'>25px</span><span class='p'>;</span>
-<span class='p'>}</span>
+<div>
+  <pre><code class='css'>#_social_icon {
+    position: relative;
+    margin: 20px 0px;
+    padding: 0px;
+    width: 170px;
+    height: 25px;
+}
 
-<span class='nf'>#_social_icon</span> <span class='nt'>li</span> <span class='p'>{</span>
-    <span class='k'>width</span><span class='o'>:</span> <span class='m'>50px</span><span class='p'>;</span>
-    <span class='k'>height</span><span class='o'>:</span> <span class='m'>25px</span><span class='p'>;</span>
-    <span class='k'>position</span><span class='o'>:</span> <span class='k'>absolute</span><span class='p'>;</span>
-    <span class='k'>top</span><span class='o'>:</span> <span class='m'>0px</span><span class='p'>;</span>
-    <span class='k'>background</span><span class='o'>:</span> <span class='sx'>url(../img/social.png)</span> <span class='m'>0</span> <span class='m'>0</span> <span class='k'>no-repeat</span><span class='p'>;</span>
-    <span class='k'>display</span><span class='o'>:</span> <span class='k'>block</span><span class='p'>;</span>
-    <span class='k'>list-style</span><span class='o'>:</span> <span class='k'>none</span><span class='p'>;</span>
-<span class='p'>}</span>
+#_social_icon li {
+    width: 50px;
+    height: 25px;
+    position: absolute;
+    top: 0px;
+    background: url(../img/social.png) 0 0 no-repeat;
+    display: block;
+    list-style: none;
+}
 
-<span class='nf'>#_social_icon</span> <span class='nt'>a</span> <span class='p'>{</span>
-    <span class='k'>width</span><span class='o'>:</span> <span class='m'>49px</span><span class='p'>;</span>
-    <span class='k'>height</span><span class='o'>:</span> <span class='m'>24px</span><span class='p'>;</span>
-    <span class='k'>display</span><span class='o'>:</span> <span class='k'>block</span><span class='p'>;</span>
-<span class='p'>}</span>
+#_social_icon a {
+    width: 49px;
+    height: 24px;
+    display: block;
+}
 
-<span class='nf'>#_social_icon</span> <span class='nt'>a</span><span class='nd'>:hover</span> <span class='p'>{</span>
-    <span class='k'>border</span><span class='o'>:</span> <span class='k'>solid</span> <span class='m'>1px</span> <span class='m'>#000</span><span class='p'>;</span>
-<span class='p'>}</span>
+#_social_icon a:hover {
+    border: solid 1px #000;
+}
 
-<span class='nf'>#_social_icon</span> <span class='nf'>#panel1c</span> <span class='p'>{</span>
-    <span class='k'>left</span><span class='o'>:</span> <span class='m'>0px</span><span class='p'>;</span>
-<span class='p'>}</span>
+#_social_icon #panel1c {
+    left: 0px;
+}
 
-<span class='nf'>#_social_icon</span> <span class='nf'>#panel2c</span> <span class='p'>{</span>
-    <span class='k'>left</span><span class='o'>:</span> <span class='m'>55px</span><span class='p'>;</span>
-    <span class='k'>background-position</span><span class='o'>:</span> <span class='m'>0</span> <span class='m'>-45px</span><span class='p'>;</span>
-<span class='p'>}</span>
+#_social_icon #panel2c {
+    left: 55px;
+    background-position: 0 -45px;
+}
 
-<span class='nf'>#_social_icon</span> <span class='nf'>#panel3c</span> <span class='p'>{</span>
-    <span class='k'>left</span><span class='o'>:</span> <span class='m'>110px</span><span class='p'>;</span>
-    <span class='k'>background-position</span><span class='o'>:</span> <span class='m'>0</span> <span class='m'>-90px</span><span class='p'>;</span>
-<span class='p'>}</span>
-</code></pre></div>
+#_social_icon #panel3c {
+    left: 110px;
+    background-position: 0 -90px;
+}</code></pre>
+</div>
 <p>And i created a small jquery code to update my href attribute and use the good social api request</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>(</span><span class='nb'>document</span><span class='p'>).</span><span class='nx'>ready</span><span class='p'>(</span><span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
-    <span class='kd'>var</span> <span class='nx'>pathname</span> <span class='o'>=</span> <span class='nb'>encodeURI</span><span class='p'>(</span><span class='nb'>window</span><span class='p'>.</span><span class='nx'>location</span><span class='p'>);</span>
-    <span class='kd'>var</span> <span class='nx'>tweeturl</span> <span class='o'>=</span> <span class='s1'>&#39;http://twitter.com/share?url=&#39;</span> <span class='o'>+</span> <span class='nx'>pathname</span> <span class='o'>+</span> <span class='s1'>&#39;&amp;via=rolalagile&#39;</span><span class='p'>;</span>
-    <span class='nx'>$</span><span class='p'>(</span><span class='s2'>&quot;#_twitter&quot;</span><span class='p'>).</span><span class='nx'>attr</span><span class='p'>(</span><span class='s2'>&quot;href&quot;</span><span class='p'>,</span> <span class='nx'>tweeturl</span><span class='p'>);</span>
+<div>
+  <pre><code class='javascript'>$(document).ready(function() {
+    var pathname = encodeURI(window.location);
+    var tweeturl = 'http://twitter.com/share?url=' + pathname + '&amp;via=rolalagile';
+    $(&quot;#_twitter&quot;).attr(&quot;href&quot;, tweeturl);
 
-    <span class='kd'>var</span> <span class='nx'>googleplusurl</span> <span class='o'>=</span> <span class='s1'>&#39;https://plus.google.com/share?url=&#39;</span> <span class='o'>+</span> <span class='nx'>pathname</span>
-    <span class='nx'>$</span><span class='p'>(</span><span class='s2'>&quot;#_googleplus&quot;</span><span class='p'>).</span><span class='nx'>attr</span><span class='p'>(</span><span class='s2'>&quot;href&quot;</span><span class='p'>,</span> <span class='nx'>googleplusurl</span><span class='p'>);</span>
+    var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+    $(&quot;#_googleplus&quot;).attr(&quot;href&quot;, googleplusurl);
 
-    <span class='kd'>var</span> <span class='nx'>facebookurl</span> <span class='o'>=</span> <span class='s1'>&#39;http://www.facebook.com/share.php?u=&#39;</span> <span class='o'>+</span> <span class='nx'>pathname</span>
-    <span class='nx'>$</span><span class='p'>(</span><span class='s2'>&quot;#_facebook&quot;</span><span class='p'>).</span><span class='nx'>attr</span><span class='p'>(</span><span class='s2'>&quot;href&quot;</span><span class='p'>,</span> <span class='nx'>facebookurl</span><span class='p'>);</span>
-<span class='p'>});</span>
-</code></pre></div>
+    var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+    $(&quot;#_facebook&quot;).attr(&quot;href&quot;, facebookurl);
+});</code></pre>
+</div>
 </div>
 
 <div id="social" class="wrapper clearfix">
@@ -118,6 +121,7 @@ I recently try to make lazy loading social widget. I found a solution I really l
 		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
 		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
 	</ul>
+	<a href="#top" class="top" alt="Back to top"></a>
 </div>
 
 <script>
@@ -145,7 +149,6 @@ I recently try to make lazy loading social widget. I found a solution I really l
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-    document.getElementById('#disqus_thread#footer').style.display = 'none';
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

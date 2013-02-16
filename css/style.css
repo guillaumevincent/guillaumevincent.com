@@ -164,6 +164,81 @@ p{
 
 /*****************************************************************************/
 /*
+/* Tools
+/*
+/*****************************************************************************/
+
+.top{
+    display:block;
+    float: right;
+    margin: 5px 0px;
+    width:25px;
+    height: 25px;
+    font-size:25px;
+    background: url(../img/sprites.png) 0 0 no-repeat;
+    background-position: -60px -90px;
+    text-decoration: none;
+}
+
+.top:hover{
+    opacity:0.4;
+}
+
+/*****************************************************************************/
+/*
+/* Contact
+/*
+/*****************************************************************************/
+.gplus,
+.twitter,
+.gmail,
+.xp,
+.imgprofil{
+    display: block;
+    background: url(../img/sprites.png) 0 0 no-repeat;
+    float: left;
+    margin-top: 10px;
+}
+
+.gplus,
+.twitter,
+.gmail{
+    width:32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.imgprofil{
+    background-position: -160px 0px;
+    width:130px;
+    height: 130px;
+    margin-left: 55px;
+    margin-bottom: 10px;
+}
+
+.xp{
+    width:160px;
+    height: 45px;
+    margin-left: 45px;
+    background-position: 0px -130px;
+}
+
+.gplus{
+    background-position: -59px 0px;
+    margin-left: 60px;
+}
+
+.gmail{
+    background-position: -59px -40px;
+}
+
+.twitter{
+    background-position: -100px -40px;
+}
+
+
+/*****************************************************************************/
+/*
 /* Post
 /*
 /*****************************************************************************/
@@ -183,12 +258,21 @@ p{
     margin-top: 30px;
 }
 
+#social{
+    display: block;
+    height: 50px;
+    margin: 30px 0;
+    border-top: 1px solid #ccc;
+}
+
 #social_icon {
     position: relative;
-    margin: 20px 0px;
+    float: left;
+    margin: 5px 0px;
     padding: 0px;
     width: 170px;
     height: 25px;
+
 }
 
 #social_icon li {
@@ -196,7 +280,7 @@ p{
     height: 25px;
     position: absolute;
     top: 0px;
-    background: url(../img/social.png) 0 0 no-repeat;
+    background: url(../img/sprites.png) 0 0 no-repeat;
     display: block;
     list-style: none;
 }
@@ -207,8 +291,8 @@ p{
     display: block;
 }
 
-#social_icon a:hover {
-    border: solid 1px #000;
+#social_icon li:hover {
+    opacity:0.4;
 }
 
 #social_icon #panel1 {
