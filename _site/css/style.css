@@ -28,6 +28,16 @@ color: black;
 background: #ed8d00;
 border-color: #ed8d00; }
 
+.top-bar-section ul li > a.button.rss {
+background: #f6830d;
+border-color: #f6830d;
+color: black;
+ }
+
+.top-bar-section ul li > a.button.rss:hover {
+background: #fcb148;
+border-color: #fcb148; }
+
 .flag{
 	width: 16px !important;
 	max-width: 16px;
