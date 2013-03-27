@@ -1,261 +1,281 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>La simplicité grace à TDD</title>
-        <meta name="author" content="Guillaume VINCENT" />
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/png" href="/favicon.png">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
-        <!-- jquery -->
-        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-    </head>
-    <body id="top">
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="fr"><!--<![endif]-->
 
-        <div id="header-container">
-            <header class="wrapper clearfix">
-                <a href="/index.html">
-                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="/index.html" id="index">Accueil</a></li>
-                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <title>La simplicité grace à TDD</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Site personnel de Guillaume Vincent</title>
 
-        <div id="main-container" class="wrapper clearfix">
-            <div id="post_header" class="clearfix">
-	<h1>La simplicité grace à TDD</h1> 
-	<div class="post_date"> 13 Mar 2012	</div>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/pygments.css" />
+    <script src="/js/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+  <nav style="" class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="/">Guillaume <span class="orange">Vincent</span></a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+</ul>
+
+
+<section class="top-bar-section">
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-form">
+      <a href="/" class="button alert">Blog</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="https://github.com/guillaumevincent/" class="button success">Code</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="/contact.html" class="button">A propos</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="http://okiwi.org/" class="button okiwi">Okiwi</a>
+  </li>
+  <li class="divider"></li>
+</ul>
+</section>
+</nav>
+
+<script src="/js/jquery-1.9.0.min.js"></script>
+
+
+<div class="row">
+	<div class="large-9 columns post-title"><h1>La simplicité grace à TDD</h1> </div>
+	<div class="large-3 columns post-date"> 13 Mar 2012 </div>
 </div>
 
 
-<div id="post" class="clearfix">
-	<p>Le développement piloté par les tests est un merveilleux moyen pour s’assurer que le code que nous réalisons fait exactement ce que l’on veut qu’il fasse. TDD permet d’aller plus loin; Il oblige le développeur à faire les choses simplement. Récemment j’ai lu un magnifique billet de Ronald E. Jeffries intitulé <a href='http://xprogramming.com/articles/but-we-need-a-database-dont-we/'>« But We Need a Database … Don’t We? »</a> sur lequel je me suis grandement inspiré pour expliquer cette idée. <br /> Le contexte est le suivant: vous êtes programmeur et vous devez réaliser une application de fidélisation de client pour un marchant de café. Chaque fois qu’un client achète quelque chose dans le magasin, on enregistre tous ses achats, et dès qu’il achète 5 produits, le 6ème est gratuit. Les clients sont enregistrés avec un numéro de membre unique. <br /> Je vais essayer de montrer que l&#8217;utilisation du développement piloté par les tests apporte de la simplicité dans la construction de mon application. Le code qui va suivre est en python parce que le langage est relativement facile à comprendre. <br /> Bon mettons nous à écrire notre premier test. Disons qu’ici notre premier test pourrait vérifier que lorsqu’un membre achète un produit à X €, le prix du produit qui lui est retourné est bien X € (ou 0 € si le client achète son 6ème produit):</p>
-<div>
-  <pre><code class='python'>import unittest
+<div class="row">
+	<div class="large-12 columns post-content">
+		<p>Le développement piloté par les tests est un merveilleux moyen pour s’assurer que le code que nous réalisons fait exactement ce que l’on veut qu’il fasse. TDD permet d’aller plus loin; Il oblige le développeur à faire les choses simplement. Récemment j’ai lu un magnifique billet de Ronald E. Jeffries intitulé <a href='http://xprogramming.com/articles/but-we-need-a-database-dont-we/'>« But We Need a Database … Don’t We? »</a> sur lequel je me suis grandement inspiré pour expliquer cette idée. <br /> Le contexte est le suivant: vous êtes programmeur et vous devez réaliser une application de fidélisation de client pour un marchant de café. Chaque fois qu’un client achète quelque chose dans le magasin, on enregistre tous ses achats, et dès qu’il achète 5 produits, le 6ème est gratuit. Les clients sont enregistrés avec un numéro de membre unique. <br /> Je vais essayer de montrer que l&#8217;utilisation du développement piloté par les tests apporte de la simplicité dans la construction de mon application. Le code qui va suivre est en python parce que le langage est relativement facile à comprendre. <br /> Bon mettons nous à écrire notre premier test. Disons qu’ici notre premier test pourrait vérifier que lorsqu’un membre achète un produit à X €, le prix du produit qui lui est retourné est bien X € (ou 0 € si le client achète son 6ème produit):</p>
+<div class='highlight'><pre><code class='python'><span class='kn'>import</span> <span class='nn'>unittest</span>
 
-class TestsApplicationMagasinDeCafe(unittest.TestCase):
+<span class='k'>class</span> <span class='nc'>TestsApplicationMagasinDeCafe</span><span class='p'>(</span><span class='n'>unittest</span><span class='o'>.</span><span class='n'>TestCase</span><span class='p'>):</span>
 
-    def test_facturation_produit(self):
-        membre = Membre()
-        montant_produit = membre.facture(10)
-        self.assertEqual(montant_produit, 10)
+    <span class='k'>def</span> <span class='nf'>test_facturation_produit</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>()</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membre</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>10</span><span class='p'>)</span>
 
-if __name__ == '__main__':
-    unittest.main()</code></pre>
+<span class='k'>if</span> <span class='n'>__name__</span> <span class='o'>==</span> <span class='s'>&#39;__main__&#39;</span><span class='p'>:</span>
+    <span class='n'>unittest</span><span class='o'>.</span><span class='n'>main</span><span class='p'>()</span>
+</code></pre>
 </div><p>
 L’interpréteur va gueuler parce qu’il ne sait pas ce qu’est un Membre et la méthode facture n’existe pas. Nous ajoutons ce code pour supprimer l’erreur de compilation:
-</p><div>
-  <pre><code class='python'>class Membre(object):
-    def facture(self, montant):
-        pass</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>Membre</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
+    <span class='k'>def</span> <span class='nf'>facture</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>montant</span><span class='p'>):</span>
+        <span class='k'>pass</span>
+</code></pre>
 </div><p>
 Mon test est rouge, je le fais donc passer au vert
-</p><div>
-  <pre><code class='python'>def facture(self, montant):
-        return 10</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>facture</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>montant</span><span class='p'>):</span>
+        <span class='k'>return</span> <span class='mi'>10</span>
+</code></pre>
 </div><p>
 Si je change le montant du produit facturé, notre test est de nouveau rouge.
-</p><div>
-  <pre><code class='python'>def test_facturation_produit(self):
-        membre = Membre( )
-        montant_produit = member.facture(10)
-        self.assertEqual(montant_produit, 10)
-        montant_produit = member.facture(5)
-        self.assertEqual(montant_produit, 5)</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>test_facturation_produit</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>(</span> <span class='p'>)</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>member</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>10</span><span class='p'>)</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>member</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>5</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 Erreur que je corrige en modifiant notre méthode facture:
-</p><div>
-  <pre><code class='python'>def facture(self, montant):
-        return montant</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>facture</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>montant</span><span class='p'>):</span>
+        <span class='k'>return</span> <span class='n'>montant</span>
+</code></pre>
 </div><p>
 Modifions le test pour s’assurer que lorsque j’achète 6 produits le 6ème est gratuit. 
-</p><div>
-  <pre><code class='python'>def test_facturation_produit(self):
-        membre = Membre( )
-        for i in range(5):
-            montant_produit = member.facture(10)
-            self.assertEqual(montant_produit, 10)
-        montant_produit = membre.facture(5) 
-        self.assertEqual(montant_produit, 0)</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>test_facturation_produit</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>(</span> <span class='p'>)</span>
+        <span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>member</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>)</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>10</span><span class='p'>)</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membre</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>)</span> 
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 Notre dernier test échoue. Si vous avez suivi, facture retourne 5 et pas 0. Nous avons besoin d’enregistrer le nombre d’achats, et de tester quand cet enregistrement vaut 6 pour retourner 0.
-</p><div>
-  <pre><code class='python'>class Membre(object):
+</p><div class='highlight'><pre><code class='python'> <span class='k'>class</span> <span class='nc'>Membre</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
 
-    def __init__(self):
-        self._nombre_dachats = 0
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachats</span> <span class='o'>=</span> <span class='mi'>0</span>
 
-    def facture(self, montant):
-        self._nombre_dachats += 1
-        if self._nombre_dachats != 6:
-            return montant
-        else:
-            return 0</code></pre>
+    <span class='k'>def</span> <span class='nf'>facture</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>montant</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachats</span> <span class='o'>+=</span> <span class='mi'>1</span>
+        <span class='k'>if</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachats</span> <span class='o'>!=</span> <span class='mi'>6</span><span class='p'>:</span>
+            <span class='k'>return</span> <span class='n'>montant</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='k'>return</span> <span class='mi'>0</span>
+</code></pre>
 </div><p>
 Beaucoup de modification en une seule fois. Vous pouvez lancer vos tests et vérifier que l’ajout de _nombre_dachats ne casse pas vos anciens tests. 
 Vos tests sont verts, un petit peu de refactoring et on continu.
 
 Refactoring de nos tests
-</p><div>
-  <pre><code class='python'>def test_facturation_produit(self):
-        membre = Membre( )
-        for prix in range(5):
-            self.assertEqual(member.facture(prix), prix)
-        montant_produit = membre.facture(5) 
-        self.assertEqual(montant_produit, 0)</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>test_facturation_produit</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>(</span> <span class='p'>)</span>
+        <span class='k'>for</span> <span class='n'>prix</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>member</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='n'>prix</span><span class='p'>),</span> <span class='n'>prix</span><span class='p'>)</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membre</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>)</span> 
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 Refactoring de notre objet Membre
-</p><div>
-  <pre><code class='python'>class Membre(object):
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>Membre</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
 
-    def __init__(self):
-        self._nombre_dachats = 0
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachats</span> <span class='o'>=</span> <span class='mi'>0</span>
 
-    def facture(self, montant):
-        self._nombre_dachats += 1
-        return montant if self._nombre_dachats != 6 else 0</code></pre>
+    <span class='k'>def</span> <span class='nf'>facture</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>montant</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachats</span> <span class='o'>+=</span> <span class='mi'>1</span>
+        <span class='k'>return</span> <span class='n'>montant</span> <span class='k'>if</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachats</span> <span class='o'>!=</span> <span class='mi'>6</span> <span class='k'>else</span> <span class='mi'>0</span>
+</code></pre>
 </div><p>
 Maintenant si un client achète 6 produits supplémentaires, le 12ème doit être gratuit.
-</p><div>
-  <pre><code class='python'>def test_douxieme_produit_gratuit(self):
-        membre = Membre()
-        for i in range (5):
-            self.assertEqual(member.facture(1), 1)
-            montant_produit = membre.facture(2)
-        self.assertEqual(montant_produit, 0, &quot;la premiere reduction ne fonctionne pas&quot;)
-        for i in range (5):
-            self.assertEqual(member.facture(1), 1)
-            montant_produit = membre.facture(3)
-        self.assertEqual(montant_produit, 0, &quot;la deuxieme reduction ne fonctionne pas&quot;)</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>test_douxieme_produit_gratuit</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>()</span>
+        <span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>range</span> <span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>member</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>),</span> <span class='mi'>1</span><span class='p'>)</span>
+            <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membre</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>,</span> <span class='s'>&quot;la premiere reduction ne fonctionne pas&quot;</span><span class='p'>)</span>
+        <span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>range</span> <span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>member</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>),</span> <span class='mi'>1</span><span class='p'>)</span>
+            <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membre</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>3</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>,</span> <span class='s'>&quot;la deuxieme reduction ne fonctionne pas&quot;</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 On modifie la méthode facture de notre objet Membre avec l’ajout d’un modulo 
-</p><div>
-  <pre><code class='python'>return montant if self._nombre_dachat%6 != 0 else 0</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='k'>return</span> <span class='n'>montant</span> <span class='k'>if</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_dachat</span><span class='o'>%</span><span class='mi'>6</span> <span class='o'>!=</span> <span class='mi'>0</span> <span class='k'>else</span> <span class='mi'>0</span>
+</code></pre>
 </div><p>
 Et nos tests deviennent verts.
 <br />
 Ce qui est génial avec cette méthode c’est que nous venons de faire émerger un élément très important de notre modèle _nombre_dachats. Et en plus nous nous assurons qu’il fonctionne correctement. Maintenant passons à la réalisation de l’autre partie de notre user storie. Notre application fonctionne pour un seul membre. Si nous avons deux membres (disons le membre n°2 et le membre n°6) assurons nous qu’ils obtiennent leur réduction au bon moment.
-</p><div>
-  <pre><code class='python'>def test_membre_deux_membre_six_obtiennent_leur_reduction(self):
-        membres = CollectionMembre()
-        for achat_deuxieme_membre in range(5):
-            self.assertEqual(membres.get_membre(2).facture(1), 1)
-        self.assertEqual(membres.get_membre(2).facture(5), 0)</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>test_membre_deux_membre_six_obtiennent_leur_reduction</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membres</span> <span class='o'>=</span> <span class='n'>CollectionMembre</span><span class='p'>()</span>
+        <span class='k'>for</span> <span class='n'>achat_deuxieme_membre</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>get_membre</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>),</span> <span class='mi'>1</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>get_membre</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>),</span> <span class='mi'>0</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 CollectionMembre est donc une représentation du modèle de la base de données des membres. La méthode get_membre retourne un objet Membre correspondant au numéro de membre passé en paramètre. Ici mon implémentation de l’objet CollectionMembre est bonne quand mon test devient vert. Je dois réaliser le plus petit code possible pour faire passer mon test au vert.
-</p><div>
-  <pre><code class='python'>Class CollectionMembre(Object):
-    def get_membre(self, numero_membre):
-        return Membre()</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='n'>Class</span> <span class='n'>CollectionMembre</span><span class='p'>(</span><span class='n'>Object</span><span class='p'>):</span>
+    <span class='k'>def</span> <span class='nf'>get_membre</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>numero_membre</span><span class='p'>):</span>
+        <span class='k'>return</span> <span class='n'>Membre</span><span class='p'>()</span>
+</code></pre>
 </div><p>
 Cette implémentation marche presque, à la seule différence que que chaque fois que je fais un achat (ex: membres.membre(2).facture(1)) je construis un nouveau membre. A la sixième occurrence notre test échoue. 
-</p><div>
-  <pre><code class='python'>AssertionError: Le 6eme produit n'est pas gratuit</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='ne'>AssertionError</span><span class='p'>:</span> <span class='n'>Le</span> <span class='mi'>6</span><span class='n'>eme</span> <span class='n'>produit</span> <span class='n'>n</span><span class='s'>&#39;est pas gratuit</span>
+</code></pre>
 </div><p>
 Si nous enregistrons ce membre avec le constructeur de notre collection, notre test passe au vert. 
-</p><div>
-  <pre><code class='python'>class CollectionMembres(object):
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>CollectionMembres</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
 
-    def __init__(self):
-        self.__enregistrement = Membre()
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>__enregistrement</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>()</span>
 
-    def membre(self, numero_membre):
-        return self.__enregistrement</code></pre>
+    <span class='k'>def</span> <span class='nf'>membre</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>numero_membre</span><span class='p'>):</span>
+        <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>__enregistrement</span>
+</code></pre>
 </div><p>
 Maintenant si le client 6 vient acheter un produit entre temps, notre application ne fonctionne plus.
-</p><div>
-  <pre><code class='python'>def test_membre2_membre6_ont_produits_gratuits(self):
-        membres = CollectionMembres()
-        for achat in range(5):
-            self.assertEqual(membres.membre(2).facture(achat),achat)
-        self.assertEqual(membres.membre(6).facture(10), 10)
-        montant_produit = membres.membre(2).facture(10)
-        self.assertEqual(montant_produit, 0, &quot;Le 6eme produit n'est pas gratuit&quot;)</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='k'>def</span> <span class='nf'>test_membre2_membre6_ont_produits_gratuits</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membres</span> <span class='o'>=</span> <span class='n'>CollectionMembres</span><span class='p'>()</span>
+        <span class='k'>for</span> <span class='n'>achat</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='n'>achat</span><span class='p'>),</span><span class='n'>achat</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>6</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>),</span> <span class='mi'>10</span><span class='p'>)</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>,</span> <span class='s'>&quot;Le 6eme produit n&#39;est pas gratuit&quot;</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 Maintenant je ne peux plus reculer. Je me dois d’enregistrer le numéro du membre quelque part. L’utilisation d’un dictionnaire
-</p><div>
-  <pre><code class='python'>{'Membre' : 'numero de membre'}</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='p'>{</span><span class='s'>&#39;Membre&#39;</span> <span class='p'>:</span> <span class='s'>&#39;numero de membre&#39;</span><span class='p'>}</span>
+</code></pre>
 </div><p>
 me paraissait la meilleur implémentation possible. Et il me parrait logique d’enregistrer le numéro du membre lors de sa création en modifiant le constructeur de notre objet Membre. Je commente mon code :
-</p><div>
-  <pre><code class='python'>#self.assertEqual(membres.membre(6).facture(10), 10)</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='c'>#self.assertEqual(membres.membre(6).facture(10), 10)</span>
+</code></pre>
 </div><p>
 pour que tous mes tests redeviennent vert et donc m'assurer que je modifie bien l'architecture de mon application avec mon mousqueton de survie !
-</p><div>
-  <pre><code class='python'>class Membre(object):
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>Membre</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
 
-    def __init__(self, numero_membre = -1):
-        self._nombre_achats = 0
-        self.numero_membre = numero_membre
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>numero_membre</span> <span class='o'>=</span> <span class='o'>-</span><span class='mi'>1</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_achats</span> <span class='o'>=</span> <span class='mi'>0</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>numero_membre</span> <span class='o'>=</span> <span class='n'>numero_membre</span>
 
-    def facture(self, montant):
-        self._nombre_achats += 1
-        return montant if self._nombre_achats%6 != 0 else 0</code></pre>
+    <span class='k'>def</span> <span class='nf'>facture</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>montant</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_achats</span> <span class='o'>+=</span> <span class='mi'>1</span>
+        <span class='k'>return</span> <span class='n'>montant</span> <span class='k'>if</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_nombre_achats</span><span class='o'>%</span><span class='mi'>6</span> <span class='o'>!=</span> <span class='mi'>0</span> <span class='k'>else</span> <span class='mi'>0</span>
+</code></pre>
 </div><p>
 
 Ici rien ne casse, je rajoute juste un attribut à ma classe Membre dans le constructeur. Et je modifie ma collection de membres pour enregistrer mes différents membres. J’ajoute ensuite donc mon dictionnaire à ma classe CollectionMembre
 
-</p><div>
-  <pre><code class='python'>class CollectionMembres(object):
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>CollectionMembres</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
 
-    def __init__(self):
-        self._enregistrement = Membre( )
-        self.membres = { }
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>_enregistrement</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>(</span> <span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span> <span class='o'>=</span> <span class='p'>{</span> <span class='p'>}</span>
         
-    def get_membre(self, numero_membre):
-        if numero_membre in self.membres:
-            return self.membres[numero_membre]
-        else:
-            nouveau_membre = Membre(numero_membre)
-            self.membres[numero_membre] = nouveau_membre
-            return nouveau_membre
-        return self._enregistrement</code></pre>
+    <span class='k'>def</span> <span class='nf'>get_membre</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>numero_membre</span><span class='p'>):</span>
+        <span class='k'>if</span> <span class='n'>numero_membre</span> <span class='ow'>in</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span><span class='p'>:</span>
+            <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span><span class='p'>[</span><span class='n'>numero_membre</span><span class='p'>]</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='n'>nouveau_membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>(</span><span class='n'>numero_membre</span><span class='p'>)</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span><span class='p'>[</span><span class='n'>numero_membre</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>nouveau_membre</span>
+            <span class='k'>return</span> <span class='n'>nouveau_membre</span>
+        <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>_enregistrement</span>
+</code></pre>
 </div><p>
 
 Ce qui ne casse pas mes tests, et je peux supprimer mon ancienne implémentation, ce qui me donne:
 
-</p><div>
-  <pre><code class='python'>class CollectionMembres(object):
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>CollectionMembres</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
 
-    def __init__(self):
-        self.membres = {}
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span> <span class='o'>=</span> <span class='p'>{}</span>
         
-    def get_membre(self, numero_membre):
-        if numero_membre in self.membres:
-            return self.membres[numero_membre]
-        else:
-            nouveau_membre = Membre(numero_membre)
-            self.membres[numero_membre] = nouveau_membre
-            return nouveau_membre</code></pre>
+    <span class='k'>def</span> <span class='nf'>get_membre</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>numero_membre</span><span class='p'>):</span>
+        <span class='k'>if</span> <span class='n'>numero_membre</span> <span class='ow'>in</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span><span class='p'>:</span>
+            <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span><span class='p'>[</span><span class='n'>numero_membre</span><span class='p'>]</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='n'>nouveau_membre</span> <span class='o'>=</span> <span class='n'>Membre</span><span class='p'>(</span><span class='n'>numero_membre</span><span class='p'>)</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>membres</span><span class='p'>[</span><span class='n'>numero_membre</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>nouveau_membre</span>
+            <span class='k'>return</span> <span class='n'>nouveau_membre</span>
+</code></pre>
 </div><p>
 
 Si j’applique maintenant les achats du membre 6, mon code fonctionne parfaitement.
 
-</p><div>
-  <pre><code class='python'>def test_membre2_membre6_ont_produits_gratuits(self):
-        membres = CollectionMembres()
-        for achat in range(5):
-            self.assertEqual(membres.membre(2).facture(achat),achat)
-        self.assertEqual(membres.membre(6).facture(10), 10)
-        montant_produit = membres.membre(2).facture(10)
-        self.assertEqual(montant_produit, 0, &quot;Le 6eme produit n'est pas gratuit&quot;)
-        for achat in range(4):
-            self.assertEqual(membres.membre(4).facture(achat),achat)</code></pre>
+</p><div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>test_membre2_membre6_ont_produits_gratuits</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>membres</span> <span class='o'>=</span> <span class='n'>CollectionMembres</span><span class='p'>()</span>
+        <span class='k'>for</span> <span class='n'>achat</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='n'>achat</span><span class='p'>),</span><span class='n'>achat</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>6</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>),</span> <span class='mi'>10</span><span class='p'>)</span>
+        <span class='n'>montant_produit</span> <span class='o'>=</span> <span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>)</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>montant_produit</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>,</span> <span class='s'>&quot;Le 6eme produit n&#39;est pas gratuit&quot;</span><span class='p'>)</span>
+        <span class='k'>for</span> <span class='n'>achat</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>4</span><span class='p'>):</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>assertEqual</span><span class='p'>(</span><span class='n'>membres</span><span class='o'>.</span><span class='n'>membre</span><span class='p'>(</span><span class='mi'>4</span><span class='p'>)</span><span class='o'>.</span><span class='n'>facture</span><span class='p'>(</span><span class='n'>achat</span><span class='p'>),</span><span class='n'>achat</span><span class='p'>)</span>
+</code></pre>
 </div><h2>Conclusion:</h2><p>
 Quand on lit la user storie, il est facile de se méprendre sur ce qui est réellement important. Surtout quand on lit “Chaque fois qu’un client achète quelque chose dans le magasin, on enregistre tous ses achats,...”
 Ca arrive souvent qu’une storie soit mal exprimée. Décripter une storie peut être problématique. Pourtant comme je viens de le montrer, pour cette user storie donnée, enregistrer les achats n’était pas important. 
@@ -264,64 +284,109 @@ Le plus important (ce qui représente le plus de valeur) est qu’un membre puis
 Et la deuxième chose la plus importante (dont nous avons réellement besoin) c’est que chaque membre puissent obtenir cette réduction. Par contre ce n’est pas forcement évident d’extraire ce besoin. En plus notre modèle de base de données est très simple, et peut être enrichit au fur et à mesure avec ce qui importe vraiment. Pour finir une donnée importante est apparue (le nombre d’achats de chaque membre).
 Personnellement quand j’ai lu la user storie, je n’ai pas pensé tout de suite à ça. Je me suis dis si j’enregistre tous les achats d’un membre, je n’aurais qu’à les compter et adapter le prix d’un produit en fonction du résultat.
 </p>
+	</div>
 </div>
-
-<div id="social" class="wrapper clearfix">
-	<ul id="social_icon">
-		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-	</ul>
-	<a href="#top" class="top" alt="Back to top"></a>
+<div class="row">
+	<hr/>
+	<div class="large-12 columns">
+		<ul id="social_icon">
+			<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+			<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+			<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		</ul>
+		<a href="#top" class="top" alt="Back to top"></a>
+	</div>
 </div>
-
 <script>
-	$(document).ready(function() {
-	    var pathname = encodeURI(window.location);
-		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=La simplicité grace à TDD&via=rolalagile';
-	 	$("#twitter").attr("href", tweeturl);
+$(document).ready(function() {
+	var pathname = encodeURI(window.location);
+	var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=La simplicité grace à TDD&via=rolalagile';
+	$("#twitter").attr("href", tweeturl);
 
-		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
-	 	$("#googleplus").attr("href", googleplusurl);
+	var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	$("#googleplus").attr("href", googleplusurl);
 
-	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
-	 	$("#facebook").attr("href", facebookurl);
-	});
+	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	$("#facebook").attr("href", facebookurl);
+});
 </script>
+<div class="row">
 
-<div id="disqus_thread"></div>
+	<div id="disqus_thread" class="large-12 columns"></div>
+</div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>
+	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
 
 
 
-        </div>
 
-        <!-- google analytics -->
-        <script type="text/javascript">
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-34916388-1']);
-          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
-          _gaq.push(['_trackPageview']);
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
 
-        </script>
-    </body>
+<!-- google analytics -->
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34916388-1']);
+_gaq.push(['_setDomainName', 'guillaumevincent.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+<script src="/js/foundation.min.js"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+-->
+
+<script>
+$(document).foundation();
+</script>
+</body>
 </html>

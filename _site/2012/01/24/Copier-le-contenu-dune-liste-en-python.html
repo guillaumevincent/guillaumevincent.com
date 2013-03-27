@@ -1,143 +1,210 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>Copier le contenu d'une liste en python</title>
-        <meta name="author" content="Guillaume VINCENT" />
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/png" href="/favicon.png">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
-        <!-- jquery -->
-        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-    </head>
-    <body id="top">
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="fr"><!--<![endif]-->
 
-        <div id="header-container">
-            <header class="wrapper clearfix">
-                <a href="/index.html">
-                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="/index.html" id="index">Accueil</a></li>
-                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <title>Copier le contenu d'une liste en python</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Site personnel de Guillaume Vincent</title>
 
-        <div id="main-container" class="wrapper clearfix">
-            <div id="post_header" class="clearfix">
-	<h1>Copier le contenu d'une liste en python</h1> 
-	<div class="post_date"> 24 Jan 2012	</div>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/pygments.css" />
+    <script src="/js/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+  <nav style="" class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="/">Guillaume <span class="orange">Vincent</span></a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+</ul>
+
+
+<section class="top-bar-section">
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-form">
+      <a href="/" class="button alert">Blog</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="https://github.com/guillaumevincent/" class="button success">Code</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="/contact.html" class="button">A propos</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="http://okiwi.org/" class="button okiwi">Okiwi</a>
+  </li>
+  <li class="divider"></li>
+</ul>
+</section>
+</nav>
+
+<script src="/js/jquery-1.9.0.min.js"></script>
+
+
+<div class="row">
+	<div class="large-9 columns post-title"><h1>Copier le contenu d'une liste en python</h1> </div>
+	<div class="large-3 columns post-date"> 24 Jan 2012 </div>
 </div>
 
 
-<div id="post" class="clearfix">
-	<p>
+<div class="row">
+	<div class="large-12 columns post-content">
+		<p>
 Quand j’ai commencé à coder en python, j’ai passé un peu de temps sur des problèmes de copies de listes. Je veux trouver un moyen simple de copier le contenu d'une liste dans une autre et pas leurs références. Regardez cet exemple :
-</p><div>
-  <pre><code class='python'>gvincent@bart:~$ python
-Python 2.7.2+ (default, Oct  4 2011, 20:06:09) 
-...
-&gt;&gt;&gt; a = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]
-&gt;&gt;&gt; b = a
-&gt;&gt;&gt; a[2] = &quot;4&quot;
-&gt;&gt;&gt; b[2]
-'4'</code></pre>
-</div><p>
+</p>
+<p><div class='highlight'><pre><code class='python'><span class='n'>gvincent</span><span class='nd'>@bart</span><span class='p'>:</span><span class='o'>~</span><span class='err'>$</span> <span class='n'>python</span>
+<span class='n'>Python</span> <span class='mf'>2.7</span><span class='o'>.</span><span class='mi'>2</span><span class='o'>+</span> <span class='p'>(</span><span class='n'>default</span><span class='p'>,</span> <span class='n'>Oct</span>  <span class='mi'>4</span> <span class='mi'>2011</span><span class='p'>,</span> <span class='mi'>20</span><span class='p'>:</span><span class='mo'>06</span><span class='p'>:</span><span class='mi'>09</span><span class='p'>)</span> 
+<span class='o'>...</span>
+<span class='o'>&gt;&gt;&gt;</span> <span class='n'>a</span> <span class='o'>=</span> <span class='p'>[</span><span class='s'>&quot;1&quot;</span><span class='p'>,</span> <span class='s'>&quot;2&quot;</span><span class='p'>,</span> <span class='s'>&quot;3&quot;</span><span class='p'>]</span>
+<span class='o'>&gt;&gt;&gt;</span> <span class='n'>b</span> <span class='o'>=</span> <span class='n'>a</span>
+<span class='o'>&gt;&gt;&gt;</span> <span class='n'>a</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>]</span> <span class='o'>=</span> <span class='s'>&quot;4&quot;</span>
+<span class='o'>&gt;&gt;&gt;</span> <span class='n'>b</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>]</span>
+<span class='s'>&#39;4&#39;</span>
+</code></pre>
+</div></p>
+<p>
 b[2] me retourne la valeur 4 alors que je voulais la valeur 2.
 <br />
 Quand je fais b = a je copie les <b>références</b>. L’objet liste ["1","2","3"] n’est pas dupliquée en mémoire. Pour être sur, il suffit de lancer la commande id( ) qui donne l’id de l’objet passé en paramètre.
-</p><div>
-  <pre><code class='python'>&gt;&gt;&gt; id(a)
-11889480
-&gt;&gt;&gt; id(b)
-11889480</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='o'>&gt;&gt;&gt;</span> <span class='nb'>id</span><span class='p'>(</span><span class='n'>a</span><span class='p'>)</span>
+<span class='mi'>11889480</span>
+<span class='o'>&gt;&gt;&gt;</span> <span class='nb'>id</span><span class='p'>(</span><span class='n'>b</span><span class='p'>)</span>
+<span class='mi'>11889480</span>
+</code></pre>
 </div><p>
 	b et a pointent vers le même objet liste.
 	<br />
 	J’ai cherché une manière « pythonique » de copier le contenu d’une liste dans une autre. Et j’aime beaucoup la manière suivante :
-</p><div>
-  <pre><code class='python'>b = list(a)</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='n'>b</span> <span class='o'>=</span> <span class='nb'>list</span><span class='p'>(</span><span class='n'>a</span><span class='p'>)</span>
+</code></pre>
 </div><p>
 	list() est le constructeur d’une liste. La fonction vient créer une nouvelle liste avec la séquence passée en paramètre. Elle construit une nouvelle liste.
-</p><div>
-  <pre><code class='python'>&gt;&gt;&gt; id(a)
-11889480
-&gt;&gt;&gt; id(b)
-11868840</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='o'>&gt;&gt;&gt;</span> <span class='nb'>id</span><span class='p'>(</span><span class='n'>a</span><span class='p'>)</span>
+<span class='mi'>11889480</span>
+<span class='o'>&gt;&gt;&gt;</span> <span class='nb'>id</span><span class='p'>(</span><span class='n'>b</span><span class='p'>)</span>
+<span class='mi'>11868840</span>
+</code></pre>
 </div><p>
 	Avant j’utilisais b = a[:] que je trouve moins explicite que b = list(a)
 </p>
+	</div>
 </div>
-
-<div id="social" class="wrapper clearfix">
-	<ul id="social_icon">
-		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-	</ul>
-	<a href="#top" class="top" alt="Back to top"></a>
+<div class="row">
+	<hr/>
+	<div class="large-12 columns">
+		<ul id="social_icon">
+			<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+			<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+			<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		</ul>
+		<a href="#top" class="top" alt="Back to top"></a>
+	</div>
 </div>
-
 <script>
-	$(document).ready(function() {
-	    var pathname = encodeURI(window.location);
-		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Copier le contenu d'une liste en python&via=rolalagile';
-	 	$("#twitter").attr("href", tweeturl);
+$(document).ready(function() {
+	var pathname = encodeURI(window.location);
+	var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Copier le contenu d'une liste en python&via=rolalagile';
+	$("#twitter").attr("href", tweeturl);
 
-		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
-	 	$("#googleplus").attr("href", googleplusurl);
+	var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	$("#googleplus").attr("href", googleplusurl);
 
-	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
-	 	$("#facebook").attr("href", facebookurl);
-	});
+	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	$("#facebook").attr("href", facebookurl);
+});
 </script>
+<div class="row">
 
-<div id="disqus_thread"></div>
+	<div id="disqus_thread" class="large-12 columns"></div>
+</div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>
+	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
 
 
 
-        </div>
 
-        <!-- google analytics -->
-        <script type="text/javascript">
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-34916388-1']);
-          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
-          _gaq.push(['_trackPageview']);
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
 
-        </script>
-    </body>
+<!-- google analytics -->
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34916388-1']);
+_gaq.push(['_setDomainName', 'guillaumevincent.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+<script src="/js/foundation.min.js"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+-->
+
+<script>
+$(document).foundation();
+</script>
+</body>
 </html>

@@ -1,197 +1,262 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>Basic authentication on Tornado</title>
-        <meta name="author" content="Guillaume VINCENT" />
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/png" href="/favicon.png">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
-        <!-- jquery -->
-        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-    </head>
-    <body id="top">
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="fr"><!--<![endif]-->
 
-        <div id="header-container">
-            <header class="wrapper clearfix">
-                <a href="/index.html">
-                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="/index.html" id="index">Accueil</a></li>
-                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <title>Basic authentication on Tornado</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Site personnel de Guillaume Vincent</title>
 
-        <div id="main-container" class="wrapper clearfix">
-            <div id="post_header" class="clearfix">
-	<h1>Basic authentication on Tornado</h1> 
-	<div class="post_date"> 09 Feb 2013	</div>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/pygments.css" />
+    <script src="/js/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+  <nav style="" class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="/">Guillaume <span class="orange">Vincent</span></a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+</ul>
+
+
+<section class="top-bar-section">
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-form">
+      <a href="/" class="button alert">Blog</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="https://github.com/guillaumevincent/" class="button success">Code</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="/contact.html" class="button">A propos</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="http://okiwi.org/" class="button okiwi">Okiwi</a>
+  </li>
+  <li class="divider"></li>
+</ul>
+</section>
+</nav>
+
+<script src="/js/jquery-1.9.0.min.js"></script>
+
+
+<div class="row">
+	<div class="large-9 columns post-title"><h1>Basic authentication on Tornado</h1> </div>
+	<div class="large-3 columns post-date"> 09 Feb 2013 </div>
 </div>
 
 
-<div id="post" class="clearfix">
-	<blockquote>
+<div class="row">
+	<div class="large-12 columns post-content">
+		<blockquote>
 You should look at <a href='/2013/02/12/Basic-authentication-on-Tornado-with-a-decorator.html'>this post</a> using a decorator</blockquote><p>
 <a href='http://www.tornadoweb.org/'>Tornado</a> is an open source web server developed by Facebook. It implement various third-party authentication schemes to connect to services like Facebook, Google OAuth, Twitter, etc. But Tornado doesn't provide a good documentation when you try to handle your own login service. I tried to do mine. Let's take a look:
 <br />
 <b>This solution does not use decorator method, which can be a more pythonista's way to solve this problem</b>.
 <br />
 My goal is to allow a user to access my web application when he has good permissions. I add 4 handlers, one for my index (MainHandler), one for my login page (LoginHandler), one for my logout page (LogoutHandler) and a last one for my web application (ScubabookHandler). 
-</p><div>
-  <pre><code class='python'>class Application(tornado.web.Application):
-    def __init__(self):
-        handlers = [
-            (r&quot;/&quot;, MainHandler),
-            (r&quot;/auth/login/&quot;, LoginHandler),
-            (r&quot;/auth/logout/&quot;, LogoutHandler),
-            (r&quot;/sb/&quot;, ScubabookHandler),
-            ]
-        settings = dict(
-            template_path=Settings.TEMPLATE_PATH,
-            static_path=Settings.STATIC_PATH,
-            debug=Settings.DEBUG,
-            cookie_secret=Settings.COOKIE_SECRET
-            )
-        tornado.web.Application.__init__(self, handlers, **settings)</code></pre>
+</p><div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>Application</span><span class='p'>(</span><span class='n'>tornado</span><span class='o'>.</span><span class='n'>web</span><span class='o'>.</span><span class='n'>Application</span><span class='p'>):</span>
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>handlers</span> <span class='o'>=</span> <span class='p'>[</span>
+            <span class='p'>(</span><span class='s'>r&quot;/&quot;</span><span class='p'>,</span> <span class='n'>MainHandler</span><span class='p'>),</span>
+            <span class='p'>(</span><span class='s'>r&quot;/auth/login/&quot;</span><span class='p'>,</span> <span class='n'>LoginHandler</span><span class='p'>),</span>
+            <span class='p'>(</span><span class='s'>r&quot;/auth/logout/&quot;</span><span class='p'>,</span> <span class='n'>LogoutHandler</span><span class='p'>),</span>
+            <span class='p'>(</span><span class='s'>r&quot;/sb/&quot;</span><span class='p'>,</span> <span class='n'>ScubabookHandler</span><span class='p'>),</span>
+            <span class='p'>]</span>
+        <span class='n'>settings</span> <span class='o'>=</span> <span class='nb'>dict</span><span class='p'>(</span>
+            <span class='n'>template_path</span><span class='o'>=</span><span class='n'>Settings</span><span class='o'>.</span><span class='n'>TEMPLATE_PATH</span><span class='p'>,</span>
+            <span class='n'>static_path</span><span class='o'>=</span><span class='n'>Settings</span><span class='o'>.</span><span class='n'>STATIC_PATH</span><span class='p'>,</span>
+            <span class='n'>debug</span><span class='o'>=</span><span class='n'>Settings</span><span class='o'>.</span><span class='n'>DEBUG</span><span class='p'>,</span>
+            <span class='n'>cookie_secret</span><span class='o'>=</span><span class='n'>Settings</span><span class='o'>.</span><span class='n'>COOKIE_SECRET</span>
+            <span class='p'>)</span>
+        <span class='n'>tornado</span><span class='o'>.</span><span class='n'>web</span><span class='o'>.</span><span class='n'>Application</span><span class='o'>.</span><span class='n'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>handlers</span><span class='p'>,</span> <span class='o'>**</span><span class='n'>settings</span><span class='p'>)</span>
+</code></pre>
 </div>
 <p>The solution works like this: When I start my web application i go to http://localhost:8888/ to get connected. I fill my form and hit enter, which send a POST request to &#8220;/auth/login/&#8221; page.</p>
-<div>
-  <pre><code class='html'>&lt;form action=&quot;/auth/login/&quot; method=&quot;post&quot; id=&quot;login_form&quot;&gt;
-    &lt;fieldset&gt;
-        &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
-        &lt;input class=&quot;text-input&quot; id=&quot;username&quot; name=&quot;username&quot; type=&quot;text&quot; value=&quot;&quot;&gt;
-    &lt;/fieldset&gt;
+<div class='highlight'><pre><code class='html'><span class='nt'>&lt;form</span> <span class='na'>action=</span><span class='s'>&quot;/auth/login/&quot;</span> <span class='na'>method=</span><span class='s'>&quot;post&quot;</span> <span class='na'>id=</span><span class='s'>&quot;login_form&quot;</span><span class='nt'>&gt;</span>
+    <span class='nt'>&lt;fieldset&gt;</span>
+        <span class='nt'>&lt;label</span> <span class='na'>for=</span><span class='s'>&quot;username&quot;</span><span class='nt'>&gt;</span>Username<span class='nt'>&lt;/label&gt;</span>
+        <span class='nt'>&lt;input</span> <span class='na'>class=</span><span class='s'>&quot;text-input&quot;</span> <span class='na'>id=</span><span class='s'>&quot;username&quot;</span> <span class='na'>name=</span><span class='s'>&quot;username&quot;</span> <span class='na'>type=</span><span class='s'>&quot;text&quot;</span> <span class='na'>value=</span><span class='s'>&quot;&quot;</span><span class='nt'>&gt;</span>
+    <span class='nt'>&lt;/fieldset&gt;</span>
 
-    &lt;fieldset&gt;
-        &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
-        &lt;input class=&quot;text-input&quot; id=&quot;password&quot; name=&quot;password&quot; type=&quot;password&quot; value=&quot;&quot;&gt;
-    &lt;/fieldset&gt;
+    <span class='nt'>&lt;fieldset&gt;</span>
+        <span class='nt'>&lt;label</span> <span class='na'>for=</span><span class='s'>&quot;password&quot;</span><span class='nt'>&gt;</span>Password<span class='nt'>&lt;/label&gt;</span>
+        <span class='nt'>&lt;input</span> <span class='na'>class=</span><span class='s'>&quot;text-input&quot;</span> <span class='na'>id=</span><span class='s'>&quot;password&quot;</span> <span class='na'>name=</span><span class='s'>&quot;password&quot;</span> <span class='na'>type=</span><span class='s'>&quot;password&quot;</span> <span class='na'>value=</span><span class='s'>&quot;&quot;</span><span class='nt'>&gt;</span>
+    <span class='nt'>&lt;/fieldset&gt;</span>
 
-    &lt;fieldset&gt;
-        &lt;span class=&quot;errormessage&quot;&gt;&lt;/span&gt;
-    &lt;/fieldset&gt;
+    <span class='nt'>&lt;fieldset&gt;</span>
+        <span class='nt'>&lt;span</span> <span class='na'>class=</span><span class='s'>&quot;errormessage&quot;</span><span class='nt'>&gt;&lt;/span&gt;</span>
+    <span class='nt'>&lt;/fieldset&gt;</span>
 
-    &lt;div id=&quot;form_btn&quot;&gt;
-        &lt;input id=&quot;signin-btn&quot; class=&quot;btn btn-blue&quot; type=&quot;submit&quot; value=&quot;Sign In&quot; tabindex=&quot;3&quot;&gt;
-    &lt;/div&gt;
-&lt;/form&gt;</code></pre>
+    <span class='nt'>&lt;div</span> <span class='na'>id=</span><span class='s'>&quot;form_btn&quot;</span><span class='nt'>&gt;</span>
+        <span class='nt'>&lt;input</span> <span class='na'>id=</span><span class='s'>&quot;signin-btn&quot;</span> <span class='na'>class=</span><span class='s'>&quot;btn btn-blue&quot;</span> <span class='na'>type=</span><span class='s'>&quot;submit&quot;</span> <span class='na'>value=</span><span class='s'>&quot;Sign In&quot;</span> <span class='na'>tabindex=</span><span class='s'>&quot;3&quot;</span><span class='nt'>&gt;</span>
+    <span class='nt'>&lt;/div&gt;</span>
+<span class='nt'>&lt;/form&gt;</span>
+</code></pre>
 </div><center><img src='https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png' /></center>
 <p>My login handler get the username and password and check permissions. If the pair login/password is good, LoginHandler set the current user and redirect to /sb/ web application otherwise LoginHandler redirect to the index with an error message.</p>
-<div>
-  <pre><code class='python'>class LoginHandler(BaseHandler):
+<div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>LoginHandler</span><span class='p'>(</span><span class='n'>BaseHandler</span><span class='p'>):</span>
 
-    def check_permission(self, password, username):
-        if username == &quot;admin&quot; and password == &quot;admin&quot;:
-            return True
-        return False
+    <span class='k'>def</span> <span class='nf'>check_permission</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>password</span><span class='p'>,</span> <span class='n'>username</span><span class='p'>):</span>
+        <span class='k'>if</span> <span class='n'>username</span> <span class='o'>==</span> <span class='s'>&quot;admin&quot;</span> <span class='ow'>and</span> <span class='n'>password</span> <span class='o'>==</span> <span class='s'>&quot;admin&quot;</span><span class='p'>:</span>
+            <span class='k'>return</span> <span class='bp'>True</span>
+        <span class='k'>return</span> <span class='bp'>False</span>
 
-    def post(self):
-        username = self.get_argument(&quot;username&quot;, &quot;&quot;)
-        password = self.get_argument(&quot;password&quot;, &quot;&quot;)
-        auth = self.check_permission(password, username)
-        if auth:
-            self.set_current_user(username)
-            self.redirect(self.get_argument(&quot;next&quot;, u&quot;/sb/&quot;))
-        else:
-            error_msg = u&quot;?error=&quot; + tornado.escape.url_escape(&quot;Login incorrect&quot;)
-            self.redirect(u&quot;/&quot; + error_msg)
+    <span class='k'>def</span> <span class='nf'>post</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>username</span> <span class='o'>=</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>get_argument</span><span class='p'>(</span><span class='s'>&quot;username&quot;</span><span class='p'>,</span> <span class='s'>&quot;&quot;</span><span class='p'>)</span>
+        <span class='n'>password</span> <span class='o'>=</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>get_argument</span><span class='p'>(</span><span class='s'>&quot;password&quot;</span><span class='p'>,</span> <span class='s'>&quot;&quot;</span><span class='p'>)</span>
+        <span class='n'>auth</span> <span class='o'>=</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>check_permission</span><span class='p'>(</span><span class='n'>password</span><span class='p'>,</span> <span class='n'>username</span><span class='p'>)</span>
+        <span class='k'>if</span> <span class='n'>auth</span><span class='p'>:</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>set_current_user</span><span class='p'>(</span><span class='n'>username</span><span class='p'>)</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>redirect</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>get_argument</span><span class='p'>(</span><span class='s'>&quot;next&quot;</span><span class='p'>,</span> <span class='s'>u&quot;/sb/&quot;</span><span class='p'>))</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='n'>error_msg</span> <span class='o'>=</span> <span class='s'>u&quot;?error=&quot;</span> <span class='o'>+</span> <span class='n'>tornado</span><span class='o'>.</span><span class='n'>escape</span><span class='o'>.</span><span class='n'>url_escape</span><span class='p'>(</span><span class='s'>&quot;Login incorrect&quot;</span><span class='p'>)</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>redirect</span><span class='p'>(</span><span class='s'>u&quot;/&quot;</span> <span class='o'>+</span> <span class='n'>error_msg</span><span class='p'>)</span>
 
-    def set_current_user(self, user):
-        if user:
-            self.set_secure_cookie(&quot;user&quot;, tornado.escape.json_encode(user))
-        else:
-            self.clear_cookie(&quot;user&quot;)</code></pre>
+    <span class='k'>def</span> <span class='nf'>set_current_user</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>user</span><span class='p'>):</span>
+        <span class='k'>if</span> <span class='n'>user</span><span class='p'>:</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>set_secure_cookie</span><span class='p'>(</span><span class='s'>&quot;user&quot;</span><span class='p'>,</span> <span class='n'>tornado</span><span class='o'>.</span><span class='n'>escape</span><span class='o'>.</span><span class='n'>json_encode</span><span class='p'>(</span><span class='n'>user</span><span class='p'>))</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>clear_cookie</span><span class='p'>(</span><span class='s'>&quot;user&quot;</span><span class='p'>)</span>
+</code></pre>
 </div>
 <p>My last handler start to ensure that the current user exist. If not it redirect to my index.</p>
-<div>
-  <pre><code class='python'>class ScubabookHandler(tornado.web.RequestHandler):
+<div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>ScubabookHandler</span><span class='p'>(</span><span class='n'>tornado</span><span class='o'>.</span><span class='n'>web</span><span class='o'>.</span><span class='n'>RequestHandler</span><span class='p'>):</span>
 
-    def get_current_user(self):
-        return self.get_secure_cookie(&quot;user&quot;)
+    <span class='k'>def</span> <span class='nf'>get_current_user</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>get_secure_cookie</span><span class='p'>(</span><span class='s'>&quot;user&quot;</span><span class='p'>)</span>
 
-    def get(self):
-        if not self.current_user:
-            self.redirect(&quot;/&quot;)
-            return
-        username = self.current_user
-        self.write('Hi there, '+ username)</code></pre>
+    <span class='k'>def</span> <span class='nf'>get</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>if</span> <span class='ow'>not</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>current_user</span><span class='p'>:</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>redirect</span><span class='p'>(</span><span class='s'>&quot;/&quot;</span><span class='p'>)</span>
+            <span class='k'>return</span>
+        <span class='n'>username</span> <span class='o'>=</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>current_user</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>write</span><span class='p'>(</span><span class='s'>&#39;Hi there, &#39;</span><span class='o'>+</span> <span class='n'>username</span><span class='p'>)</span>
+</code></pre>
 </div>
 <p>All the current user informations are saved in a secure cookie. Tornado provide set_secure_cookie and get_secure_cookie methods. These two methods use a cookie secret key to encrypt the cookie.</p>
 
 <p>The last thing i have to do is to check if a user exists when I hit my index. I automatically redirect to my web application and skip the login form. Here is why i&#8217;m looking at decorator method, to avoid this kind of duplication in my code. Hope this helped !</p>
 <a href='https://gist.github.com/guillaumevincent/4745647'>See the gist associate</a>
+	</div>
 </div>
-
-<div id="social" class="wrapper clearfix">
-	<ul id="social_icon">
-		<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-		<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
-	</ul>
-	<a href="#top" class="top" alt="Back to top"></a>
+<div class="row">
+	<hr/>
+	<div class="large-12 columns">
+		<ul id="social_icon">
+			<li id="panel1"><a id="twitter" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+			<li id="panel2"><a id="googleplus" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+			<li id="panel3"><a id="facebook" href="" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600');return false;"></a></li>
+		</ul>
+		<a href="#top" class="top" alt="Back to top"></a>
+	</div>
 </div>
-
 <script>
-	$(document).ready(function() {
-	    var pathname = encodeURI(window.location);
-		var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Basic authentication on Tornado&via=rolalagile';
-	 	$("#twitter").attr("href", tweeturl);
+$(document).ready(function() {
+	var pathname = encodeURI(window.location);
+	var tweeturl = 'http://twitter.com/share?url=' + pathname + '&text=Basic authentication on Tornado&via=rolalagile';
+	$("#twitter").attr("href", tweeturl);
 
-		var googleplusurl = 'https://plus.google.com/share?url=' + pathname
-	 	$("#googleplus").attr("href", googleplusurl);
+	var googleplusurl = 'https://plus.google.com/share?url=' + pathname
+	$("#googleplus").attr("href", googleplusurl);
 
-	 	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
-	 	$("#facebook").attr("href", facebookurl);
-	});
+	var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
+	$("#facebook").attr("href", facebookurl);
+});
 </script>
+<div class="row">
 
-<div id="disqus_thread"></div>
+	<div id="disqus_thread" class="large-12 columns"></div>
+</div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'guillaumevincent'; // required: replace example with your forum shortname
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>
+	Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
 
 
 
-        </div>
 
-        <!-- google analytics -->
-        <script type="text/javascript">
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-34916388-1']);
-          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
-          _gaq.push(['_trackPageview']);
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
 
-        </script>
-    </body>
+<!-- google analytics -->
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34916388-1']);
+_gaq.push(['_setDomainName', 'guillaumevincent.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+<script src="/js/foundation.min.js"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+-->
+
+<script>
+$(document).foundation();
+</script>
+</body>
 </html>
