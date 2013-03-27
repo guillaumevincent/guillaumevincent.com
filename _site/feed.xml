@@ -14,101 +14,101 @@
 I recently tried to make &lt;a href='/2013/02/09/Basic-authentication-on-Tornado.html'&gt;my own authentication&lt;/a&gt; method in my application with Tornado. And I remained frustrated because I do not happen to use decorators. Decorator are evaluated before the function definition is executed. You remove duplication when you have to protect differents handlers. 
 &lt;br /&gt;
 My goal is to allow a user to access my web application when he has good permissions. I add 3 handlers, one for my index (MainHandler), one for my login page (AuthLoginHandler), one for my logout page (AuthLogoutHandler). 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class Application(tornado.web.Application):
-    def __init__(self):
-        handlers = [
-            (r&amp;quot;/&amp;quot;, MainHandler),
-            (r&amp;quot;/auth/login/&amp;quot;, AuthLoginHandler),
-            (r&amp;quot;/auth/logout/&amp;quot;, AuthLogoutHandler),
-        ]
-        settings = {
-            &amp;quot;template_path&amp;quot;:Settings.TEMPLATE_PATH,
-            &amp;quot;static_path&amp;quot;:Settings.STATIC_PATH,
-            &amp;quot;debug&amp;quot;:Settings.DEBUG,
-            &amp;quot;cookie_secret&amp;quot;: Settings.COOKIE_SECRET,
-            &amp;quot;login_url&amp;quot;: &amp;quot;/auth/login/&amp;quot;
-        }
-        tornado.web.Application.__init__(self, handlers, **settings)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Application&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;web&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Application&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;handlers&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;MainHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/auth/login/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;AuthLoginHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/auth/logout/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;AuthLogoutHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+        &lt;span class='p'&gt;]&lt;/span&gt;
+        &lt;span class='n'&gt;settings&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+            &lt;span class='s'&gt;&amp;quot;template_path&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;TEMPLATE_PATH&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='s'&gt;&amp;quot;static_path&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;STATIC_PATH&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='s'&gt;&amp;quot;debug&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;DEBUG&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='s'&gt;&amp;quot;cookie_secret&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;COOKIE_SECRET&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='s'&gt;&amp;quot;login_url&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;/auth/login/&amp;quot;&lt;/span&gt;
+        &lt;span class='p'&gt;}&lt;/span&gt;
+        &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;web&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Application&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;handlers&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;**&lt;/span&gt;&lt;span class='n'&gt;settings&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;The settings[&amp;#8220;login_url&amp;#8221;] property set the url to be used by the @authenticated decorator. What I want is to redirect the user to login url (/auth/login/) if he&amp;#8217;s not identified.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class MainHandler(BaseHandler):
-    @tornado.web.authenticated
-    def get(self):
-        username = tornado.escape.xhtml_escape(self.current_user)
-        self.write(&amp;quot;index.html&amp;quot;, username = username)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;MainHandler&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseHandler&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='nd'&gt;@tornado.web.authenticated&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;escape&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;xhtml_escape&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;current_user&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;write&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;index.html&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;It&amp;#8217;s so simple, isn&amp;#8217;t it ? &lt;br /&gt; It remains for me to create a handler for my login screen, and a handler to delete my cookie when i reach auth/logout/ url.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class AuthLoginHandler(BaseHandler):
-    def get(self):
-        try:
-            errormessage = self.get_argument(&amp;quot;error&amp;quot;)
-        except:
-            errormessage = &amp;quot;&amp;quot;
-        self.render(&amp;quot;login.html&amp;quot;, errormessage = errormessage)
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;AuthLoginHandler&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseHandler&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;try&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;errormessage&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;error&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;except&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;errormessage&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;render&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;login.html&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;errormessage&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;errormessage&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 
-    ...
+    &lt;span class='o'&gt;...&lt;/span&gt;
 
-class AuthLogoutHandler(BaseHandler):
-    def get(self):
-        self.clear_cookie(&amp;quot;user&amp;quot;)
-        self.redirect(self.get_argument(&amp;quot;next&amp;quot;, &amp;quot;/&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;AuthLogoutHandler&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseHandler&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;clear_cookie&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;redirect&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;next&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;My login handler get method render the login.html page.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;form action=&amp;quot;/auth/login/&amp;quot; method=&amp;quot;post&amp;quot; id=&amp;quot;login_form&amp;quot;&amp;gt;
-    &amp;lt;fieldset&amp;gt;
-        &amp;lt;label for=&amp;quot;username&amp;quot;&amp;gt;Username&amp;lt;/label&amp;gt;
-        &amp;lt;input class=&amp;quot;text-input&amp;quot; id=&amp;quot;username&amp;quot; name=&amp;quot;username&amp;quot; type=&amp;quot;text&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;form&lt;/span&gt; &lt;span class='na'&gt;action=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;/auth/login/&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;method=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;post&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;login_form&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;label&lt;/span&gt; &lt;span class='na'&gt;for=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;Username&lt;span class='nt'&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;input&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;text-input&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;name=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;type=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;value=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 
-    &amp;lt;fieldset&amp;gt;
-        &amp;lt;label for=&amp;quot;password&amp;quot;&amp;gt;Password&amp;lt;/label&amp;gt;
-        &amp;lt;input class=&amp;quot;text-input&amp;quot; id=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; type=&amp;quot;password&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
+    &lt;span class='nt'&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;label&lt;/span&gt; &lt;span class='na'&gt;for=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;Password&lt;span class='nt'&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;input&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;text-input&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;name=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;type=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;value=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 
-    &amp;lt;fieldset&amp;gt;
-        &amp;lt;span class=&amp;quot;errormessage&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
+    &lt;span class='nt'&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;span&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;errormessage&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 
-    &amp;lt;div id=&amp;quot;form_btn&amp;quot;&amp;gt;
-        &amp;lt;input id=&amp;quot;signin-btn&amp;quot; class=&amp;quot;btn btn-blue&amp;quot; type=&amp;quot;submit&amp;quot; value=&amp;quot;Sign In&amp;quot; tabindex=&amp;quot;3&amp;quot;&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;form_btn&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;input&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;signin-btn&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;btn btn-blue&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;type=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;value=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;Sign In&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;tabindex=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class='nt'&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;center&gt;&lt;img src='https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png' /&gt;&lt;/center&gt;
 &lt;p&gt;When a user makes a POST request on /auth/login/, my web server validates if the pair username/password is good and writes the user cookie. Otherwise it redirects the user to the login page with an error message.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class AuthLoginHandler(BaseHandler):
-    def get(self):
-        try:
-            errormessage = self.get_argument(&amp;quot;error&amp;quot;)
-        except:
-            errormessage = &amp;quot;&amp;quot;
-        self.render(&amp;quot;login.html&amp;quot;, errormessage = errormessage)
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;AuthLoginHandler&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseHandler&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;try&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;errormessage&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;error&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;except&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;errormessage&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;render&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;login.html&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;errormessage&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;errormessage&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 
-    def check_permission(self, password, username):
-        if username == &amp;quot;admin&amp;quot; and password == &amp;quot;admin&amp;quot;:
-            return True
-        return False
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;check_permission&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;password&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;admin&amp;quot;&lt;/span&gt; &lt;span class='ow'&gt;and&lt;/span&gt; &lt;span class='n'&gt;password&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;admin&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
 
-    def post(self):
-        username = self.get_argument(&amp;quot;username&amp;quot;, &amp;quot;&amp;quot;)
-        password = self.get_argument(&amp;quot;password&amp;quot;, &amp;quot;&amp;quot;)
-        auth = self.check_permission(password, username)
-        if auth:
-            self.set_current_user(username)
-            self.redirect(self.get_argument(&amp;quot;next&amp;quot;, u&amp;quot;/&amp;quot;))
-        else:
-            error_msg = u&amp;quot;?error=&amp;quot; + tornado.escape.url_escape(&amp;quot;Login incorrect&amp;quot;)
-            self.redirect(u&amp;quot;/auth/login/&amp;quot; + error_msg)
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;password&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;auth&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;check_permission&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;password&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;auth&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;set_current_user&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;redirect&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;next&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;u&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;error_msg&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;u&amp;quot;?error=&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;escape&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;url_escape&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;Login incorrect&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;redirect&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;u&amp;quot;/auth/login/&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;error_msg&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 
-    def set_current_user(self, user):
-        if user:
-            self.set_secure_cookie(&amp;quot;user&amp;quot;, tornado.escape.json_encode(user))
-        else:
-            self.clear_cookie(&amp;quot;user&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;set_current_user&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;user&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;user&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;set_secure_cookie&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;escape&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;json_encode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;user&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;clear_cookie&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;All the current user informations are saved in a secure cookie. Tornado provide set_secure_cookie and get_secure_cookie methods. These two methods use a cookie secret key to encrypt the cookie.&lt;/p&gt;
 
@@ -128,84 +128,84 @@ You should look at &lt;a href='/2013/02/12/Basic-authentication-on-Tornado-with-
 &lt;b&gt;This solution does not use decorator method, which can be a more pythonista's way to solve this problem&lt;/b&gt;.
 &lt;br /&gt;
 My goal is to allow a user to access my web application when he has good permissions. I add 4 handlers, one for my index (MainHandler), one for my login page (LoginHandler), one for my logout page (LogoutHandler) and a last one for my web application (ScubabookHandler). 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class Application(tornado.web.Application):
-    def __init__(self):
-        handlers = [
-            (r&amp;quot;/&amp;quot;, MainHandler),
-            (r&amp;quot;/auth/login/&amp;quot;, LoginHandler),
-            (r&amp;quot;/auth/logout/&amp;quot;, LogoutHandler),
-            (r&amp;quot;/sb/&amp;quot;, ScubabookHandler),
-            ]
-        settings = dict(
-            template_path=Settings.TEMPLATE_PATH,
-            static_path=Settings.STATIC_PATH,
-            debug=Settings.DEBUG,
-            cookie_secret=Settings.COOKIE_SECRET
-            )
-        tornado.web.Application.__init__(self, handlers, **settings)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Application&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;web&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Application&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;handlers&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;MainHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/auth/login/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;LoginHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/auth/logout/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;LogoutHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+            &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;quot;/sb/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;ScubabookHandler&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;
+            &lt;span class='p'&gt;]&lt;/span&gt;
+        &lt;span class='n'&gt;settings&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;dict&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;
+            &lt;span class='n'&gt;template_path&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;TEMPLATE_PATH&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='n'&gt;static_path&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;STATIC_PATH&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='n'&gt;debug&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;DEBUG&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='n'&gt;cookie_secret&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='n'&gt;Settings&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;COOKIE_SECRET&lt;/span&gt;
+            &lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;web&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Application&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;handlers&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;**&lt;/span&gt;&lt;span class='n'&gt;settings&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;The solution works like this: When I start my web application i go to http://localhost:8888/ to get connected. I fill my form and hit enter, which send a POST request to &amp;#8220;/auth/login/&amp;#8221; page.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;form action=&amp;quot;/auth/login/&amp;quot; method=&amp;quot;post&amp;quot; id=&amp;quot;login_form&amp;quot;&amp;gt;
-    &amp;lt;fieldset&amp;gt;
-        &amp;lt;label for=&amp;quot;username&amp;quot;&amp;gt;Username&amp;lt;/label&amp;gt;
-        &amp;lt;input class=&amp;quot;text-input&amp;quot; id=&amp;quot;username&amp;quot; name=&amp;quot;username&amp;quot; type=&amp;quot;text&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;form&lt;/span&gt; &lt;span class='na'&gt;action=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;/auth/login/&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;method=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;post&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;login_form&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;label&lt;/span&gt; &lt;span class='na'&gt;for=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;Username&lt;span class='nt'&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;input&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;text-input&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;name=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;type=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;value=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 
-    &amp;lt;fieldset&amp;gt;
-        &amp;lt;label for=&amp;quot;password&amp;quot;&amp;gt;Password&amp;lt;/label&amp;gt;
-        &amp;lt;input class=&amp;quot;text-input&amp;quot; id=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; type=&amp;quot;password&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
+    &lt;span class='nt'&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;label&lt;/span&gt; &lt;span class='na'&gt;for=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;Password&lt;span class='nt'&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;input&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;text-input&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;name=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;type=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;value=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 
-    &amp;lt;fieldset&amp;gt;
-        &amp;lt;span class=&amp;quot;errormessage&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
+    &lt;span class='nt'&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;span&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;errormessage&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 
-    &amp;lt;div id=&amp;quot;form_btn&amp;quot;&amp;gt;
-        &amp;lt;input id=&amp;quot;signin-btn&amp;quot; class=&amp;quot;btn btn-blue&amp;quot; type=&amp;quot;submit&amp;quot; value=&amp;quot;Sign In&amp;quot; tabindex=&amp;quot;3&amp;quot;&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;form_btn&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;input&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;signin-btn&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;btn btn-blue&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;type=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;value=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;Sign In&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;tabindex=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class='nt'&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;center&gt;&lt;img src='https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png' /&gt;&lt;/center&gt;
 &lt;p&gt;My login handler get the username and password and check permissions. If the pair login/password is good, LoginHandler set the current user and redirect to /sb/ web application otherwise LoginHandler redirect to the index with an error message.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class LoginHandler(BaseHandler):
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;LoginHandler&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseHandler&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def check_permission(self, password, username):
-        if username == &amp;quot;admin&amp;quot; and password == &amp;quot;admin&amp;quot;:
-            return True
-        return False
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;check_permission&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;password&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;admin&amp;quot;&lt;/span&gt; &lt;span class='ow'&gt;and&lt;/span&gt; &lt;span class='n'&gt;password&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;admin&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
 
-    def post(self):
-        username = self.get_argument(&amp;quot;username&amp;quot;, &amp;quot;&amp;quot;)
-        password = self.get_argument(&amp;quot;password&amp;quot;, &amp;quot;&amp;quot;)
-        auth = self.check_permission(password, username)
-        if auth:
-            self.set_current_user(username)
-            self.redirect(self.get_argument(&amp;quot;next&amp;quot;, u&amp;quot;/sb/&amp;quot;))
-        else:
-            error_msg = u&amp;quot;?error=&amp;quot; + tornado.escape.url_escape(&amp;quot;Login incorrect&amp;quot;)
-            self.redirect(u&amp;quot;/&amp;quot; + error_msg)
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;username&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;password&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;auth&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;check_permission&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;password&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;auth&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;set_current_user&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;redirect&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_argument&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;next&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;u&amp;quot;/sb/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;error_msg&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;u&amp;quot;?error=&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;escape&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;url_escape&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;Login incorrect&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;redirect&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;u&amp;quot;/&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;error_msg&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 
-    def set_current_user(self, user):
-        if user:
-            self.set_secure_cookie(&amp;quot;user&amp;quot;, tornado.escape.json_encode(user))
-        else:
-            self.clear_cookie(&amp;quot;user&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;set_current_user&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;user&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;user&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;set_secure_cookie&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;escape&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;json_encode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;user&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;clear_cookie&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;My last handler start to ensure that the current user exist. If not it redirect to my index.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class ScubabookHandler(tornado.web.RequestHandler):
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;ScubabookHandler&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;tornado&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;web&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;RequestHandler&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def get_current_user(self):
-        return self.get_secure_cookie(&amp;quot;user&amp;quot;)
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get_current_user&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_secure_cookie&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 
-    def get(self):
-        if not self.current_user:
-            self.redirect(&amp;quot;/&amp;quot;)
-            return
-        username = self.current_user
-        self.write('Hi there, '+ username)&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;current_user&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;redirect&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt;
+        &lt;span class='n'&gt;username&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;current_user&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;write&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;Hi there, &amp;#39;&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;username&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;All the current user informations are saved in a secure cookie. Tornado provide set_secure_cookie and get_secure_cookie methods. These two methods use a cookie secret key to encrypt the cookie.&lt;/p&gt;
 
@@ -220,72 +220,72 @@ My goal is to allow a user to access my web application when he has good permiss
 				<title>Better Social Widget Lazy Loading</title>
 				<description>&lt;img src='https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png' style='float:left; margin: 0 20px;' /&gt;&lt;p&gt;
 I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community. I started by creating a CSS sprites for including images in my web page. The solution is pretty simple. I use a fixed size html bloc. And I manualy add 3 links, with all the same background image. I only change the background position to display the good image in each block. I use the CSS stripes technique to make a single query when I load my page.
-&lt;/p&gt;&lt;br /&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;div id=&amp;quot;_social&amp;quot;&amp;gt;
-    &amp;lt;ul id=&amp;quot;_social_icon&amp;quot;&amp;gt;
-        &amp;lt;li id=&amp;quot;panel1c&amp;quot;&amp;gt;&amp;lt;a id=&amp;quot;_twitter&amp;quot; href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;li id=&amp;quot;panel2c&amp;quot;&amp;gt;&amp;lt;a id=&amp;quot;_googleplus&amp;quot; href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;li id=&amp;quot;panel3c&amp;quot;&amp;gt;&amp;lt;a id=&amp;quot;_facebook&amp;quot; href=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-    &amp;lt;/ul&amp;gt;
-&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;br /&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;_social&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;ul&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;_social_icon&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;li&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;panel1c&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;_twitter&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;href=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;li&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;panel2c&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;_googleplus&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;href=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class='nt'&gt;&amp;lt;li&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;panel3c&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;_facebook&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;href=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;I adapt the CSS i found in this &lt;a href='http://alistapart.com/article/sprites'&gt;excellent post&lt;/a&gt;&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='css'&gt;#_social_icon {
-    position: relative;
-    margin: 20px 0px;
-    padding: 0px;
-    width: 170px;
-    height: 25px;
-}
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='css'&gt;&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;position&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='k'&gt;relative&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;margin&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;20px&lt;/span&gt; &lt;span class='m'&gt;0px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;padding&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;0px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;width&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;170px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;height&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;25px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
 
-#_social_icon li {
-    width: 50px;
-    height: 25px;
-    position: absolute;
-    top: 0px;
-    background: url(../img/social.png) 0 0 no-repeat;
-    display: block;
-    list-style: none;
-}
+&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='nt'&gt;li&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;width&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;50px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;height&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;25px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;position&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='k'&gt;absolute&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;top&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;0px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;background&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='sx'&gt;url(../img/social.png)&lt;/span&gt; &lt;span class='m'&gt;0&lt;/span&gt; &lt;span class='m'&gt;0&lt;/span&gt; &lt;span class='k'&gt;no-repeat&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;display&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='k'&gt;block&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;list-style&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='k'&gt;none&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
 
-#_social_icon a {
-    width: 49px;
-    height: 24px;
-    display: block;
-}
+&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='nt'&gt;a&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;width&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;49px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;height&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;24px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;display&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='k'&gt;block&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
 
-#_social_icon a:hover {
-    border: solid 1px #000;
-}
+&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='nt'&gt;a&lt;/span&gt;&lt;span class='nd'&gt;:hover&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;border&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='k'&gt;solid&lt;/span&gt; &lt;span class='m'&gt;1px&lt;/span&gt; &lt;span class='m'&gt;#000&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
 
-#_social_icon #panel1c {
-    left: 0px;
-}
+&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='nf'&gt;#panel1c&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;0px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
 
-#_social_icon #panel2c {
-    left: 55px;
-    background-position: 0 -45px;
-}
+&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='nf'&gt;#panel2c&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;55px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;background-position&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;0&lt;/span&gt; &lt;span class='m'&gt;-45px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
 
-#_social_icon #panel3c {
-    left: 110px;
-    background-position: 0 -90px;
-}&lt;/code&gt;&lt;/pre&gt;
+&lt;span class='nf'&gt;#_social_icon&lt;/span&gt; &lt;span class='nf'&gt;#panel3c&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;110px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='k'&gt;background-position&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='m'&gt;0&lt;/span&gt; &lt;span class='m'&gt;-90px&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;And i created a small jquery code to update my href attribute and use the good social api request&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='javascript'&gt;$(document).ready(function() {
-    var pathname = encodeURI(window.location);
-    var tweeturl = 'http://twitter.com/share?url=' + pathname + '&amp;amp;via=rolalagile';
-    $(&amp;quot;#_twitter&amp;quot;).attr(&amp;quot;href&amp;quot;, tweeturl);
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='nx'&gt;$&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;document&lt;/span&gt;&lt;span class='p'&gt;).&lt;/span&gt;&lt;span class='nx'&gt;ready&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;pathname&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;encodeURI&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;window&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;location&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+    &lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;tweeturl&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;http://twitter.com/share?url=&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='nx'&gt;pathname&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;&amp;amp;via=rolalagile&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+    &lt;span class='nx'&gt;$&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;#_twitter&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;).&lt;/span&gt;&lt;span class='nx'&gt;attr&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;href&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;tweeturl&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
 
-    var googleplusurl = 'https://plus.google.com/share?url=' + pathname
-    $(&amp;quot;#_googleplus&amp;quot;).attr(&amp;quot;href&amp;quot;, googleplusurl);
+    &lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;googleplusurl&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;https://plus.google.com/share?url=&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='nx'&gt;pathname&lt;/span&gt;
+    &lt;span class='nx'&gt;$&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;#_googleplus&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;).&lt;/span&gt;&lt;span class='nx'&gt;attr&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;href&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;googleplusurl&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
 
-    var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
-    $(&amp;quot;#_facebook&amp;quot;).attr(&amp;quot;href&amp;quot;, facebookurl);
-});&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;facebookurl&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;http://www.facebook.com/share.php?u=&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='nx'&gt;pathname&lt;/span&gt;
+    &lt;span class='nx'&gt;$&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;#_facebook&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;).&lt;/span&gt;&lt;span class='nx'&gt;attr&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;href&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;facebookurl&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='p'&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;</description>
 				<pubDate>Fri, 01 Feb 2013 00:00:00 +0100</pubDate>
 				<link>http://guillaumevincent.com//2013/02/01/Better-social-widget-lazy-loading.html</link>
@@ -307,23 +307,23 @@ Je me retrouve souvent dans l'obligation de faire des corrections mineures pour 
 
 Et dans mon cas je ne veux pas merger en production tous ces commits inutiles.
 Il existe trois solutions sous Git pour &quot;squash&quot; les X derniers commits ou en français pour &quot;écraser&quot; les X derniers commits pour qu'ils n'en fassent plus qu'un:
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='console'&gt;git rebase
-git merge --squash	  	
-git reset&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='console'&gt;&lt;span class='go'&gt;git rebase&lt;/span&gt;
+&lt;span class='go'&gt;git merge --squash	  	&lt;/span&gt;
+&lt;span class='go'&gt;git reset&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 	Je préfère la solution git reset plus intuitive à mon goût.
 	Premièrement on s'assure que notre environnement de travail ne comporte pas de modifications en cours:
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='console'&gt;git status
-# On branch master
-nothing to commit, working directory clean&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='console'&gt;&lt;span class='go'&gt;git status&lt;/span&gt;
+&lt;span class='gp'&gt;#&lt;/span&gt; On branch master
+&lt;span class='go'&gt;nothing to commit, working directory clean&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 	Ensuite j'effectue un rebase pour écraser X commits. Dans mon exemple je veux me re-placer au niveau du tag soit 4 commits avant.
 	Je tappe donc la commande suivante:
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='console'&gt;git reset --soft HEAD~4
-git commit -m &amp;quot;release v1.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='console'&gt;&lt;span class='go'&gt;git reset --soft HEAD~4&lt;/span&gt;
+&lt;span class='go'&gt;git commit -m &amp;quot;release v1.0&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;img src='https://lh4.googleusercontent.com/-hJev3pzvxdQ/UNb2LAF160I/AAAAAAAAIMQ/O72XSWO6kTI/s826/git%2520rebase%2520example2.png' /&gt;</description>
 				<pubDate>Thu, 03 Jan 2013 00:00:00 +0100</pubDate>
 				<link>http://guillaumevincent.com//2013/01/03/Git-pour-les-nuls-annuler_les_x_derniers_commit.html</link>
@@ -346,25 +346,25 @@ git commit -m &amp;quot;release v1.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;
     &lt;br /&gt;
     La première chose que l'on me demande de faire est de récupérer le code du projet. Notre projet est hébergé sur Github, j'ai les accès en lecture et en écriture au dépôt distant du code (dépot distant intitulé par défaut &lt;b&gt;origin&lt;/b&gt;)
     &lt;br /&gt;
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='console'&gt;git clone git@github.com:okiwi/atbdx.git atbdx
-    Cloning into 'atbdx'...&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='console'&gt;&lt;span class='go'&gt;    git clone git@github.com:okiwi/atbdx.git atbdx&lt;/span&gt;
+&lt;span class='go'&gt;    Cloning into &amp;#39;atbdx&amp;#39;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
     Je viens de récupérer la branche principale du projet (commande: &lt;b&gt;clone&lt;/b&gt;) sur mon poste et j'ai mis mon environnement de travail dans le dossier atbdx. Une seule branche a été clonée, la branche principale (par défaut cette branche s'appelle &lt;b&gt;master&lt;/b&gt;).
     Pour voir l'ensemble des branches du projet, vous pouvez tapper la commande suivante
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='console'&gt;git branch
-    * master&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='console'&gt;&lt;span class='go'&gt;    git branch&lt;/span&gt;
+&lt;span class='go'&gt;    * master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
     git branch m'indique que je n'ai sur mon poste en local qu'une seule branche intitulé master. Par défaut clone ne copie pas toutes les branches sur mon poste. Je dois lui préciser de récupérer une branche particulière depuis le dépôt distant. 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='console'&gt;git checkout -b dev origin/dev
-    Branch dev set up to track remote branch dev from origin.
-    Switched to a new branch 'dev'
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='console'&gt;&lt;span class='go'&gt;    git checkout -b dev origin/dev&lt;/span&gt;
+&lt;span class='go'&gt;    Branch dev set up to track remote branch dev from origin.&lt;/span&gt;
+&lt;span class='go'&gt;    Switched to a new branch &amp;#39;dev&amp;#39;&lt;/span&gt;
 
-    git branch
-    * dev
-    master&lt;/code&gt;&lt;/pre&gt;
+&lt;span class='go'&gt;    git branch&lt;/span&gt;
+&lt;span class='go'&gt;    * dev&lt;/span&gt;
+&lt;span class='go'&gt;    master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
     &lt;b&gt;git checkout -b dev origin/dev&lt;/b&gt; : créé moi une nouvelle branche locale intitulé dev qui est une copie d'une branche distante du dépôt origin. Et place toi sur la branche dev.
     &lt;br /&gt;
@@ -379,12 +379,12 @@ git commit -m &amp;quot;release v1.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 				<title>Comment your damn code bitch !</title>
 				<description>&lt;p&gt;
 Voilà ce que j'ai essayé d'expliquer à un collègue quand il m'a dit que mon code ne comportait pas de commentaires :
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def kos_root(self):
-        &amp;quot;&amp;quot;&amp;quot;Return the pathname of the KOS root directory.&amp;quot;&amp;quot;&amp;quot;
-        if self._kos_root: 
-            return self._kos_root
-    ...&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;kos_root&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='sd'&gt;&amp;quot;&amp;quot;&amp;quot;Return the pathname of the KOS root directory.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_kos_root&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; 
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_kos_root&lt;/span&gt;
+    &lt;span class='o'&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 - What the fuck Man !
 A quoi sert cette putain de docstring, tu m'expliques ?
@@ -396,14 +396,14 @@ A quoi sert cette putain de docstring, tu m'expliques ?
 - Oui, je suis capable de te dire que cette fonction retourne une chaine de caractère
 &lt;br /&gt;
 - Tu es sur ? Regarde la suite du code
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def kos_root(self):
-        &amp;quot;&amp;quot;&amp;quot;Return the pathname of the KOS root directory.&amp;quot;&amp;quot;&amp;quot;
-        if self._kos_root: 
-            return self._kos_root
-        #bug 3154 - 04/25/2009
-        else: 
-            return 0&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;kos_root&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='sd'&gt;&amp;quot;&amp;quot;&amp;quot;Return the pathname of the KOS root directory.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_kos_root&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; 
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_kos_root&lt;/span&gt;
+        &lt;span class='c'&gt;#bug 3154 - 04/25/2009&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; 
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 - Ah oui on a eu un bug sur le code de retour de la méthode et ..
 &lt;br /&gt;
@@ -418,18 +418,18 @@ A quoi sert cette putain de docstring, tu m'expliques ?
 - Non ! Ca ne règle pas le souci, ton code ne doit pas comporter de commentaires! &lt;b&gt;Il doit porter son intention&lt;/b&gt;. Il doit refléter précisément ce qu'il est censé faire. Et la documentation ce sont tes tests. 
 &lt;br /&gt;
 Tu peux voir comment ta méthode a été testée. Les tests sont à jour:
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class TestMain(unittest.TestCase):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;TestMain&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;unittest&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;TestCase&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-        def setUp(self):
-            self.main = Main()
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;setUp&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;main&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Main&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
 
-        def test_kos_root(self):
-            self.assertTrue(self.main.kos_root())
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_kos_root&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertTrue&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;main&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;kos_root&lt;/span&gt;&lt;span class='p'&gt;())&lt;/span&gt;
 
-        def test_false_kos_root_should_return_zero(self):
-            self.main._kos_root = False
-            self.assertEqual(0, self.main.kos_root())&lt;/code&gt;&lt;/pre&gt;
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_false_kos_root_should_return_zero&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;main&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_kos_root&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;main&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;kos_root&lt;/span&gt;&lt;span class='p'&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
     Pour résumer, le code d’un logiciel ne doit pas comporter de commentaires, c'est un aveu d'échec sur sa capacité à rendre son code explicite. Son code doit refléter précisément son intention lors de sa conception. Et la documentation ce sont les tests. Ils doivent être à jour, et chaque bug doit comporter un test de non régression.
 &lt;/p&gt;&lt;p&gt;
@@ -443,217 +443,217 @@ Ps: cette conversation n'est que pure fiction
 			<item>
 				<title>La simplicité grace à TDD</title>
 				<description>&lt;p&gt;Le développement piloté par les tests est un merveilleux moyen pour s’assurer que le code que nous réalisons fait exactement ce que l’on veut qu’il fasse. TDD permet d’aller plus loin; Il oblige le développeur à faire les choses simplement. Récemment j’ai lu un magnifique billet de Ronald E. Jeffries intitulé &lt;a href='http://xprogramming.com/articles/but-we-need-a-database-dont-we/'&gt;« But We Need a Database … Don’t We? »&lt;/a&gt; sur lequel je me suis grandement inspiré pour expliquer cette idée. &lt;br /&gt; Le contexte est le suivant: vous êtes programmeur et vous devez réaliser une application de fidélisation de client pour un marchant de café. Chaque fois qu’un client achète quelque chose dans le magasin, on enregistre tous ses achats, et dès qu’il achète 5 produits, le 6ème est gratuit. Les clients sont enregistrés avec un numéro de membre unique. &lt;br /&gt; Je vais essayer de montrer que l&amp;#8217;utilisation du développement piloté par les tests apporte de la simplicité dans la construction de mon application. Le code qui va suivre est en python parce que le langage est relativement facile à comprendre. &lt;br /&gt; Bon mettons nous à écrire notre premier test. Disons qu’ici notre premier test pourrait vérifier que lorsqu’un membre achète un produit à X €, le prix du produit qui lui est retourné est bien X € (ou 0 € si le client achète son 6ème produit):&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;import unittest
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;unittest&lt;/span&gt;
 
-class TestsApplicationMagasinDeCafe(unittest.TestCase):
+&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;TestsApplicationMagasinDeCafe&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;unittest&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;TestCase&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def test_facturation_produit(self):
-        membre = Membre()
-        montant_produit = membre.facture(10)
-        self.assertEqual(montant_produit, 10)
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_facturation_produit&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 
-if __name__ == '__main__':
-    unittest.main()&lt;/code&gt;&lt;/pre&gt;
+&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;__name__&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+    &lt;span class='n'&gt;unittest&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;main&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 L’interpréteur va gueuler parce qu’il ne sait pas ce qu’est un Membre et la méthode facture n’existe pas. Nous ajoutons ce code pour supprimer l’erreur de compilation:
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class Membre(object):
-    def facture(self, montant):
-        pass&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;pass&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Mon test est rouge, je le fais donc passer au vert
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def facture(self, montant):
-        return 10&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Si je change le montant du produit facturé, notre test est de nouveau rouge.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_facturation_produit(self):
-        membre = Membre( )
-        montant_produit = member.facture(10)
-        self.assertEqual(montant_produit, 10)
-        montant_produit = member.facture(5)
-        self.assertEqual(montant_produit, 5)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_facturation_produit&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt; &lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;member&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;member&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Erreur que je corrige en modifiant notre méthode facture:
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def facture(self, montant):
-        return montant&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Modifions le test pour s’assurer que lorsque j’achète 6 produits le 6ème est gratuit. 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_facturation_produit(self):
-        membre = Membre( )
-        for i in range(5):
-            montant_produit = member.facture(10)
-            self.assertEqual(montant_produit, 10)
-        montant_produit = membre.facture(5) 
-        self.assertEqual(montant_produit, 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_facturation_produit&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt; &lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;member&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; 
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Notre dernier test échoue. Si vous avez suivi, facture retourne 5 et pas 0. Nous avons besoin d’enregistrer le nombre d’achats, et de tester quand cet enregistrement vaut 6 pour retourner 0.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class Membre(object):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt; &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def __init__(self):
-        self._nombre_dachats = 0
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachats&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
 
-    def facture(self, montant):
-        self._nombre_dachats += 1
-        if self._nombre_dachats != 6:
-            return montant
-        else:
-            return 0&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachats&lt;/span&gt; &lt;span class='o'&gt;+=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachats&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='mi'&gt;6&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Beaucoup de modification en une seule fois. Vous pouvez lancer vos tests et vérifier que l’ajout de _nombre_dachats ne casse pas vos anciens tests. 
 Vos tests sont verts, un petit peu de refactoring et on continu.
 
 Refactoring de nos tests
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_facturation_produit(self):
-        membre = Membre( )
-        for prix in range(5):
-            self.assertEqual(member.facture(prix), prix)
-        montant_produit = membre.facture(5) 
-        self.assertEqual(montant_produit, 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_facturation_produit&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt; &lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;prix&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;member&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;prix&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='n'&gt;prix&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; 
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Refactoring de notre objet Membre
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class Membre(object):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def __init__(self):
-        self._nombre_dachats = 0
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachats&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
 
-    def facture(self, montant):
-        self._nombre_dachats += 1
-        return montant if self._nombre_dachats != 6 else 0&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachats&lt;/span&gt; &lt;span class='o'&gt;+=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachats&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='mi'&gt;6&lt;/span&gt; &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Maintenant si un client achète 6 produits supplémentaires, le 12ème doit être gratuit.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_douxieme_produit_gratuit(self):
-        membre = Membre()
-        for i in range (5):
-            self.assertEqual(member.facture(1), 1)
-            montant_produit = membre.facture(2)
-        self.assertEqual(montant_produit, 0, &amp;quot;la premiere reduction ne fonctionne pas&amp;quot;)
-        for i in range (5):
-            self.assertEqual(member.facture(1), 1)
-            montant_produit = membre.facture(3)
-        self.assertEqual(montant_produit, 0, &amp;quot;la deuxieme reduction ne fonctionne pas&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_douxieme_produit_gratuit&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;member&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;la premiere reduction ne fonctionne pas&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;member&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;la deuxieme reduction ne fonctionne pas&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 On modifie la méthode facture de notre objet Membre avec l’ajout d’un modulo 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;return montant if self._nombre_dachat%6 != 0 else 0&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_dachat&lt;/span&gt;&lt;span class='o'&gt;%&lt;/span&gt;&lt;span class='mi'&gt;6&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Et nos tests deviennent verts.
 &lt;br /&gt;
 Ce qui est génial avec cette méthode c’est que nous venons de faire émerger un élément très important de notre modèle _nombre_dachats. Et en plus nous nous assurons qu’il fonctionne correctement. Maintenant passons à la réalisation de l’autre partie de notre user storie. Notre application fonctionne pour un seul membre. Si nous avons deux membres (disons le membre n°2 et le membre n°6) assurons nous qu’ils obtiennent leur réduction au bon moment.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_membre_deux_membre_six_obtiennent_leur_reduction(self):
-        membres = CollectionMembre()
-        for achat_deuxieme_membre in range(5):
-            self.assertEqual(membres.get_membre(2).facture(1), 1)
-        self.assertEqual(membres.get_membre(2).facture(5), 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_membre_deux_membre_six_obtiennent_leur_reduction&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membres&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;CollectionMembre&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;achat_deuxieme_membre&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;get_membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 CollectionMembre est donc une représentation du modèle de la base de données des membres. La méthode get_membre retourne un objet Membre correspondant au numéro de membre passé en paramètre. Ici mon implémentation de l’objet CollectionMembre est bonne quand mon test devient vert. Je dois réaliser le plus petit code possible pour faire passer mon test au vert.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;Class CollectionMembre(Object):
-    def get_membre(self, numero_membre):
-        return Membre()&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='n'&gt;Class&lt;/span&gt; &lt;span class='n'&gt;CollectionMembre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get_membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Cette implémentation marche presque, à la seule différence que que chaque fois que je fais un achat (ex: membres.membre(2).facture(1)) je construis un nouveau membre. A la sixième occurrence notre test échoue. 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;AssertionError: Le 6eme produit n'est pas gratuit&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='ne'&gt;AssertionError&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='n'&gt;Le&lt;/span&gt; &lt;span class='mi'&gt;6&lt;/span&gt;&lt;span class='n'&gt;eme&lt;/span&gt; &lt;span class='n'&gt;produit&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;est pas gratuit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Si nous enregistrons ce membre avec le constructeur de notre collection, notre test passe au vert. 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class CollectionMembres(object):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;CollectionMembres&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def __init__(self):
-        self.__enregistrement = Membre()
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;__enregistrement&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
 
-    def membre(self, numero_membre):
-        return self.__enregistrement&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;__enregistrement&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Maintenant si le client 6 vient acheter un produit entre temps, notre application ne fonctionne plus.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_membre2_membre6_ont_produits_gratuits(self):
-        membres = CollectionMembres()
-        for achat in range(5):
-            self.assertEqual(membres.membre(2).facture(achat),achat)
-        self.assertEqual(membres.membre(6).facture(10), 10)
-        montant_produit = membres.membre(2).facture(10)
-        self.assertEqual(montant_produit, 0, &amp;quot;Le 6eme produit n'est pas gratuit&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_membre2_membre6_ont_produits_gratuits&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membres&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;CollectionMembres&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;achat&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;achat&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;&lt;span class='n'&gt;achat&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;6&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;Le 6eme produit n&amp;#39;est pas gratuit&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 Maintenant je ne peux plus reculer. Je me dois d’enregistrer le numéro du membre quelque part. L’utilisation d’un dictionnaire
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;{'Membre' : 'numero de membre'}&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='p'&gt;{&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;Membre&amp;#39;&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;numero de membre&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 me paraissait la meilleur implémentation possible. Et il me parrait logique d’enregistrer le numéro du membre lors de sa création en modifiant le constructeur de notre objet Membre. Je commente mon code :
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;#self.assertEqual(membres.membre(6).facture(10), 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='c'&gt;#self.assertEqual(membres.membre(6).facture(10), 10)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 pour que tous mes tests redeviennent vert et donc m'assurer que je modifie bien l'architecture de mon application avec mon mousqueton de survie !
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class Membre(object):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def __init__(self, numero_membre = -1):
-        self._nombre_achats = 0
-        self.numero_membre = numero_membre
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_achats&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt;
 
-    def facture(self, montant):
-        self._nombre_achats += 1
-        return montant if self._nombre_achats%6 != 0 else 0&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_achats&lt;/span&gt; &lt;span class='o'&gt;+=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;montant&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_nombre_achats&lt;/span&gt;&lt;span class='o'&gt;%&lt;/span&gt;&lt;span class='mi'&gt;6&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 
 Ici rien ne casse, je rajoute juste un attribut à ma classe Membre dans le constructeur. Et je modifie ma collection de membres pour enregistrer mes différents membres. J’ajoute ensuite donc mon dictionnaire à ma classe CollectionMembre
 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class CollectionMembres(object):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;CollectionMembres&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def __init__(self):
-        self._enregistrement = Membre( )
-        self.membres = { }
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_enregistrement&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt; &lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt; &lt;span class='p'&gt;}&lt;/span&gt;
         
-    def get_membre(self, numero_membre):
-        if numero_membre in self.membres:
-            return self.membres[numero_membre]
-        else:
-            nouveau_membre = Membre(numero_membre)
-            self.membres[numero_membre] = nouveau_membre
-            return nouveau_membre
-        return self._enregistrement&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get_membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;nouveau_membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;nouveau_membre&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;nouveau_membre&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;_enregistrement&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 
 Ce qui ne casse pas mes tests, et je peux supprimer mon ancienne implémentation, ce qui me donne:
 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;class CollectionMembres(object):
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;CollectionMembres&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
 
-    def __init__(self):
-        self.membres = {}
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__init__&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{}&lt;/span&gt;
         
-    def get_membre(self, numero_membre):
-        if numero_membre in self.membres:
-            return self.membres[numero_membre]
-        else:
-            nouveau_membre = Membre(numero_membre)
-            self.membres[numero_membre] = nouveau_membre
-            return nouveau_membre&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;get_membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;numero_membre&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;nouveau_membre&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;numero_membre&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;nouveau_membre&lt;/span&gt;
+            &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;nouveau_membre&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 
 Si j’applique maintenant les achats du membre 6, mon code fonctionne parfaitement.
 
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;def test_membre2_membre6_ont_produits_gratuits(self):
-        membres = CollectionMembres()
-        for achat in range(5):
-            self.assertEqual(membres.membre(2).facture(achat),achat)
-        self.assertEqual(membres.membre(6).facture(10), 10)
-        montant_produit = membres.membre(2).facture(10)
-        self.assertEqual(montant_produit, 0, &amp;quot;Le 6eme produit n'est pas gratuit&amp;quot;)
-        for achat in range(4):
-            self.assertEqual(membres.membre(4).facture(achat),achat)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;test_membre2_membre6_ont_produits_gratuits&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;membres&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;CollectionMembres&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;achat&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;achat&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;&lt;span class='n'&gt;achat&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;6&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt; &lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;montant_produit&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;montant_produit&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;Le 6eme produit n&amp;#39;est pas gratuit&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;achat&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='nb'&gt;range&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;4&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;assertEqual&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;membres&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;membre&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;4&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;facture&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;achat&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;&lt;span class='n'&gt;achat&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;h2&gt;Conclusion:&lt;/h2&gt;&lt;p&gt;
 Quand on lit la user storie, il est facile de se méprendre sur ce qui est réellement important. Surtout quand on lit “Chaque fois qu’un client achète quelque chose dans le magasin, on enregistre tous ses achats,...”
 Ca arrive souvent qu’une storie soit mal exprimée. Décripter une storie peut être problématique. Pourtant comme je viens de le montrer, pour cette user storie donnée, enregistrer les achats n’était pas important. 
@@ -707,63 +707,63 @@ Depuis peu je suis passé sous Jekyll et Github Page
 			<item>
 				<title>Supprimer les accents des titres blogofile</title>
 				<description>&lt;p&gt;Blogofile, le générateur de blog statique que j&amp;#8217;utilise, a la fâcheuse tendance de mettre des accents dans les permaliens de nos billets. C&amp;#8217;est assez ennuyeux, surtout si comme moi votre hébergeur n&amp;#8217;accepte pas les caractères unicodes dans ses urls. J&amp;#8217;ai modifié un hack de &lt;a href='http://twitter.com/zzzeek'&gt;zzzeek&lt;/a&gt; qui corrigeait ce défaut, mais qui supprimait les accents. J&amp;#8217;ai amélioré cette modification pour remplacer les accents par les lettres correspondantes.&lt;/p&gt;
-&lt;a href='http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/'&gt;ancien hack&lt;/a&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;diff --git a/_controllers/blog/post.py b/_controllers/blog/post.py
-index c95b580..0a8922e 100644
---- a/_controllers/blog/post.py
-+++ b/_controllers/blog/post.py
-@@ -24,6 +24,8 @@ import BeautifulSoup
+&lt;a href='http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/'&gt;ancien hack&lt;/a&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='n'&gt;diff&lt;/span&gt; &lt;span class='o'&gt;--&lt;/span&gt;&lt;span class='n'&gt;git&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;_controllers&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;blog&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;post&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;py&lt;/span&gt; &lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;_controllers&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;blog&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;post&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;py&lt;/span&gt;
+&lt;span class='n'&gt;index&lt;/span&gt; &lt;span class='n'&gt;c95b580&lt;/span&gt;&lt;span class='o'&gt;..&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='n'&gt;a8922e&lt;/span&gt; &lt;span class='mi'&gt;100644&lt;/span&gt;
+&lt;span class='o'&gt;---&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;_controllers&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;blog&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;post&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;py&lt;/span&gt;
+&lt;span class='o'&gt;+++&lt;/span&gt; &lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;_controllers&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;blog&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;post&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;py&lt;/span&gt;
+&lt;span class='err'&gt;@@&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;24&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;6&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;24&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;8&lt;/span&gt; &lt;span class='err'&gt;@@&lt;/span&gt; &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;BeautifulSoup&lt;/span&gt;
  
- import blogofile_bf as bf
+ &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;blogofile_bf&lt;/span&gt; &lt;span class='kn'&gt;as&lt;/span&gt; &lt;span class='nn'&gt;bf&lt;/span&gt;
  
-+import unicodedata
-+
- logger = logging.getLogger(&amp;quot;blogofile.post&amp;quot;)
+&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;unicodedata&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+ &lt;span class='n'&gt;logger&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;logging&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;getLogger&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;blogofile.post&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
  
- config = bf.config.controllers.blog.post
-@@ -158,7 +160,8 @@ class Post(object):
-	          text = ''.join(s.findAll(text=True))\
-	                              .replace(&amp;quot;\n&amp;quot;, &amp;quot;&amp;quot;).split(&amp;quot; &amp;quot;)
-	          return &amp;quot; &amp;quot;.join(text[:num_words]) + '...'
--        
-+  	
-+
-	 def __post_process(self):
-	     # fill in empty default value
-	     if not self.title:
-@@ -166,7 +169,31 @@ class Post(object):
-	                 datetime.datetime.now().strftime(&amp;quot;%Y-%m-%d %H:%M:%S&amp;quot;))
+ &lt;span class='n'&gt;config&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;bf&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;config&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;controllers&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;blog&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;post&lt;/span&gt;
+&lt;span class='err'&gt;@@&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;158&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;7&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;160&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;8&lt;/span&gt; &lt;span class='err'&gt;@@&lt;/span&gt; &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+	          &lt;span class='n'&gt;text&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;s&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;findAll&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;text&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='bp'&gt;True&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;\
+	                              &lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;replace&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&lt;/span&gt;&lt;span class='se'&gt;\n&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;split&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+	          &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='s'&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;text&lt;/span&gt;&lt;span class='p'&gt;[:&lt;/span&gt;&lt;span class='n'&gt;num_words&lt;/span&gt;&lt;span class='p'&gt;])&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;...&amp;#39;&lt;/span&gt;
+&lt;span class='o'&gt;-&lt;/span&gt;        
+&lt;span class='o'&gt;+&lt;/span&gt;  	
+&lt;span class='o'&gt;+&lt;/span&gt;
+	 &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;__post_process&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+	     &lt;span class='c'&gt;# fill in empty default value&lt;/span&gt;
+	     &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;title&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+&lt;span class='err'&gt;@@&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;166&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;7&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;169&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;31&lt;/span&gt; &lt;span class='err'&gt;@@&lt;/span&gt; &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Post&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+	                 &lt;span class='n'&gt;datetime&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;datetime&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;now&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;strftime&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;%Y-%m-&lt;/span&gt;&lt;span class='si'&gt;%d&lt;/span&gt;&lt;span class='s'&gt; %H:%M:%S&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
 	     
-	     if not self.slug:
--            self.slug = re.sub(&amp;quot;[ ?]&amp;quot;, &amp;quot;-&amp;quot;, self.title).lower()
-+			#original blogofile hack by zzzeek			
-+			#http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/
-+
-+			slug = self.title.lower()
-+
-+			#accents replaced by the corresponding letters without accent
-+			nkfd_form = unicodedata.normalize('NFKD', unicode(slug))
-+			slug = u&amp;quot;&amp;quot;.join([c for c in nkfd_form if not unicodedata.combining(c)])
-+
-+			# convert ellipses to spaces
-+			slug = re.sub(r'\.{2,}', ' ', slug)
-+
-+			# flatten everything non alpha or . into a single -
-+			slug = re.sub(r'[^0-9a-zA-Z\.]+', '-', slug)
-+
-+			# trim off leading/trailing -
-+			slug = re.sub(r'^-+|-+$', '', slug)
-+			self.slug = slug
-+
-+			#######################################################
-+
-+			# original
-+			#self.slug = re.sub(&amp;quot;[ ?]&amp;quot;, &amp;quot;-&amp;quot;, self.title).lower()
-+
-+			#######################################################
+	     &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;slug&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+&lt;span class='o'&gt;-&lt;/span&gt;            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;re&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;sub&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;[ ?]&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;title&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;lower&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;#original blogofile hack by zzzeek			&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;#http://techspot.zzzeek.org/2010/12/06/my-blogofile-hacks/&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;title&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;lower&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;#accents replaced by the corresponding letters without accent&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='n'&gt;nkfd_form&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;unicodedata&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;normalize&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;NFKD&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nb'&gt;unicode&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;slug&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;u&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;([&lt;/span&gt;&lt;span class='n'&gt;c&lt;/span&gt; &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;c&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;nkfd_form&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='n'&gt;unicodedata&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;combining&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;c&lt;/span&gt;&lt;span class='p'&gt;)])&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;# convert ellipses to spaces&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;re&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;sub&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;#39;\.{2,}&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;slug&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;# flatten everything non alpha or . into a single -&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;re&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;sub&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;#39;[^0-9a-zA-Z\.]+&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;-&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;slug&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;# trim off leading/trailing -&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;re&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;sub&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;r&amp;#39;^-+|-+$&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;slug&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;slug&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;slug&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;#######################################################&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;# original&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;#self.slug = re.sub(&amp;quot;[ ?]&amp;quot;, &amp;quot;-&amp;quot;, self.title).lower()&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;
+&lt;span class='o'&gt;+&lt;/span&gt;			&lt;span class='c'&gt;#######################################################&lt;/span&gt;
  
-	     if not self.date:
-	         self.date = datetime.datetime.now(pytz.timezone(self.__timezone))&lt;/code&gt;&lt;/pre&gt;
+	     &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;date&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+	         &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;date&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;datetime&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;datetime&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;now&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;pytz&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;timezone&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;__timezone&lt;/span&gt;&lt;span class='p'&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;</description>
 				<pubDate>Sun, 29 Jan 2012 00:00:00 +0100</pubDate>
 				<link>http://guillaumevincent.com//2012/01/29/Les-accents-dans-les-permaliens-blogofile.html</link>
@@ -774,37 +774,39 @@ index c95b580..0a8922e 100644
 				<title>Copier le contenu d'une liste en python</title>
 				<description>&lt;p&gt;
 Quand j’ai commencé à coder en python, j’ai passé un peu de temps sur des problèmes de copies de listes. Je veux trouver un moyen simple de copier le contenu d'une liste dans une autre et pas leurs références. Regardez cet exemple :
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;gvincent@bart:~$ python
-Python 2.7.2+ (default, Oct  4 2011, 20:06:09) 
-...
-&amp;gt;&amp;gt;&amp;gt; a = [&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;]
-&amp;gt;&amp;gt;&amp;gt; b = a
-&amp;gt;&amp;gt;&amp;gt; a[2] = &amp;quot;4&amp;quot;
-&amp;gt;&amp;gt;&amp;gt; b[2]
-'4'&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='n'&gt;gvincent&lt;/span&gt;&lt;span class='nd'&gt;@bart&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='o'&gt;~&lt;/span&gt;&lt;span class='err'&gt;$&lt;/span&gt; &lt;span class='n'&gt;python&lt;/span&gt;
+&lt;span class='n'&gt;Python&lt;/span&gt; &lt;span class='mf'&gt;2.7&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;default&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;Oct&lt;/span&gt;  &lt;span class='mi'&gt;4&lt;/span&gt; &lt;span class='mi'&gt;2011&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;20&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mo'&gt;06&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;09&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; 
+&lt;span class='o'&gt;...&lt;/span&gt;
+&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;b&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt;
+&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;4&amp;quot;&lt;/span&gt;
+&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+&lt;span class='s'&gt;&amp;#39;4&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;
 b[2] me retourne la valeur 4 alors que je voulais la valeur 2.
 &lt;br /&gt;
 Quand je fais b = a je copie les &lt;b&gt;références&lt;/b&gt;. L’objet liste [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;] n’est pas dupliquée en mémoire. Pour être sur, il suffit de lancer la commande id( ) qui donne l’id de l’objet passé en paramètre.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;&amp;gt;&amp;gt;&amp;gt; id(a)
-11889480
-&amp;gt;&amp;gt;&amp;gt; id(b)
-11889480&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='mi'&gt;11889480&lt;/span&gt;
+&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='mi'&gt;11889480&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 	b et a pointent vers le même objet liste.
 	&lt;br /&gt;
 	J’ai cherché une manière « pythonique » de copier le contenu d’une liste dans une autre. Et j’aime beaucoup la manière suivante :
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;b = list(a)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='n'&gt;b&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;list&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 	list() est le constructeur d’une liste. La fonction vient créer une nouvelle liste avec la séquence passée en paramètre. Elle construit une nouvelle liste.
-&lt;/p&gt;&lt;div&gt;
-  &lt;pre&gt;&lt;code class='python'&gt;&amp;gt;&amp;gt;&amp;gt; id(a)
-11889480
-&amp;gt;&amp;gt;&amp;gt; id(b)
-11868840&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='mi'&gt;11889480&lt;/span&gt;
+&lt;span class='o'&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='mi'&gt;11868840&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;p&gt;
 	Avant j’utilisais b = a[:] que je trouve moins explicite que b = list(a)
 &lt;/p&gt;</description>

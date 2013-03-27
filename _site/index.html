@@ -1,53 +1,71 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>The Personal Blog of Guillaume Vincent</title>
-        <meta name="author" content="Guillaume VINCENT" />
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/png" href="/favicon.png">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />        
-        <!-- jquery -->
-        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-    </head>
-    <body id="top">
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="fr"><!--<![endif]-->
 
-        <div id="header-container">
-            <header class="wrapper clearfix">
-                <a href="/index.html">
-                    <h1 id="title"><span>Guillaume</span><span id="nom">Vincent</span></h1>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="/index.html" id="index">Accueil</a></li>
-                        <li><a href="https://github.com/guillaumevincent/">Code</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <title>Site personnel de Guillaume Vincent</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Site personnel de Guillaume Vincent</title>
 
-        <div id="main-container" class="wrapper clearfix">
-            <h2>Mes derniers articles:</h2>
-<ul class="posts">
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/pygments.css" />
+    <script src="/js/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+  <nav style="" class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="/">Guillaume <span class="orange">Vincent</span></a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+</ul>
+
+
+<section class="top-bar-section">
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-form">
+      <a href="/" class="button alert">Blog</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="https://github.com/guillaumevincent/" class="button success">Code</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="/contact.html" class="button">A propos</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-form">
+      <a href="http://okiwi.org/" class="button okiwi">Okiwi</a>
+  </li>
+  <li class="divider"></li>
+</ul>
+</section>
+</nav>
+
+<script src="/js/jquery-1.9.0.min.js"></script>
+
+
+<div class="row">
+    <div class="large-12 columns">
+<h2>Mes derniers articles:</h2>
+</div>
+</div>
     
-    <li>
-        <span>12-Feb-2013</span> 
-        &raquo; 
-        
-        <img src="img/en.png" alt="English"> 
-        
-        <a href="/2013/02/12/Basic-authentication-on-Tornado-with-a-decorator.html">Basic authentication on Tornado with a decorator</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">12-Feb-2013  <span class="english flag"></span></div>
+    <div class="large-6 columns title"><a href="/2013/02/12/Basic-authentication-on-Tornado-with-a-decorator.html">Basic authentication on Tornado with a decorator</a></div>
+    <div class="large-4 columns tags">
         
         tornado,
         
@@ -57,18 +75,14 @@
         
         decorator
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>09-Feb-2013</span> 
-        &raquo; 
-        
-        <img src="img/en.png" alt="English"> 
-        
-        <a href="/2013/02/09/Basic-authentication-on-Tornado.html">Basic authentication on Tornado</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">09-Feb-2013  <span class="english flag"></span></div>
+    <div class="large-6 columns title"><a href="/2013/02/09/Basic-authentication-on-Tornado.html">Basic authentication on Tornado</a></div>
+    <div class="large-4 columns tags">
         
         tornado,
         
@@ -76,18 +90,14 @@
         
         authentication
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>01-Feb-2013</span> 
-        &raquo; 
-        
-        <img src="img/en.png" alt="English"> 
-        
-        <a href="/2013/02/01/Better-social-widget-lazy-loading.html">Better Social Widget Lazy Loading</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">01-Feb-2013  <span class="english flag"></span></div>
+    <div class="large-6 columns title"><a href="/2013/02/01/Better-social-widget-lazy-loading.html">Better Social Widget Lazy Loading</a></div>
+    <div class="large-4 columns tags">
         
         social
         
@@ -97,52 +107,40 @@
         
         loading
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>03-Jan-2013</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2013/01/03/Git-pour-les-nuls-annuler_les_x_derniers_commit.html">Git pour les nuls - Annuler les x derniers commit</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">03-Jan-2013  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2013/01/03/Git-pour-les-nuls-annuler_les_x_derniers_commit.html">Git pour les nuls - Annuler les x derniers commit</a></div>
+    <div class="large-4 columns tags">
         
         git,
         
         commit
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>23-Dec-2012</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2012/12/23/Git-pour-les-nuls-recuperer_une_branche_distante.html">Git pour les nuls - Récupérer une branche distante</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">23-Dec-2012  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2012/12/23/Git-pour-les-nuls-recuperer_une_branche_distante.html">Git pour les nuls - Récupérer une branche distante</a></div>
+    <div class="large-4 columns tags">
         
         git,
         
         remote
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>20-Sep-2012</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2012/09/20/Comment-your-damn-code-bitch.html">Comment your damn code bitch !</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">20-Sep-2012  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2012/09/20/Comment-your-damn-code-bitch.html">Comment your damn code bitch !</a></div>
+    <div class="large-4 columns tags">
         
         clean
         
@@ -150,35 +148,27 @@
         
         commentaire
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>13-Mar-2012</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2012/03/13/La-simplicite-grace-a-Tdd.html">La simplicité grace à TDD</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">13-Mar-2012  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2012/03/13/La-simplicite-grace-a-Tdd.html">La simplicité grace à TDD</a></div>
+    <div class="large-4 columns tags">
         
         tdd,
         
         simplicité
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>02-Mar-2012</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2012/03/02/blogofile-ovh-et-amazon.html">Blogofile, Ovh et Amazon</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">02-Mar-2012  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2012/03/02/blogofile-ovh-et-amazon.html">Blogofile, Ovh et Amazon</a></div>
+    <div class="large-4 columns tags">
         
         hébergement,
         
@@ -186,255 +176,242 @@
         
         web
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>29-Jan-2012</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2012/01/29/Les-accents-dans-les-permaliens-blogofile.html">Supprimer les accents des titres blogofile</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">29-Jan-2012  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2012/01/29/Les-accents-dans-les-permaliens-blogofile.html">Supprimer les accents des titres blogofile</a></div>
+    <div class="large-4 columns tags">
         
         hack,
         
         blogofile
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>24-Jan-2012</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2012/01/24/Copier-le-contenu-dune-liste-en-python.html">Copier le contenu d'une liste en python</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">24-Jan-2012  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2012/01/24/Copier-le-contenu-dune-liste-en-python.html">Copier le contenu d'une liste en python</a></div>
+    <div class="large-4 columns tags">
         
         astuce,
         
         python
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>12-Nov-2011</span> 
-        &raquo; 
+  <div class="row post">
+    <div class="large-2 columns date">12-Nov-2011  <span class="english flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/11/12/Citation-de-clean-code.html">The discipline of Test Driven Development</a></div>
+    <div class="large-4 columns tags">
         
-        <img src="img/en.png" alt="English"> 
-        
-        <a href="/2011/11/12/Citation-de-clean-code.html">The discipline of Test Driven Development</a>
-        <tags>
-        
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>11-Nov-2011</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/11/11/La-contractualisation-agile-dans-une-SSII.html">La contractualisation agile dans une SSII</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">11-Nov-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/11/11/La-contractualisation-agile-dans-une-SSII.html">La contractualisation agile dans une SSII</a></div>
+    <div class="large-4 columns tags">
         
         contractualisation,
         
         SSII
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>11-Oct-2011</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/10/11/Lagilite-en-solitaire-c-est-difficile-le-retour.html">L'agilité en solitaire c'est difficile 2/2</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">11-Oct-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/10/11/Lagilite-en-solitaire-c-est-difficile-le-retour.html">L'agilité en solitaire c'est difficile 2/2</a></div>
+    <div class="large-4 columns tags">
         
         méthodologie
         
         agile
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>20-Apr-2011</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/04/20/Coder-en-francais-ou-coder-en-anglais.html">Coder en français ou coder en anglais ?</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">20-Apr-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/04/20/Coder-en-francais-ou-coder-en-anglais.html">Coder en français ou coder en anglais ?</a></div>
+    <div class="large-4 columns tags">
         
         réflexion
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>22-Mar-2011</span> 
-        &raquo; 
+  <div class="row post">
+    <div class="large-2 columns date">22-Mar-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/03/22/Un-projet-logiciel-en-image.html">Un projet logiciel en image</a></div>
+    <div class="large-4 columns tags">
         
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/03/22/Un-projet-logiciel-en-image.html">Un projet logiciel en image</a>
-        <tags>
-        
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>09-Mar-2011</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/03/09/Semaphore-du-flux-de-productivite.html">Sémaphore du flux de productivité</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">09-Mar-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/03/09/Semaphore-du-flux-de-productivite.html">Sémaphore du flux de productivité</a></div>
+    <div class="large-4 columns tags">
         
         réflexion
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>16-Feb-2011</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/02/16/Le-Coding-Dojo.html">Le Coding Dojo</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">16-Feb-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/02/16/Le-Coding-Dojo.html">Le Coding Dojo</a></div>
+    <div class="large-4 columns tags">
         
         Coding
         
         Dojo
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>03-Feb-2011</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2011/02/03/L-agilite-en-solitaire-c-est-difficile.html">L'agilité en solitaire, c'est difficile 1/2</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">03-Feb-2011  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2011/02/03/L-agilite-en-solitaire-c-est-difficile.html">L'agilité en solitaire, c'est difficile 1/2</a></div>
+    <div class="large-4 columns tags">
         
         méthodologie
         
         agile
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>16-Dec-2010</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2010/12/16/Le-double-planning-poker.html">Le double planning poker</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">16-Dec-2010  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2010/12/16/Le-double-planning-poker.html">Le double planning poker</a></div>
+    <div class="large-4 columns tags">
         
         astuce,
         
         scrum
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>17-Nov-2010</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2010/11/17/La-retrospective-son-principal-interet.html">La retrospective son principal intérêt</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">17-Nov-2010  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2010/11/17/La-retrospective-son-principal-interet.html">La retrospective son principal intérêt</a></div>
+    <div class="large-4 columns tags">
         
         méthodologie
         
         agile
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>23-Oct-2010</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2010/10/23/Test-Driven-Development-TDD.html">Test Driven Development (TDD)</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">23-Oct-2010  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2010/10/23/Test-Driven-Development-TDD.html">Test Driven Development (TDD)</a></div>
+    <div class="large-4 columns tags">
         
         tdd
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-    <li>
-        <span>20-Sep-2010</span> 
-        &raquo; 
-        
-        <img src="img/fr.png" alt="French"> 
-        
-        <a href="/2010/09/20/Lagile-tour-2010-revient.html">L'agile tour 2010 revient !</a>
-        <tags>
+  <div class="row post">
+    <div class="large-2 columns date">20-Sep-2010  <span class="french flag"></span></div>
+    <div class="large-6 columns title"><a href="/2010/09/20/Lagile-tour-2010-revient.html">L'agile tour 2010 revient !</a></div>
+    <div class="large-4 columns tags">
         
         news
         
-        </tags>
-  
-    </li>
+    </div>
+    <hr/>
+  </div>
     
-</ul>
 
-<script type="text/javascript">
-    $('ul.posts').on('click', 'li', function(evt) {
-        window.location = $(this).find('a').attr('href');
+
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('.post').click(function(evt) {  
+      window.location = $(this).find('a').attr('href');
     });
+  });
+  </script>
+
+
+
+
+<!-- google analytics -->
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34916388-1']);
+_gaq.push(['_setDomainName', 'guillaumevincent.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
 </script>
-        </div>
 
-        <!-- google analytics -->
-        <script type="text/javascript">
+<script src="/js/foundation.min.js"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+-->
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-34916388-1']);
-          _gaq.push(['_setDomainName', 'guillaumevincent.com']);
-          _gaq.push(['_trackPageview']);
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-        </script>
-    </body>
+<script>
+$(document).foundation();
+</script>
+</body>
 </html>
