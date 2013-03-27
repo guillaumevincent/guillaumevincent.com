@@ -13,6 +13,7 @@ I recently tried to make <a href="/2013/02/09/Basic-authentication-on-Tornado.ht
 My goal is to allow a user to access my web application when he has good permissions. I add 3 handlers, one for my index (MainHandler), one for my login page (AuthLoginHandler), one for my logout page (AuthLogoutHandler). 
 </p>
 
+
 {% highlight python %}
 class Application(tornado.web.Application):
     def __init__(self):
@@ -30,6 +31,7 @@ class Application(tornado.web.Application):
         }
         tornado.web.Application.__init__(self, handlers, **settings)
 {% endhighlight %}
+
 
 The settings\["login_url"\] property set the url to be used by the @authenticated decorator. What I want is to redirect the user to login url (/auth/login/) if he's not identified.
 
