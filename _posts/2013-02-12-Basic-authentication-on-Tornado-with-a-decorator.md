@@ -40,7 +40,7 @@ class MainHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         username = tornado.escape.xhtml_escape(self.current_user)
-        self.write("index.html", username = username)
+        self.render("index.html", username = username)
 {% endhighlight %}
 
 It's so simple, isn't it ?
