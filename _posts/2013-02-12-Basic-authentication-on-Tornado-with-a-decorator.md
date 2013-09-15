@@ -46,7 +46,7 @@ class MainHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         username = tornado.escape.xhtml_escape(self.current_user)
-        self.write("index.html", username = username)
+        self.render("index.html", username = username)
 {% endhighlight %}
 
 
@@ -143,6 +143,5 @@ These two methods use a cookie secret key to encrypt the cookie.
 
 
 Hope this helped !
-
 
 <a href="https://gist.github.com/guillaumevincent/4771570">See the gist associate</a>
