@@ -5,10 +5,14 @@ author: gvincent
 lang: fr
 tags: réflexion
 ---
-<div style="float: right; margin:10px;"><img src="https://lh6.googleusercontent.com/-pxgLFrsiEd8/Trw4MPbB27I/AAAAAAAABcU/1kZJ2cYQSzQ/s800/476-150x150.jpg"></div>
+<div style="float: right; margin-left:10px;"><img src="https://lh6.googleusercontent.com/-pxgLFrsiEd8/Trw4MPbB27I/AAAAAAAABcU/1kZJ2cYQSzQ/s800/476-150x150.jpg"></div>
 
 
-Gros débat même au sein des développeurs de mon entreprise, faut-il coder en anglais ou en français? Je ne sais pas si la question a de sens dans la mesure ou le contexte définit souvent la langue du code. Mais si j’ai le choix, je pense que le code doit être en anglais pour les raisons suivantes :
+Gros débat même au sein des développeurs de mon entreprise, faut-il coder en anglais ou en français?
+Je ne sais pas si la question a de sens dans la mesure ou le contexte définit souvent la langue du code.
+Mais si j’ai le choix, je pense que le code doit être en anglais pour les raisons suivantes :
+
+<!--more-->
 
 * les propriétés du langage sont difficiles à traduire, 
 Les GET SET en java par exemple, entraine du franglais ou un code à rallonge.

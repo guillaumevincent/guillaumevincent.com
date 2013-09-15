@@ -3,15 +3,19 @@ layout: post
 lang: en
 title: Basic authentication on Tornado with a decorator
 author: gvincent
-tags: tornado, python, authentication, decorator
+tags: tornado, python, authentication
 ---
-<p>
-<a href="http://www.tornadoweb.org/">Tornado</a> is an open source web server developed by Facebook. It implement various third-party authentication schemes to connect to services like Facebook, Google OAuth, Twitter, etc. But Tornado doesn't provide a good documentation when you try to handle your own login service. I tried to do mine. Let's take a look:
-<br>
-I recently tried to make <a href="/2013/02/09/Basic-authentication-on-Tornado.html">my own authentication</a> method in my application with Tornado. And I remained frustrated because I do not happen to use decorators. Decorator are evaluated before the function definition is executed. You remove duplication when you have to protect differents handlers. 
-<br>
-My goal is to allow a user to access my web application when he has good permissions. I add 3 handlers, one for my index (MainHandler), one for my login page (AuthLoginHandler), one for my logout page (AuthLogoutHandler). 
-</p>
+
+[Tornado](http://www.tornadoweb.org/) is an open source web server developed by Facebook.
+It implement various third-party authentication schemes to connect to services like Facebook, Google OAuth, Twitter, etc.
+But Tornado doesn't provide a good documentation when you try to handle your own login service.
+I tried to do mine.
+
+<!--more-->
+
+My goal is to allow a user to access my web application when he has good permissions.
+I add 3 handlers, one for my index (MainHandler), one for my login page (AuthLoginHandler),
+one for my logout page (AuthLogoutHandler).
 
 
 {% highlight python %}
@@ -33,7 +37,9 @@ class Application(tornado.web.Application):
 {% endhighlight %}
 
 
-The settings\["login_url"\] property set the url to be used by the @authenticated decorator. What I want is to redirect the user to login url (/auth/login/) if he's not identified.
+The settings\["login_url"\] property set the url to be used by the @authenticated decorator.
+What I want is to redirect the user to login url (/auth/login/) if he's not identified.
+
 
 {% highlight python %}
 class MainHandler(BaseHandler):
@@ -43,8 +49,10 @@ class MainHandler(BaseHandler):
         self.write("index.html", username = username)
 {% endhighlight %}
 
+
 It's so simple, isn't it ?
 <br> It remains for me to create a handler for my login screen, and a handler to delete my cookie when i reach auth/logout/ url.
+
 
 {% highlight python %}
 class AuthLoginHandler(BaseHandler):
@@ -63,7 +71,9 @@ class AuthLogoutHandler(BaseHandler):
         self.redirect(self.get_argument("next", "/"))
 {% endhighlight %}
 
+
 My login handler get method render the login.html page.
+
 
 {% highlight html %}
 <form action="/auth/login/" method="post" id="login_form">
@@ -87,12 +97,15 @@ My login handler get method render the login.html page.
 </form>
 {% endhighlight %}
 
-<center><img src="https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png"></center>
+![login form](https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png)
 
-When a user makes a POST request on /auth/login/, my web server validates if the pair username/password is good and writes the user cookie. Otherwise it redirects the user to the login page with an error message.
+
+When a user makes a POST request on /auth/login/,
+my web server validates if the pair username/password is good and writes the user cookie.
+Otherwise it redirects the user to the login page with an error message.
+
 
 {% highlight python %}
-
 class AuthLoginHandler(BaseHandler):
     def get(self):
         try:
@@ -122,11 +135,14 @@ class AuthLoginHandler(BaseHandler):
             self.set_secure_cookie("user", tornado.escape.json_encode(user))
         else:
             self.clear_cookie("user")
-
 {% endhighlight %}
 
-All the current user informations are saved in a secure cookie. Tornado provide set_secure_cookie and get_secure_cookie methods. These two methods use a cookie secret key to encrypt the cookie.
+All the current user informations are saved in a secure cookie.
+Tornado provide set_secure_cookie and get_secure_cookie methods.
+These two methods use a cookie secret key to encrypt the cookie.
+
 
 Hope this helped !
+
 
 <a href="https://gist.github.com/guillaumevincent/4771570">See the gist associate</a>

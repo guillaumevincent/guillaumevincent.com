@@ -8,6 +8,8 @@ tags: méthodologie agile
 
 Dans ce billet, je vais vous donner ma recette pour réussir un projet en solitaire. Il complète un précédent billet sur le même sujet, où je décrivais les problèmes que j’ai rencontrés. Je rappelle le contexte de ma situation : je travaille dans une SSII Bordelaise. J’ai effectué plusieurs missions en solitaire. Je vais essayer de lister l’ensemble des points qui me paraissent important pour réussir :
 
+<!--more-->
+
 ###Participez activement à l’avant vente
 
 Notre métier consiste trop souvent à réaliser un produit, vendu par un commercial sans expertise technique, pour un client qui ne connait pas notre métier

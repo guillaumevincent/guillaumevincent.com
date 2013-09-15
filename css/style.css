@@ -1,226 +1,291 @@
-/*dev
-
-* {
-   border: 1px solid red !important;
-}
-*/
-
-
-/* apply a natural box layout model to all elements */
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-
-.orange{
-	color: #CF2F19;
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: rgb(30, 30, 30);
 }
 
-
-body{
-	background-color:#f9f9f9;
+img {
+    max-width: 90%;
 }
 
-.top-bar-section ul li > a.button.okiwi {
-background: #f6b417;
-border-color: #f6b417;
-color: black;
- }
-
-.top-bar-section ul li > a.button.okiwi:hover {
-background: #ed8d00;
-border-color: #ed8d00; }
-
-.top-bar-section ul li > a.button.rss {
-background: #f6830d;
-border-color: #f6830d;
-color: black;
- }
-
-.top-bar-section ul li > a.button.rss:hover {
-background: #fcb148;
-border-color: #fcb148; }
-
-.flag{
-	width: 16px !important;
-	max-width: 16px;
-	height: 11px !important;
-	max-height: 11px;
-	position: absolute;
-    top: 12px;
-    left: 110px;
-    background: url(../img/sprites.png) 0 0 no-repeat;
+div {
+    webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.english{
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-
-background-position: -30px -30px;
+.backtop {
+    text-align: right;
+    margin: 20px 0;
 
 }
 
-
-.french{
-background-position: 0px -30px;
-
+.backtop a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.post hr{
-margin-bottom: 0px;
-}
-.post{
-	min-height: 35px;
-	font-family: 'Open Sans', sans-serif;
-	line-height: 35px;
-}
-.post .tags, .post .date{
-	font-size: 12px;
-}
-.post .tags, .post .date, .post .title{
-
-	line-height: 35px;
-	font-family: 'Open Sans', sans-serif;
+#index {
+    background: #255F85 url(../img/header_mobile.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Droid Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
-.post:hover{
-	cursor: pointer;
-}
-
-
-.post-date{
-text-align: right;
-	top: 40px;
-}
-
-.post-content, #contact-page p{
-	text-align: justify;
-	font-size: 1.2em;
-line-height: 1.7em;
-	font-family: 'Open Sans', sans-serif;
-}
-
-
-
-/*****************************************************************************/
-/*
-/* Contact
-/*
-/*****************************************************************************/
-.gplus,
-.twitter,
-.gmail,
-.xp,
-.imgprofil{
-    background: url(../img/sprites.png) no-repeat center;
-    display:block;
-    margin-top: 10px;
-    margin: 0 auto;
-}
-
-.gplus,
-.twitter,
-.gmail{
-    width:32px;
-    height: 32px;
-}
-
-.imgprofil{
-    background-position: -160px 0px;
-    width:130px;
-    height: 130px;
-
-}
-
-.xp{
-    width:160px;
-    height: 45px;
-    background-position: 0px -130px;
-}
-
-.gplus{
-    background-position: -59px 0px;
-
-}
-
-.gmail{
-    background-position: -59px -40px;
-}
-
-.twitter{
-    background-position: -100px -40px;
-}
-#contact-sidebar{
-	text-align: center !important;	
-}
-
-#social_icon {
+.container {
     position: relative;
-    float: left;
-    margin: 5px 0px;
-    padding: 0px;
-    width: 170px;
-    height: 25px;
-
+    max-width: 1170px;
+    margin: auto;
+    background-color: white;
 }
 
-#social_icon li {
-    width: 50px;
-    height: 25px;
+nav {
     position: absolute;
-    top: 0px;
-    background: url(../img/sprites.png) 0 0 no-repeat;
-    display: block;
-    list-style: none;
+    right: 10px;
+    top: 10px;
+    height: 42px;
 }
 
-#social_icon a {
-    width: 49px;
-    height: 24px;
-    display: block;
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-transform: uppercase;
 }
 
-#social_icon li:hover {
-    opacity:0.4;
+nav ul li {
+    display: inline;
+    line-height: 42px;
+    margin-left: 21px;
 }
 
-#social_icon #panel1 {
-    left: 0px;
-}
-
-#social_icon #panel2 {
-    left: 55px;
-    background-position: 0 -45px;
-}
-
-#social_icon #panel3 {
-    left: 110px;
-    background-position: 0 -90px;
-}
-
-#disqus_thread{
-margin-top: 20px;
-}
-
-.top{
-    display:block;
-    float: right;
-    margin: 5px 0px;
-    width:25px;
-    height: 25px;
-    font-size:25px;
-    background: url(../img/sprites.png) 0 0 no-repeat;
-    background-position: -60px -90px;
+nav ul li a {
+    color: white;
+    line-height: 42px;
     text-decoration: none;
 }
 
-.top:hover{
-    opacity:0.4;
+#logo, #logo-front-page {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 42px;
+    z-index: 10;
 }
 
-@media only screen and (max-width: 480px) {
-	.top-bar .name h1 a {width: 60%;}
-	.post .tags, .post .date{margin-left: 5px}
-	.post .title{	line-height: 20px;}
-	.post-date{
-		text-align: left;
-	top: 0px;
-	margin-bottom: 10px;
+#title-center {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 36px;
+    line-height: 42px;
+    text-transform: uppercase;
+    text-align: center;
 }
+
+#blog-top-img {
+    background: url(../img/blog_head_mobile.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    padding: 65px 5% 30px;
+    margin: 0;
+
+    color: white;
+    font-size: 1.2em;
+}
+
+.wrapper-inner {
+    padding: 5px 10px;
+}
+
+.post {
+    margin-bottom: 42px;
+}
+
+.post-head {
+    position: relative;
+    height: 40px;
+    border-top: 1px solid rgb(222, 222, 220);
+    border-bottom: 1px solid rgb(222, 222, 220);
+    font-size: 12px;
+    color: rgb(179, 179, 177);
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.post-head .post-more {
+    right: 0;
+    position: absolute;
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-title {
+    color: rgb(30, 30, 30);
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.post-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-excerpt {
+    /*font-family: Georgia, Cambria, "Times New Roman", Times, serif;*/
+    color: rgb(30, 30, 30);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.post-info {
+    color: rgb(179, 179, 179);
+    margin-bottom: 42px;
+}
+
+.article {
+    padding: 3em 10px 10px;
+}
+
+.article p {
+    font-size: 22px;
+    word-spacing: -0.05em;
+    line-height: 1.3em;
+}
+
+.comments {
+    padding: 2em 3em 4em;
+}
+
+.meta {
+    color: rgb(179, 179, 179);
+}
+
+pre {
+    background: none repeat scroll 0 0 rgb(245, 242, 240);
+    font-size: 12px;
+    padding: 1em;
+    margin: 21px 0;
+}
+
+blockquote {
+    padding: 1em 1em 1em 2em;
+    margin: 0;
+    line-height: 1.6;
+    color: rgb(111, 111, 111);
+    font-style: italic;
+    background: #F3F3F1 url(../img/bq.gif) repeat-y;
+    font-size: 0.9em;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+    .article {
+        padding: 2em 3em 4em;
+        font-size: 20px;
+    }
+
+    pre {
+        font-size: 14px;
+    }
+
+    #index {
+        background: #255F85 url(../img/header_tablet.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    #blog-top-img {
+        background: url(../img/blog_head_retina.jpg) no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    #title-center {
+        width: 768px;
+        height: 150px;
+        margin-left: -384px;
+        margin-top: -75px;
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #logo {
+        position: fixed;
+    }
+
+    .article .comments {
+        width: 66%;
+    }
+
+    .article p + p {
+        margin-bottom: 30px;
+    }
+
+    .comments {
+        margin: 21px 0;
+    }
+
+    .wrapper {
+        outline: 0 none;
+        position: absolute;
+        left: 30%;
+        right: 0;
+        top: 0;
+    }
+
+    .wrapper-inner {
+        width: 100%;
+        -moz-box-sizing: border-box;
+        max-width: 810px;
+        padding: 50px 85px;
+    }
+
+    #blog-top-img {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 100%;
+        max-width: 500px;
+    }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

@@ -11,6 +11,7 @@ Le constat est malheureusement pessimiste, l’agilité en solitaire, c’est di
 
 > A tous les développeurs du monde, si un chef de projet tient à vous mettre sur un projet où vous serez seul, fuyez ! À toutes jambes, sans même vous retourner. N’acceptez jamais ce genre de mission. Sinon, vous signez votre arrêt de mort !
 
+<!--more-->
 
 Je ne suis pas tout à fait d’accord. Il est facile de comprendre que scrum est à proscrire dans un projet en solitaire. Scrum est le terme anglais signifiant mêlée, notamment au rugby. Faire une mêlée tout seul ça n’a pas de sens. D’ailleur l’expression « équipe scrum » est plus souvent utilisée que le terme scrum lui même. Et jusqu’à preuve du contraire, une équipe ça se compose au minimum de deux individus.
 Une **équipe scrum** est composé d’au moins trois personnes: un ScrumMaster, un product owner et un développeur. Appliquer l’agilité en solitaire sous entend que je représente ces trois personnes en même temps. A part si je suis atteins d’une double schizophrénie (que les médecins ne m’en veuillent pas, je fais l’amalgame entre double personnalité & schizophrénie) il est difficile pour moi de jouer tous ces rôles en même temps.
