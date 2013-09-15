@@ -5,7 +5,12 @@ author: gvincent
 lang: fr
 tags: tdd
 ---
-Dans ce tutoriel, je vous propose de comprendre le fonctionnement du TDD, appelé aussi développement piloté par les tests. J’ai essayé de le rendre le plus accessible possible. J’utilise une approche didactique, avec pas mal d’explications. Cette démarche est complétée par un deuxième tutoriel plus pratique, où je vous propose de venir essayer ce que je vous ai appris. Bonne lecture!
+Dans ce tutoriel, je vous propose de comprendre le fonctionnement du TDD, appelé aussi développement piloté par les tests.
+J’ai essayé de le rendre le plus accessible possible. J’utilise une approche didactique, avec pas mal d’explications.
+
+<!--more-->
+
+Cette démarche est complétée par un deuxième tutoriel plus pratique, où je vous propose de venir essayer ce que je vous ai appris. Bonne lecture!
 
 ###Qu’est-ce que le TDD ?
 

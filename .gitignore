@@ -1,3 +1,5 @@
 *.less
 .gitignore
 .idea/
+bower_components/
+_site/
