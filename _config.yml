@@ -1,6 +1,6 @@
 name: The Personal Blog of Guillaume Vincent
 description: My Personal blog where i can put some of my thoughts together
-url: http://localhost:4000/
+url: http://guillaumevincent.com/
 pygments: True
 exclude: [bower_components]
 excerpt_separator: <!--more-->
