@@ -35,7 +35,7 @@ Tu ne veux plus travailler dans une société de service, tu veux inventer, cré
 
 Essaye de travailler dans une startup, investi, prends des risques, met toi à nue, accepte d'être vulnérable.
 Tu veux créer ta boite, devenir indépendant, où mieux travaille dans l'open source (Il parait que Mozilla recrute) lance toi.
-Au final coder ne te plait pas, ce n'est pas grave, reconverti toi, tu auras gagné 30 ans à faire un métier que tu aimes !
+Au final coder ne te plait pas, ce n'est pas grave, reconvertis toi, tu auras gagné 30 ans à faire un métier que tu aimes !
 Et si vous êtes plusieurs à faire comme toi Bob, demain tu pourras le dire: "j'ai été d'utilité publique!"
 
 Demain tu pourras regarder tes enfants et rêver qu’ils deviennent comme leur père : pas artisan logiciel mais acteur de leur vie !
