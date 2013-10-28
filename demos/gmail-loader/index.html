@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Created using jsbin.com
+  Source can be edited via http://jsbin.com/amevId/174/edit
+-->
+<head>
+<meta name="description" content="Start faster gives the impression to go faster" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<meta charset=utf-8 />
+<title>Gmail loading fast</title>
+
+<style id="jsbin-css">
+html, body{
+  height: 100%;
+}
+body {
+  background: rgb(245,245,245);
+  font-family: arial,sans-serif;
+}
+input {
+  padding: 10px; 
+  display: block; 
+  margin: 10px auto; 
+  width: 50px; 
+  border-radius: 2px; 
+  border: 1px solid #ccc; 
+  text-align: center;
+}
+
+#control-frame{
+  height: 30%;
+  text-align: center;
+}
+.loading-frame{
+  height: 30%;
+  position: relative;
+}
+.loading-frame b {
+  position: absolute;
+  top: calc(50% - 26px);
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+.loader-gmail {
+  position: absolute;
+  top: calc(50% - 6px);
+  left: calc(50% - 160px);
+}
+
+.loader-gmail {
+  border: 1px solid #a4a4a4;
+  width: 320px;
+  height: 8px;
+  background-image: linear-gradient(135deg, #6187f2 0%, #6187f2 25%, #5679da 25%, #5679da 50%, #6187f2 50%, #6187f2 75%, #5679da 75%, #5679da 100%);
+  background-repeat: repeat;
+  background-position: 0px 0px;
+  background-size: 16px 16px;
+  background-clip: content-box;
+  padding: 1px;
+  animation: loading 1s linear infinite;
+}
+
+.progress-bar {
+  position: absolute;
+  right: 0;
+  height: 8px;
+  background: rgb(245,245,245);
+  z-index: 20;
+  min-width: 100%;
+  content: '';
+}
+.helper{
+  font-size: 12px;
+  color: #666;
+}
+@keyframes loading {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -16px 0px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="loading-frame">
+  <b>Loading slow@gmail.com...</b>
+  <div class="loader-gmail">
+    <div id="progress-bar1" class="progress-bar">
+    </div>
+  </div>
+<br>
+</div>
+<div class="loading-frame">
+  <b>Loading fast@gmail.com...</b>
+  <div class="loader-gmail">
+    <div id="progress-bar2" class="progress-bar">  
+    </div>
+  </div>  
+</div>
+<div id="control-frame">
+  <label>Animation time in seconds</label>
+  <input type="text" id="loading-timer" />
+  <p class="helper">set a duration and hit enter</p>
+  <button id="stop">Stop</button>
+  <p class="helper">loading by <a href="http://codepen.io/scrapmac">Girish Sharma</a></p>
+  <p class="helper">example for <a href="/2013/10/27/Start-faster-gives-the-impression-to-go-faster.html">my post</a></p>
+</div>
+
+<script>
+var count = 0;
+
+var gaussianFunction = [0, 1, 2, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 9, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 19, 19, 19, 18, 18, 18, 17, 17, 16, 16, 15, 14, 14, 13, 13, 12, 11, 11, 10, 10, 9, 9, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0];
+
+var renderProgressBar = function(){
+  if(count < 100) {
+    $('#progress-bar1').css('min-width',(99 - count).toString() + '%');
+    $('#progress-bar2').css('min-width',(99 - count - gaussianFunction[count]).toString() + '%');
+    count++;
+  } else {
+    count=0;
+  }
+};
+
+var interval;
+
+$(document).ready(function(){
+  interval = setInterval(renderProgressBar, 100);
+});
+
+$('#loading-timer').change(function(){ 
+  $('#progress-bar1').css('min-width','100%');
+  $('#progress-bar2').css('min-width','100%');
+  count = 0;
+  var animationDuration = $(this).val() * 10;
+  if (interval){
+    clearInterval(interval);
+  }
+  interval = setInterval(renderProgressBar, animationDuration);
+});
+
+$('#stop').click(function(){ 
+  console.log("stop");
+  clearInterval(interval);
+});
+</script>
+</body>
+</html>
