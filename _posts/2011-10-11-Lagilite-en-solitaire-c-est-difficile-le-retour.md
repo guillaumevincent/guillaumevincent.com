@@ -17,9 +17,7 @@ Notre métier consiste trop souvent à réaliser un produit, vendu par un commer
 Votre entreprise a intérêt à vous faire participer à l’avant vente. La réponse à appel d’offre est plus technique, plus pertinente, plus proche du désir du client. Vous pouvez directement ouvrir les hostilités avec votre chef en précisant que dans le temps indiqué et en consommant de l’extasie, vous ne ferez que 50% du projet. Qui mieux que vous, êtes plus à même de juger du temps nécessaire à la réalisation du projet ?
 
 
-<center>
-	<img src="https://lh4.googleusercontent.com/-H-6McKQrcXA/Trw4L1l8aLI/AAAAAAAABcI/cHAZIvRYows/s800/3mois-300x191.png">
-</center>
+![3 mois pour un projet](https://lh4.googleusercontent.com/-H-6McKQrcXA/Trw4L1l8aLI/AAAAAAAABcI/cHAZIvRYows/s800/3mois-300x191.png){.center}
 
 ###Réalisez-vous même vos users stories
 
@@ -29,9 +27,7 @@ A partir du cahier des charges du client, découper votre travail en users stori
 
 Essayer d’estimer vous-même la durée du projet. Utilisez vos users stories pour réaliser un burndown chart (représentation graphique du temps de travail qu’il reste à faire). Puis alertez votre responsable. Le meilleur moment pour le faire ? Après 25% du temps du projet, vous avez une meilleure vision du projet : votre burdown chart est pertinent. Et vous avez assez de matière pour justifier vos inquiétudes.
 
-<center>
-	<img src="https://lh6.googleusercontent.com/-zoYrxlljxW0/Trw4MiZHAyI/AAAAAAAABcY/Jl1D_3KX-FY/s800/burndown-300x218.jpg">
-</center>
+![burdown chart](https://lh6.googleusercontent.com/-zoYrxlljxW0/Trw4MiZHAyI/AAAAAAAABcY/Jl1D_3KX-FY/s800/burndown-300x218.jpg){.center}
 
 ###Développez avec les tests
 
