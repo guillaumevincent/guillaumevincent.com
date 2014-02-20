@@ -58,7 +58,7 @@ When I start my web application i go to http://localhost:8888/ to get connected.
 </form>
 {% endhighlight %}
 
-<center><img src="https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png"></center>
+![login](https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png){.center}
 
 My login handler get the username and password and check permissions.
 If the pair login/password is good, LoginHandler set the current user and redirect to /sb/ web application otherwise LoginHandler redirect to the index with an error message.
