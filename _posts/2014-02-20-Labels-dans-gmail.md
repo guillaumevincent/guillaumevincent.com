@@ -79,7 +79,7 @@ Pour rechercher une facture EDF sur le mois de décembre 2013:
 
 :)
 
-Ensuite il suffit d'apprendre par coeur les commandes de la <a href="https://support.google.com/mail/answer/7190?hl=en">recherche avancée</a> dans Gmail.
+Ensuite il suffit d'apprendre par coeur les commandes de la [recherche avancée](https://support.google.com/mail/answer/7190) dans Gmail.
 L'auto-complétion des recherches est simplement magnifique.
 J'utilise très souvent :
 
