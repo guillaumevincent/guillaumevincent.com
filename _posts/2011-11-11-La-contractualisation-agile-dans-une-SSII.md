@@ -21,9 +21,7 @@ Douloureux comme problématique ! Pour simplifier le contexte, je me place dans 
 
 Engagement de résultat implique une notion de «  terminée  » du point de vue du client. Le client attend une proposition pour réaliser « l’ensemble  » des fonctionnalités du produit décrites dans le cahier des charges. Il s’attend par la même occasion à ce que le produit final comporte aussi l’ensemble des fonctionnalités énoncées dans le besoin initial.
 
-<center>
-	<img src="https://lh4.googleusercontent.com/-508LddosWQU/Trw4QZNiYiI/AAAAAAAABdY/OJnphuBI2r4/s800/un-pilote-dans-lavion.jpg">
-</center>
+![un pilote dans lavion](https://lh4.googleusercontent.com/-508LddosWQU/Trw4QZNiYiI/AAAAAAAABdY/OJnphuBI2r4/s800/un-pilote-dans-lavion.jpg){.center}
 
 De plus une prestation au « forfait » nous retire toute possibilité de pilotage. L’ajustement en fonction de l’évolution du projet sur le terrain est impossible. Nous savons que nous avons les mains liées, mais nous continuons à nous engager. Le prix de la prestation augmente.
 
