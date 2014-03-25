@@ -10,8 +10,8 @@ tags: git, remote
 Git est un outil de gestion de version, très puissant, extremement rapide et qui souffre d'une certaine complexité.
 Mais c'est cette complexité qui en fait ça force !
 
-> Je ne m’attendais pas vraiment à ce que quiconque utilise Git parce que c’est tellement dur à utiliser,
-> mais finalement cela s’est révélé être son principal attrait - **Linus Torvalds**
+> Je ne m'attendais pas vraiment à ce que quiconque utilise Git parce que c'est tellement dur à utiliser,
+> mais finalement cela s'est révélé être son principal attrait - **Linus Torvalds**
 
 
 

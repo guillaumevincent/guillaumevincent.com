@@ -73,7 +73,7 @@ Tu peux voir comment ta méthode a été testée. Les tests sont à jour:
 {% endhighlight %}
    
 
-Pour résumer, le code d’un logiciel ne doit pas comporter de commentaires, c'est un aveu d'échec sur sa capacité à rendre son code explicite.
+Pour résumer, le code d'un logiciel ne doit pas comporter de commentaires, c'est un aveu d'échec sur sa capacité à rendre son code explicite.
 Son code doit refléter précisément son intention lors de sa conception.
 Et la documentation ce sont les tests. Ils doivent être à jour, et chaque bug doit comporter un test de non régression.
 
