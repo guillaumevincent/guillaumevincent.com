@@ -5,7 +5,7 @@ author: gvincent
 lang: fr
 tags: méthodologie agile
 ---
-<div style="float: right; margin:10px;"><img src="https://lh3.googleusercontent.com/-I40IfhiSgOA/TrwNrLk6YcI/AAAAAAAABcA/3b5gh7sSX6g/s800/retro-300x207.jpg" /></div>
+![Retrospective](https://lh3.googleusercontent.com/-I40IfhiSgOA/TrwNrLk6YcI/AAAAAAAABcA/3b5gh7sSX6g/s800/retro-300x207.jpg){.img-responsive}
 
 Dans l'application de bonnes pratiques agiles, il est recommandé de faire une rétrospective.
 

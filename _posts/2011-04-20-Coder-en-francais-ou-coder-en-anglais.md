@@ -5,8 +5,8 @@ author: gvincent
 lang: fr
 tags: réflexion
 ---
-<div style="float: right; margin-left:10px;"><img src="https://lh6.googleusercontent.com/-pxgLFrsiEd8/Trw4MPbB27I/AAAAAAAABcU/1kZJ2cYQSzQ/s800/476-150x150.jpg"></div>
 
+![Drapeau Anglais Français](https://lh6.googleusercontent.com/-pxgLFrsiEd8/Trw4MPbB27I/AAAAAAAABcU/1kZJ2cYQSzQ/s800/476-150x150.jpg){.img-responsive}
 
 Gros débat même au sein des développeurs de mon entreprise, faut-il coder en anglais ou en français?
 Je ne sais pas si la question a de sens dans la mesure ou le contexte définit souvent la langue du code.
