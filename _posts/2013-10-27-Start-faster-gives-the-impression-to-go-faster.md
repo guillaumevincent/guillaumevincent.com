@@ -49,6 +49,6 @@ Sure, [here you go...](/demos/gmail-loader/)
 [jsbin](http://jsbin.com/amevId/176/)
 
 
-![gmail loader](https://lh4.googleusercontent.com/-9EH0gqVz7ss/Um4MpLkXmfI/AAAAAAAANOU/uNPY6hcJEIU/w476-h677-no/Capture+d%2527e%25CC%2581cran+2013-10-27+23.58.48.png){.center}
+![gmail loader](https://lh4.googleusercontent.com/-9EH0gqVz7ss/Um4MpLkXmfI/AAAAAAAANOU/uNPY6hcJEIU/w476-h677-no/Capture+d%2527e%25CC%2581cran+2013-10-27+23.58.48.png){.center .img-responsive}
 
 If you have other kind of brain confuse techniques, let me know and put a comment bellow.

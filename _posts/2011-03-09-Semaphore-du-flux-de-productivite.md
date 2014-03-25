@@ -14,8 +14,7 @@ Rachel Davies et Liz Sedley dans le livre « Coaching Agile » parlent d'amélio
 If the team makes the move to using a Continuous Integration server to run the build and let them know the test results, they won't need a build token anymore
 </blockquote>
 
-<div style="float: right; margin:10px;"><img src="https://lh3.googleusercontent.com/-kX4-Uq0Ww0c/Trw4MfU1UNI/AAAAAAAABcw/16SyR8NYb_0/s400/agile_coaching_rds.jpg"></div>
-
+![Agile Coaching](https://lh3.googleusercontent.com/-kX4-Uq0Ww0c/Trw4MfU1UNI/AAAAAAAABcw/16SyR8NYb_0/s400/agile_coaching_rds.jpg){.pull-right .img-responsive}
 
 Elle précise que si l'équipe se met à utiliser un serveur d'intégration continue pour exécuter le build et l'informer du résultat des tests, elle n'aura alors plus besoin d'un objet de build (ou jeton de build). Je ne suis pas d'accord avec cette idée. Je vois deux intérêts à ce que l'équipe continue à utiliser un sémaphore d'intégration même si elle utilise un serveur d'intégration continue.
 
