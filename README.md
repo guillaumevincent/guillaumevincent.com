@@ -39,6 +39,9 @@ Notes
 
 Modify static files only in static folder. Public folder is used by gulp to save optimize static files.
 
+Thanks
+------
+A big thank you to Paul Lewis ‏@aerotwis, because I stole his beautiful "Hello!" div on his web site: http://aerotwist.com
 
 
 License
