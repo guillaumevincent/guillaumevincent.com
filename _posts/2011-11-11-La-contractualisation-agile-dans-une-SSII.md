@@ -21,7 +21,7 @@ Douloureux comme problématique ! Pour simplifier le contexte, je me place dans 
 
 Engagement de résultat implique une notion de «  terminée  » du point de vue du client. Le client attend une proposition pour réaliser « l'ensemble  » des fonctionnalités du produit décrites dans le cahier des charges. Il s'attend par la même occasion à ce que le produit final comporte aussi l'ensemble des fonctionnalités énoncées dans le besoin initial.
 
-![un pilote dans lavion](https://lh4.googleusercontent.com/-508LddosWQU/Trw4QZNiYiI/AAAAAAAABdY/OJnphuBI2r4/s800/un-pilote-dans-lavion.jpg){.center}
+![un pilote dans lavion](https://lh4.googleusercontent.com/-508LddosWQU/Trw4QZNiYiI/AAAAAAAABdY/OJnphuBI2r4/s800/un-pilote-dans-lavion.jpg){.center .img-responsive}
 
 De plus une prestation au « forfait » nous retire toute possibilité de pilotage. L'ajustement en fonction de l'évolution du projet sur le terrain est impossible. Nous savons que nous avons les mains liées, mais nous continuons à nous engager. Le prix de la prestation augmente.
 
@@ -35,7 +35,7 @@ Vous vous engagez à livrer à la fin de chaque sprint un produit fonctionnel<su
 
 ###Les craintes du client
 
-<div style="float: right; margin:10px;"><img src="https://lh3.googleusercontent.com/-YnQ7QAvEjZE/Trw4NL7S8OI/AAAAAAAABco/tJk8GVaw94E/s400/client-e%25CC%2581tonne%25CC%2581.jpg" width="180"></div>
+![Client etonné](https://lh3.googleusercontent.com/-YnQ7QAvEjZE/Trw4NL7S8OI/AAAAAAAABco/tJk8GVaw94E/s400/client-e%25CC%2581tonne%25CC%2581.jpg){.center .img-responsive}
 
 La principale crainte du client devient alors la sur-évaluation d'une storie. Les échanges et la collaboration client fournisseur prennent tout leur sens. Si ce point est très bloquant vous pouvez envisager un planning poker chez le client.
 Essayer le contrat 50/50. Vous paliez ainsi aux craintes liées au retard éventuel d'un projet et aux craintes de la sur-évaluation du volume utile pour réaliser le produit. En fonction du projet vous pouvez découper le paiement du projet en X fois. Ce qui correspond à un paiement toute les *Y* itérations<sup>3</sup>.
