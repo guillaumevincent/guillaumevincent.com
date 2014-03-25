@@ -2,249 +2,80 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var minifycss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
-var flatten = require('gulp-flatten');
-var less = require('gulp-less');
 var clean = require('gulp-clean');
-var sass = require('gulp-sass')
-var rename = require("gulp-rename");
+var rename = require('gulp-rename');
 var uncss = require('gulp-uncss');
-var inlinecss = require('gulp-inline-css');
-var minifyHTML = require('gulp-minify-html');
 var autoprefix = require('gulp-autoprefixer');
-
-//npm install --save-dev gulp-autoprefixer gulp-rename gulp-concat gulp-minify-css gulp-uglify gulp-clean gulp-flatten gulp-gzip gulp-ngmin gulp-less gulp-uncss gulp-htmlmin gulp-sass gulp-inline-css
+var imagemin = require('gulp-imagemin');
 
 var paths = {
-    clean: [
-        'static/*/*.min.*',
-        'static/css/*'
-    ],
-    css_vendor: [
-        'bower_components/bootstrap/dist/css/bootstrap.css'
-    ],
-    fonts_vendor: [
-        'bower_components/bootstrap/dist/fonts/*'
-    ],
-    js_vendor: [
-        'bower_components/bootstrap/dist/js/bootstrap.js'
-    ],
-    sass: [
-        'static/sass/htmlstart.scss'
-    ],
     html: [
-        'templates/*'
+        '../_site/index.html',
+        '../_site/2014/02/20/Labels-dans-gmail.html',
+        '../_site/2013/11/15/Merci.html',
+        '../_site/2013/10/27/Start-faster-gives-the-impression-to-go-faster.html',
+        '../_site/2013/09/15/First-10-minutes-on-ubuntu-servers.html',
+        '../_site/2013/08/15/oh-putain-Bob-tu-menerves.html',
+        '../_site/2013/02/12/Basic-authentication-on-Tornado-with-a-decorator.html',
+        '../_site/2013/02/01/Better-social-widget-lazy-loading.html',
+        '../_site/2013/01/03/Git-pour-les-nuls-annuler_les_x_derniers_commit.html',
+        '../_site/2012/12/23/Git-pour-les-nuls-recuperer_une_branche_distante.html',
+        '../_site/2012/09/20/Comment-your-damn-code-bitch.html',
+        '../_site/2012/03/13/La-simplicite-grace-a-Tdd.html',
+        '../_site/2012/03/02/blogofile-ovh-et-amazon.html',
+        '../_site/2012/01/24/Copier-le-contenu-dune-liste-en-python.html',
+        '../_site/2011/11/12/Citation-de-clean-code.html',
+        '../_site/2011/11/11/La-contractualisation-agile-dans-une-SSII.html',
+        '../_site/2011/10/11/Lagilite-en-solitaire-c-est-difficile-le-retour.html',
+        '../_site/2011/04/20/Coder-en-francais-ou-coder-en-anglais.html',
+        '../_site/2011/03/22/Un-projet-logiciel-en-image.html',
+        '../_site/2011/03/09/Semaphore-du-flux-de-productivite.html',
+        '../_site/2011/02/16/Le-Coding-Dojo.html',
+        '../_site/2011/02/03/L-agilite-en-solitaire-c-est-difficile.html',
+        '../_site/2010/12/16/Le-double-planning-poker.html',
+        '../_site/2010/11/17/La-retrospective-son-principal-interet.html',
+        '../_site/2010/10/23/Test-Driven-Development-TDD.html'
     ],
     css: [
-        'static/css/*.css'
+        '../static/lib/bootstrap/dist/css/bootstrap.css',
+        '../static/css/*.css'
+    ],
+    uncss: [
+        '../public/css/guillaumevincent.min.css'
+    ],
+    images: [
+        '../static/img/*'
     ]
 
-
-
-
-
-//    less: 'public/less/bootstrap/bootstrap.less',
-//    css: ['public/css/*.css', 'public/css/vendor/*.css'],
-//    fonts: ['bower_components/**/*.otf', 'bower_components/**/*.eot', 'bower_components/**/*.ttf', 'bower_components/**/*.svg', 'bower_components/**/*.woff']
-    /*
-     vendor: [
-     'js/vendor/jquery.min.js',
-     'js/vendor/angular.min.js',
-     'js/vendor/bootstrap.min.js',
-     'js/vendor/moment-with-langs.min',
-     'js/vendor/underscore.js' ],
-     scripts: ['js*//*.js', '!js/vendor'],
-     images: 'public/img*//*',*/
 };
 
-/*
-
- gulp.task('less', function () {
- return gulp.src(paths.less)
- .pipe(less())
- .pipe(concat('bootstrap.css'))
- .pipe(gulp.dest('public/css/vendor'));
- });
-
- gulp.task('fonts', function () {
- return gulp.src(paths.fonts)
- .pipe(flatten())
- .pipe(gulp.dest('public/fonts'));
- });
-
- gulp.task('clean', function () {
- return gulp.src('public/css*/
-/*.min.css', {read: false})
- .pipe(clean());
- });
- */
-
-/*
- gulp.task('css', function () {
- gulp.src(paths.css)
- .pipe(concat(application_name + '.min.css'))
- .pipe(minifycss())
- .pipe(gulp.dest('public/css'));
- });
- */
-
-// Minify and copy all JavaScript (except vendor scripts)
-/*
- gulp.task('js', function () {
- return gulp.src(paths.scripts)
- .pipe(uglify({mangle: false}))
- .pipe(concat('htmlstart.min.js'))
- .pipe(gulp.dest('public/js'));
- });
-
-
- gulp.task('less', function () {
- return gulp.src(paths.less)
- .pipe(less())
- .pipe(concat('vendor.css'))
- .pipe(gulp.dest('dist/build'))
- .pipe(refresh(server))
- })
-
- // Minify and gzip vendor scripts
- gulp.task('vendor', ['fonts'], function () {
- return gulp.src(paths.vendor)
- .pipe(uglify({mangle: false}))
- .pipe(concat('vendor.min.js'))
- .pipe(gulp.dest('public/js'));
- });
-
-
- gulp.task('img', function () {
- return gulp.src(paths.images)
- .pipe(imagemin({optimizationLevel: 5}))
- .pipe(gulp.dest('public/img'));
- });
- */
-
-
-/*
-
- gulp.task('vendor', ['clean'], function () {
- gulp.src(paths.css_vendor)
- .pipe(concat('vendor.min.css'))
- .pipe(minifycss())
- .pipe(uncss({
- html: paths.html
- }))
- .pipe(gulp.dest('static/css'));
-
- gulp.src(paths.fonts_vendor)
- .pipe(gulp.dest('static/fonts'));
-
- gulp.src(paths.js_vendor)
- .pipe(uglify({mangle: false}))
- .pipe(concat('vendor.min.js'))
- .pipe(gulp.dest('static/js'));
- });
- */
-
-
-gulp.task('minify-html', function () {
-    var opts = {comments: false, spare: true};
-
-    gulp.src('./*.html')
-        .pipe(minifyHTML(opts))
-        .pipe(gulp.dest('./build/'))
+gulp.task('css', function () {
+    gulp.src(paths.css)
+        .pipe(concat('guillaumevincent.min.css'))
+        .pipe(autoprefix('last 2 versions'))
+        .pipe(gulp.dest('../public/css'));
 });
 
+gulp.task('images', function() {
+ return gulp.src(paths.images)
+    .pipe(imagemin({optimizationLevel: 5}))
+    .pipe(gulp.dest('../public/img'));
+});
 
-// Rerun the task when a file changes
+// watch files for changes
 gulp.task('watch', function () {
     gulp.watch(paths.css, ['css']);
-//    gulp.watch(paths.scripts, ['js']);
-//    gulp.watch(paths.images, ['img']);
 });
 
-
-gulp.task('clean', function () {
-    gulp.src(paths.clean, {read: false})
-        .pipe(clean());
-});
-
-gulp.task('fonts', function () {
-    return gulp.src(paths.fonts)
-        .pipe(flatten())
-        .pipe(gulp.dest('public/fonts'));
-});
-
-gulp.task('css', ['clean'], function (callback) {
-    gulp.src(paths.sass)
-        .pipe(sass())
-        .pipe(gulp.dest('static/css'));
-
-    gulp.src(paths.css_vendor)
-        .pipe(concat('vendor.css'))
-        .pipe(gulp.dest('static/css'));
-
-    gulp.src(paths.css)
-        .pipe(concat('style.min.css'))
+gulp.task('uncss', function () {
+    gulp.src('../public/css/guillaumevincent.min.css')
         .pipe(uncss({
             html: paths.html
         }))
         .pipe(minifycss({keepSpecialComments: 0}))
-        .pipe(gulp.dest('static/css'));
-});
-
-
-gulp.task('clean', function () {
-    var clean_paths = [
-        'static/css',
-        'static/js/vendor',
-        'static/fonts'
-    ];
-    gulp.src(clean_paths, {read: false})
-        .pipe(clean());
-});
-
-gulp.task('get_vendor_static_files', ['clean'], function () {
-    gulp.src('bower_components/**/*.min.js')
-        .pipe(flatten())
-        .pipe(gulp.dest('static/js/vendor'));
-
-    gulp.src('bower_components/**/*.min.css')
-        .pipe(flatten())
-        .pipe(gulp.dest('static/css/vendor/'));
-
-    gulp.src('bower_components/**/fonts/*')
-        .pipe(flatten())
-        .pipe(gulp.dest('static/fonts/'));
-});
-
-gulp.task('css', function () {
-    gulp.src('static/css/*.css')
-        .pipe(concat('style.min.css'))
-        .pipe(autoprefix('last 2 versions'))
-        .pipe(minifycss({keepSpecialComments: 0}))
-        .pipe(gulp.dest('static/css'));
-});
-
-gulp.task('uncss', function () {
-    gulp.src('static/css/style.min.css')
-        .pipe(uncss({
-            html: 'templates/index.html'
-        }))
-        .pipe(gulp.dest('build/css'));
-});
-
-
-// watch files for changes
-gulp.task('watch', function() {
-    gulp.watch('static/scss/*.scss', ['sass']);
-    gulp.watch('static/css/*.css', ['css']);
-});
-
-// compile sass files
-gulp.task('sass', function() {
-    return gulp.src('static/scss/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('static/css'));
+        .pipe(gulp.dest('../public/css'));
 });
 
 // the default task (called when you run `gulp` from cli)
-gulp.task('default', ['css', 'sass', 'watch']);
+gulp.task('default', ['css', 'images', 'watch']);
 
