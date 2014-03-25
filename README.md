@@ -1,6 +1,8 @@
 guillaumevincent.com
 ====================
 
+v0.0.3
+
 Requirements
 ------------
 * [jekyll](http://jekyllrb.com/)
