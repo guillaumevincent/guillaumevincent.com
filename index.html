@@ -1,7 +1,66 @@
 ---
 layout: default
-title: Personal website of Guillaume Vincent
+title: Guillaume Vincent
 ---
+
+<div id="header">
+    <div class="container">
+        <div class="inner">
+            <div id="logo">
+                <a href="/">
+                    <img src="static/img/logo.jpeg" alt="Logo guillaumevincent.com">
+                </a>
+            </div>
+            <div id="menu">
+                <a href="/me">ABOUT ME</a>
+                <a target="_blank" href="https://twitter.com/guillaume20100">TWITTER</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="vitrine" class="visible-lg">
+    <div class="container">
+        <div class="inner">
+            <h2>I'M A SOFTWARE CRAFTSMAN, BLOGGER AND FAN OF SCUBA DIVING.<br/>I'M LIVING IN BORDEAUX, FRANCE.</h2>
+        </div>
+    </div>
+</div>
+<br/>
+
+<div id="blog">
+    <div class="container">
+        <div class="col-lg-8">
+
+            {% for post in site.posts %}
+            <article class="post">
+                <h2>
+                    <a href="{{ post.url }}" rel="bookmark" title="Read '{{ post.title }}'">
+                        {{ post.title }}
+                    </a>
+                </h2>
+
+                <ul class="list-unstyled">
+                    <li class="date">{{ post.date | date:"%d-%b-%Y" }}</li>
+                </ul>
+
+                <p class="post-excerpt">
+                    {{ post.excerpt }}
+                </p>
+                <a href="{{ post.url }}" class="btn btn-primary">Read more...</a>
+            </article>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p class="copyright">2008-2014 DESIGN BY GUILLAUME VINCENT</p>
+    </div>
+</footer>
+<!--
 <div id="index">
     <div class="container">
         <a href="{{ site.url }}"><img id="logo-front-page" src="{{ site.url }}img/profil.png" alt="Guillaume Vincent"/></a>
@@ -18,3 +77,4 @@ title: Personal website of Guillaume Vincent
     </div>
 
 </div>
+-->
