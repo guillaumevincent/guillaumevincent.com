@@ -1,7 +1,7 @@
 guillaumevincent.com
 ====================
 
-v0.0.3
+v0.2.0
 
 Requirements
 ------------
