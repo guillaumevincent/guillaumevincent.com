@@ -29,7 +29,7 @@ Change ton cv en ligne, recode à la maison, intéresse-toi à ce qu'il se passe
 
 
 Dis NON, devient fainéant, joue, amuse toi ! Assiste à des conférences, suis des cours du soir, retourne à la fac, pars
- à l’étranger,... Qu'est ce que tu risques ? D’être viré ? C'est peut être ce qui pourrait t'arriver de mieux.
+ à l'étranger,... Qu'est ce que tu risques ? D'être viré ? C'est peut être ce qui pourrait t'arriver de mieux.
  20% de turn over dans les SSII, ne t'inquiète dont pas, demain tu tapes à la porte du voisin, en moins de 3 mois tu as du travail.
 Tu ne veux plus travailler dans une société de service, tu veux inventer, créer et innover ?
 
@@ -38,5 +38,5 @@ Tu veux créer ta boite, devenir indépendant, où mieux travaille dans l'open s
 Au final coder ne te plait pas, ce n'est pas grave, reconvertis toi, tu auras gagné 30 ans à faire un métier que tu aimes !
 Et si vous êtes plusieurs à faire comme toi Bob, demain tu pourras le dire: "j'ai été d'utilité publique!"
 
-Demain tu pourras regarder tes enfants et rêver qu’ils deviennent comme leur père : pas artisan logiciel mais acteur de leur vie !
+Demain tu pourras regarder tes enfants et rêver qu'ils deviennent comme leur père : pas artisan logiciel mais acteur de leur vie !
 
