@@ -12,7 +12,7 @@ title: Guillaume Vincent
                 </a>
             </div>
             <div id="menu">
-                <a href="/me">ABOUT ME</a>
+                <a href="#me">ABOUT ME</a>
                 <a target="_blank" href="https://twitter.com/guillaume20100">TWITTER</a>
             </div>
         </div>
@@ -22,7 +22,10 @@ title: Guillaume Vincent
 <div id="vitrine" class="visible-lg">
     <div class="container">
         <div class="inner">
-            <h2>I'M A SOFTWARE CRAFTSMAN, BLOGGER AND FAN OF SCUBA DIVING.<br/>I'M LIVING IN BORDEAUX, FRANCE.</h2>
+            <h2>
+                I'm a front-end web developer,
+                <br/> living in Bordeaux, FRANCE.
+            </h2>
         </div>
     </div>
 </div>
@@ -30,34 +33,80 @@ title: Guillaume Vincent
 
 <div id="blog">
     <div class="container">
-        <div class="col-lg-8">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Blog Posts</h1>
+                {% for post in site.posts %}
+                <article class="post">
+                    <h2>
+                        <a href="{{ post.url }}" rel="bookmark" title="Read '{{ post.title }}'">
+                            {{ post.title }}
+                        </a>
+                    </h2>
 
-            {% for post in site.posts %}
-            <article class="post">
-                <h2>
-                    <a href="{{ post.url }}" rel="bookmark" title="Read '{{ post.title }}'">
-                        {{ post.title }}
-                    </a>
-                </h2>
+                    <ul class="list-unstyled">
+                        <li class="date">{{ post.date | date:"%d-%b-%Y" }}</li>
+                    </ul>
 
-                <ul class="list-unstyled">
-                    <li class="date">{{ post.date | date:"%d-%b-%Y" }}</li>
-                </ul>
+                    <p class="post-excerpt">
+                        {{ post.excerpt }}
+                    </p>
+                    <a href="{{ post.url }}" class="btn btn-primary">Read more...</a>
+                </article>
+                {% endfor %}
 
-                <p class="post-excerpt">
-                    {{ post.excerpt }}
-                </p>
-                <a href="{{ post.url }}" class="btn btn-primary">Read more...</a>
-            </article>
-            {% endfor %}
-
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-right">
+                <a href="#">Back to top</a>
+            </div>
         </div>
     </div>
 </div>
 
 <footer>
+    <!--thank you http://aerotwist.com/ for the idea of the template-->
     <div class="container">
-        <p class="copyright">2008-2014 DESIGN BY GUILLAUME VINCENT</p>
+        <div id="me" class="row">
+            <div class="col-sm-4">
+                <h2>Hello!</h2>
+
+                <p>
+                    <img src="/static/img/p.jpg" alt="Guillaume Vincent" class="img-circle pull-left">
+                    My name is Guillaume. <br/> I'm a front-end web developer, living in Bordeaux, FRANCE.
+                    I work at Akema. I'm also the co-founder of <a href="https://akemail.fr">Akemail</a>.
+                    I used to work on Mac, with languages ​​like Python, ECMAScript. My favorite IDE is PyCharm. Right
+                    now I'm having fun with AngularJS, Flask, Django, NodeJS, PostgreSQL and Ubuntu.
+                    <!--I found off clean code, diving and I love to share and learn.j'ai l'habitude de travailler
+                    sous mac, avec des langages comme python, javascript. Mon IDE favoris est Pycharm.
+                    En ce moment je m'amuse avec angularjs, flask, django, nodejs, postgresql, ubuntu.-->
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Get in touch</h2>
+
+                <p>
+                    You can find me on <a href="http://twitter.com/guillaume20100">Twitter</a> and in real life at
+                    <a href="http://okiwi.org/">Okiwi</a>. I really like people interaction, so say hi and come to code
+                    with me at some famous coding dojo in Bordeaux!
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Subscribe</h2>
+
+                <p>You should get the <a href="/feed.xml">RSS feed</a>, or follow me on twitter</p>
+
+                <p>Except as otherwise noted, the content of this web site is licensed under the Creative Commons
+                    Attribution 3.0 License, and code samples are licensed under the MIT License.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="copyright">
+            ♥ DESIGN BY GUILLAUME VINCENT
+        </p>
     </div>
 </footer>
 <!--
