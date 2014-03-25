@@ -12,6 +12,14 @@ body {
     padding: 0;
 }
 
+#article-profil-img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 42px;
+    z-index: 10;
+}
+
 #header, #vitrine {
     background: none repeat scroll 0 0 #4791D2;
     text-align: center;
@@ -73,6 +81,11 @@ body {
     font-weight: normal;
 }
 
+#vitrine h2 a {
+    color: darkorange;
+    text-decoration: underline;
+}
+
 .post {
     margin-bottom: 2em;
     padding: 0 0 4em;
@@ -87,6 +100,13 @@ body {
 
 footer {
     background-color: rgba(0, 0, 0, 0.85);
+    color: #ECECEC;
+}
+
+footer img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
 }
 
 .center {
@@ -106,6 +126,10 @@ footer p.copyright {
     text-align: center;
     font-size: 10px;
     letter-spacing: 2px;
+}
+
+.article-title {
+    margin-top: 60px;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -136,6 +160,9 @@ footer p.copyright {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    #article-profil-img {
+        position: fixed;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
