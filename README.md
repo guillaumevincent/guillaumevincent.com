@@ -10,6 +10,12 @@ Requirements
 * [bower](http://bower.io/)
 * [nodejs](http://nodejs.org/)
 
+Install
+-------
+
+    cd config
+    npm install
+    bower install
 
 Build
 -----

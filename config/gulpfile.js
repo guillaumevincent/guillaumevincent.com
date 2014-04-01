@@ -11,6 +11,7 @@ var imagemin = require('gulp-imagemin');
 var paths = {
     html: [
         '../_site/index.html',
+        '../_site/2014/03/31/LAvenir-Appartient-A-Ceux-Qui-Se-Leve-Tot.html',
         '../_site/2014/02/20/Labels-dans-gmail.html',
         '../_site/2013/11/15/Merci.html',
         '../_site/2013/10/27/Start-faster-gives-the-impression-to-go-faster.html',
