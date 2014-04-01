@@ -1,7 +1,7 @@
 {
     "name": "guillaumevincent.com",
     "version": "0.2.0",
-    "description": "repo for my personal website guillaumevincent.com ",
+    "description": "repo for my personal website guillaumevincent.com",
     "repository": {
         "type": "git",
         "url": "https://github.com/guillaumevincent/guillaumevincent.com.git"
