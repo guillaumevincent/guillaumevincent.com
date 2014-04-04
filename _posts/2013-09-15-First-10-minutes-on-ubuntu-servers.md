@@ -11,34 +11,29 @@ Je me suis dit qu'elle pourrait être utile. Je la partage donc avec vous.
 
 <!--more-->
 
-###Installation des dernieres mises à jour
+### Installation des dernieres mises à jour
 
-{% highlight console %}
-$ sudo apt-get update
-$ sudo apt-get upgrade
-{% endhighlight %}
+    sudo apt-get update
+    sudo apt-get upgrade
 
 Je renomme ma machine en éditant /etc/hostname, et je remplace le nom de l'ancienne machine.
 
-{% highlight console %}
-$ sudo vim /etc/hostname
-{% endhighlight %}
+    sudo vim /etc/hostname
 
 Je change ou je rajoute la ligne
 
-{% highlight console %}
-127.0.1.1 NOM_DE_MA_NOUVELLE_MACHINE
+    127.0.0.1 NOM_DE_MA_NOUVELLE_MACHINE
+
 dans le fichier /etc/hosts
-$ sudo vim /etc/hosts
-{% endhighlight %}
+
+    sudo vim /etc/hosts
 
 Je redémarre
-{% highlight console %}
-$ sudo reboot
-{% endhighlight %}
+
+    sudo reboot
 
 
-###Création utilisateur applicatif et accès au serveur
+### Création utilisateur applicatif et accès au serveur
 
 J'aime l'idée de créer un utilisateur dédié à une application avec des droits d'administrateur.
 Souvent je me sers de cet utilisateur pour déployer et relancer mon application.
@@ -50,63 +45,60 @@ Création d'un utilisateur applicatif
 
 Pour ce tutoriel mon utilisateur s'appelle *deploy*
 
-{% highlight console %}
-$ sudo useradd deploy
-$ sudo mkdir /home/deploy
-$ sudo mkdir /home/deploy/.ssh
-$ sudo chmod 700 /home/deploy/.ssh
-{% endhighlight %}
+    sudo useradd deploy
+    sudo mkdir /home/deploy
+    sudo mkdir /home/deploy/.ssh
+    sudo chmod 700 /home/deploy/.ssh
 
 Libre à vous de remplacer deploy par le nom de votre choix (administrateur, deploiement, etc). J'aime l'idée de donner le nom de mon application à l'utilisateur qui lance cette application.
 
-###Accès au serveur
+### Accès au serveur
 Chaque développeur doit être capable de deployer l'application.
 Pour limiter les droits aux développeurs, il existe un système simple qui consiste à ajouter l'ensemble des clefs ssh publiques des développeurs dans le fichier *authorized_keys* de notre utilisateur deploy.
 
-{% highlight console %}
-$ sudo vim /home/deploy/.ssh/authorized_keys
-$ chmod 400 /home/deploy/.ssh/authorized_keys
-
-$ chown deploy:deploy /home/deploy -R
-{% endhighlight %}
+    sudo vim /home/deploy/.ssh/authorized_keys
+    chmod 400 /home/deploy/.ssh/authorized_keys
+    chown deploy:deploy /home/deploy -R
 
 l'intérêt de cette méthode, et que vous pouvez automatiser le deploiement d'un fichier maintenu à jour authorized_keys
 qui vous garanti qu'aucun fantome n'a encore accès à votre application.
 
-###Tester la connection
+### Tester la connection
 Depuis un autre poste dans un terminal tappez
 
-{% highlight console %}
-$ ssh deploy@ADRESSE_IP_DE_MON_SERVEUR
-{% endhighlight %}
+    ssh deploy@ADRESSE_IP_DE_MON_SERVEUR
 
 Si tout est ok alors vous pouvez ajouter un mot de passe long à votre nouvel utilisateur.
 
-{% highlight console %}
-$ sudo passwd deploy
-{% endhighlight %}
+    sudo passwd deploy
 
-###Droits administrateur
+
+### Droits administrateur
 Il faut rajouter les droits sudo à notre utilisateur.
 
-{% highlight console %}
-$ sudo visudo
-{% endhighlight %}
+    sudo visudo
 
 ajouter deploy  ALL=(ALL) ALL et sauvegardez (Ctrl-X, Shift-Y et taper ENTRER)
 
-###Droits SSH
+### Droits SSH
 Je veux empécher les utilisateurs d'utiliser leurs mots de passe pour se connecter et interdire la connection *root*
 
-{% highlight console %}
-$ sudo vim /etc/ssh/sshd_config
+    sudo vim /etc/ssh/sshd_config
 
-PermitRootLogin no
-PasswordAuthentication no
-{% endhighlight %}
+    PermitRootLogin no
+    PasswordAuthentication no
 
 Pour que les modifications soit prises en compte, vous devez redémarer le service ssh
 
-{% highlight console %}
-$ sudo service ssh restart
-{% endhighlight %}
+    sudo service ssh restart
+
+
+### Configuration pour l'utilisateur
+
+Changer le shell par défaut pour un nouvel utilisateur
+
+    chsh -s /bin/bash deploy
+
+Copier mon bashrc dans le home de mon utilisateur
+
+    https://gist.github.com/guillaumevincent/b8f979d90686982ab442

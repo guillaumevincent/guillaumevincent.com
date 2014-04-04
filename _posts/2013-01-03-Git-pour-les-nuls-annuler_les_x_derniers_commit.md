@@ -18,9 +18,10 @@ Pour mes projets personnels j'utilise trois environnements de travail :
 *   un environnement de production
 
 
-A la fin de chaque itération lors du développement de mon logiciel je produit une version améliorée de mon logiciel. 
-Cette version que j'appelle souvent release-vX.X est toujours précédée d'une mise en recette pour valider que mon code ne va pas tout détruire en production.
-Je me retrouve souvent dans l'obligation de faire des corrections mineures pour des erreurs de typographie ou des erreurs de configurations la plus part du temps.
+A la fin de chaque itération lors du développement de mon logiciel je produit une version améliorée de mon
+logiciel. Cette version est toujours précédée d'une mise en recette pour valider que mon code ne va pas tout
+détruire en production. Je me retrouve souvent dans l'obligation de faire des corrections mineures pour des
+erreurs de typographie ou des erreurs de configurations la plus part du temps.
 
 
 Et dans mon cas je ne veux pas merger en production tous ces commits inutiles.

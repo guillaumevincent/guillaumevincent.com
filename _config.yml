@@ -5,3 +5,4 @@ pygments: True
 exclude: [bower_components]
 excerpt_separator: <!--more-->
 encoding: utf-8
+markdown: kramdown

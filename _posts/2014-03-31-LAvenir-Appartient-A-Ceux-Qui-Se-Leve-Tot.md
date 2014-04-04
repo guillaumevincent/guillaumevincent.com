@@ -25,7 +25,7 @@ L'idée que Steve a eue est la suivante:
   1. Choisir une heure à laquelle on veut se lever le matin. Disons 5h du matin.
   2. Se coucher que quand on est fatigué. Entre 21h et minuit.
   3. Entrainer son corps à acquérir un automatisme de réveil pour ne plus tergiverser dans le lit au moment
-  ou le réveil sonne. Éteindre le réveil, s'assoir au bord du lit, se lever.
+  où le réveil sonne. Éteindre le réveil, s'assoir au bord du lit, se lever.
   4. Se réveiller le matin toujours à la même heure.
 
 Se coucher que quand on est fatigué, permet d'habituer son corps à prendre juste le sommeil qu'il lui faut.
