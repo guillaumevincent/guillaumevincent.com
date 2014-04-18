@@ -28,7 +28,7 @@ setCarColor est mieux que setCouleurVoiture non ? Quand il s'agit d'un mot diffi
 Il faut faire attention à l'encodage et certains langages n'acceptent pas les accents. validerMessageSupprime (au lieu de validerMessageSupprimé) devient moins clair que confirmDeletedMessage.
 
 * le client veut voir le code, et en anglais il ne comprendra rien.
-C'est la seule raison qui selon moi peut justifier l'utilisation du français dans le code. Mais j'aurai tendance à dire: chacun son métier. Toute la difficulté est de comprendre le langage du client (en termes métiers) et de le retranscrire dans notre langage. Il est très rare que le client mettent le nez dans le code. Et pour les quelques fois ou le client voudra une explication sur le code, un développeur sera en mesure de le faire.
+C'est la seule raison qui selon moi peut justifier l'utilisation du français dans le code. Mais j'aurai tendance à dire: chacun son métier. Toute la difficulté est de comprendre le langage du client (en termes métiers) et de le retranscrire dans notre langage. Il est très rare que le client mette le nez dans le code. Et pour les quelques fois où le client voudra une explication sur le code, un développeur sera en mesure de le faire.
 
 * je ne réinvente pas la roue. Beaucoup de fonctions, d'api, de librairies existent en anglais, sont écrites et documentées en anglais. Je me vois mal lorsque je récupère un morceau de code, le traduire en français. Je le réutilise tel quel.
 
