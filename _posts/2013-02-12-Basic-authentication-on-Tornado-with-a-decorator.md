@@ -97,7 +97,7 @@ My login handler get method render the login.html page.
 </form>
 {% endhighlight %}
 
-![login form](https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png){.img-responsive}
+![login form](https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png){:.img-responsive}
 
 
 When a user makes a POST request on /auth/login/,

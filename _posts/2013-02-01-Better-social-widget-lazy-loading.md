@@ -13,7 +13,7 @@ I started by creating a CSS sprites for including images in my web page. The sol
 I use the CSS stripes technique to make a single query when I load my page.
 
 
-![social icon](https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png){.img-responsive}
+![social icon](https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png){:.img-responsive}
 
 
 {% highlight html%}
