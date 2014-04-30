@@ -13,7 +13,7 @@ Voici un billet très rapide pour présenter mon utilisation des "labels" dans G
 Gmail utilise des labels au lieu de dossiers pour organiser vos emails. Un label est l'équivalent un hashtag sur twitter.
 Son seul but est de faciliter vos futures recherches.
 
-![label in gmail](https://lh3.googleusercontent.com/-AcDxhgkemKE/UwXRJIxHvyI/AAAAAAAAOgc/kH2k4-OrvQs/w958-h355-no/Capture+d%2527e%25CC%2581cran+2014-02-20+10.50.51.png){.center .img-responsive}
+![label in gmail](https://lh3.googleusercontent.com/-AcDxhgkemKE/UwXRJIxHvyI/AAAAAAAAOgc/kH2k4-OrvQs/w958-h355-no/Capture+d%2527e%25CC%2581cran+2014-02-20+10.50.51.png){:.center .img-responsive}
 
 J'ai 15 labels. Le reste je le cache.
 
@@ -61,7 +61,7 @@ Mais je cache son affichage, je ne vais donc plus voir ce qu'il s'y passe.
 J'ai beaucoup de filtre (50 environ), certains sont obsolètes mais je les laisse.
 Beaucoup consistent à appliquer un label au mail.
 
-![filter gmail](https://lh6.googleusercontent.com/-TfdA7G2OP-M/UwXcsYDbYpI/AAAAAAAAOgw/fVQVJXD5Kdo/w338-h47-no/Capture+d%2527e%25CC%2581cran+2014-02-20+11.44.11.png){.center .img-responsive}
+![filter gmail](https://lh6.googleusercontent.com/-TfdA7G2OP-M/UwXcsYDbYpI/AAAAAAAAOgw/fVQVJXD5Kdo/w338-h47-no/Capture+d%2527e%25CC%2581cran+2014-02-20+11.44.11.png){:.center .img-responsive}
 
 Et grâce à cette technique je retrouve un email très très facilement, je n'ai qu'à préciser à Gmail
 les labels de l'email que je recherche et quelques mots-clefs.
@@ -70,13 +70,13 @@ Exemple: pour chercher une facture EDF pour mon appartement
 
     label:billing label:house edf
 
-![edf gmail](https://lh6.googleusercontent.com/-hzRvm8CAntM/UwXf3SkcwyI/AAAAAAAAOhQ/f_tHSe_kfyU/w661-h289-no/Capture+d%2527e%25CC%2581cran+2014-02-20+11.57.59.png){.center .img-responsive}
+![edf gmail](https://lh6.googleusercontent.com/-hzRvm8CAntM/UwXf3SkcwyI/AAAAAAAAOhQ/f_tHSe_kfyU/w661-h289-no/Capture+d%2527e%25CC%2581cran+2014-02-20+11.57.59.png){:.center .img-responsive}
 
 Pour rechercher une facture EDF sur le mois de décembre 2013:
 
     after:2013/11/01 before:2014/01/01 label:billing label:house edf
 
-![edf gmail decembre](https://lh5.googleusercontent.com/-gOuAPLmFQCQ/UwXiFwh0wAI/AAAAAAAAOhg/c6N3seEfhTg/w676-h189-no/Capture+d%2527e%25CC%2581cran+2014-02-20+12.07.32.png){.center .img-responsive}
+![edf gmail decembre](https://lh5.googleusercontent.com/-gOuAPLmFQCQ/UwXiFwh0wAI/AAAAAAAAOhg/c6N3seEfhTg/w676-h189-no/Capture+d%2527e%25CC%2581cran+2014-02-20+12.07.32.png){:.center .img-responsive}
 
 Ensuite il suffit d'apprendre par coeur les commandes de la [recherche avancée](https://support.google.com/mail/answer/7190) dans Gmail.
 L'auto-complétion des recherches est simplement magnifique.

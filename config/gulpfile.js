@@ -1,17 +1,15 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var minifycss = require('gulp-minify-css');
-var uglify = require('gulp-uglify');
-var clean = require('gulp-clean');
-var rename = require('gulp-rename');
-var uncss = require('gulp-uncss');
-var autoprefix = require('gulp-autoprefixer');
-var imagemin = require('gulp-imagemin');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    minifycss = require('gulp-minify-css'),
+    uglify = require('gulp-uglify'),
+    clean = require('gulp-clean'),
+    rename = require('gulp-rename'),
+    uncss = require('gulp-uncss'),
+    autoprefix = require('gulp-autoprefixer'),
+    imagemin = require('gulp-imagemin'),
+    glob = require('glob');
 
 var paths = {
-    html: [
-        '../_site/**/*.html',
-    ],
     css: [
         '../static/lib/bootstrap/dist/css/bootstrap.css',
         '../static/css/*.css'
@@ -31,10 +29,10 @@ gulp.task('css', function () {
         .pipe(gulp.dest('../public/css'));
 });
 
-gulp.task('images', function() {
- return gulp.src(paths.images)
-    .pipe(imagemin({optimizationLevel: 5}))
-    .pipe(gulp.dest('../public/img'));
+gulp.task('images', function () {
+    return gulp.src(paths.images)
+        .pipe(imagemin({optimizationLevel: 5}))
+        .pipe(gulp.dest('../public/img'));
 });
 
 // watch files for changes
@@ -45,7 +43,10 @@ gulp.task('watch', function () {
 gulp.task('uncss', function () {
     gulp.src('../public/css/guillaumevincent.min.css')
         .pipe(uncss({
-            html: paths.html
+            ignore: [
+                ".center",
+            ],
+            html: glob.sync('../_site/**/*.html')
         }))
         .pipe(minifycss({keepSpecialComments: 0}))
         .pipe(gulp.dest('../public/css'));

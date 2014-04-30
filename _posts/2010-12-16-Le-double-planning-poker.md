@@ -9,7 +9,7 @@ J'ai longtemps mal compris le rôle du planning poker, aujourd'hui je vous propo
 
 <!--more-->
 
-![Planning poker](https://lh3.googleusercontent.com/-mz050MogDw4/TyPXWXcWMfI/AAAAAAAABrM/wFoLfx_cXnI/s800/images.jpg){.center .img-responsive}
+![Planning poker](https://lh3.googleusercontent.com/-mz050MogDw4/TyPXWXcWMfI/AAAAAAAABrM/wFoLfx_cXnI/s800/images.jpg){:.center .img-responsive}
 
 L'intérêt du planning poker est normalement de trouver la vélocité de chaque user story du backlog produit. L'équipe SCRUM au complet se réunit et passe en revue l'ensemble des user stories pour être sûr que tout le monde est d'accord sur la difficulté de la tâche à réaliser. Généralement l'ensemble des participants possèdent un certain nombre de cartes, toutes ayant un numéro correspondant à la suite de Fibonacci (0, 1, 2, 3, 5, 8, 13, 20, 40, 100)<sup>1</sup>. Une fois la fonctionnalité expliquée, chaque participant estime l'effort nécessaire à l'équipe pour produire cette fonctionnalité. C'est un effort relatif : ce chiffre n'a pas d'unité et n'a de sens qu'en comparaison avec d'autres fonctionnalités<sup>2</sup>.
 
