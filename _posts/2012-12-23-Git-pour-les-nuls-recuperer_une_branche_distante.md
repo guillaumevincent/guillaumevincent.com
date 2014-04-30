@@ -21,7 +21,7 @@ Je vais juste vous aidez à comprendre **git rebase** et vous donner deux trois 
 
 J'intègre donc cette équipe de 3 développeurs :
 
-![team](https://lh5.googleusercontent.com/-ZBaTUBLUVo0/UQufklFjaBI/AAAAAAAAK6w/WPP6UcVQZ3M/s514/team.png){.img-responsive}
+![team](https://lh5.googleusercontent.com/-ZBaTUBLUVo0/UQufklFjaBI/AAAAAAAAK6w/WPP6UcVQZ3M/s514/team.png){:.img-responsive}
 
 Sarah, John, Bob et moi.
 

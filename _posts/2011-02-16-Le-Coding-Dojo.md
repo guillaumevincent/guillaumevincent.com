@@ -5,7 +5,7 @@ author: gvincent
 lang: fr
 tags: Coding Dojo
 ---
-![Coding Dojo](https://lh4.googleusercontent.com/-toWRjGqc3Mo/Trw4NjyltQI/AAAAAAAABcs/EO2Dk5EB-us/s800/dojoO.jpg){.img-responsive}
+![Coding Dojo](https://lh4.googleusercontent.com/-toWRjGqc3Mo/Trw4NjyltQI/AAAAAAAABcs/EO2Dk5EB-us/s800/dojoO.jpg){:.img-responsive}
 
 Un coding dojo est une session amusante et intense pendant laquelle des développeurs améliorent leurs compétences en programmation.
 
