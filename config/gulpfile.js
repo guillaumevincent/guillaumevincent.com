@@ -10,32 +10,7 @@ var imagemin = require('gulp-imagemin');
 
 var paths = {
     html: [
-        '../_site/index.html',
-        '../_site/2014/03/31/LAvenir-Appartient-A-Ceux-Qui-Se-Leve-Tot.html',
-        '../_site/2014/02/20/Labels-dans-gmail.html',
-        '../_site/2013/11/15/Merci.html',
-        '../_site/2013/10/27/Start-faster-gives-the-impression-to-go-faster.html',
-        '../_site/2013/09/15/First-10-minutes-on-ubuntu-servers.html',
-        '../_site/2013/08/15/oh-putain-Bob-tu-menerves.html',
-        '../_site/2013/02/12/Basic-authentication-on-Tornado-with-a-decorator.html',
-        '../_site/2013/02/01/Better-social-widget-lazy-loading.html',
-        '../_site/2013/01/03/Git-pour-les-nuls-annuler_les_x_derniers_commit.html',
-        '../_site/2012/12/23/Git-pour-les-nuls-recuperer_une_branche_distante.html',
-        '../_site/2012/09/20/Comment-your-damn-code-bitch.html',
-        '../_site/2012/03/13/La-simplicite-grace-a-Tdd.html',
-        '../_site/2012/03/02/blogofile-ovh-et-amazon.html',
-        '../_site/2012/01/24/Copier-le-contenu-dune-liste-en-python.html',
-        '../_site/2011/11/12/Citation-de-clean-code.html',
-        '../_site/2011/11/11/La-contractualisation-agile-dans-une-SSII.html',
-        '../_site/2011/10/11/Lagilite-en-solitaire-c-est-difficile-le-retour.html',
-        '../_site/2011/04/20/Coder-en-francais-ou-coder-en-anglais.html',
-        '../_site/2011/03/22/Un-projet-logiciel-en-image.html',
-        '../_site/2011/03/09/Semaphore-du-flux-de-productivite.html',
-        '../_site/2011/02/16/Le-Coding-Dojo.html',
-        '../_site/2011/02/03/L-agilite-en-solitaire-c-est-difficile.html',
-        '../_site/2010/12/16/Le-double-planning-poker.html',
-        '../_site/2010/11/17/La-retrospective-son-principal-interet.html',
-        '../_site/2010/10/23/Test-Driven-Development-TDD.html'
+        '../_site/**/*.html',
     ],
     css: [
         '../static/lib/bootstrap/dist/css/bootstrap.css',
@@ -47,7 +22,6 @@ var paths = {
     images: [
         '../static/img/*'
     ]
-
 };
 
 gulp.task('css', function () {
