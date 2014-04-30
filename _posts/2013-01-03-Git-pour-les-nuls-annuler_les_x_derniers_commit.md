@@ -51,6 +51,6 @@ $ git reset --soft HEAD~4
 $ git commit -m "release v1.0"
 {% endhighlight %}
 
-![git reset](https://lh4.googleusercontent.com/-hJev3pzvxdQ/UNb2LAF160I/AAAAAAAAIMQ/O72XSWO6kTI/s826/git%2520rebase%2520example2.png){.center .img-responsive}
+![git reset](https://lh4.googleusercontent.com/-hJev3pzvxdQ/UNb2LAF160I/AAAAAAAAIMQ/O72XSWO6kTI/s826/git%2520rebase%2520example2.png){:.center .img-responsive}
 
 

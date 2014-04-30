@@ -20,7 +20,7 @@ J'ai réalisé moi même mon backlog produit et je me suis tourné vers mon prod
 
 Couplé à cette méthode, j'utilise aussi d'autres pratiques tirées d'XP. Par exemple je travaille en sprint d'une semaine (5 jours). La durée de mon projet étant de 50 jours. J'ai toujours un logiciel qui fonctionne (intégration continue). J'utilise le développement piloté par les tests. Et comme le dit très bien Fabien Bezagu, je n'ai pas à demander pour utiliser TDD.
 
-![Tweet Fabien Bezagu](https://lh3.googleusercontent.com/-kEdslxIj71w/Trw4QOe6RtI/AAAAAAAABdQ/BNGGVL91Q2I/s800/tweetFabien.jpg){.center .img-responsive}
+![Tweet Fabien Bezagu](https://lh3.googleusercontent.com/-kEdslxIj71w/Trw4QOe6RtI/AAAAAAAABdQ/BNGGVL91Q2I/s800/tweetFabien.jpg){:.center .img-responsive}
 
 Néanmoins, c'est la seule méthode que j'applique vraiment en solo, car je ne peux pas binômer, je n'utilise pas non plus d'autres outils comme kanban ou les burndown chart et je ne fais pas de rétrospective pour moi tout seul. Par contre je promets d'essayer d'autres idées d'XP avant la fin du projet. 
 
