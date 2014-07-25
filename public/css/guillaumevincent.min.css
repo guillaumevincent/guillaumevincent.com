@@ -5891,6 +5891,11 @@ footer p.copyright {
     margin-top: 60px;
 }
 
+.revertdirection {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     #header {

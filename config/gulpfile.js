@@ -29,6 +29,11 @@ gulp.task('css', function () {
         .pipe(gulp.dest('../public/css'));
 });
 
+gulp.task('GPG', function () {
+    return gulp.src('../resources/gvincent.asc')
+        .pipe(gulp.dest('../public/file'));
+});
+
 gulp.task('images', function () {
     return gulp.src(paths.images)
         .pipe(imagemin({optimizationLevel: 5}))
@@ -53,5 +58,5 @@ gulp.task('uncss', function () {
 });
 
 // the default task (called when you run `gulp` from cli)
-gulp.task('default', ['css', 'images', 'watch']);
+gulp.task('default', ['css', 'images','GPG', 'watch']);
 
