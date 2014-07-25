@@ -417,7 +417,7 @@ dossier /home/{$ user $}/mails/
 
 <p>C'est terminé pour la partie serveur mail, 7 lignes de configuration !
 Si vous voulez faire évoluer cette configuration et rajouter des fonctionnalités, je vous invite à lire la 
-<a href="https://www.opensmtpd.org/smtpd.conf.5.html">la documentation</a></p>
+<a href="https://www.opensmtpd.org/smtpd.conf.5.html">documentation</a></p>
 
 
 <h3>IMAP, récupérer ses emails</h3>
@@ -450,6 +450,7 @@ ssl_cert = </etc/ssl/certs/certificate.{$ domain $}.crt
 ssl_key = </etc/ssl/private/private.{$ domain $}.key
 ssl_client_ca_dir = /etc/ssl/certs
 mail_location = maildir:~/mails
+listen = *
 
 userdb {
   driver = passwd
@@ -465,7 +466,7 @@ passdb {
 <p>Je vais pas épiloguer sur cette configuration très longtemps. Notez la présence de nos certificats générés plus tôt.
 Nous communiquons en ssl. Nous utilisons l'authentification pam pour se connecter à la machine en IMAP seulement.
 </p>
-<p>C'est terminé pour la partie IMAP, 14 lignes de configuration !</p>
+<p>C'est terminé pour la partie IMAP, 15 lignes de configuration !</p>
 
 <h3>Client mail</h3>
 <p>
