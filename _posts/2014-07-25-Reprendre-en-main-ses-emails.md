@@ -24,11 +24,11 @@ en main vos emails !
     <ul>
     <li>un serveur personnel (VPS, machine dédiée) avec un système d'exploitation récent (ubuntu 14.04, FreeBSD 10 ou 9.3)</li>
     <li>un nom de domaine</li>
-    <li>un certificat TLS pour encrypter les communications entre votre client mail et votre serveur. Je ne veux pas 
+    <li>un certificat TLS pour chiffrer les communications entre votre client mail et votre serveur. Je ne veux pas 
     rentrer dans les détails mais il vous faut la clef privée du certificat qui se termine souvent par .key 
     (ex: private.oslab.fr.key) et le certificat public qui se termine par .crt ou .pem (ex: certificate.oslab.fr.crt)
     <a href="https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html">voir comment générer son certificat sous ubuntu</a></li>
-    <li>maitriser les bases les bases de l'administration système (installer des packages, 
+    <li>maitriser les bases de l'administration système (installer des packages, 
     éditer des fichiers de configuration, etc)</li>
     </ul>
 </div>
@@ -245,8 +245,7 @@ Sur ubuntu rien de plus simple:
 <pre><code>sudo apt-get install opensmtpd 
 </code></pre>
 Sur freebsd
-<pre><code>cd /usr/ports/mail/opensmtpd/
-make install clean
+<pre><code>pkg install opensmtpd
 </code></pre>
 <p class="bg-warning">
 Pendant l'installation il va vous demander le FQDN (Fully qualified domain name) qui correspond à la partie à 
@@ -259,7 +258,7 @@ postmaster. Vous pouvez mettre {$ user $}.
 Pour envoyer un email, un client mail (thunderbird, mail, etc) communique avec votre serveur mail en SMTP.
 Votre client mail s'identifie auprès de votre serveur email. Puis avec quelques commandes demande au serveur 
 mail d'envoyer un email. Votre serveur mail communique ensuite à son tour avec le serveur mail de destination 
-en STMP pour relayer votre email.
+en SMTP pour relayer votre email.
 </p>
 <p>
 On va commencer par préciser à opensmtpd que toutes les personnes authentifiées ou locales, peuvent envoyer un 
@@ -288,7 +287,7 @@ Et on autorise l'authentification avec le mot-clef <i>auth</i>.
 (Merci Vigdis pour l'astuce)
 </p>
 <p>
-Les serveurs SMTP communiquent entre eux avec leurs ports 25. Alors que notre client mail va communiquer en STMP sur 
+Les serveurs SMTP communiquent entre leurs ports 25. Alors que notre client mail va communiquer en SMTP sur 
 le port 587 en STARTTLS de manière authentifiée et sécurisée. C'est la raison pour laquelle on a deux 
 lignes dans le fichier de configuration.
 </p>
@@ -429,8 +428,7 @@ Pour l'installer sur ubuntu rien de plus simple:
 <pre><code>sudo apt-get install dovecot-imapd 
 </code></pre>
 Sur freebsd
-<pre><code>cd /usr/ports/mail/dovecot
-make install clean
+<pre><code>pkg install mail/dovecot
 </code></pre>
 <p class="bg-warning">Refusez la création d'un certificat, puisque nos certificats existent déjà.</p>
 
@@ -438,8 +436,9 @@ make install clean
 <p>
 Je trouve la configuration de Dovecot compliqué à comprendre. Alors j'ai tendance à vider le dossier de configuration 
 la première fois.
-<code>rm -rf /etc/dovecot/*;touch /etc/dovecot/dovecot.conf</code>
 </p>
+<pre><code>rm -rf /etc/dovecot/*
+touch /etc/dovecot/dovecot.conf</code></pre>
 <p>
 Pour configurer Dovecot, nous allons éditer le fichier <code>/etc/dovecot/dovecot.conf</code>:</p>
 
