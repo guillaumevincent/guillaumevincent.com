@@ -100,7 +100,7 @@ EmailModule.controller('EmailCtrl', function ($scope) {
 <p>
 Un email c'est du texte formaté selon une norme (<a href="http://tools.ietf.org/html/rfc5322">RFC 5322</a>) qui 
 transite sur internet. Pour envoyer un email on a besoin d'un serveur mail : une machine qui s'occupe d'envoyer notre 
-email à l'autre bout de la terre. Pour recevoir un email il faut un autre serveur mail. Ces serveurs mails communiquent 
+email à l'autre bout de la Terre. Pour recevoir un email il faut un autre serveur mail. Ces serveurs mails communiquent 
 entre eux avec le protocole SMTP (<a href="http://tools.ietf.org/html/rfc5321">RFC 5321</a>).
 </p>
 <p>
