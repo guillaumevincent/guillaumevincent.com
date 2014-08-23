@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Développeur c’est un métier, et un métier ça s’apprend !
+title: Développeur c’est un métier, et un métier ça s’apprend
 author: gvincent
 lang: fr
 tags: tdd, professionnalisme, développement logiciel

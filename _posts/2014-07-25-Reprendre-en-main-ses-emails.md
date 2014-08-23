@@ -14,24 +14,22 @@ m'appartient, qui fonctionne bien. Dans ce billet je vais partager avec vous mon
 en main vos emails !
 
 <!--more-->
-<div class="bg-success"> 
-    <p>
-    Avant de commencer, je tiens à préciser que ce billet est technique. Nous allons apprendre à configurer des outils 
-    comme OpenSMTPD et Dovecot. L'objectif final est de vous permettre d'avoir votre propre serveur mail et de comprendre 
-    comment ça marche. Pas à pas, une étape après l'autre, avec des tests entre chaque étape. Voici l'objectif de ce billet.
-    Pour mener à bien cette reprise en main, il va vous falloir :
-    </p>
-    <ul>
-    <li>un serveur personnel (VPS, machine dédiée) avec un système d'exploitation récent (ubuntu 14.04, FreeBSD 10 ou 9.3)</li>
-    <li>un nom de domaine</li>
-    <li>un certificat TLS pour chiffrer les communications entre votre client mail et votre serveur. Je ne veux pas 
-    rentrer dans les détails mais il vous faut la clef privée du certificat qui se termine souvent par .key 
-    (ex: private.oslab.fr.key) et le certificat public qui se termine par .crt ou .pem (ex: certificate.oslab.fr.crt)
-    <a href="https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html">voir comment générer son certificat sous ubuntu</a></li>
-    <li>maitriser les bases de l'administration système (installer des packages, 
-    éditer des fichiers de configuration, etc)</li>
-    </ul>
-</div>
+<p class="bg-success">
+Avant de commencer, je tiens à préciser que ce billet est technique. Nous allons apprendre à configurer des outils 
+comme OpenSMTPD et Dovecot. L'objectif final est de vous permettre d'avoir votre propre serveur mail et de comprendre 
+comment ça marche. Pas à pas, une étape après l'autre, avec des tests entre chaque étape. Voici l'objectif de ce billet.
+Pour mener à bien cette reprise en main, il va vous falloir :
+</p>
+<ul>
+<li>un serveur personnel (VPS, machine dédiée) avec un système d'exploitation récent (ubuntu 14.04, FreeBSD 10 ou 9.3)</li>
+<li>un nom de domaine</li>
+<li>un certificat TLS pour chiffrer les communications entre votre client mail et votre serveur. Je ne veux pas 
+rentrer dans les détails mais il vous faut la clef privée du certificat qui se termine souvent par .key 
+(ex: private.oslab.fr.key) et le certificat public qui se termine par .crt ou .pem (ex: certificate.oslab.fr.crt)
+<a href="https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html">voir comment générer son certificat sous ubuntu</a></li>
+<li>maitriser les bases de l'administration système (installer des packages, 
+éditer des fichiers de configuration, etc)</li>
+</ul>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 <script type="text/javascript">
 
@@ -134,7 +132,7 @@ Modifier ou ajouter l'enregistrement MX pour qu'il pointe vers mail.{$ domain $}
 Le . à la fin des nom de domaine indique des noms de domaines absolus. 10 indique la priorité de l'engistrement quand 
 on a plusieurs MX. Le 300 correspond au TTL (Time To Live) de la DNS. 300 correspond à 300 secondes, ce qui est court.
 A la fin quand tout fonctionne il est conseillé d'augmenter ce TTL pour éviter des déboires comme
-<a href="https://medium.com/p/24eb09e026dd">ceux rencontrés par @N</a>
+<a href="https://medium.com/p/24eb09e026dd">ceux rencontrés par @N</a>.
 </p>
 <p>
 Ensuite il faire pointer le sous-domaine mail.{$ domain $} vers l'adresse ip de notre serveur en ajoutant un 
@@ -202,7 +200,7 @@ c'est le jour et la nuit !
 <u>Moins d'administration système, plus sûr, plus simple</u>.
 </p>
 
-<h3>Configurer son serveur mail</h3>
+<h3>Configurer OpenSMTPD</h3>
 <p>
 Opensmtpd va avoir besoin d'un utilisateur pour envoyer les emails ({$ user $}) et d'un hostname 
 configuré correctement (mail.{$ domain $}).
@@ -335,18 +333,11 @@ d'utilisateur et du mot de passe avec des séparateurs \000
 
 <p>Sinon vous pouvez rentrer votre mot de passe et copier le résultat encodé </p>
 <br>
-<form class="form-horizontal" role="form">
-    <div class="form-group">
-        <div class="col-sm-2">
+<form role="form">
             <input type="text" name="user" class="form-control" ng-model="user">    
-        </div>
-        <div class="col-sm-2">
             <input type="text" name="password" class="form-control" ng-model="password" ng-init="password">    
-        </div>
-        <button type="button" class="btn btn-success col-sm-2">Base64 encoding ></button>    
-        <div class="col-sm-6">
+            <label>Base64 :</label>
             <input type="text" name="auth" class="form-control" ng-model="auth">
-        </div>
     </div>
 </form>
 <br>

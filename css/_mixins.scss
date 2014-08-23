@@ -1,0 +1,33 @@
+//https://gist.github.com/anthonyshort/2028061
+
+$mobile: 320px;
+$mobile-landscape: 480px;
+$tablet: 768px;
+$tablet-landscape: 1024px;
+$desktop: 1382px;
+
+@mixin tablet-and-desktop {
+  @media only screen and (min-width: $mobile-landscape + 1) {
+    @content;
+  }
+}
+
+@mixin only-desktop {
+  @media only screen and (min-width: $tablet-landscape + 1) {
+    @content;
+  }
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.text-center{
+  text-align: center;
+}

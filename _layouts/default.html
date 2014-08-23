@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ page.title }}</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+
     <!--disables pinch zoom, fires tap event immediately -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Site personnel de Guillaume Vincent">
-    <link rel="stylesheet" href="/public/css/guillaumevincent.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>{{ page.title }}</title>
+
+    <meta name="author" content="{{ site.name }}"/>
+    <meta name="description" content="{{ site.description }}">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/css/styles.min.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-    <link rel="prefetch" href="{{ site.posts[1].url }}" />
-    <link rel="prefetch" href="{{ site.posts[2].url }}" />
+    <link rel="prefetch" href="{{ site.posts[1].url }}"/>
+    <link rel="prefetch" href="{{ site.posts[2].url }}"/>
 </head>
 <body>
+<div id="header-wrapper">
+    <div class="container">
+        <div class="header clearfix">
+            <a href="/" id="logo"><img src="/img/logo.png" alt="logo"/></a>
+
+            <h1 id="site-name"><a href="/">{{ site.name }}</a></h1>
+
+            <nav>
+                <a href="https://twitter.com/guillaume20100">Twitter</a>
+                <a href="/feed.xml">RSS</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
 {{content}}
+
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
