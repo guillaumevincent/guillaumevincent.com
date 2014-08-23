@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: fr
-title: Comment your damn code bitch !
+title: Comment your damn code bitch
 author: gvincent
 tags: clean code, commentaire
 ---

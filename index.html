@@ -1,114 +1,50 @@
 ---
 layout: default
-title: Guillaume Vincent
+title: Je suis un développeur passionné,<br> je vis à Bordeaux
 ---
+<div class="container index">
+    <ul class="posts-list">
 
-<div id="header">
-    <div class="container">
-        <div class="inner">
-            <div id="logo">
-                <a href="/">
-                    <img src="/public/img/logo.jpeg" alt="Logo guillaumevincent.com">
-                </a>
-            </div>
-            <div id="menu">
-                <a href="#me">A PROPOS</a>
-                <a target="_blank" href="https://twitter.com/guillaume20100">TWITTER</a>
-            </div>
-        </div>
-    </div>
-</div>
+        {% for post in site.posts %}
 
-<div id="vitrine" class="visible-lg">
-    <div class="container">
-        <div class="inner">
-            <h2>
-                Je suis un développeur passionné
-                <br/> je vis à Bordeaux
-            </h2>
-        </div>
-    </div>
-</div>
-<br/>
+        <li>
+            <span>{{ post.date | date:"%d-%b-%Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
 
-<div id="blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1>Blog Posts</h1>
-                {% for post in site.posts %}
-                <article class="post">
-                    <h2>
-                        <a href="{{ post.url }}" rel="bookmark" title="Read '{{ post.title }}'">
-                            {{ post.title }}
-                        </a>
-                    </h2>
+        {% endfor %}
 
-                    <ul class="list-unstyled">
-                        <li class="date">{{ post.date | date:"%d-%b-%Y" }}</li>
-                    </ul>
-
-                    <p class="post-excerpt">
-                        {{ post.excerpt }}
-                    </p>
-                    <a href="{{ post.url }}" class="btn btn-primary">Read more...</a>
-                </article>
-                {% endfor %}
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <a href="#">Back to top</a>
-            </div>
-        </div>
-    </div>
+    </ul>
 </div>
 
 <footer>
-    <!--thank you http://aerotwist.com/ for the idea of the template-->
     <div class="container">
-        <div id="me" class="row">
-            <div class="col-sm-4">
-                <h2>Salut!</h2>
+        <div id="contact" class="clearfix">
+            <h2>Salut!</h2>
+            <img src="/img/profil.jpg" alt="Guillaume Vincent">
+            <p>
+                Je m'appelle Guillaume. Je suis développeur, passionné et je vis à Bordeaux.
+                Je travaille à Akema, et je suis aussi le co-fondateur <a href="https://akemail.fr">d'Akemail</a>.
+                J'ai l'habitude de travailler sur Mac, avec des languages ​​comme Python, ECMAScript.
+                Mon IDE favoris est PyCharm. En ce moment je m'amuse avec AngularJS, Flask, Django, NodeJS,
+                PostgreSQL, FreeBSD et Ubuntu.
+            </p>
+            <p>
+                Vous pouvez me retrouver sur <a target="_blank" href="http://twitter.com/guillaume20100">Twitter</a>
+                et en vrai à <a target="_blank" href="http://okiwi.org/">Okiwi</a>. J'adore rencontrer des gens,
+                alors n'hésite pas à dire bonjour et viens participer à un coding dojo à Bordeaux !
+            </p>
 
-                <p>
-                    <img src="/public/img/profil.jpg" alt="Guillaume Vincent" class="img-circle pull-left">
-                    Je m'appelle Guillaume. <br/> Je suis développeur, passionné et je vis à Bordeaux.
-                    Je travaille à Akema, et je suis aussi le co-fondateur d'<a href="https://akemail.fr">Akemail</a>.
-                    J'ai l'habitude de travailler sur Mac, avec des languages ​​comme Python, ECMAScript.
-                    Mon IDE favoris est PyCharm. En ce moment je m'amuse avec AngularJS, Flask, Django, NodeJS,
-                    PostgreSQL, FreeBSD et Ubuntu.
-                </p>
-            </div>
-            <div class="col-sm-4">
-                <h2>Rester en contact</h2>
-
-                <p>
-                    Vous pouvez me retrouver sur <a target="_blank" href="http://twitter.com/guillaume20100">Twitter</a>
-                    et en vrai à <a target="_blank" href="http://okiwi.org/">Okiwi</a>. J'adore rencontrer des gens,
-                    alors n'hésite pas à dire bonjour et viens participer à un coding dojo à Bordeaux !
-                </p>
-                <p>
-                    Vous pouvez m'envoyer un email à
-                    <a href="mailto:gvincent@oslab.fr"><span class="revertdirection">rf.<!--anti-->balso@<!--spam-->tnecnivg</span></a>.
-                    Utilisez ma <a href="/public/file/gvincent.asc">clef GPG</a>, si vous voulez me contacter.
-                </p>
-            </div>
-            <div class="col-sm-4">
-                <h2>Me suivre</h2>
-
-                <p>Vous pouvez vous abonnez au <a href="/feed.xml">flux RSS</a>, ou me suivre sur twitter</p>
-
-                <p>Le contenu de ce site est sous licence Creative Commons Attribution 3.0, et le code et les
-                    exemples sont sous licence MIT.</p>
-            </div>
+            <p>
+                Vous pouvez m'envoyer un email à
+                <a href="mailto:gvincent@oslab.fr">
+                    <span class="revertdirection">rf.<!--anti-->balso@<!--spam-->tnecnivg</span>
+                </a>.
+                Utilisez ma <a href="/fichiers/gvincent.asc">clef GPG</a>, si vous voulez me contacter.
+            </p>
         </div>
-    </div>
-
-    <div class="container">
-        <p class="copyright">
-            FAIT AVEC ♥
+        <p class="copyright clearfix">
+            Le contenu de ce site est sous licence Creative Commons Attribution 3.0
+            <br/>et le code et les exemples sont sous licence MIT
         </p>
     </div>
 </footer>

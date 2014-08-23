@@ -1,28 +1,41 @@
 ---
 layout: default
 ---
-<a href="/"><img id="article-profil-img" src="/public/img/profil.png" alt="Guillaume Vincent"/></a>
-
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h1 class="article-title">{{ page.title }}</h1>
-        </div>
+
+    <div class="post-info clearfix">
+        <h1 class="article-title">{{ page.title }}</h1>
+
+        <span>{{ page.date | date: "%d %B %Y" }}</span>
+
     </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            {{ page.date | date: "%d %B %Y" }}
-        </div>
+
+    <div class="post">
+        {{ content }}
+        <p class="share">
+            <a href="#" onclick="goTop()" class="go-top">Retour en haut</a>
+            <a onclick="goTwitter()" title="Partager sur Twitter!" class="twitter-btn">Partager sur Twitter</a>
+        </p>
     </div>
-    <br/>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            {{ content }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-right">
-            <a href="#">back to top</a>
-        </div>
-    </div>
+
+
+    <script type="text/javascript">
+        function goTwitter() {
+            var title = encodeURIComponent("{{ page.title }}");
+            var url = encodeURIComponent(document.URL);
+            window.location.href = "https://twitter.com/intent/tweet?original_referer=" + url + "&source=tweetbutton&text=" + title + "&url=" + url + "&via=guillaume20100";
+        }
+        function goTop() {
+            var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        }
+    </script>
 </div>
+
+<footer>
+    <div class="container">
+        <p class="copyright clearfix">
+            Le contenu de ce site est sous licence Creative Commons Attribution 3.0
+            <br/>et le code et les exemples sont sous licence MIT
+        </p>
+    </div>
+</footer>

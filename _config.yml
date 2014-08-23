@@ -1,8 +1,12 @@
 name: Guillaume Vincent
-description: My Personal blog where i can put some of my thoughts together
-url: http://guillaumevincent.com/
+description: Site personnel de Guillaume Vincent
+url: http://guillaumevincent.com
 pygments: True
-exclude: [bower_components]
 excerpt_separator: <!--more-->
 encoding: utf-8
 markdown: kramdown
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
