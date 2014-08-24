@@ -1,6 +1,6 @@
 {
     "name": "guillaumevincent.com",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "dépendances node pour le site http://guillaumevincent.com",
     "repository": {
         "type": "git",
