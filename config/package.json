@@ -1,6 +1,6 @@
 {
     "name": "guillaumevincent.com",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "dépendances node pour le site http://guillaumevincent.com",
     "repository": {
         "type": "git",
@@ -16,9 +16,9 @@
         "url": "https://github.com/guillaumevincent/guillaumevincent.com/issues"
     },
     "homepage": "https://guillaumevincent.com",
-    "dependencies": {},
     "devDependencies": {
         "gulp": "^3.8.7",
+        "bower": "^1.3.12",
         "gulp-autoprefixer": "0.0.8",
         "gulp-concat": "^2.3.4",
         "gulp-minify-css": "^0.3.7",
