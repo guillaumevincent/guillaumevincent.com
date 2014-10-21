@@ -1,7 +1,7 @@
 name: Guillaume Vincent
 description: Site personnel de Guillaume Vincent
 url: http://guillaumevincent.com
-pygments: True
+highlighter: pygments
 excerpt_separator: <!--more-->
 encoding: utf-8
 markdown: kramdown
