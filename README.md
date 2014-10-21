@@ -1,6 +1,5 @@
 # guillaumevincent.com
 
-v1.0.1
 
 ## Requirements
 * [jekyll](http://jekyllrb.com/)
