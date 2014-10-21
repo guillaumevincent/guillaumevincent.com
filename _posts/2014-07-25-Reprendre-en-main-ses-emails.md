@@ -472,7 +472,7 @@ Pour consulter ses mails en IMAP :
 </ul>
 <p>Pour envoyer des emails en SMTP:</p>
 <ul>
-    <li>Serveur imap: mail.{$ domain $}</li>
+    <li>Serveur smtp: mail.{$ domain $}</li>
     <li>Nom d'utilisateur: {$ user $}</li>
     <li>Mot de passe: {$ password $}</li>
     <li>Port: 587</li>
