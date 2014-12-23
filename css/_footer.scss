@@ -1,0 +1,16 @@
+@import "variables";
+
+.footer {
+  background-color: $dark-gray;
+  .copyright {
+    border-top: 1px solid $dark-gray;
+    color: $gray;
+    text-align: center;
+    padding: $margin*2;
+    font-size: .8em;
+    line-height: 1.2;
+    @include tablet-and-desktop {
+      margin: 50px 0 0;
+    }
+  }
+}

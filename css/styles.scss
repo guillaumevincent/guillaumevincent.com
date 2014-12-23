@@ -1,232 +1,96 @@
-@import "_normalize";
-@import "_mixins";
-@import "_pygment";
-
-// Colors
-$blue: #4791D2;
-$black: #252525;
-$dark-gray: #323232;
-$gray: #666666;
-$light-gray: #F9F9F9;
-$white: #fefefe;
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "pygment";
+@import "header";
+@import "footer";
 
 body {
   background-color: $light-gray;
-  font: 300 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 300 1.2em/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #4791D2;
-}
-
-.header {
-  background-color: $blue;
-  width: 100%;
-}
-
-$header-height: 64px;
-.header-wrapper {
-  height: $header-height;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.left-header {
-  width: 320px;
-  display: flex;
-  align-items: center;
+  color: $blue;
 }
 
 .container {
-  display: flex;
-  max-width: 960px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
-$logo-height: 48px;
-$margin: ($header-height - $logo-height)/2;
-
-.logo {
-  margin: 0;
-  padding: 0 $margin;
-  height: $logo-height;
-  img {
-    height: $logo-height;
-  }
-}
-
-.title {
-  width: 320px - $logo-height - $margin*2;
-  text-align: center;
-  font-size: 28px;
-  line-height: 1;
-  letter-spacing: 1px;
-  font-weight: 300;
-  a {
-    color: $white;
-  }
-}
-
-.menu {
-  display: none;
-  a {
-    color: $white;
-    padding: 11px $margin 10px $margin*3;
-  }
-  @include tablet-and-desktop {
-    display: flex;
-  }
-}
-
-.posts-list {
-  margin: 25px 0;
-  width: 100%;
-}
-
-.posts-list li {
-  list-style-type: none;
-  padding: $margin;
-  font-size: 18px;
+.main-content {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.posts-list li {
-  //  border-top: 1px dotted $gray
-}
-
-.posts-list li:last-child {
-  //  border-bottom: 1px dotted $gray
-}
-
-.posts-list a {
-  order: 1;
-  color: $blue;
-  cursor: pointer;
-  margin-right: $margin*2;
-}
-
-.posts-list span {
-  order: 2;
-  padding-top: 2px;
-  float: right;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: $gray;
-}
-
-.footer {
-  background-color: $black;
-  color: $light-gray;
-  font-size: 14px;
-  .container {
-    padding: $margin;
-    align-items: flex-start;
-  }
-  .copyright {
-    width: 100%;
-    border-top: 1px solid $dark-gray;
-    color: $gray;
-    margin: 50px 0 0;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  p {
-    margin-bottom: 5px;
-    padding: 0 5px 5px;
-    text-rendering: optimizelegibility;
-    letter-spacing: 0.01rem;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-}
-
-.bio {
-  @include tablet-and-desktop {
-    display: flex;
-    flex-direction: row;
-    .description {
-      padding: 0 0 0 $margin*2;
-    }
-  }
-  img {
-    width: 300px;
-    height: 300px;
-  }
-
-  .revertdirection {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-  }
-}
-
-.vertical {
-  flex-direction: column;
-}
-
-.portfolio {
+  flex-direction: row;
   flex-wrap: wrap;
-  ul {
-    flex-wrap: wrap;
-    display: flex;
+  padding: $margin;
+
+  h1 {
+    margin: $margin 0;
+    color: $blue;
+    font-size: 1.3em;
   }
-  .item {
-    width: 50%;
+
+  @include tablet-and-desktop {
+    flex-wrap: nowrap;
+  }
+
+  .articles {
+    margin-left: 2px;
 
     @include tablet-and-desktop {
-      width: 25%;
+      flex-basis: 75%;
+      margin-right: $margin*2;
     }
-    padding: $margin;
-    position: relative;
+
+    .posts-list {
+      li {
+        margin: 0;
+        border-top: 1px solid $soft-gray;
+      }
+    }
+    .date {
+      color: $gray;
+      font-size: 1em;
+      margin-top: $margin;
+      margin-bottom: $margin;
+    }
+    a {
+      margin-bottom: $margin;
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+  }
+
+  .right-content {
+
+    .box {
+      background-color: $white;
+      box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+      border-radius: 3px;
+      padding: 24px;
+      margin-bottom: $margin;
+    }
+
+    font-size: .9em;
+    line-height: 1.1em;
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $soft-gray;
+      margin: $margin 0;
+      padding: 0;
+    }
     img {
-      width: 100%;
-      vertical-align: top;
+      max-width: 250px;
+      margin-top: $margin;
+      margin-bottom: $margin;
     }
-  }
-  a{
-    display: inline-block;
-    z-index: 2;
-  }
-  .item:after {
-    content: '';
-    padding: $margin;
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-  }
 
-  .item:hover:after {
-    opacity: 1;
-  }
-
-  .oslab:after {
-    padding: 10px 10px 10px 20px;
-    content: 'http://oslab.fr/';
-    color: $white;
-  }
-  .white {
-    background-color: $white;
-  }
-
-}
-
-.height {
-  img {
-    height: 100%;
-    width: auto;
+    @include tablet-and-desktop {
+      flex-basis: 25%;
+    }
   }
 }

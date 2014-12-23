@@ -7,7 +7,7 @@ $tablet-landscape: 1024px;
 $desktop: 1382px;
 
 @mixin tablet-and-desktop {
-  @media only screen and (min-width: $tablet + 1) {
+  @media only screen and (min-width: $tablet) {
     @content;
   }
 }
@@ -28,6 +28,11 @@ $desktop: 1382px;
   clear: both;
 }
 
-.text-center{
+.text-center {
   text-align: center;
+}
+
+.revertdirection {
+  direction: rtl;
+  unicode-bidi: bidi-override;
 }
