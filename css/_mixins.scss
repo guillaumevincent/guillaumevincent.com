@@ -7,7 +7,7 @@ $tablet-landscape: 1024px;
 $desktop: 1382px;
 
 @mixin tablet-and-desktop {
-  @media only screen and (min-width: $mobile-landscape + 1) {
+  @media only screen and (min-width: $tablet + 1) {
     @content;
   }
 }
