@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Taking email back
+title: Taking your email back
 author: gvincent
 lang: fr
 tags: mail, opensmtpd, dovecot

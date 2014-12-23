@@ -17,22 +17,39 @@
     <![endif]-->
 </head>
 <body>
-<div id="header-wrapper">
-    <div class="container">
-        <a href="/" id="logo"><img src="/img/logo.png" alt="logo"/></a>
+<div class="header">
+    <div class="header-wrapper container">
+        <div class="left-header">
+            <a href="/" class="logo"><img src="img/logo.png" alt=""/></a>
 
-        <h1 id="site-name"><a href="/">{{ site.name }}</a></h1>
-
-        <div class="nav">
+            <div class="title">
+                <a href="/">Guillaume Vincent</a>
+            </div>
+        </div>
+        <div class="menu">
             <a href="https://twitter.com/guillaume20100">Twitter</a>
-            <a href="/feed.xml">RSS</a>
-            <a href="/#contact">Contact</a>
+            <a href="feed.xml">RSS</a>
+            <a href="#contact">Contact</a>
         </div>
     </div>
 </div>
 
 
 {{content}}
+
+
+<div class="footer">
+    <div class="container">
+
+        <p class="copyright">
+            Le contenu de ce site est mis à disposition selon les termes de
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                Licence Creative Commons Attribution 4.0 International
+            </a>
+            <br>et le code et les exemples sont sous licence MIT
+        </p>
+    </div>
+</div>
 
 <!-- Piwik -->
 <script type="text/javascript">
