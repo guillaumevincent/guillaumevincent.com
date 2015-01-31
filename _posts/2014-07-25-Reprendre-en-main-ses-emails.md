@@ -18,7 +18,7 @@ en main vos emails !
 Avant de commencer, je tiens à préciser que ce billet est technique. Nous allons apprendre à configurer des outils 
 comme OpenSMTPD et Dovecot. L'objectif final est de vous permettre d'avoir votre propre serveur mail et de comprendre 
 comment ça marche. Pas à pas, une étape après l'autre, avec des tests entre chaque étape. Voici l'objectif de ce billet.
-Pour mener à bien cette reprise en main, il va vous falloir :
+Pour mener à bien cette reprise en main, il va vous falloir:
 </p>
 <ul>
 <li>un serveur personnel (VPS, machine dédiée) avec un système d'exploitation récent (ubuntu 14.04, FreeBSD 10 ou 9.3)</li>
