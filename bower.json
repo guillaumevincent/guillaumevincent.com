@@ -1,0 +1,6 @@
+{
+    "name": "guillaumevincent.com",
+    "dependencies": {
+        "pure": "0.5.x"
+    }
+}
