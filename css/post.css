@@ -5,7 +5,7 @@
 
 .post-content {
     padding: 0 2em;
-    max-width: 800px;
+    max-width: 940px;
     margin: 0 auto 50px;
     line-height: 1.6em;
 }
@@ -84,9 +84,16 @@ pre {
 }
 
 pre code {
-    font-size: 95%;
+    font-size: 80%;
     white-space: pre;
     word-wrap: normal;
     padding: 0;
     background: none repeat scroll 0 0 transparent;
+}
+
+aside {
+    background: none repeat scroll 0 0 #1F8DD6;
+    padding: 0.3em 1em;
+    border-radius: 3px;
+    color: #FFF;
 }

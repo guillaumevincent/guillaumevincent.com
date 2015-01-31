@@ -68,11 +68,13 @@ EmailModule.controller('EmailCtrl', function ($scope) {
 });    
 </script>
 
-<p class="bg-warning">
+<p>
+<aside>
     Pour personnaliser ce tutoriel vous pouvez rentrer votre email et l'adresse ip de votre serveur. 
     Je ne récupère aucune information, c'est AngularJS qui vient modifier cette page, pour rajouter les informations 
     pertinentes et personnalisées. Tu peux regarder le code source de la page :)
     Si tu n'as pas confiance, tu peux laisser les informations par défaut.
+</aside>
 </p>
  
 <div ng-app="EmailModule" ng-controller="EmailCtrl">
@@ -83,7 +85,7 @@ EmailModule.controller('EmailCtrl', function ($scope) {
             <input type="email" name="email" class="form-control" ng-model="email">
             <label for="ip">Ip du serveur</label>
             <input type="text" name="ip" class="form-control" ng-model="ip">
-        <fieldset>
+        </fieldset>
     </form>
 
 <h3> Un email c'est quoi ? </h3>
@@ -332,7 +334,7 @@ d'utilisateur et du mot de passe avec des séparateurs \000
         <input type="text" name="password" class="form-control" ng-model="password" ng-init="password">    
         <label>Base64 :</label>
         <input type="text" name="auth" class="form-control" ng-model="auth">
-    <fieldset>
+    </fieldset>
 </form>
 <br>
 
