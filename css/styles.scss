@@ -7,29 +7,30 @@
 
 body {
   background-color: $light-gray;
-  font: 300 1.2em/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 300 62%/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
 }
 
 a {
   color: $blue;
 }
 
+h1 {
+  margin: $margin 0;
+  color: $blue;
+  font-size: 1.3em;
+}
+
 .container {
   max-width: 1140px;
   margin: 0 auto;
+  padding: $margin;
 }
 
 .main-content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: $margin;
-
-  h1 {
-    margin: $margin 0;
-    color: $blue;
-    font-size: 1.3em;
-  }
 
   @include tablet-and-desktop {
     flex-wrap: nowrap;
@@ -46,14 +47,14 @@ a {
     .posts-list {
       li {
         margin: 0;
-        border-top: 1px solid $soft-gray;
+        //        border-top: 1px solid $soft-gray;
       }
     }
     .date {
       color: $gray;
       font-size: 1em;
-      margin-top: $margin;
-      margin-bottom: $margin;
+      margin-top: $margin*2;
+      margin-bottom: $margin/2;
     }
     a {
       margin-bottom: $margin;
@@ -64,6 +65,9 @@ a {
   }
 
   .right-content {
+    color: $gray;
+    font-size: 1.3rem;
+    line-height: 1.375;
 
     .box {
       background-color: $white;
@@ -73,8 +77,6 @@ a {
       margin-bottom: $margin;
     }
 
-    font-size: .9em;
-    line-height: 1.1em;
     hr {
       display: block;
       height: 1px;
@@ -94,3 +96,165 @@ a {
     }
   }
 }
+
+pre {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+.post {
+  p {
+    text-rendering: optimizelegibility;
+    margin: 1.6em 0;
+  }
+  ul {
+    margin: 1.6em 0;
+    padding-left: 2.4em;
+    list-style: initial;
+  }
+  li {
+    margin: 1.2rem 0;
+  }
+
+}
+
+.post-meta {
+  margin: 5px 0;
+  font-size: 1.4rem;
+  color: #9EABB3;
+}
+
+.article-title {
+    margin: 0;
+}
+h1 {
+    font-size: 3rem;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    text-indent: -3px;
+}
+h3 {
+    font-size: 2rem;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+    text-indent: -2px;
+    font-weight: bold;
+    padding-top: 0;
+}
+
+/*
+
+code {
+  padding: 2px 4px;
+  color: #C7254E;
+  border-radius: 4px;
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid $light-gray;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+  background-color: $white;
+  border: 1px solid $gray;
+  box-shadow: 0 1px 2px $dark-gray inset;
+  color: $black;
+  display: block;
+  font-size: 0.7rem;
+  margin: 0 0 0.8rem;
+  padding: 0.4rem;
+  height: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.share {
+  .twitter-btn {
+    float: right;
+  }
+  font-size: 14px;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 1.42857;
+  color: $gray;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: $soft-gray;
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+.post {
+  margin: 0;
+  padding: 24px;
+  ul {
+    margin-bottom: 30px;
+  }
+  li:before {
+    padding-top: 2px;
+    padding-right: 15px;
+    font-size: 14px;
+    content: "•";
+    position: absolute;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 58px;
+    margin-left: -58px;
+    text-align: right;
+  }
+  li {
+    margin-left: 30px;
+    margin-bottom: 7px;
+    padding-top: 2px;
+    font-size: 16px;
+  }
+  p {
+    margin: 20px 0;
+    padding: 5px;
+    text-rendering: optimizelegibility;
+    letter-spacing: 0.01rem;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  @include only-desktop {
+    padding: 0 7em 0 0;
+
+    li {
+      max-width: 90%;
+    }
+  }
+}
+
+.post-info {
+  h1 {
+    margin-bottom: 0;
+  }
+}
+*/

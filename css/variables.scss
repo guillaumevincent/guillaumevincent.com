@@ -6,6 +6,22 @@ $gray: #666666;
 $soft-gray: #999999;
 $light-gray: #F9F9F9;
 $white: #fefefe;
-
+$light-green:#DFF0D8;
+$light-red:#FCF8E3;
 // Margins
 $margin: 14px;
+
+
+// Box
+
+.bg-success {
+  background-color: $light-green;
+  border-left: 5px solid darken($light-green, 30%);
+  padding-left: 5px;
+}
+
+.bg-warning {
+  background-color: $light-red;
+  border-left: 5px solid darken($light-red, 30%);
+  padding-left: 5px;
+}
