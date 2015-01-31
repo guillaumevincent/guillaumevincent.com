@@ -3,7 +3,7 @@ layout: post
 lang: fr
 title: Git pour les nuls - Récupérer une branche distante
 author: gvincent
-tags: git, remote
+tags: git remote
 ---
 <!--more-->
 

@@ -3,7 +3,7 @@ layout: post
 title: Taking your email back
 author: gvincent
 lang: fr
-tags: mail, opensmtpd, dovecot
+tags: mail opensmtpd dovecot
 ---
 
 Since the revelations of Edward Snowden and the [famous article in the Guardian](http://www.theguardian.com/world/2013/jul/11/microsoft-nsa-collaboration-user-data) 

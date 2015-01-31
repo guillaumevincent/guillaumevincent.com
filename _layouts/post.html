@@ -1,24 +1,40 @@
 ---
 layout: default
 ---
-<div class="container">
+<a href="{{site.url}}" class="logo">
+    <img src="/img/logo.png" alt="logo">
+</a>
+<div class="post">
+    <div class="header-title">
+        <h1>{{ page.title }}</h1>
 
-    <div class="post-info">
-        <h1 class="article-title">{{ page.title }}</h1>
-
-        <span>{{ page.date | date: "%d %B %Y" }}</span>
-
+        <h2>
+            {% assign m = page.date | date: "%-m" %}
+            {{ page.date | date: "%-d" }}
+            {% case m %}
+            {% when '1' %}janvier
+            {% when '2' %}février
+            {% when '3' %}mars
+            {% when '4' %}avril
+            {% when '5' %}mai
+            {% when '6' %}juin
+            {% when '7' %}juillet
+            {% when '8' %}août
+            {% when '9' %}septembre
+            {% when '10' %}octobre
+            {% when '11' %}novembre
+            {% when '12' %}décembre
+            {% endcase %}
+            {{ page.date | date: "%Y" }}
+        </h2>
     </div>
 
-    <div class="post">
+    <div class="post-content">
         {{ content }}
         <p class="share">
-            <a href="#" onclick="goTop()" class="go-top">Retour en haut</a>
-            <a onclick="goTwitter()" title="Partager sur Twitter!" class="twitter-btn">Partager sur Twitter</a>
+            <a class="pure-button pure-button-primary" onclick="goTwitter()" title="Partager sur Twitter!">Partager sur Twitter</a>
         </p>
     </div>
-
-
     <script type="text/javascript">
         function goTwitter() {
             var title = encodeURIComponent("{{ page.title }}");

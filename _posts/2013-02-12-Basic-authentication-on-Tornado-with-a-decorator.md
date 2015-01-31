@@ -3,7 +3,7 @@ layout: post
 lang: en
 title: Basic authentication on Tornado with a decorator
 author: gvincent
-tags: tornado, python, authentication
+tags: tornado python authentication
 ---
 
 [Tornado](http://www.tornadoweb.org/) is an open source web server developed by Facebook.

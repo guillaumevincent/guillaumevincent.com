@@ -3,7 +3,9 @@ layout: post
 lang: en
 title: Better Social Widget Lazy Loading
 author: gvincent
-tags: social widget, lazy loading
+tags: 
+  - social widget
+  - lazy loading
 ---
 I recently try to make lazy loading social widget. I found a solution I really loved. And i want to share with the community.
 

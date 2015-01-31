@@ -3,7 +3,8 @@ layout: post
 title: La retrospective son principal intérêt
 author: gvincent
 lang: fr
-tags: méthodologie agile
+tags: 
+  - méthodologie agile
 ---
 ![Retrospective](https://lh3.googleusercontent.com/-I40IfhiSgOA/TrwNrLk6YcI/AAAAAAAABcA/3b5gh7sSX6g/s800/retro-300x207.jpg){:.img-responsive}
 

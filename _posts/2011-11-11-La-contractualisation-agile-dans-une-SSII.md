@@ -3,7 +3,7 @@ layout: post
 title: La contractualisation agile dans une SSII
 author: gvincent
 lang: fr
-tags: contractualisation, SSII
+tags: ssii
 ---
 
 Rien qu'en lisant le titre, je fais la grimace.

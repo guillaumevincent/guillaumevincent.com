@@ -3,7 +3,9 @@ layout: post
 lang: fr
 title: Comment your damn code bitch
 author: gvincent
-tags: clean code, commentaire
+tags: 
+  - clean code 
+  - commentaire
 ---
 Voilà ce que j'ai essayé d'expliquer à un collègue quand il m'a dit que mon code ne comportait pas de commentaires
 

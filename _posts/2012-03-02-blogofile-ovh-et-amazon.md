@@ -3,7 +3,9 @@ layout: post
 lang: fr
 title: Blogofile, Ovh et Amazon
 author: gvincent
-tags: hébergement, site web
+tags: 
+  - hébergement
+  - site web
 ---
 Quand j'ai commencé à bloguer, j'utilisais Joomla puis très vite j'ai migré sur Wordpress.
 Et j'ai eu ma claque des mises à jour à effectuer tous les trois mois sous peine d'avoir des failles béantes sur mon site internet.

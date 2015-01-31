@@ -3,7 +3,7 @@ layout: post
 title: Reprendre en main ses emails
 author: gvincent
 lang: fr
-tags: mail, opensmtpd, dovecot, revolution
+tags: mail opensmtpd dovecot revolution
 ---
 
 
@@ -77,20 +77,13 @@ EmailModule.controller('EmailCtrl', function ($scope) {
  
 <div ng-app="EmailModule" ng-controller="EmailCtrl">
  
-    <form class="form-inline">
-        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-            <div class="input-group">
-                <div class="input-group-addon">Email</div>
-                <input type="email" name="email" class="form-control" ng-model="email">
-                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Entrer un email valide</p>
-            </div>
-        </div>    
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon">IP</div>
-                <input type="text" name="ip" class="form-control" ng-model="ip">
-            </div>
-        </div>
+    <form class="pure-form pure-form-stacked">
+        <fieldset>
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" ng-model="email">
+            <label for="ip">Ip du serveur</label>
+            <input type="text" name="ip" class="form-control" ng-model="ip">
+        <fieldset>
     </form>
 
 <h3> Un email c'est quoi ? </h3>
@@ -333,12 +326,13 @@ d'utilisateur et du mot de passe avec des séparateurs \000
 
 <p>Sinon vous pouvez rentrer votre mot de passe et copier le résultat encodé </p>
 <br>
-<form role="form">
-            <input type="text" name="user" class="form-control" ng-model="user">    
-            <input type="text" name="password" class="form-control" ng-model="password" ng-init="password">    
-            <label>Base64 :</label>
-            <input type="text" name="auth" class="form-control" ng-model="auth">
-    </div>
+<form class="pure-form pure-form-stacked">
+    <fieldset>
+        <input type="text" name="user" class="form-control" ng-model="user">
+        <input type="text" name="password" class="form-control" ng-model="password" ng-init="password">    
+        <label>Base64 :</label>
+        <input type="text" name="auth" class="form-control" ng-model="auth">
+    <fieldset>
 </form>
 <br>
 
