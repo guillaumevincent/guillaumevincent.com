@@ -3,7 +3,7 @@ layout: post
 title: Les labels dans Gmail
 author: gvincent
 lang: fr
-tags: gmail, productivité
+tags: gmail productivité
 ---
 Gmail de Google est l'un des services de messagerie les plus populaires sur le Web.
 Voici un billet très rapide pour présenter mon utilisation des "labels" dans Gmail.

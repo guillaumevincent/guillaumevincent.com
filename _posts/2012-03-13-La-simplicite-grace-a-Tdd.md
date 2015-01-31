@@ -3,7 +3,7 @@ layout: post
 lang: fr
 title: La simplicité grace à TDD
 author: gvincent
-tags: tdd, simplicité
+tags: tdd simplicité
 ---
 
 Le développement piloté par les tests est un merveilleux moyen pour s'assurer que le code que nous réalisons fait

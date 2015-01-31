@@ -3,7 +3,8 @@ layout: post
 title: Le Coding Dojo
 author: gvincent
 lang: fr
-tags: Coding Dojo
+tags: 
+  - coding dojo
 ---
 ![Coding Dojo](https://lh4.googleusercontent.com/-toWRjGqc3Mo/Trw4NjyltQI/AAAAAAAABcs/EO2Dk5EB-us/s800/dojoO.jpg){:.img-responsive}
 

@@ -3,7 +3,7 @@ layout: post
 title: Mes 10 premières minutes sur un serveur
 author: gvincent
 lang: fr
-tags: ubuntu, serveur, infrastructure
+tags: ubuntu serveur infrastructure
 ---
 
 Quand j'installe un nouveau serveur dédié, j'utilise une petite documentation.

@@ -3,7 +3,10 @@ layout: post
 title: Start faster gives the impression to go faster
 author: gvincent
 lang: en
-tags: user experience, javascript, gmail
+tags: 
+  - user experience
+  - javascript
+  - gmail
 ---
 
 One of the most critical aspects of any web project is performance !

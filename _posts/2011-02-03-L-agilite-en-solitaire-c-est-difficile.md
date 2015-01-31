@@ -3,7 +3,8 @@ layout: post
 title: L'agilité en solitaire, c'est difficile 1/2
 author: gvincent
 lang: fr
-tags: méthodologie agile
+tags: 
+  - méthodologie agile
 ---
 Le constat est malheureusement pessimiste, l'agilité en solitaire, c'est difficile!
 

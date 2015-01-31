@@ -3,7 +3,7 @@ layout: post
 lang: fr
 title: Git pour les nuls - Annuler les x derniers commit
 author: gvincent
-tags: git, commit
+tags: git commit
 ---
 ![10 derniers commit](https://lh4.googleusercontent.com/-Y-dQtb7aNbs/UNb2LIpJi7I/AAAAAAAAIMQ/_U2_lbjs0dk/s406/git%2520rebase%2520example.png){:.img-responsive}
 

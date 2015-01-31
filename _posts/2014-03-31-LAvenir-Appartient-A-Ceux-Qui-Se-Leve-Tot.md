@@ -3,7 +3,7 @@ layout: post
 title: L'avenir appartient à ceux qui se lèvent tôt
 author: gvincent
 lang: fr
-tags: sommeil, reveil
+tags: sommeil reveil
 ---
 L'année dernière j'ai essayé pendant 4 mois une expérience décrite par Steve Pavlina :
 

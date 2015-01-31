@@ -3,7 +3,7 @@ layout: post
 title: Copier le contenu d'une liste en python
 author: gvincent
 lang: fr
-tags: astuce, python
+tags: astuce python
 ---
 
 Quand j'ai commencé à coder en python, j'ai passé un peu de temps sur des problèmes de copies de listes.
