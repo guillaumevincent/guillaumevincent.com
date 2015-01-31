@@ -1,6 +1,6 @@
 name: Guillaume Vincent
 description: Site personnel de Guillaume Vincent
-url: http://127.0.0.1:4000
+url: http://guillaumevincent.com
 highlighter: pygments
 excerpt_separator: <!--more-->
 encoding: utf-8
@@ -10,3 +10,5 @@ exclude:
     - Gemfile.lock
     - LICENSE
     - README.md
+    - bower_components/
+    - node_modules/

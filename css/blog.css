@@ -144,7 +144,7 @@ h3 {
     background: #5aba59;
 }
 
-.gmail, .logiciel, .mail, .opensmtpd, .dovecot, .site, .tdd, .simplicité, .clean, .ubuntu {
+.gmail, .logiciel, .mail, .opensmtpd, .dovecot, .site, .tdd, .simplicité, .clean, .ubuntu, .spamassassin {
     background: #8156a7;
 }
 
@@ -212,4 +212,8 @@ body {
 .revertdirection {
     direction: rtl;
     unicode-bidi: bidi-override;
+}
+
+.text-center {
+    text-align: center;
 }

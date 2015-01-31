@@ -35,22 +35,35 @@ title: Guillaume Vincent
                 <section class="post">
                     <header class="post-header">
 
-
-                        <h2 class="post-title">Introducing Pure</h2>
+                        <h2 class="post-title">
+                            <a href="{{ site.posts[0].url }}">{{ site.posts[0].title }}</a>
+                        </h2>
 
                         <p class="post-meta">
-                            By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design"
-                                                                                       href="#">CSS</a> <a
-                                class="post-category post-category-pure" href="#">Pure</a>
+                            {% assign m = site.posts[0].date | date: "%-m" %}
+                            {{ site.posts[0].date | date: "%-d" }}
+                            {% case m %}
+                            {% when '1' %}janvier
+                            {% when '2' %}février
+                            {% when '3' %}mars
+                            {% when '4' %}avril
+                            {% when '5' %}mai
+                            {% when '6' %}juin
+                            {% when '7' %}juillet
+                            {% when '8' %}août
+                            {% when '9' %}septembre
+                            {% when '10' %}octobre
+                            {% when '11' %}novembre
+                            {% when '12' %}décembre
+                            {% endcase %}
+                            {{ site.posts[0].date | date: "%Y" }}
+                            {% if site.posts[0].tags %} - {% endif %}
+                            {% for tag in site.posts[0].tags %}<a class="post-category {{ tag }}" href="{{ site.url }}/tags/#{{ tag }}">{{ tag }}</a>{% endfor %}
                         </p>
                     </header>
-
                     <div class="post-description">
                         <p>
-                            Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the <a
-                                href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>. Although it looks pretty
-                            minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of
-                            small, responsive, CSS modules that you can use in every web project.
+                            {{ site.posts[0].excerpt }}
                         </p>
                     </div>
                 </section>
@@ -60,7 +73,7 @@ title: Guillaume Vincent
                 <h1 class="content-subhead">Billets récents</h1>
 
 
-                {% for post in site.posts limit:10 %}
+                {% for post in site.posts offset:1 limit:10 %}
                 <section class="post">
                     <header class="post-header">
 
@@ -103,7 +116,22 @@ title: Guillaume Vincent
                 {% for post in site.posts offset:10 %}
                 <section class="post">
                     <header class="post-header">
-                        <a href="{{ post.url }}">{{ post.date | date:"%d-%b-%Y" }} - {{ post.title }}</a>
+                        <a href="{{ post.url }}">{% assign m = post.date | date: "%-m" %}
+                            {% case m %}
+                            {% when '1' %}janvier
+                            {% when '2' %}février
+                            {% when '3' %}mars
+                            {% when '4' %}avril
+                            {% when '5' %}mai
+                            {% when '6' %}juin
+                            {% when '7' %}juillet
+                            {% when '8' %}août
+                            {% when '9' %}septembre
+                            {% when '10' %}octobre
+                            {% when '11' %}novembre
+                            {% when '12' %}décembre
+                            {% endcase %}
+                            {{ post.date | date: "%Y" }} - {{ post.title }}</a>
                     </header>
                 </section>
                 {% endfor %}
