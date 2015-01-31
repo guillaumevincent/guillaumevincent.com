@@ -164,7 +164,7 @@ contact: {$ user $}
 Every time an email is sent to one of these accounts, the email arrives in the /home/{$ user $}/mails/ folder.</p>
 
 
-<p>That's it for the email server part, lines 7 configuration! If you want to change this configuration and add features, I invite you to read the documentation <a href="https://www.opensmtpd.org/smtpd.conf.5.html">documentation</a></p>
+<p>That's it for the email server part, 7 lines of configuration! If you want to change this configuration and add features, I invite you to read the documentation <a href="https://www.opensmtpd.org/smtpd.conf.5.html">documentation</a></p>
 
 
 
@@ -193,7 +193,7 @@ domain.</p>
 <h1>IMAP, get your emails</h1>
 <h2>Install Dovecot</h2>
 <p>
-To retrieve emails with his mail client, we will use a protocol: IMAP (Internet Message Access Protocol). To configure IMAP, we will use Dovecot.
+To retrieve emails with our mail client, we will use IMAP protocol (Internet Message Access Protocol). To configure IMAP, we will use Dovecot.
 </p>
 
 <p>
