@@ -3,66 +3,100 @@ layout: default
 title: Guillaume Vincent
 ---
 
-<div class="container main-content">
-    <div class="articles">
-        <h1>Articles</h1>
-        <ul class="posts-list">
-            {% for post in site.posts %}
-            <li>
-                <div class="date">{{ post.date | date:"%d-%b-%Y" }}</div>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </li>
-            {% endfor %}
-        </ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-lg-1-4">
+        <div class="header">
+            <img src="img/profil.jpeg" alt="Conférence Agile Tour Bordeaux" class="pure-img-responsive profil"/>
+
+            <h1 class="brand-title">Guillaume Vincent</h1>
+
+            <h2 class="brand-tagline">humanist, software craftsman, open source addict, blogger and fan of scuba diving</h2>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://twitter.com/guillaume20100">Twitter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="feed.xml">RSS</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <div class="right-content">
-        <div class="bio box">
-            <img src="img/profil.jpeg" alt=""/>
 
-            <p>
-                Je m'appelle Guillaume. <br/>
+    <div class="content pure-u-1 pure-u-lg-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">Pinned Post</h1>
 
-                Je suis développeur, passionné et je vis à Bordeaux.
-                Je travaille à Akema, et je suis aussi le co-fondateur <a href="https://akemail.fr">d'Akemail</a>.
-                J'ai l'habitude de travailler sur Mac, avec des languages ​​comme Python, Javascript.
-                Mon IDE favoris est PyCharm. En ce moment je m'amuse avec AngularJS, Django, NodeJS, MongoDB,
-                PostgreSQL, FreeBSD et Ubuntu.
-            </p>
-        </div>
-        <div class="project box">
-            <h1>Projets</h1>
+                <!-- A single blog post -->
+                <section class="post">
+                    <header class="post-header">
 
-            <img src="img/akemail.png" alt=""/>
 
-            <p>
-                <a href="https://akemail.fr">Akemail</a> est une solution d'emailing pour gérer l’envoi et le suivi de
-                vos emails pour vos applications web et plateformes de commerce en ligne.
-            </p>
-            <hr/>
-            <img src="img/votedevaleur.png" alt=""/>
+                        <h2 class="post-title">Introducing Pure</h2>
 
-            <p>
-                <a href="http://votedevaleur.fr">Vote de valeur</a> est une application web d'entrainement.
-                C'est une application open source, qui tourne sur NodeJS, persiste les données sur MongoDB et utilise
-                AngularJS en front pour consommer une API REST. Le code source est disponible <a
-                    href="http://gitlab.oslab.fr/guillaumevincent/votedevaleur">ici</a>.
-            </p>
-        </div>
-        <div class="contact box">
-            <h1><a id="contact" name="contact">Contact</a></h1>
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design"
+                                                                                       href="#">CSS</a> <a
+                                class="post-category post-category-pure" href="#">Pure</a>
+                        </p>
+                    </header>
 
-            <p>
-                Vous pouvez me retrouver sur <a target="_blank" href="http://twitter.com/guillaume20100">Twitter</a>
-                et en vrai à <a target="_blank" href="http://okiwi.org/">Okiwi</a>. J'adore rencontrer des gens,
-                alors n'hésite pas à dire bonjour et viens participer à un coding dojo à Bordeaux !
-            </p>
-            <br/>
-            <p>
-                Vous pouvez m'envoyer un email à
-                <a href="mailto:gvincent@oslab.fr"><span
-                        class="revertdirection">rf.<!--anti-->balso@<!--spam-->tnecnivg</span></a>.
-                Utilisez ma <a href="/fichiers/gvincent.asc">clef GPG</a>, si vous voulez me contacter.
-            </p>
+                    <div class="post-description">
+                        <p>
+                            Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the <a
+                                href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>. Although it looks pretty
+                            minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of
+                            small, responsive, CSS modules that you can use in every web project.
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="posts">
+                <h1 class="content-subhead">Recent Posts</h1>
+
+
+                {% for post in site.posts %}
+                <section class="post">
+                    <header class="post-header">
+
+                        <h2 class="post-title">{{ post.title }}</h2>
+
+                        <p class="post-meta">
+                            {{ post.date | date:"%d-%b-%Y" }} - <a class="post-category post-category-yui" href="#">YUI</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            {{ post.excerpt }}
+                        </p>
+                    </div>
+
+                </section>
+                {% endfor %}
+
+            </div>
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="https://twitter.com/guillaume20100">Twitter</a></li>
+                        <li><a href="feed.xml">RSS</a></li>
+                        <li><a href="mailto:gvincent@oslab.fr"><span class="revertdirection">rf.<!--anti-->balso@<!--spam-->tnecnivg</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <p>Le contenu de ce site est sous licence Creative Commons Attribution 3.0 et le code et les exemples sont sous licence
+                        MIT </p>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
