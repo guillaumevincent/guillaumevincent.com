@@ -94,7 +94,7 @@ I choose OpenSMTPD because is secure, fast, simple to configure and is now the D
 <p>Add a user to our system:</p>
 <pre><code>useradd -m -u 5000 {$ user $} -d /home/{$ user $}/</code></pre>
 
-<p>Add a password to our user:</p>
+<p>Add a password for this user:</p>
 <pre><code>passwd {$ user $}</code></pre>
 
 <br>
@@ -118,7 +118,7 @@ To install Opensmtpd on Ubuntu run the command:
 <pre><code>pkg install opensmtpd</code></pre>
 
 <p>
-During installation it will ask you the FQDN (Fully qualified domain name) that corresponds to the right part of the arobase ({$ domain $}) and the user name that will be redirected root and emails postmaster. 
+During installation it will ask you the FQDN (Fully qualified domain name) that corresponds to the right part of the arobase ({$ domain $}) and the user name that will received root and postmaster emails. 
 You can put {$ user $}.
 </p>
 
@@ -157,14 +157,14 @@ abuse: root
 contact: {$ user $}
 </code></pre>
 
-<p>Every emails root@{$ domain $}, postmaster@{$ domain $}, webmaster@{$ domain $} and contact@{$ domain $} are aliases for {$ user $}@{$ domain $}.
+<p>Every emails root@{$ domain $}, postmaster@{$ domain $}, abuse@{$ domain $} and contact@{$ domain $} are aliases for {$ user $}@{$ domain $}.
 </p>
 
 <p>The last line lets OpenSMTPD to transfer all emails destined for oslab.fr in the email folder for each user described in the <code>/etc/aliases</code> table.
 Every time an email is sent to one of these accounts, the email arrives in the /home/{$ user $}/mails/ folder.</p>
 
 
-<p>That's it for the email server part, 7 lines of configuration! If you want to change this configuration and add features, I invite you to read the documentation <a href="https://www.opensmtpd.org/smtpd.conf.5.html">documentation</a></p>
+<p>That's it for the email server part, 7 lines of configuration! If you want to change this configuration and add features, I invite you to read the <a href="https://www.opensmtpd.org/smtpd.conf.5.html">documentation</a>.</p>
 
 
 
@@ -184,10 +184,9 @@ mail                      300  A      {$ ip $}
 According to the <a href="http://www.rfc-editor.org/rfc/rfc2181.txt">DNS RFC</a>, an MX record must point to a subdomain, then this subdomain must point to an IP address.
 </p>
 
-<p>The last line sets the SPF (Sender Policy Framework), a protection to prevent people sending emails with your name
-domain.</p>
+<p>The last line sets the SPF (Sender Policy Framework), a protection to prevent people sending emails with your domain name.</p>
 
-<p>At the end when everything works it is recommended to increase the TTL to avoid problems such as those <a href="https://medium.com/p/24eb09e026dd">encountered by@ N</a></p>
+<p>At the end when everything works it is recommended to increase the TTL to avoid problems such as those <a href="https://medium.com/p/24eb09e026dd">encountered by @N</a></p>
 
 
 <h1>IMAP, get your emails</h1>
@@ -207,7 +206,7 @@ To install Dovecot on Ubuntu run the command:
 <p>During installation reject the creation of a certificate because our certificates already exist.</p>
 
 <h2>Configure Dovecot</h2>
-<p>Edit the <code>/etc/dovecot/dovecot.conf</code> file :</p>
+<p>Comment all the line and add the following content to <code>/etc/dovecot/dovecot.conf</code> file :</p>
 
 
 <pre><code>
