@@ -3,7 +3,7 @@ layout: post
 title: OpenSMTPD, Dovecot and SpamAssassin
 author: gvincent
 lang: fr
-tags: mail opensmtpd dovecot spamassassin
+tags: opensmtpd dovecot spamassassin
 ---
 
  

@@ -3,7 +3,7 @@ layout: post
 title: Reprendre en main ses emails
 author: gvincent
 lang: fr
-tags: mail opensmtpd dovecot revolution
+tags: mail opensmtpd dovecot
 ---
 
 
