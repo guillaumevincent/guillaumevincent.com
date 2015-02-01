@@ -3,8 +3,7 @@ layout: post
 title: Start faster gives the impression to go faster
 author: gvincent
 lang: en
-tags: 
-  - user experience
+tags:
   - javascript
   - gmail
 ---
