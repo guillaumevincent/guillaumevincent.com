@@ -33,7 +33,8 @@ EmailModule.controller('EmailCtrl', function ($scope) {
     $scope.email = "gvincent@oslab.fr";
     $scope.user = "gvincent";
     $scope.domain = "oslab.fr";
-    $scope.ip = "37.187.192.235";
+    $scope.ip4 = "37.187.192.235";
+    $scope.ip6 = "2607:f2f0:a920::7"
     $scope.password = "password";
     
     $scope.$watch('email', function(){
@@ -72,8 +73,10 @@ If you do not trust me, you can leave the default information.
         <fieldset>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" class="form-control" ng-model="email">
-            <label for="ip">Ip of your server</label>
-            <input type="text" id="ip" name="ip" class="form-control" ng-model="ip">
+            <label for="ip4">IP of your server</label>
+            <input type="text" id="ip4" name="ip4" class="form-control" ng-model="ip4">
+            <label for="ip6">IPv6 of your server</label>
+            <input type="text" id="ip6" name="ip6" class="form-control" ng-model="ip6">
         </fieldset>
     </form>
 
@@ -176,7 +179,9 @@ A mail server need to know where the mail server for {$ domain $} is. Here is my
 
 
 <pre><code>{$ domain $}.                 300  MX     10 mail.{$ domain $}.
-mail                      300  A      {$ ip $}
+mail                      300  A      {$ ip4 $}
+; Ignore this line if your host has no IPv6 connectivity:
+mail                      300  AAAA   {$ ip6 $}
 {$ domain $}.                 IN   TXT    "v=spf1 mx mx:{$ domain $} -all"
 </code></pre>
 
