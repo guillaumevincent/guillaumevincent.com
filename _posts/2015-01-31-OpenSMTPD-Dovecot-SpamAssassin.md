@@ -134,10 +134,11 @@ pki mail.{$ domain $} certificate "/etc/ssl/certs/mail.{$ domain $}.crt"
 listen on eth0 port 25 hostname mail.{$ domain $} tls pki mail.{$ domain $}
 listen on eth0 port 587 hostname mail.{$ domain $} tls-require pki mail.{$ domain $} auth mask-source
 
-accept from local for any relay
-
 table aliases file:/etc/aliases
+
 accept from any for domain "{$ domain $}" alias &lt;aliases&gt; deliver to maildir "~/mails"
+
+accept from local for any relay
 </code></pre>
 
 
@@ -273,16 +274,17 @@ For Dovecot configuration, there is not much to add. We add the certificate and 
 <pre><code>pki mail.{$ domain $} key "/etc/ssl/private/mail.{$ domain $}.key"
 pki mail.{$ domain $} certificate "/etc/ssl/certs/mail.{$ domain $}.crt"
 
+listen on lo port 10026 tag Filtered
 listen on eth0 port 25 hostname mail.{$ domain $} tls pki mail.{$ domain $}
 listen on eth0 port 587 hostname mail.{$ domain $} tls-require pki mail.{$ domain $} auth mask-source
 
-accept from local for any relay
-
 table aliases file:/etc/aliases
+
+accept tagged Filtered for any alias &lt;aliases&gt; deliver to maildir "~/mails"
+
 accept from any for domain "{$ domain $}" relay via "smtp://127.0.0.1:10025"
 
-listen on lo port 10026 tag Filtered
-accept tagged Filtered for any alias &lt;aliases&gt; deliver to maildir "~/mails"</code></pre>
+accept from local for any relay</code></pre>
 
 <p>We need to enable spamassassin:</p>
 <p>Change <code>ENABLED</code> to 1 in <code>/etc/default/spamassassin</code></p>
