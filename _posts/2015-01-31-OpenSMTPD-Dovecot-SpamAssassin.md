@@ -12,13 +12,11 @@ This is the TLDR (Too long; didn't read) version of the most popular post on my 
 In this post, I explained how to configure OpenSMTPD, Dovecot and SpamAssassin to take your email back.
 
 <!--more-->
+<p>last edit: may 02 2015</p>
 <h1>Requirements</h1>
 <ul>
-<li>a personal server with a recent operating system (Ubuntu 14.04 or FreeBSD 9.3)</li>
+<li>a personal server with a recent operating system. Check OpenSMTPD, Spamd and Dovecot are available on your system. I use Ubuntu 14.04 LTS 64bit for this tutorial</li>
 <li>a domain name</li>
-<li>TLS certificate to encrypt communications between your mail client and server. You need the private key of the 
-certificate that often ends with .key (eg private.oslab.fr.key) and public certificate that ends with .crt or .pem 
-(eg certificate.oslab.fr.crt) <a href="https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html">see how to generate the certificate on ubuntu</a></li>
 </ul>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 <script type="text/javascript">
@@ -92,7 +90,7 @@ I choose OpenSMTPD because is secure, fast, simple to configure and is now the D
 </p>
 
 <h2>A home for your mails</h2>
-<p>Opensmtpd need a place to send emails you received. So we are going to create a user: ({$ user $}).</p>
+<p>OpenSMTPD need a place to send emails you received. So we are going to create a user: ({$ user $}).</p>
 
 <p>Add a user to our system:</p>
 <pre><code>useradd -m -u 5000 {$ user $} -d /home/{$ user $}/</code></pre>
@@ -103,22 +101,25 @@ I choose OpenSMTPD because is secure, fast, simple to configure and is now the D
 <br>
 
 <h2>Certificates</h2>
-
 <p>
-Copy certificate.{$ domain $}.crt in <code>/etc/ssl/certs/</code> and private.{$ domain $}.key in <code>/etc/ssl/private</code>.
+You need a TLS certificate to encrypt communications between your mail client and server. You need the private key of the 
+certificate that often ends with .key (eg mail.{$ domain $}.key) and public certificate that ends with .crt or .pem (eg mail.{$ domain $}.crt)
 </p>
-
-
+<p>
+If you don't have any certificate, you can generate one : 
+</p>
+<pre><code>openssl genrsa -out /etc/ssl/private/mail.{$ domain $}.key 4096
+openssl req -new -x509 -key /etc/ssl/private/mail.{$ domain $}.key -out /etc/ssl/certs/mail.{$ domain $}.crt -days 730</code></pre>
+<p>Be sure to set the permission of your certificates</p>
+<pre><code>chmod 700 /etc/ssl/private/mail.{$ domain $}.key
+chmod 700 /etc/ssl/certs/mail.{$ domain $}.crt</code></pre>
 <br>
 
-<h2>Install Opensmtpd</h2>
+<h2>Install OpenSMTPD</h2>
 <p>
-To install Opensmtpd on Ubuntu run the command:
+To install OpenSMTPD run the command:
 </p>
-<pre><code>sudo apt-get install opensmtpd</code></pre>
-
-<p>On Freebsd</p>
-<pre><code>pkg install opensmtpd</code></pre>
+<pre><code>apt-get install opensmtpd</code></pre>
 
 <p>
 During installation it will ask you the FQDN (Fully qualified domain name) that corresponds to the right part of the arobase ({$ domain $}) and the user name that will received root and postmaster emails. 
@@ -127,8 +128,8 @@ You can put {$ user $}.
 
 
 <p>We can now edit our OpenSMTPD conf file <code>/etc/smtpd.conf</code> :</p>
-<pre><code>pki mail.{$ domain $} key "/etc/ssl/private/private.{$ domain $}.key"
-pki mail.{$ domain $} certificate "/etc/ssl/certs/certificate.{$ domain $}.crt"
+<pre><code>pki mail.{$ domain $} key "/etc/ssl/private/mail.{$ domain $}.key"
+pki mail.{$ domain $} certificate "/etc/ssl/certs/mail.{$ domain $}.crt"
 
 listen on eth0 port 25 hostname mail.{$ domain $} tls pki mail.{$ domain $}
 listen on eth0 port 587 hostname mail.{$ domain $} tls-require pki mail.{$ domain $} auth mask-source
@@ -154,13 +155,14 @@ The next line specifies that all local user (or authenticated) can relay emails.
 
 <p><code>/etc/aliases</code> file looks like : </p>
 
-<pre><code>root: {$ user $}
-postmaster: root
+<pre><code>postmaster: root
 abuse: root
+root: {$ user $}
 contact: {$ user $}
 </code></pre>
 
-<p>Every emails root@{$ domain $}, postmaster@{$ domain $}, abuse@{$ domain $} and contact@{$ domain $} are aliases for {$ user $}@{$ domain $}.
+<p>
+Every emails root|postmaster|abuse|contact@{$ domain $} are aliases for {$ user $}@{$ domain $}. Run <code>newaliases</code> to regenerate aliases.
 </p>
 
 <p>The last line lets OpenSMTPD to transfer all emails destined for oslab.fr in the email folder for each user described in the <code>/etc/aliases</code> table.
@@ -201,12 +203,10 @@ To retrieve emails with our mail client, we will use IMAP protocol (Internet Mes
 </p>
 
 <p>
-To install Dovecot on Ubuntu run the command:
+To install Dovecot run the command:
 </p>
-<pre><code>sudo apt-get install dovecot-imapd</code></pre>
+<pre><code>apt-get install dovecot-imapd</code></pre>
 
-<p>On Freebsd</p>
-<pre><code>pkg install mail/dovecot</code></pre>
 
 <p>During installation reject the creation of a certificate because our certificates already exist.</p>
 
@@ -216,9 +216,9 @@ To install Dovecot on Ubuntu run the command:
 
 <pre><code>
 protocols = imap
-ssl = yes
-ssl_cert = </etc/ssl/certs/certificate.{$ domain $}.crt
-ssl_key = </etc/ssl/private/private.{$ domain $}.key
+ssl = required
+ssl_key = </etc/ssl/private/mail.{$ domain $}.key
+ssl_cert = </etc/ssl/certs/mail.{$ domain $}.crt
 ssl_client_ca_dir = /etc/ssl/certs
 mail_location = maildir:~/mails
 listen = *
@@ -234,7 +234,8 @@ passdb {
 }
 </code></pre>
 
-<p>For Dovecot configuration, there is not much to add. We add the certificate and use the Pluggable Authentication Module (pam) for the IMAP authentication.
+<p>
+For Dovecot configuration, there is not much to add. We add the certificate and use the Pluggable Authentication Module (pam) for the IMAP authentication.
 </p>
 
 
@@ -261,8 +262,8 @@ passdb {
 
 <h1>SpamAssassin</h1>
 <p>If you want to install SpamAssassin with your OpenSMTPD, you will need spampd (Spam Proxy Daemon).</p>
-<p>To install spampd on Ubuntu run the command:</p>
-<pre><code>sudo apt-get install spampd</code></pre>
+<p>To install spampd run the command:</p>
+<pre><code>apt-get install spampd</code></pre>
 
 
 <p>We need to tell OpenSMTPD to relay every mail on unix socket through port 10025, and tag every mail coming from port 10026 and deliver it to maildir. Spampd listens on port 10025 on the same host as the internal mail server and will send back to port 10026 mails filtered.</p>
@@ -270,23 +271,19 @@ passdb {
 
 <p>We can edit our OpenSMTPD conf file <code>/etc/smtpd.conf</code> :</p>
 
-<pre><code>pki mail.{$ domain $} key "/etc/ssl/private/private.{$ domain $}.key"
-pki mail.{$ domain $} certificate "/etc/ssl/certs/certificate.{$ domain $}.crt"
+<pre><code>pki mail.{$ domain $} key "/etc/ssl/private/mail.{$ domain $}.key"
+pki mail.{$ domain $} certificate "/etc/ssl/certs/mail.{$ domain $}.crt"
 
 listen on eth0 port 25 hostname mail.{$ domain $} tls pki mail.{$ domain $}
 listen on eth0 port 587 hostname mail.{$ domain $} tls-require pki mail.{$ domain $} auth mask-source
+
+accept from local for any relay
 
 table aliases file:/etc/aliases
 accept from any for domain "{$ domain $}" relay via "smtp://127.0.0.1:10025"
 
 listen on lo port 10026 tag Filtered
-accept tagged Filtered for any alias &lt;aliases&gt; deliver to maildir "~/mails"
-
-accept from local for any relay</code></pre>
-
-
-<p>We need to enable spampd:</p> 
-<p>Change <code>STARTSPAMPD</code> to 1 in <code>/etc/default/spampd</code></p>
+accept tagged Filtered for any alias &lt;aliases&gt; deliver to maildir "~/mails"</code></pre>
 
 <p>We need to enable spamassassin:</p>
 <p>Change <code>ENABLED</code> to 1 in <code>/etc/default/spamassassin</code></p>
@@ -301,4 +298,5 @@ value 86400 seconds (1 day) minimum value recommended by <a href="http://tools.i
 
 <h1>The end</h1>
 <p>Did you like this post? Thank me by <a href="https://github.com/guillaumevincent/guillaumevincent.com">improving it </a> or share it on twitter!
+</p>
 </div>
