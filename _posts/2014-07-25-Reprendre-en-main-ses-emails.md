@@ -14,7 +14,8 @@ m'appartient, qui fonctionne bien. Dans ce billet je vais partager avec vous mon
 en main vos emails !
 
 <!--more-->
-<p>obsolète lisez plutôt [OpenSMTPD-Dovecot-SpamAssassin](http://guillaumevincent.com/2015/01/31/OpenSMTPD-Dovecot-SpamAssassin.html)</p>
+Obsolète lisez plutôt [OpenSMTPD-Dovecot-SpamAssassin](http://guillaumevincent.com/2015/01/31/OpenSMTPD-Dovecot-SpamAssassin.html)
+
 <p class="bg-success">
 Avant de commencer, je tiens à préciser que ce billet est technique. Nous allons apprendre à configurer des outils 
 comme OpenSMTPD et Dovecot. L'objectif final est de vous permettre d'avoir votre propre serveur mail et de comprendre 
