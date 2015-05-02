@@ -219,7 +219,6 @@ protocols = imap
 ssl = required
 ssl_key = </etc/ssl/private/mail.{$ domain $}.key
 ssl_cert = </etc/ssl/certs/mail.{$ domain $}.crt
-ssl_client_ca_dir = /etc/ssl/certs
 mail_location = maildir:~/mails
 listen = *
 
