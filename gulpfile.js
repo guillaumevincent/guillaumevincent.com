@@ -42,10 +42,6 @@ gulp.task('js', function () {
 
 gulp.task('images', function () {
     return gulp.src(paths.images)
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}]
-        }))
         .pipe(gulp.dest(paths.build + '/images'));
 });
 
