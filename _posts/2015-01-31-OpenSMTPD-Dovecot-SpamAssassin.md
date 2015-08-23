@@ -68,14 +68,12 @@ If you do not trust me, you can leave the default information.
 <div ng-app="EmailModule" ng-controller="EmailCtrl">
  
     <form class="pure-form pure-form-stacked">
-        <fieldset>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" ng-model="email">
-            <label for="ip4">IP of your server</label>
-            <input type="text" id="ip4" name="ip4" class="form-control" ng-model="ip4">
-            <label for="ip6">IPv6 of your server</label>
-            <input type="text" id="ip6" name="ip6" class="form-control" ng-model="ip6">
-        </fieldset>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" ng-model="email">
+        <label for="ip4">IP of your server</label>
+        <input type="text" id="ip4" name="ip4" class="form-control" ng-model="ip4">
+        <label for="ip6">IPv6 of your server</label>
+        <input type="text" id="ip6" name="ip6" class="form-control" ng-model="ip6">
     </form>
 
 <br>

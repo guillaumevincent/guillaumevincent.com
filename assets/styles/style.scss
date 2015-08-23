@@ -1,0 +1,51 @@
+//@import "debug";
+@import "reset";
+@import "clearfix";
+@import 'menu';
+@import 'post';
+@import 'code';
+
+html {
+  font-size: 62.5%
+}
+
+body {
+  font: 400 15px/1.5 'Helvetica Neue', Helvetica, Arial;
+  background: #fff;
+  color: #444;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: $light-blue;
+  font-weight: 900;
+  text-decoration: none
+}
+
+::selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none
+}
+
+::-moz-selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none
+}
+
+.revertdirection {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+
+
+
+
+
+
+
+
+
+

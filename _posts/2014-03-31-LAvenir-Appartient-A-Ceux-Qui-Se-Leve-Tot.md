@@ -12,6 +12,7 @@ L'année dernière j'ai essayé pendant 4 mois une expérience décrite par Stev
 
 Je recommence l'expérience aujourd'hui, et j'écris un petit billet de blog pour parler de cette technique
 qui m'a permis de gagner l'équivalent d'un mois de travail en sommeil en 2013.
+
 <!--more-->
 
 ### Early Riser
