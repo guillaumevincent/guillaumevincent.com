@@ -82,12 +82,10 @@ EmailModule.controller('EmailCtrl', function ($scope) {
 <div ng-app="EmailModule" ng-controller="EmailCtrl">
  
     <form class="pure-form pure-form-stacked">
-        <fieldset>
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" ng-model="email">
-            <label for="ip">Ip du serveur</label>
-            <input type="text" name="ip" class="form-control" ng-model="ip">
-        </fieldset>
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" ng-model="email">
+        <label for="ip">Ip du serveur</label>
+        <input type="text" name="ip" class="form-control" ng-model="ip">
     </form>
 
 <h3> Un email c'est quoi ? </h3>

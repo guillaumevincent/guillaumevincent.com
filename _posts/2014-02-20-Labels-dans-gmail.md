@@ -89,5 +89,3 @@ J'utilise très souvent :
     before:
 
 Il ne me manque que les filtres sur les emails envoyés, pour obtenir 100% de mes emails avec une étiquette. Gmail si tu m'entends ;)
-
-Et vous quels sont vos labels ?

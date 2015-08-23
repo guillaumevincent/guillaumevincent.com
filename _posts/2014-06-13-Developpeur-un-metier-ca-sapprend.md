@@ -3,9 +3,7 @@ layout: post
 title: Développeur c’est un métier, et un métier ça s’apprend
 author: gvincent
 lang: fr
-tags: 
-  - tdd
-  - professionnalisme
+tags: tdd professionnalisme
 ---
 Faire un logiciel c’est un métier, et un métier ça s’apprend ! Il faut du temps pour l’apprendre. Notre métier ne consiste pas à pondre des vues, réaliser des contrôleurs pour écrire dans des bases de données, et résoudre des bugs au débogueur. Non, ce n’est rien de tout ça !
 Notre métier consiste à traduire une idée en du code. Deux choses complètement différentes.

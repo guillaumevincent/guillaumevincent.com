@@ -1,24 +1,28 @@
 {
-    "name": "guillaumevincent.com",
-    "version": "2.0.0",
-    "description": "packages node pour le site http://guillaumevincent.com",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/guillaumevincent/guillaumevincent.com.git"
-    },
-    "keywords": [
-        "jekyll",
-        "website"
-    ],
-    "author": "Guillaume Vincent <vincent.guillaume.inp@gmail.com>",
-    "license": "MIT",
-    "homepage": "https://guillaumevincent.com",
-    "devDependencies": {
-        "gulp": "latest",
-        "bower": "latest",
-        "gulp-autoprefixer": "latest",
-        "gulp-concat": "latest",
-        "gulp-minify-css": "latest",
-        "gulp-sass": "latest"
-    }
+  "name": "guillaumevincent.com",
+  "version": "1.0.0",
+  "description": "npm package.json pour le site https://guillaumevincent.com",
+  "repository": "https://github.com/guillaumevincent/guillaumevincent.com.git",
+  "author": "Guillaume Vincent <guillaume@oslab.fr>",
+  "license": "MIT",
+  "homepage": "https://guillaumevincent.com",
+  "scripts": {
+    "postinstall": "gulp build",
+    "pretest": "npm install"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-image": "^1.0.2",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.2.0"
+  }
 }

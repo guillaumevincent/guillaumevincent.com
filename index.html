@@ -1,152 +1,33 @@
 ---
 layout: default
-title: Guillaume Vincent
 ---
-
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-lg-1-4">
-        <div class="header">
-            <img src="img/profil.jpeg" alt="Conférence Agile Tour Bordeaux" class="pure-img-responsive profil"/>
-
-            <h1 class="brand-title">Guillaume Vincent</h1>
-
-            <h2 class="brand-tagline">humaniste, artisan logiciel, blogueur et fan de plongée sous-marine</h2>
-
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="pure-button" href="https://twitter.com/guillaume20100">Twitter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="pure-button" href="feed.xml">RSS</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <div class="content pure-u-1 pure-u-lg-3-4">
-        <div>
-            <!-- A wrapper for all the blog posts -->
-            <div class="posts">
-                <h1 class="content-subhead">Billet épinglé</h1>
-
-                <!-- A single blog post -->
-                <section class="post">
-                    <header class="post-header">
-
-                        <h2 class="post-title">
-                            <a href="{{ site.posts[0].url }}">{{ site.posts[0].title }}</a>
-                        </h2>
-
-                        <p class="post-meta">
-                            {% assign m = site.posts[0].date | date: "%-m" %}
-                            {{ site.posts[0].date | date: "%-d" }}
-                            {% case m %}
-                            {% when '1' %}janvier
-                            {% when '2' %}février
-                            {% when '3' %}mars
-                            {% when '4' %}avril
-                            {% when '5' %}mai
-                            {% when '6' %}juin
-                            {% when '7' %}juillet
-                            {% when '8' %}août
-                            {% when '9' %}septembre
-                            {% when '10' %}octobre
-                            {% when '11' %}novembre
-                            {% when '12' %}décembre
-                            {% endcase %}
-                            {{ site.posts[0].date | date: "%Y" }}
-                            {% if site.posts[0].tags %} - {% endif %}
-                            {% for tag in site.posts[0].tags %}<a class="post-category {{ tag }}" href="{{ site.url }}/tags/#{{ tag }}">{{ tag }}</a>{% endfor %}
-                        </p>
-                    </header>
-                    <div class="post-description">
-                        <p>
-                            {{ site.posts[0].excerpt }}
-                        </p>
-                    </div>
-                </section>
-            </div>
-
-            <div class="posts">
-                <h1 class="content-subhead">Billets récents</h1>
-
-
-                {% for post in site.posts offset:1 limit:10 %}
-                <section class="post">
-                    <header class="post-header">
-
-                        <h2 class="post-title">
-                            <a href="{{ post.url }}">{{ post.title }}</a>
-                        </h2>
-
-                        <p class="post-meta">
-                            {% assign m = post.date | date: "%-m" %}
-                            {{ post.date | date: "%-d" }}
-                            {% case m %}
-                            {% when '1' %}janvier
-                            {% when '2' %}février
-                            {% when '3' %}mars
-                            {% when '4' %}avril
-                            {% when '5' %}mai
-                            {% when '6' %}juin
-                            {% when '7' %}juillet
-                            {% when '8' %}août
-                            {% when '9' %}septembre
-                            {% when '10' %}octobre
-                            {% when '11' %}novembre
-                            {% when '12' %}décembre
-                            {% endcase %}
-                            {{ post.date | date: "%Y" }}
-                            {% if post.tags %} - {% endif %}
-                            {% for tag in post.tags %}<a class="post-category {{ tag }}" href="{{ site.url }}/tags/#{{ tag }}">{{ tag }}</a>{% endfor %}
-                        </p>
-                    </header>
-                    <div class="post-description">
-                        <p>
-                            {{ post.excerpt }}
-                        </p>
-                    </div>
-                </section>
-                {% endfor %}
-
-                <h1 class="content-subhead">Archives</h1>
-
-                {% for post in site.posts offset:10 %}
-                <section class="post">
-                    <header class="post-header">
-                        <a href="{{ post.url }}">{% assign m = post.date | date: "%-m" %}
-                            {% case m %}
-                            {% when '1' %}janvier
-                            {% when '2' %}février
-                            {% when '3' %}mars
-                            {% when '4' %}avril
-                            {% when '5' %}mai
-                            {% when '6' %}juin
-                            {% when '7' %}juillet
-                            {% when '8' %}août
-                            {% when '9' %}septembre
-                            {% when '10' %}octobre
-                            {% when '11' %}novembre
-                            {% when '12' %}décembre
-                            {% endcase %}
-                            {{ post.date | date: "%Y" }} - {{ post.title }}</a>
-                    </header>
-                </section>
-                {% endfor %}
-            </div>
-
-            <div class="footer">
-                <div class="pure-menu pure-menu-horizontal pure-menu-open">
-                    <ul>
-                        <li><a href="https://twitter.com/guillaume20100">Twitter</a></li>
-                        <li><a href="feed.xml">RSS</a></li>
-                        <li><a href="mailto:gvincent@oslab.fr"><span class="revertdirection">rf.<!--anti-->balso@<!--spam-->tnecnivg</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="posts">
+    <ul class="posts__list">
+        {% for post in site.posts %}
+        <li>
+            <a href="{{ post.url | prepend: site.baseurl }}">
+                <h2 class="posts__title">{{ post.title }}</h2>
+                <span class="posts__date">
+                    {% assign m = site.posts[0].date | date: "%-m" %}
+                    {{ site.posts[0].date | date: "%-d" }}
+                    {% case m %}
+                        {% when '1' %}janvier
+                        {% when '2' %}février
+                        {% when '3' %}mars
+                        {% when '4' %}avril
+                        {% when '5' %}mai
+                        {% when '6' %}juin
+                        {% when '7' %}juillet
+                        {% when '8' %}août
+                        {% when '9' %}septembre
+                        {% when '10' %}octobre
+                        {% when '11' %}novembre
+                        {% when '12' %}décembre
+                    {% endcase %}
+                    {{ site.posts[0].date | date: "%Y" }}
+                </span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>

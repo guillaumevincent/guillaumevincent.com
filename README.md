@@ -5,21 +5,26 @@
 * [jekyll](http://jekyllrb.com/)
 * [nodejs](http://nodejs.org/)
 * [gulp](http://gulpjs.com/)
-* [bower](http://bower.io/)
 
 ## Installation
 
-se déplacer dans le dossier de configuration
+run
 
-    cd config
     npm install
 
-construire les fichiers statiques
+build static files
 
-    ./node_modules/gulp/bin/gulp.js scss
+    gulp build
 
-## Lancer le serveur en local
+## Build site and run jekyll
 
-    jekyll serve --watch
+run 
 
-ouvrir un navigateur à l'adresse http://0.0.0.0:4000/
+    jekyll serve
+
+and visit http://0.0.0.0:4000/
+
+
+## License
+
+MIT License, see license file

@@ -1,14 +1,12 @@
-name: Guillaume Vincent
-description: Site personnel de Guillaume Vincent
-url: http://guillaumevincent.com
-highlighter: pygments
-excerpt_separator: <!--more-->
-encoding: utf-8
+# Site settings
+title: Guillaume Vincent
+email: guillaume@oslab.fr
+description: I'm Guillaume Vincent, this is my blog. I'm a software craftsman. Focused on product, tests & quality. Humanist, open source addict, blogger and fan of scuba diving. ♥ code, design and cats.
+baseurl: ""
+url: "http://guillaumevincent.com"
+twitter_username: guillaume20100
+github_username:  guillaumevincent
+
+# Build settings
 markdown: kramdown
-exclude:
-    - Gemfile
-    - Gemfile.lock
-    - LICENSE
-    - README.md
-    - bower_components/
-    - node_modules/
+exclude: [node_modules, assets, gulpfile.js, package.json, README.md]

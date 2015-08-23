@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-<a href="{{site.url}}" class="logo">
-    <img src="/img/logo.png" alt="logo">
-</a>
-<div class="post">
-    <div class="header-title">
-        <h1>{{ page.title }}</h1>
 
-        <h2>
+<article class="post clear">
+    <h1 class="post__title">
+        {{ page.title }}
+    </h1>
+
+    <div class="post__meta">
+        <p>
             {% assign m = page.date | date: "%-m" %}
             {{ page.date | date: "%-d" }}
             {% case m %}
@@ -26,23 +26,8 @@ layout: default
             {% when '12' %}décembre
             {% endcase %}
             {{ page.date | date: "%Y" }}
-        </h2>
-    </div>
-
-    <div class="post-content">
-        {{ content }}
-        <p class="share">
-            <a class="pure-button pure-button-primary" onclick="goTwitter()" title="Partager sur Twitter!">Partager sur Twitter</a>
         </p>
     </div>
-    <script type="text/javascript">
-        function goTwitter() {
-            var title = encodeURIComponent("{{ page.title }}");
-            var url = encodeURIComponent(document.URL);
-            window.location.href = "https://twitter.com/intent/tweet?original_referer=" + url + "&source=tweetbutton&text=" + title + "&url=" + url + "&via=guillaume20100";
-        }
-        function goTop() {
-            var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-        }
-    </script>
-</div>
+
+    {{ content }}
+</article>
