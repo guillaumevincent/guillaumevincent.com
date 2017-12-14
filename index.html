@@ -2,32 +2,17 @@
 layout: default
 ---
 <div class="posts">
-    <ul class="posts__list">
-        {% for post in site.posts %}
-        <li>
-            <a href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="posts__title">{{ post.title }}</h2>
-                <span class="posts__date">
-                    {% assign m = post.date | date: "%-m" %}
-                    {{ post.date | date: "%-d" }}
-                    {% case m %}
-                        {% when '1' %}janvier
-                        {% when '2' %}février
-                        {% when '3' %}mars
-                        {% when '4' %}avril
-                        {% when '5' %}mai
-                        {% when '6' %}juin
-                        {% when '7' %}juillet
-                        {% when '8' %}août
-                        {% when '9' %}septembre
-                        {% when '10' %}octobre
-                        {% when '11' %}novembre
-                        {% when '12' %}décembre
-                    {% endcase %}
-                    {{ post.date | date: "%Y" }}
-                </span>
-            </a>
+    <h1 class="posts__title">Writings</h1>
+    {% assign postsByYearMonth = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+    {% for yearMonth in postsByYearMonth %}
+    <h2 class="posts__month">{{ yearMonth.name }}</h2>
+    <ul class="posts__listing">
+        {% for post in yearMonth.items %}
+        <li class="menu__profile-item">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            {{ post.date | date: '%Y %b %d' }}
         </li>
         {% endfor %}
     </ul>
+    {% endfor %}
 </div>

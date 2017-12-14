@@ -1,7 +1,6 @@
 # Site settings
-title: Guillaume Vincent
-email: guillaume@oslab.fr
-description: I'm Guillaume Vincent, this is my blog. I'm a software craftsman. Focused on product, tests & quality. Humanist, open source addict, blogger and fan of scuba diving. ♥ code, design and cats.
+title: Guillaume Vincent | Code & Design
+description: Hello I'm Guillaume, I'm a software craftsman and I work for Red Hat remotely from France. I love everything about computer science, clean code, software architecture, design, user experience, scuba diving, golf, cats, and so much more....
 baseurl: ""
 url: "http://guillaumevincent.com"
 twitter_username: guillaume20100
@@ -9,4 +8,6 @@ github_username:  guillaumevincent
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 exclude: [node_modules, assets, gulpfile.js, package.json, README.md]
+excerpt_separator: <!--more-->
