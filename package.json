@@ -2,7 +2,7 @@
   "name": "guillaumevincent.com",
   "version": "2.0.0",
   "description": "npm module for guillaumevincent.com website",
-  "repository": "https://github.com/guillaumevincent/guillaumevincent.com.git",
+  "repository": "https://github.com/guillaumevincent/guillaumevincent.github.io.git",
   "author": "Guillaume Vincent <guillaume@oslab.fr>",
   "license": "MIT"
 }
