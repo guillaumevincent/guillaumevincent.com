@@ -13,10 +13,10 @@ I started by creating a CSS sprites for including images in my web page. The sol
 I use the CSS stripes technique to make a single query when I load my page.
 
 
-![social icon](https://lh4.googleusercontent.com/-biB8eXI7AbE/UQvxXDskG9I/AAAAAAAAK7A/jLVmq38gZX8/s115/social.png){:.img-responsive}
+![social icon](/images/posts/social.png){:.img-responsive}
 
 
-{% highlight html%}
+```html
 <div id="social">
     <ul id="social_icon">
         <li id="panel1c"><a id="twitter" href=""></a></li>
@@ -24,13 +24,13 @@ I use the CSS stripes technique to make a single query when I load my page.
         <li id="panel3c"><a id="facebook" href=""></a></li>
     </ul>
 </div>
-{% endhighlight %}
+```
 
 
 I adapt the CSS i found in this <a href="http://alistapart.com/article/sprites">excellent post</a>
 
 
-{% highlight css %}
+```css
 #social_icon {
     position: relative;
     margin: 20px 0px;
@@ -73,13 +73,13 @@ I adapt the CSS i found in this <a href="http://alistapart.com/article/sprites">
     background-position: 0 -90px;
 }
 
-{% endhighlight %}
+```
 
 
 And i created a small jquery code to update my href attribute and use the good social api request
 
 
-{% highlight javascript %}
+```js
 $(document).ready(function() {
     var pathname = encodeURI(window.location);
     var tweeturl = 'http://twitter.com/share?url=' + pathname + '&via=rolalagile';
@@ -91,4 +91,4 @@ $(document).ready(function() {
     var facebookurl = 'http://www.facebook.com/share.php?u=' + pathname
     $("#facebook").attr("href", facebookurl);
 });
-{% endhighlight %}
+```

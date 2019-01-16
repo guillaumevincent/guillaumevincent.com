@@ -21,7 +21,7 @@ Je vais juste vous aidez à comprendre **git rebase** et vous donner deux trois 
 
 J'intègre donc cette équipe de 3 développeurs :
 
-![team](https://lh5.googleusercontent.com/-ZBaTUBLUVo0/UQufklFjaBI/AAAAAAAAK6w/WPP6UcVQZ3M/s514/team.png){:.img-responsive}
+![team](/images/posts/team.png){:.img-responsive}
 
 Sarah, John, Bob et moi.
 
@@ -31,18 +31,18 @@ La première chose que l'on me demande de faire est de récupérer le code du pr
 Notre projet est hébergé sur Github, j'ai les accès en lecture et en écriture au dépôt distant du code
 (dépot distant intitulé par défaut **origin**)
 
-{% highlight console %}
+```console
 $ git clone git@github.com:okiwi/atbdx.git atbdx
 Cloning into 'atbdx'...
-{% endhighlight %}
+```
 
 Je viens de récupérer la branche principale du projet (commande: **clone**) sur mon poste et j'ai mis mon environnement de travail dans le dossier atbdx. Une seule branche a été clonée, la branche principale (par défaut cette branche s'appelle **master**).
 Pour voir l'ensemble des branches du projet, vous pouvez tapper la commande suivante
 
-{% highlight console %}
+```console
 $ git branch
 * master
-{% endhighlight %}
+```
 
 
 git branch m'indique que je n'ai sur mon poste en local qu'une seule branche intitulé **master**.
@@ -50,7 +50,7 @@ Par défaut clone ne copie pas toutes les branches sur mon poste.
 Je dois lui préciser de récupérer une branche particulière depuis le dépôt distant.
 
 
-{% highlight console %}
+```console
 $ git checkout -b dev origin/dev
 Branch dev set up to track remote branch dev from origin.
 Switched to a new branch 'dev'
@@ -58,7 +58,7 @@ Switched to a new branch 'dev'
 $ git branch
 * dev
 master
-{% endhighlight %}
+```
 
 
 **git checkout -b dev origin/dev** : créé moi une nouvelle branche locale intitulé dev qui est une copie d'une branche distante du dépôt origin.

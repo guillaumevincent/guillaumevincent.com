@@ -18,7 +18,7 @@ I add 3 handlers, one for my index (MainHandler), one for my login page (AuthLog
 one for my logout page (AuthLogoutHandler).
 
 
-{% highlight python %}
+```python
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
@@ -34,27 +34,28 @@ class Application(tornado.web.Application):
             "login_url": "/auth/login/"
         }
         tornado.web.Application.__init__(self, handlers, **settings)
-{% endhighlight %}
+```
 
 
 The settings\["login_url"\] property set the url to be used by the @authenticated decorator.
 What I want is to redirect the user to login url (/auth/login/) if he's not identified.
 
 
-{% highlight python %}
+```python
 class MainHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         username = tornado.escape.xhtml_escape(self.current_user)
         self.render("index.html", username = username)
-{% endhighlight %}
+```
 
 
 It's so simple, isn't it ?
-<br> It remains for me to create a handler for my login screen, and a handler to delete my cookie when i reach auth/logout/ url.
+
+It remains for me to create a handler for my login screen, and a handler to delete my cookie when i reach auth/logout/ url.
 
 
-{% highlight python %}
+```python
 class AuthLoginHandler(BaseHandler):
     def get(self):
         try:
@@ -69,13 +70,13 @@ class AuthLogoutHandler(BaseHandler):
     def get(self):
         self.clear_cookie("user")
         self.redirect(self.get_argument("next", "/"))
-{% endhighlight %}
+```
 
 
 My login handler get method render the login.html page.
 
 
-{% highlight html %}
+```html
 <form action="/auth/login/" method="post" id="login_form">
     <fieldset>
         <label for="username">Username</label>
@@ -95,9 +96,9 @@ My login handler get method render the login.html page.
         <input id="signin-btn" class="btn btn-blue" type="submit" value="Sign In" tabindex="3">
     </div>
 </form>
-{% endhighlight %}
+```
 
-![login form](https://lh5.googleusercontent.com/-nfy2GESHMmI/URYyQCgy_4I/AAAAAAAAK7U/FA33XlBrjto/s299/login.png){:.img-responsive}
+![login form](/images/posts/login.png){:.img-responsive}
 
 
 When a user makes a POST request on /auth/login/,
@@ -105,7 +106,7 @@ my web server validates if the pair username/password is good and writes the use
 Otherwise it redirects the user to the login page with an error message.
 
 
-{% highlight python %}
+```python
 class AuthLoginHandler(BaseHandler):
     def get(self):
         try:
@@ -135,7 +136,7 @@ class AuthLoginHandler(BaseHandler):
             self.set_secure_cookie("user", tornado.escape.json_encode(user))
         else:
             self.clear_cookie("user")
-{% endhighlight %}
+```
 
 All the current user informations are saved in a secure cookie.
 Tornado provide set_secure_cookie and get_secure_cookie methods.

@@ -33,6 +33,8 @@ When your code is compiled of verified statically. You can catch typo and type e
 
 Every tests are here to catch errors before sending your application in production. Tests are also a good way to give you confidence in your code to encourage refactoring.
 
+![Coding Dojo](/images/posts/pyramidtests.png){:.img-responsive}
+
 If you plan to test correctly your application you should think of using the 4 types of testing. If you are not familiar with the pyramid of test here the recommendation for the amount of test per type:
 
 Try to write tests for each category of the pyramid. The more you climb the pyramid, the more tests are long and expensive to write. Perform tests that are easy to write and easy to maintain. But do not forget a couple of end to end or integration tests and even some manual tests.

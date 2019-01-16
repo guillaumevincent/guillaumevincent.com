@@ -3,9 +3,7 @@ layout: post
 title: Start faster gives the impression to go faster
 author: gvincent
 lang: en
-tags:
-  - javascript
-  - gmail
+tags: javascript gmail ux
 ---
 
 One of the most critical aspects of any web project is performance !
@@ -35,12 +33,12 @@ Now you fake the rendering of your progress bar by accelerating it at the beginn
 In my case I created a gaussianFunction corresponding to an array of 100 fake increments.
 Every time I render my loading bar, I add this number to my total count.
 
-{% highlight javascript %}
+```js
 var gaussianFunction = [0, 1, 2, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 9, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 19, 19, 19, 18, 18, 18, 17, 17, 16, 16, 15, 14, 14, 13, 13, 12, 11, 11, 10, 10, 9, 9, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0];
 
 var fakecount = count + gaussianFunction[count]
 
-{% endhighlight %}
+```
 
 With this simple trick, you give the impression to go faster. While you take the same time to load.
 
@@ -48,9 +46,7 @@ With this simple trick, you give the impression to go faster. While you take the
 
 Sure, [here you go...](/demos/gmail-loader/)
 
-[jsbin](http://jsbin.com/amevId/176/)
 
-
-![gmail loader](https://lh4.googleusercontent.com/-9EH0gqVz7ss/Um4MpLkXmfI/AAAAAAAANOU/uNPY6hcJEIU/w476-h677-no/Capture+d%2527e%25CC%2581cran+2013-10-27+23.58.48.png){:.center .img-responsive}
+![gmail loader](/images/posts/gmail_loader.png){:.img-responsive}
 
 If you have other kind of brain confuse techniques, let me know and put a comment bellow.

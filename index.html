@@ -6,10 +6,10 @@ layout: home
     {% assign postsByYearMonth = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
     {% for yearMonth in postsByYearMonth %}
     <h3>{{ yearMonth.name }}</h3>
-    <ul class="posts__listing">
+    <ul class="posts__list">
         {% for post in yearMonth.items %}
-        <li>
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <li class="posts__item">
+            <a class="posts__link" href="{{ post.url | prepend: site.baseurl }}">{% if post.lang == "en" %}[EN]{% else %}[FR]{% endif %} {{ post.title }}</a>
             {{ post.date | date: '%b %d' }}
         </li>
         {% endfor %}

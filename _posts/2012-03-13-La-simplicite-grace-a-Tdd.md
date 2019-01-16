@@ -21,7 +21,7 @@ Le code qui va suivre est en python parce que le langage est relativement facile
 
 Bon mettons nous à écrire notre premier test. Disons qu'ici notre premier test pourrait vérifier que lorsqu'un membre achète un produit à X €, le prix du produit qui lui est retourné est bien X € (ou 0 € si le client achète son 6ème produit):
 
-{% highlight python %}
+```python
 import unittest
 
 class TestsApplicationMagasinDeCafe(unittest.TestCase):
@@ -33,54 +33,54 @@ class TestsApplicationMagasinDeCafe(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-{% endhighlight %}
+```
 
 
 L'interpréteur va gueuler parce qu'il ne sait pas ce qu'est un Membre et la méthode facture n'existe pas. Nous ajoutons ce code pour supprimer l'erreur de compilation:
 
 
-{% highlight python %}
+```python
 class Membre(object):
     def facture(self, montant):
         pass
-{% endhighlight %}
+```
 
 
 Mon test est rouge, je le fais donc passer au vert
 
 
-{% highlight python %}
+```python
     def facture(self, montant):
         return 10
-{% endhighlight %}
+```
 
 
 Si je change le montant du produit facturé, notre test est de nouveau rouge.
 
 
-{% highlight python %}
+```python
     def test_facturation_produit(self):
         membre = Membre( )
         montant_produit = member.facture(10)
         self.assertEqual(montant_produit, 10)
         montant_produit = member.facture(5)
         self.assertEqual(montant_produit, 5)
-{% endhighlight %}
+```
 
 
 Erreur que je corrige en modifiant notre méthode facture:
 
 
-{% highlight python %}
+```python
     def facture(self, montant):
         return montant
-{% endhighlight %}
+```
 
 
 Modifions le test pour s'assurer que lorsque j'achète 6 produits le 6ème est gratuit. 
 
 
-{% highlight python %}
+```python
     def test_facturation_produit(self):
         membre = Membre( )
         for i in range(5):
@@ -88,13 +88,13 @@ Modifions le test pour s'assurer que lorsque j'achète 6 produits le 6ème est g
             self.assertEqual(montant_produit, 10)
         montant_produit = membre.facture(5) 
         self.assertEqual(montant_produit, 0)
-{% endhighlight %}
+```
 
 
 Notre dernier test échoue. Si vous avez suivi, facture retourne 5 et pas 0. Nous avons besoin d'enregistrer le nombre d'achats, et de tester quand cet enregistrement vaut 6 pour retourner 0.
 
 
-{% highlight python %}
+```python
  class Membre(object):
 
     def __init__(self):
@@ -106,7 +106,7 @@ Notre dernier test échoue. Si vous avez suivi, facture retourne 5 et pas 0. Nou
             return montant
         else:
             return 0
-{% endhighlight %}
+```
 
 
 Beaucoup de modification en une seule fois. Vous pouvez lancer vos tests et vérifier que l'ajout de _nombre_dachats ne casse pas vos anciens tests. 
@@ -115,20 +115,20 @@ Vos tests sont verts, un petit peu de refactoring et on continu.
 Refactoring de nos tests
 
 
-{% highlight python %}
+```python
     def test_facturation_produit(self):
         membre = Membre( )
         for prix in range(5):
             self.assertEqual(member.facture(prix), prix)
         montant_produit = membre.facture(5) 
         self.assertEqual(montant_produit, 0)
-{% endhighlight %}
+```
 
 
 Refactoring de notre objet Membre
 
 
-{% highlight python %}
+```python
 
 class Membre(object):
 
@@ -139,13 +139,13 @@ class Membre(object):
         self._nombre_dachats += 1
         return montant if self._nombre_dachats != 6 else 0
 
-{% endhighlight %}
+```
 
 
 Maintenant si un client achète 6 produits supplémentaires, le 12ème doit être gratuit.
 
 
-{% highlight python %}
+```python
     def test_douxieme_produit_gratuit(self):
         membre = Membre()
         for i in range (5):
@@ -156,15 +156,15 @@ Maintenant si un client achète 6 produits supplémentaires, le 12ème doit êtr
             self.assertEqual(member.facture(1), 1)
             montant_produit = membre.facture(3)
         self.assertEqual(montant_produit, 0, "la deuxieme reduction ne fonctionne pas")
-{% endhighlight %}
+```
 
 
 On modifie la méthode facture de notre objet Membre avec l'ajout d'un modulo 
 
 
-{% highlight python %}
+```python
 return montant if self._nombre_dachat%6 != 0 else 0
-{% endhighlight %}
+```
 
 
 Et nos tests deviennent verts.
@@ -172,35 +172,35 @@ Et nos tests deviennent verts.
 Ce qui est génial avec cette méthode c'est que nous venons de faire émerger un élément très important de notre modèle _nombre_dachats. Et en plus nous nous assurons qu'il fonctionne correctement. Maintenant passons à la réalisation de l'autre partie de notre user storie. Notre application fonctionne pour un seul membre. Si nous avons deux membres (disons le membre n°2 et le membre n°6) assurons nous qu'ils obtiennent leur réduction au bon moment.
 
 
-{% highlight python %}
+```python
     def test_membre_deux_membre_six_obtiennent_leur_reduction(self):
         membres = CollectionMembre()
         for achat_deuxieme_membre in range(5):
             self.assertEqual(membres.get_membre(2).facture(1), 1)
         self.assertEqual(membres.get_membre(2).facture(5), 0)
-{% endhighlight %}
+```
 
 
 CollectionMembre est donc une représentation du modèle de la base de données des membres. La méthode get_membre retourne un objet Membre correspondant au numéro de membre passé en paramètre. Ici mon implémentation de l'objet CollectionMembre est bonne quand mon test devient vert. Je dois réaliser le plus petit code possible pour faire passer mon test au vert.
 
 
-{% highlight python %}
+```python
 class CollectionMembre(Object):
     def get_membre(self, numero_membre):
         return Membre()
-{% endhighlight %}
+```
 
 Cette implémentation marche presque, à la seule différence que que chaque fois que je fais un achat (ex: membres.membre(2).facture(1)) je construis un nouveau membre. A la sixième occurrence notre test échoue. 
 
-{% highlight python %}
+```python
 AssertionError: Le 6eme produit n'est pas gratuit
-{% endhighlight %}
+```
 
 
 Si nous enregistrons ce membre avec le constructeur de notre collection, notre test passe au vert. 
 
 
-{% highlight python %}
+```python
 class CollectionMembres(object):
 
     def __init__(self):
@@ -208,13 +208,13 @@ class CollectionMembres(object):
 
     def membre(self, numero_membre):
         return self.__enregistrement
-{% endhighlight %}
+```
 
 
 Maintenant si le client 6 vient acheter un produit entre temps, notre application ne fonctionne plus.
 
 
-{% highlight python %}
+```python
 def test_membre2_membre6_ont_produits_gratuits(self):
         membres = CollectionMembres()
         for achat in range(5):
@@ -222,29 +222,29 @@ def test_membre2_membre6_ont_produits_gratuits(self):
         self.assertEqual(membres.membre(6).facture(10), 10)
         montant_produit = membres.membre(2).facture(10)
         self.assertEqual(montant_produit, 0, "Le 6eme produit n'est pas gratuit")
-{% endhighlight %}
+```
 
 
 Maintenant je ne peux plus reculer. Je me dois d'enregistrer le numéro du membre quelque part. L'utilisation d'un dictionnaire
 
 
-{% highlight python %}
+```python
 {'Membre' : 'numero de membre'}
-{% endhighlight %}
+```
 
 
 me paraissait la meilleur implémentation possible. Et il me parrait logique d'enregistrer le numéro du membre lors de sa création en modifiant le constructeur de notre objet Membre. Je commente mon code :
 
 
-{% highlight python %}
+```python
 #self.assertEqual(membres.membre(6).facture(10), 10)
-{% endhighlight %}
+```
 
 
 pour que tous mes tests redeviennent vert et donc m'assurer que je modifie bien l'architecture de mon application avec mon mousqueton de survie !
 
 
-{% highlight python %}
+```python
 class Membre(object):
 
     def __init__(self, numero_membre = -1):
@@ -254,13 +254,13 @@ class Membre(object):
     def facture(self, montant):
         self._nombre_achats += 1
         return montant if self._nombre_achats%6 != 0 else 0
-{% endhighlight %}
+```
 
 
 Ici rien ne casse, je rajoute juste un attribut à ma classe Membre dans le constructeur. Et je modifie ma collection de membres pour enregistrer mes différents membres. J'ajoute ensuite donc mon dictionnaire à ma classe CollectionMembre
 
 
-{% highlight python %}
+```python
 class CollectionMembres(object):
 
     def __init__(self):
@@ -275,13 +275,13 @@ class CollectionMembres(object):
             self.membres[numero_membre] = nouveau_membre
             return nouveau_membre
         return self._enregistrement
-{% endhighlight %}
+```
 
 
 Ce qui ne casse pas mes tests, et je peux supprimer mon ancienne implémentation, ce qui me donne:
 
 
-{% highlight python %}
+```python
 
 class CollectionMembres(object):
 
@@ -295,13 +295,13 @@ class CollectionMembres(object):
             nouveau_membre = Membre(numero_membre)
             self.membres[numero_membre] = nouveau_membre
             return nouveau_membre
-{% endhighlight %}
+```
 
 
 Si j'applique maintenant les achats du membre 6, mon code fonctionne parfaitement.
 
 
-{% highlight python %}
+```python
     def test_membre2_membre6_ont_produits_gratuits(self):
         membres = CollectionMembres()
         for achat in range(5):
@@ -311,7 +311,7 @@ Si j'applique maintenant les achats du membre 6, mon code fonctionne parfaitemen
         self.assertEqual(montant_produit, 0, "Le 6eme produit n'est pas gratuit")
         for achat in range(4):
             self.assertEqual(membres.membre(4).facture(achat),achat)
-{% endhighlight %}
+```
 <h2>Conclusion:</h2>
 
 Quand on lit la user storie, il est facile de se méprendre sur ce qui est réellement important. Surtout quand on lit “Chaque fois qu'un client achète quelque chose dans le magasin, on enregistre tous ses achats,...”

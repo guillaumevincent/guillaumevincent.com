@@ -8,12 +8,9 @@ tags: réflexion
 
 Rachel Davies et Liz Sedley dans le livre « Coaching Agile » parlent d'améliorer le feedback sur l'état du build.
 
-
-
 > If the team makes the move to using a Continuous Integration server to run the build and let them know the test results, they won't need a build token anymore
 
-
-![Agile Coaching](https://lh3.googleusercontent.com/-kX4-Uq0Ww0c/Trw4MfU1UNI/AAAAAAAABcw/16SyR8NYb_0/s400/agile_coaching_rds.jpg){:.img-responsive}
+![Agile Coaching](/images/posts/agile_coaching.jpg){:.img-responsive}
 
 Elle précise que si l'équipe se met à utiliser un serveur d'intégration continue pour exécuter le build et l'informer du résultat des tests, elle n'aura alors plus besoin d'un objet de build (ou jeton de build). Je ne suis pas d'accord avec cette idée. Je vois deux intérêts à ce que l'équipe continue à utiliser un sémaphore d'intégration même si elle utilise un serveur d'intégration continue.
 
@@ -23,4 +20,3 @@ L'autre intérêt de continuer à utiliser un sémaphore d'intégration est que 
 Pourquoi à un moment donné, un binôme se lève et essaye d'aider un autre binôme ? Est-ce que la fonctionnalité attendue est bloquante ? Ce transfert de ressource n'est pas naturel. L'encourager par des indicateurs comme le sémaphore de build est une excellente idée.
 
 Pour poursuivre la lecture je vous conseille ce billet d'Emmanuel CHENU: [L'Intégration continue est un système multitache](http://emmanuelchenu.blogspot.com/2009/04/lintegration-continue-est-un-systeme.html)
-

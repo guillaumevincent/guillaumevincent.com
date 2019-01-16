@@ -16,7 +16,7 @@ Une idée change ! Elle évolue, elle mûrit. Pour faire correspondre mon code a
 Pour exagérer la métaphore, faire un logiciel c’est un peu comme tenter d’intercepter un missile balistique en plein vol !
 
 
-![amélioration continue](https://lh6.googleusercontent.com/-uC-Ux0yeR9Q/U5sjsljFBPI/AAAAAAAAPFs/d7LAEzpHxGM/w1016-h651-no/Capture+d%2527e%25CC%2581cran+2014-06-13+17.13.49.png){:.center .img-responsive}
+![amélioration continue](/images/posts/amelioration_continue.png){:.img-responsive}
 
 [image emmanuel chenu](http://emmanuelchenu.blogspot.fr/)
 
