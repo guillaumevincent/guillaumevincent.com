@@ -11,7 +11,6 @@ How to run your own email server with your own domain ?
 This is the TLDR (Too long; didn't read) version of the most popular post on my blog!
 In this post, I explained how to configure OpenSMTPD, Dovecot and SpamAssassin to take your email back.
 
-<!--more-->
 <p>last edit: may 02 2015</p>
 <h1>Requirements</h1>
 <ul>

@@ -10,7 +10,7 @@ tags:
 
 Dans l'application de bonnes pratiques agiles, il est recommandé de faire une rétrospective.
 
-<!--more-->
+
 
 A la suite d'un sprint dans une démarche SCRUM, l'équipe est amenée à discuter des différents problèmes qu'elle a pu rencontrer lors du développement de son application.
 C'est un moment important, qui oblige tout le monde à se remettre en question. Cela favorise l'amélioration continue passive.

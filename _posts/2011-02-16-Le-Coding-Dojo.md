@@ -10,7 +10,7 @@ tags:
 
 Un coding dojo est une session amusante et intense pendant laquelle des développeurs améliorent leurs compétences en programmation.
 
-<!--more-->
+
 
 Ils cherchent collectivement à résoudre un problème informatique. Il existe différentes formes de coding dojo, et de plus en plus, cette pratique voit le jour dans les entreprises. Pour ma part je pratique le coding dojo au sein des locaux de l'entreprise Yaal et des locaux de l'entreprise Arpinum. Deux jeunes entreprises innovantes agiles du tissu bordelais. Généralement nous sommes entre 5 et 10 et nous développons une application ou un jeu.
 

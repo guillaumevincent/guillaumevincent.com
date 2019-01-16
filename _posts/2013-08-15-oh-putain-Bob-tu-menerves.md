@@ -10,7 +10,7 @@ Boby tu m'exaspères, nous nous connaissons depuis combien de temps ?
 3 ans bientôt 4. Cela fait presque autant de temps que je t'entends pester sur tes conditions de travail,
 sur ce métier "développeur de logiciel" qui est très loin de tes rêves!
 
-<!--more-->
+
 
 Non tu n'inventes rien, oui tu fais plus de reporting que du code.
 Et encore toi même tu le sais, si tu pouvais appeler ça du code.

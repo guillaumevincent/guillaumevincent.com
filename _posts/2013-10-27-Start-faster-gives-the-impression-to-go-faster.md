@@ -21,7 +21,7 @@ But there is an other technique I really like:
 
 * Persuade user's brain that your site loads faster (confuse the user's brain)
 
-<!--more-->
+
 
 If you start faster, you gives the impression to go faster. For example if you fake the rendering of a progress bar
 you can give the impression that loading took less time. It's just an impression. But it is very effective.

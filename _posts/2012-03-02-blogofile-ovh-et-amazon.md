@@ -10,11 +10,9 @@ tags:
 Quand j'ai commencé à bloguer, j'utilisais Joomla puis très vite j'ai migré sur Wordpress.
 Et j'ai eu ma claque des mises à jour à effectuer tous les trois mois sous peine d'avoir des failles béantes sur mon site internet.
 Début janvier 2012, j'ai cherché une solution [KISS (Keep It Simple Sir)](http://en.wikipedia.org/wiki/KISS_principle).
-<!--more-->
 
-<blockquote>
-Depuis peu je suis passé sous Jekyll et Github Page
-</blockquote>
+
+> Depuis peu je suis passé sous Jekyll et Github Page
 
 
 Grâce à [Sébastien Douche](http://twitter.com/sdouche) lors d'une conférence sur GIT, j'ai découvert [Blogofile](http://www.blogofile.com/). Blogofile est un système qui permet de créer un site statique simplement. J'écris des billets dans mon éditeur de texte favori. Je l'enregistre dans un dossier, je lance la génération automatique de mon site et je copie l'ensemble des fichiers générés sur mon hébergeur. Pas de base de données, seulement un hébergeur.

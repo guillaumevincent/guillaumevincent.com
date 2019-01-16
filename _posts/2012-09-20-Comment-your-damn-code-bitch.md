@@ -10,7 +10,7 @@ tags:
 Voilà ce que j'ai essayé d'expliquer à un collègue quand il m'a dit que mon code ne comportait pas de commentaires
 
 
-<!--more-->
+
 
 
 {% highlight python %}

@@ -11,7 +11,7 @@ It implement various third-party authentication schemes to connect to services l
 But Tornado doesn't provide a good documentation when you try to handle your own login service.
 I tried to do mine.
 
-<!--more-->
+
 
 My goal is to allow a user to access my web application when he has good permissions.
 I add 3 handlers, one for my index (MainHandler), one for my login page (AuthLoginHandler),
@@ -144,4 +144,4 @@ These two methods use a cookie secret key to encrypt the cookie.
 
 Hope this helped !
 
-<a href="https://gist.github.com/guillaumevincent/4771570">See the gist associate</a>
+[See the gist associate](https://gist.github.com/guillaumevincent/4771570)

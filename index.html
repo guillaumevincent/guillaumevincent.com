@@ -1,16 +1,16 @@
 ---
-layout: default
+layout: home
 ---
 <div class="posts">
-    <h1 class="posts__title">Writings</h1>
+    <h2>Writings</h2>
     {% assign postsByYearMonth = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
     {% for yearMonth in postsByYearMonth %}
-    <h2 class="posts__month">{{ yearMonth.name }}</h2>
+    <h3>{{ yearMonth.name }}</h3>
     <ul class="posts__listing">
         {% for post in yearMonth.items %}
-        <li class="menu__profile-item">
+        <li>
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-            {{ post.date | date: '%Y %b %d' }}
+            {{ post.date | date: '%b %d' }}
         </li>
         {% endfor %}
     </ul>

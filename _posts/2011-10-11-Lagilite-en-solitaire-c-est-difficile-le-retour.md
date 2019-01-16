@@ -9,7 +9,7 @@ tags:
 
 Dans ce billet, je vais vous donner ma recette pour réussir un projet en solitaire. Il complète un précédent billet sur le même sujet, où je décrivais les problèmes que j'ai rencontrés. Je rappelle le contexte de ma situation : je travaille dans une SSII Bordelaise. J'ai effectué plusieurs missions en solitaire. Je vais essayer de lister l'ensemble des points qui me paraissent important pour réussir :
 
-<!--more-->
+
 
 ###Participez activement à l'avant vente
 
@@ -47,4 +47,4 @@ Il est très facile de tomber du côté obscurs de la force : n'abandonner jamai
 Le retour d'expérience (feedback) du client est très important. Vous êtes seul, votre projet a potentiellement plus de problèmes. Il faut donc anticiper la phase d'intégration finale. Elle sera douloureuse. Essayer d'obtenir le plus de retours de votre client, en lui faisant comprendre que le logiciel comportera moins de fonctionnalités. C'est un sujet délicat. Parlez-en à votre responsable hiérarchique avant d'en parler au client. Votre commercial peut aussi à ce moment vous aider à faire avaler la pilule. Mettez en avant la qualité du logiciel et son acuité face à son utilisation réelle.
 Si le feedback est difficile, vous êtes dans la merde ! Obtenez au moins une réunion en début de projet. A ce moment, proposez le logiciel en version pré-beta avec une interface graphique. Vous obtiendrez forcément un retour du client, l'interface ne plaisant pas complètement. Profitez en à ce moment pour poser quelques questions pertinentes sur le produit et ses fonctionnalités (savoir si le bouton de validation doit être rouge ou bleu, on s'en fiche un peu). Attention à ce moment, faites preuve de diplomatie.
 
-relecture: merci à <a href="https://plus.google.com/110030684183743605276/posts">Chalou</a>
+relecture: merci à Chalou

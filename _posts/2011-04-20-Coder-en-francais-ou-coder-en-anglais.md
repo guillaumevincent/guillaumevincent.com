@@ -12,7 +12,7 @@ Gros débat même au sein des développeurs de mon entreprise, faut-il coder en 
 Je ne sais pas si la question a de sens dans la mesure ou le contexte définit souvent la langue du code.
 Mais si j'ai le choix, je pense que le code doit être en anglais pour les raisons suivantes :
 
-<!--more-->
+
 
 * les propriétés du langage sont difficiles à traduire, 
 Les GET SET en java par exemple, entraine du franglais ou un code à rallonge.
@@ -42,4 +42,4 @@ Je pense qu'il y a d'autres raisons, qui se valent plus ou moins. Mais ce sont p
 En même temps que j'écris ce billet, Evernote m'indique « Synchronisation Terminée : une note téléversée ». 
 C'est un signe  codons en anglais.
 
-Edit: Pour avoir un autre son de cloche, je vous invite à lire <a href="http://fabien.bezagu.free.fr/index.php?2008/01/23/7-ecrire-le-code-dans-sa-langue-maternelle">ce post</a> de Fabien Bezagu
+Edit: Pour avoir un autre son de cloche, je vous invite à lire [ce post](http://fabien.bezagu.free.fr/index.php?2008/01/23/7-ecrire-le-code-dans-sa-langue-maternelle) de Fabien Bezagu

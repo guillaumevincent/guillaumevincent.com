@@ -11,7 +11,7 @@ Le contrat a été inventé pour se prémunir des tentatives d'un des deux parti
 Et c'est un outil indispensable dans n'importe quel projet informatique.
 
 
-<!--more-->
+
 
 Dans ce billet j'essaye de répondre à la problématique suivante :
 

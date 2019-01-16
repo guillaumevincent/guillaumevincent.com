@@ -9,7 +9,7 @@ tags: astuce python
 Quand j'ai commencé à coder en python, j'ai passé un peu de temps sur des problèmes de copies de listes.
 Je veux trouver un moyen simple de copier le contenu d'une liste dans une autre et pas leurs références.
 
-<!--more-->
+
 
 {% highlight python console session %}
 $ python

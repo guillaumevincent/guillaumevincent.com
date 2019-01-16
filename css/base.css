@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+@media (min-width: 960px) {
+  .home {
+    flex-direction: row;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .menu {
+    padding-right: 48px;
+    width: 40%;
+    margin-top: 36px;
+  }
+  .posts {
+    padding-left: 48px;
+    border-left: 1px solid #333;
+  }
+}
+
+.menu__logo {
+  width: 64px;
+}
+
+.post {
+  width: 720px;
+  max-width: 100%;
+  padding: 24px;
+}
+
+pre {
+  padding: 24px 24px 24px 12px;
+  white-space: pre-wrap;
+  margin-bottom: 24px;
+}

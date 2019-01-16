@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Replace AngularJS component by a React component using redux
+title: Replace AngularJS component by a React component
 author: gvincent
 lang: fr
 tags: angularjs react redux

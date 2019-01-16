@@ -9,7 +9,7 @@ tags: ubuntu serveur infrastructure
 Quand j'installe un nouveau serveur dédié, j'utilise une petite documentation.
 Je me suis dit qu'elle pourrait être utile. Je la partage donc avec vous.
 
-<!--more-->
+
 
 ### Installation des dernieres mises à jour
 

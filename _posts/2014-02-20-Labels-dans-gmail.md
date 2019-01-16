@@ -8,7 +8,7 @@ tags: gmail productivité
 Gmail de Google est l'un des services de messagerie les plus populaires sur le Web.
 Voici un billet très rapide pour présenter mon utilisation des "labels" dans Gmail.
 
-<!--more-->
+
 
 Gmail utilise des labels au lieu de dossiers pour organiser vos emails. Un label est l'équivalent un hashtag sur twitter.
 Son seul but est de faciliter vos futures recherches.

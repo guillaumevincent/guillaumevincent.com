@@ -7,7 +7,7 @@ tags: git commit
 ---
 ![10 derniers commit](https://lh4.googleusercontent.com/-Y-dQtb7aNbs/UNb2LIpJi7I/AAAAAAAAIMQ/_U2_lbjs0dk/s406/git%2520rebase%2520example.png){:.img-responsive}
 
-<!--more-->
+
 
 
 Pour mes projets personnels j'utilise trois environnements de travail :

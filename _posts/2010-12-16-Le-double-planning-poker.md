@@ -7,7 +7,7 @@ tags: astuce scrum
 ---
 J'ai longtemps mal compris le rôle du planning poker, aujourd'hui je vous propose une vision un peu novatrice de son utilisation : le double planning poker!
 
-<!--more-->
+
 
 ![Planning poker](https://lh3.googleusercontent.com/-mz050MogDw4/TyPXWXcWMfI/AAAAAAAABrM/wFoLfx_cXnI/s800/images.jpg){:.center .img-responsive}
 

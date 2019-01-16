@@ -5,7 +5,7 @@ title: Git pour les nuls - Récupérer une branche distante
 author: gvincent
 tags: git remote
 ---
-<!--more-->
+
 
 Git est un outil de gestion de version, très puissant, extremement rapide et qui souffre d'une certaine complexité.
 Mais c'est cette complexité qui en fait ça force !

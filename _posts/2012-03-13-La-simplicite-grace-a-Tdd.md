@@ -10,7 +10,7 @@ Le développement piloté par les tests est un merveilleux moyen pour s'assurer 
 exactement ce que l'on veut qu'il fasse.
 TDD permet d'aller plus loin; Il oblige le développeur à faire les choses simplement...
 
-<!--more-->
+
 
 Récemment j'ai lu un magnifique billet de Ronald E. Jeffries intitulé [« But We Need a Database … Don't We? »](http://xprogramming.com/articles/but-we-need-a-database-dont-we/) sur lequel je me suis grandement inspiré pour expliquer cette idée.
 

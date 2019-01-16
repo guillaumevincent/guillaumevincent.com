@@ -8,7 +8,7 @@ tags: tdd professionnalisme
 Faire un logiciel c’est un métier, et un métier ça s’apprend ! Il faut du temps pour l’apprendre. Notre métier ne consiste pas à pondre des vues, réaliser des contrôleurs pour écrire dans des bases de données, et résoudre des bugs au débogueur. Non, ce n’est rien de tout ça !
 Notre métier consiste à traduire une idée en du code. Deux choses complètement différentes.
 
-<!--more-->
+
 
 D’après mon dictionnaire, une idée est une représentation abstraite, élaborée par la pensée, permettant d'être à l'origine d'une œuvre ou d'une invention originale.
 Une idée change ! Elle évolue, elle mûrit. Pour faire correspondre mon code avec une idée, il va falloir en permanence le faire évoluer.  

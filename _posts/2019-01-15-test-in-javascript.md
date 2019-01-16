@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Testing JavaScript
+title: Test in JavaScript
 author: gvincent
 lang: en
-tags: testing test javascript jest typescript 
+tags: testing test javascript jest typescript
 ---
 
-Testing JavaScript application is not as difficult as it sounds.
+Test a JavaScript application is not as difficult as it sounds.
 I propose in this blog post to see what kind of tests you can easily do in JavaScript. I will speak about the static analysis tests and unit tests. I will use Jest and Typescript to show you how you can increase your number of tests in your JavaScript application.
-
 
 ## Different type of testing
 
 ### End to End
+
 End to end tests are test run by a software program simulating click and human behaviour to see if the behaviour of you application is correct.
 Writing those kind of test is time consuming.
 
@@ -26,6 +26,7 @@ Everything should work together in harmony.
 Every module, function or object should in an isolated world work as expected. Those kind of test are easy to write and should run instantaneously.
 
 ### Static
+
 When your code is compiled of verified statically. You can catch typo and type errors as you write code.
 
 ## What kind of test should I choose?
@@ -38,15 +39,15 @@ Try to write tests for each category of the pyramid. The more you climb the pyra
 
 ## Static Analysis Testing JavaScript Applications
 
-Ok so we should introduce some static analysis testing in your application. 
+Ok so we should introduce some static analysis testing in your application.
 
 ```js
 // greetings.js
-function greetingUser({firstName, lastName}){
-    console.log(`Hello ${firstName} ${lastName}`)
+function greetingUser({ firstName, lastName }) {
+  console.log(`Hello ${firstName} ${lastName}`);
 }
 
-greetingUser("Dark", "Vador") // Hello undefined undefined
+greetingUser("Dark", "Vador"); // Hello undefined undefined
 ```
 
 `greetingUser` take only one parameter and we call greetingUser with the wrong number of parameters.
@@ -65,7 +66,7 @@ interface Person {
 }
 
 function greetingUser(person: Person) {
-  const {firstName, lastName} = person;
+  const { firstName, lastName } = person;
   console.log(`Hello ${firstName} ${lastName}`);
 }
 
@@ -75,8 +76,8 @@ greetingUser("Dark", "Vador");
 
 //11 greetingUser("Dark", "Vador");
 //   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 ```
+
 This help you to detect some error during the compilation.
 But If you use an IDE like [vscode](https://code.visualstudio.com/) you can see greetingUser is underline in red. You to detect some error during the writing phase!
 
@@ -85,8 +86,9 @@ If you fix and compile your code, it will generate a javascript file:
 ```js
 // greetings.js
 function greetingUser(person) {
-    var firstName = person.firstName, lastName = person.lastName;
-    console.log("Hello " + firstName + " " + lastName);
+  var firstName = person.firstName,
+    lastName = person.lastName;
+  console.log("Hello " + firstName + " " + lastName);
 }
 greetingUser({ firstName: "Dark", lastName: "Vador" });
 ```
@@ -99,7 +101,6 @@ Because I'm doing TDD (Test Driven Development), I write a lot of unit or functi
 My tests are **automated** and run **as fast as possible**. The faster my tests are, the more often I run them.
 
 To ensure my code is doing what it should, I install a testing framework and I create a test file with some assertion.
-
 
 ### Unit tests
 
@@ -127,12 +128,15 @@ Then write the code to make the test green
 
 ```js
 // strings.js
-function reverse(s){
-    return s.split("").reverse().join("");
+function reverse(s) {
+  return s
+    .split("")
+    .reverse()
+    .join("");
 }
 module.exports = {
-    reverse
-}
+  reverse
+};
 // ./node_modules/.bin/jest
 //  PASS  ./strings.test.js
 //  ✓ should reverse my string (4ms)
@@ -208,7 +212,9 @@ test("Keycloak login redirect_uri encoded", () => {
   keycloak.login({ redirectUri: "http://example.org/login" });
 
   const location = window.location.replace.mock.calls[0][0];
-  expect(location.split("&")[1]).toBe("redirect_uri=http%3A%2F%2Fexample.org%2Flogin");
+  expect(location.split("&")[1]).toBe(
+    "redirect_uri=http%3A%2F%2Fexample.org%2Flogin"
+  );
 });
 ```
 

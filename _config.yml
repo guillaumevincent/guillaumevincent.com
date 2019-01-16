@@ -1,13 +1,11 @@
 # Site settings
-title: Guillaume Vincent | Code & Design
+title: Guillaume Vincent
 description: Hello I'm Guillaume, I'm a software craftsman and I work for Red Hat remotely from France. I love everything about computer science, clean code, software architecture, design, user experience, scuba diving, golf, cats, and so much more....
 baseurl: ""
 url: "https://guillaumevincent.com"
-twitter_username: guillaume20100
-github_username:  guillaumevincent
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-exclude: [node_modules, assets, gulpfile.js, package.json, README.md]
-excerpt_separator: <!--more-->
+exclude: [node_modules, assets, package.json, README.md]
+excerpt_separator: 

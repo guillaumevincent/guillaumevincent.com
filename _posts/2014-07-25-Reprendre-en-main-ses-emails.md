@@ -13,7 +13,6 @@ alternative à ces services pour gérer différemment mes emails. Depuis mars 20
 m'appartient, qui fonctionne bien. Dans ce billet je vais partager avec vous mon expérience et vous aidez à reprendre 
 en main vos emails !
 
-<!--more-->
 Obsolète lisez plutôt [OpenSMTPD-Dovecot-SpamAssassin](http://guillaumevincent.com/2015/01/31/OpenSMTPD-Dovecot-SpamAssassin.html)
 
 <p class="bg-success">

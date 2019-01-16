@@ -5,10 +5,9 @@ author: gvincent
 lang: fr
 tags: tdd
 ---
+
 Dans ce tutoriel, je vous propose de comprendre le fonctionnement du TDD, appelé aussi développement piloté par les tests.
 J'ai essayé de le rendre le plus accessible possible. J'utilise une approche didactique, avec pas mal d'explications.
-
-<!--more-->
 
 Cette démarche est complétée par un deuxième tutoriel plus pratique, où je vous propose de venir essayer ce que je vous ai appris. Bonne lecture!
 
@@ -17,7 +16,7 @@ Cette démarche est complétée par un deuxième tutoriel plus pratique, où je 
 C'est une pratique de développement beaucoup utilisé dans la réalisation de logiciels en informatique. C'est une méthode que les développeurs utilisent pour faire ressortir une sorte de patron de conception. TDD n'a rien avoir avec le test ou le développement à proprement parlé. C'est vraiment un motif de conception (une façon de faire) qui indique comment le développeur doit coder une application. C'est pour cette raison que le TDD est difficile à maitriser et à appréhender.
 Dites ce que vous voulez, avant de le faire et ensuite assurer vous que ce que vous avez obtenu correspond bien à vos attentes. Cela permet de faire émerger de petits modèles de conception.
 
-<blockquote>Un modèle de conception (appelé aussi design pattern) décrit un problème qui apparait encore et encore dans votre environnement de travail. Ensuite il explicite une solution que vous pourrez utiliser à chaque fois pour résoudre ce problème.</blockquote>
+> Un modèle de conception (appelé aussi design pattern) décrit un problème qui apparait encore et encore dans votre environnement de travail. Ensuite il explicite une solution que vous pourrez utiliser à chaque fois pour résoudre ce problème.
 
 ###Comment faire du TDD ?
 
@@ -33,4 +32,4 @@ Là où c'est génial c'est que votre logiciel fait exactement ce que vous voule
 
 Beaucoup pense qu'un logiciel développé avec TDD n'a pas besoin d'architecture. Ceci est faux et complètement idiot. L'intérêt du TDD vient du fait que l'on a besoin d'une architecture, complexe ou non, où la modularité est le maître mot. Les classes doivent comporter le moins d'interaction avec les autres. Et le TDD permet de faire évoluer son code en sûreté. Beaucoup de personnes s'entendent pour dire que l'architecture apparaît d'elle-même, il faut poser des bases simples et évolutives.
 
-Le Test Driven Development (TDD) est le principal outil de l'artisan logiciel ! 
+Le Test Driven Development (TDD) est le principal outil de l'artisan logiciel !
