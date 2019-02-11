@@ -6,7 +6,7 @@ lang: en
 tags: javascript commonjs amd es6
 ---
 
-JavaScript is everywhere, and when you start working with JavaScript on the frontend side or on the backend side you will be probably lost with all the information you can find around the module system. In this post I'll try to simplify some concept to help you understand terms like CommonJS, AMD, ES6 imports, etc...
+JavaScript is everywhere, and when you start working with JavaScript on the frontend side or on the backend side you will be lost with all the information you can find around the module system. In this post I'll try to simplify some concept to help you understand terms like CommonJS, AMD, ES6 imports, etc...
 
 ## NodeJS and the browser
 
@@ -77,7 +77,7 @@ console.log(firstname, lastname);
 ## CommonJS
 
 Ok so let's increase the complexity a little bit.
-A common software is splited into different modules or files.
+A software is splited into different modules or files.
 JavaScript had neither a module system, nor facilities to load sources from within the code.
 
 In 2009 a group of developpers created a specification called CommonJS.
@@ -189,7 +189,7 @@ node --experimental-modules main.mjs
 John Doe
 ```
 
-In your browser, the code will work if you add ` type="module"` to the `script` tag:
+In your browser, the code will work if you add `type="module"` to the `script` tag:
 
 ```html
 <!DOCTYPE html>
@@ -204,9 +204,9 @@ In your browser, the code will work if you add ` type="module"` to the `script` 
 ## Conclusion
 
 ES6 came with a native module system. It helps writing modular code.
-ES6 module system didn't solve all problems, like asynchronous loading, mixing CommonJS code and ES6 code valid on NodeJS and inside your browser.
+ES6 module system didn't solve all problems, like asynchronous loading, mixing CommonJS code and ES6 code.
 
 Bundler like Webpack helps you solving those problems. 
 You can for example with a little configuration mix CommonJS code, new ES6 modules, and create code specific for your browser or NodeJS.
 
-Tell me if you find this blog post usefull
+Tell me if you have found this article interesting, or if you want me to go into the details of a particular topic.
