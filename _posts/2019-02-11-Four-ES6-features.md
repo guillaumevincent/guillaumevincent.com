@@ -128,49 +128,63 @@ const onlyAdults = (users, legalAge) =>
 
 For people doing some functional programming, you start recognizing patterns!
 
+Note that the arrow function does not have the same behavior with the bind of `this`, `super`, `arguments`, etc. I will cover this difference in another blog post.
+
 ## destructuring
 
 Destructuring is interesting to extract the value of a key from an object and assign it to a variable in a single line.
 
 ```js
 // destructuring
-// es5
-function (user){
-    var firstname = user.firstname;
-    var lastname = user.lastname;
-    console.log(firstname, lastname);
-}
-// es6
-user => {
-  const { firstname, lastname } = user;
-  console.log(firstname, lastname);
+var user = {
+  firstname: "John",
+  lastname: "Doe"
 };
+// this ES5 code
+var firstname = user.firstname;
+var lastname = user.lastname;
+// is equivalent to this ES6 code
+const { firstname, lastname } = user;
 ```
 
-Destructuring is interesting with nested object, default value and renaming
+We destructure an object in variables. Variables are created (`firstname` and `lastname` in my example). Then the value of those variables in the object are assigned to them.
+
+Destructuring works with nested objects and avoid duplication of declarations.
 
 ```js
-const user = {
+var user = {
   address: {
     principal: {
       street: "123 Main Street",
       city: "San Francisco",
-      _state: "California"
+      state: "California"
     }
   }
 };
-
-const {
-  name = "John Doe",
-  street,
-  city,
-  _state: state
-} = user.address.principal;
-console.log(name, street, city, state);
-//John Doe 123 Main Street San Francisco California
+// es5
+// duplication of user.address.principal
+var street = user.address.principal.street;
+var city = user.address.principal.city;
+var state = user.address.principal.state;
+// es6
+const { street, city, state } = user.address.principal;
 ```
 
-Default value `John Doe` is affected to the variable `name` if not in `user.address.principal` (see the `=` parameter). And `_state` is renamed to the variable `state` (see the `:` parameter). 
+Destructuring is interesting also with default value and variables renaming on the fly
+
+```js
+const address = {
+  street: "123 Main Street",
+  city: "San Francisco",
+  _state: "California"
+};
+const { street, city, _state: state, country = "United States" } = address;
+console.log(street, city, state, country);
+//123 Main Street San Francisco California United States
+```
+
+`street` and `city` are extracted from the `address` object. `_state` is renamed to the variable `state` (see the `:` parameter).
+And default value `United States` is affected to the variable `country` if not in `address` (see the `=` parameter).
 
 ## spread operator
 
@@ -185,7 +199,7 @@ const Label = ({ children, className, ...rest }) => (
 );
 ```
 
-Here we want to get all the properties other than children and className, and pass them to our child component.
+Here we want to get all the properties other than `children` and `className`, and pass them to our child component.
 
 You can see in this example the force of the four ES6 properties combined. You destructure props in the arrow function parameter, you use the implicit return of the arrow function. The template literal to overwrite the className parameter of your children component, and the spread operator to apply the remaining props to your children element.
 
