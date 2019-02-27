@@ -1,6 +1,6 @@
 ---
 layout: post
-title: React Application Folder Structure
+title: How to better organize your file structure in React
 author: gvincent
 lang: en
 tags: javascript react structure

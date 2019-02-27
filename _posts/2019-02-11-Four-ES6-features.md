@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Four ES6 features I use a lot
+title: 4 ES6 features I use a lot
 author: gvincent
 lang: en
 tags: javascript es6
