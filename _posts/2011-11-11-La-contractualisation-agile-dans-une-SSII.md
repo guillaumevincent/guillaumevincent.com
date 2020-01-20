@@ -27,13 +27,13 @@ De plus une prestation au « forfait » nous retire toute possibilité de pilota
 
 Vous l'aurez compris tout le monde est perdant!
 
-###S'adapter au changement
+### S'adapter au changement
 
 L'objectif de la contractualisation est de proposer une réponse qui prenne en compte ce « changement » tout en assurant au client que ce qu'il demande sera bien réalisé !
 Ne jamais s'engager sur un nombre de fonctionnalité ! Mais engagez-vous sur un volume d'unité d'oeuvre<sup>1</sup>. C'est assez simple comme idée. En fonction du cahier des charges, listez les fonctionnalités. Morceler l'ensemble de ces objectifs fonctionnels pour en extraire les users stories. Effectuez l'évaluation avec une équipe transverse du coût d'une user storie. Avec la matrice ainsi générée vous pouvez piloter votre projet de manière simple. Vous transformez le poids d'une storie en jour homme ou toute autre unité que vous utilisez.
 Vous vous engagez à livrer à la fin de chaque sprint un produit fonctionnel<sup>2</sup>. Vous explicitez que le client doit en contrepartie s'engager à faire un retour d'expérience sur le produit à la même fréquence.
 
-###Les craintes du client
+### Les craintes du client
 
 ![Client etonné](/images/posts/client.jpg){:.img-responsive}
 
