@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang | default: "fr-FR" }}">
   {% include head.html %}
-
   <body>
-    <div class="post">
-            
-      <h1>{{ page.title }}</h1>
-      <p>{{ page.date | date: "%B %d, %Y" }}</p>
-      {{ content }}
-      <p>{% if page.lang == "en" %}By{% else %}Par{% endif %} Guillaume Vincent</p>
-      <a
-        href="http://creativecommons.org/licenses/by/4.0/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAIAAAD8q9/YAAAABGdBTUEAANbY1E9YMgAAAXlJREFUSMflljFPAjEUgN8PsMUb2aBqcCKSToQ4cHTD9SYSx2Nw0sFOJMQB2DCBpX+hTupiYHCCEPLiP+Av9C/UaMmJ5CAywXkvNzSXvmu+fO+9K0AKw6YmfoCfnvXq07xpAkCv14tNE0JQSodq4DbPP+aZ40wivMYDD9WAUrqJNmIunBfc/tH7qN1uJxi4clnJ5/PbawMRAaBx3XApM5zVr+pJBSaUOL2IyBgDACGEMUYIAQCMMUR0kku8FFV1/7EfOxfWD/u93j9w66EFAOPx2FrLGAuCwForv8PzPGOMUkpr7V4SSqKqnkwnsV9fW+yLdiPw3f0tACCiMWZ1bgVBwDlfrWopJaXUZb2+vUzn0y2G9+t2Z8NCiDAMnWEppVJqaZjsYPhAgb96mCx7WGvteR4AhGEY9TDnfLFYWGtrtVrxovjHHj5o4HKlnMvlUjSlh2pAyFG3290C7Pv+6dnJP/kPR6Or0+nE0lb9ajabTfZNK1136VTFJzgjKZelEV3/AAAAAElFTkSuQmCC"
-        />
-      </a>
-    </div>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.date | date: "%B %d, %Y" }}</p>
+    {{ content }}
+    <p>{% if page.lang == "en" %}By{% else %}Par{% endif %} Guillaume Vincent</p>
+    <a
+      href="http://creativecommons.org/licenses/by/4.0/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAIAAAD8q9/YAAAABGdBTUEAANbY1E9YMgAAAXlJREFUSMflljFPAjEUgN8PsMUb2aBqcCKSToQ4cHTD9SYSx2Nw0sFOJMQB2DCBpX+hTupiYHCCEPLiP+Av9C/UaMmJ5CAywXkvNzSXvmu+fO+9K0AKw6YmfoCfnvXq07xpAkCv14tNE0JQSodq4DbPP+aZ40wivMYDD9WAUrqJNmIunBfc/tH7qN1uJxi4clnJ5/PbawMRAaBx3XApM5zVr+pJBSaUOL2IyBgDACGEMUYIAQCMMUR0kku8FFV1/7EfOxfWD/u93j9w66EFAOPx2FrLGAuCwForv8PzPGOMUkpr7V4SSqKqnkwnsV9fW+yLdiPw3f0tACCiMWZ1bgVBwDlfrWopJaXUZb2+vUzn0y2G9+t2Z8NCiDAMnWEppVJqaZjsYPhAgb96mCx7WGvteR4AhGEY9TDnfLFYWGtrtVrxovjHHj5o4HKlnMvlUjSlh2pAyFG3290C7Pv+6dnJP/kPR6Or0+nE0lb9ajabTfZNK1136VTFJzgjKZelEV3/AAAAAElFTkSuQmCC"
+      />
+    </a>
   </body>
 </html>

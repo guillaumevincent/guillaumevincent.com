@@ -1,11 +1,8 @@
-# Site settings
-title: Guillaume Vincent
-description: Hello I'm Guillaume, I'm a software craftsman and I work for Red Hat remotely from France. I love everything about computer science, clean code, software architecture, design, user experience, scuba diving, golf, cats, and so much more....
+title: Guillaume Vincent Web Site
 baseurl: ""
-url: "https://guillaumevincent.com"
+url: "https://www.guillaumevincent.com"
+twitter_username: guillaume20100
+github_username: guillaumevincent
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-exclude: [node_modules, assets, package.json, README.md]
-excerpt_separator: 
+plugins:
+  - jekyll-feed

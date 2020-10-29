@@ -1,0 +1,11 @@
+.posts__item {
+  margin-bottom: 1em;
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+    margin-bottom: .5em;
+    .posts__date {
+      margin-left: .5em;
+    }
+  }
+}
