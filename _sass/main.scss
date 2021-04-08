@@ -30,14 +30,20 @@ a {
   }
 }
 
-ul {
-  padding: 0;
-  list-style: none;
-  li {
+.posts {
+  ul {
     padding: 0;
+    list-style: none;
+    li {
+      padding: 0;
+    }
   }
 }
 
 small {
   font-size: 0.8rem;
+}
+
+.img-responsive {
+  max-width: 100%;
 }
