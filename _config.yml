@@ -6,3 +6,4 @@ github_username: guillaumevincent
 
 plugins:
   - jekyll-feed
+  - jemoji

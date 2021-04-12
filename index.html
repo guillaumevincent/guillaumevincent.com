@@ -87,7 +87,7 @@ title: "Welcome"
       <a class="posts__link" href="{{ post.url | prepend: site.baseurl }}">
         {{ post.title }}
       </a>
-      <small>{{ post.date | date: '%b %d' }}</small>
+      <span class="posts__date">{{ post.date | date: '%b %d' }}</span>
     </li>
     {% endfor %}
   </ul>

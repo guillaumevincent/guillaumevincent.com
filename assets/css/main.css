@@ -1,0 +1,80 @@
+@import url(syntax.css);
+
+body {
+  background: #ffffff;
+  color: #444444;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  color: #333333;
+}
+
+a {
+  color: #3398eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  margin: 2rem auto;
+  max-width: 768px;
+  padding: 0 1rem;
+}
+
+blockquote {
+  margin: 0.22rem 0;
+  border-left: 1px solid #3398eb;
+  padding: 0.22rem 0.42rem;
+  background-color: #f6f8fa;
+}
+
+pre {
+  padding: 1rem;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+
+.img-responsive {
+  max-width: 100%;
+}
+
+.posts ul {
+  padding: 0;
+  list-style: none;
+}
+
+.posts ul li {
+  padding: 0;
+}
+
+.posts__item {
+  margin-bottom: 1rem;
+}
+
+.posts__date {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 960px) {
+  .posts__item {
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+  }
+  .posts__item .posts__date {
+    margin-left: 0.5rem;
+  }
+}
