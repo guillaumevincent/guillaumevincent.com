@@ -48,5 +48,4 @@ Après je rescends beaucoup d'excitation car j'ai entamé des discussions un peu
 
 On pivote et on recommence. Je suis en train de changer complètement le texte pour mettre en avant la promesse. Le texte sera en Français. J'ai grillé ma cartouche lancement Twitter. Il me reste le lancement Linkedin, et on fera une petite dépense publicitaire (juste parce que je suis un peu tétu et que j'ai envi d'apprendre quand même à le faire).
 
-Je bloguerai sur l'expérience dès que j'ai plus de matière
-
+[Lire la suite de l'expérience]({% post_url 2021-04-09-vendre-un-produit-numerique %})
