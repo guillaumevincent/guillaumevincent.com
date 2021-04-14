@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Vendre un produit numérique (jour 3)
+title: Vendre un produit numérique (09 avril)
 author: gvincent
 lang: fr
 tags: entreprendre entrepreneur
 ---
 
-Lire [l'épisode 1]({% post_url 2021-04-08-vendre-un-produit-numerique %})
+Si vous n'avez pas lu [l'épisode précédent]({% post_url 2021-04-08-vendre-un-produit-numerique %})
 
 ## Ne pas passer à l'action
 
@@ -46,4 +46,4 @@ Plusieurs personnes m'ont remonté un problème avec la niche que j'ai choisie.
 
 Je ne peux pas à l'heure d'aujourd'hui valider ou invalider cette affirmation. Mais c'est quelque chose qui va falloir que je fasse: _Parler avec mes clients_ et _Vérifier que je suis dans la bonne direction_
 
-La suite au prochain épisode
+[Lire la suite de l'expérience]({% post_url 2021-04-14-vendre-un-produit-numerique %})

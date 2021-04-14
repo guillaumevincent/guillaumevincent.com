@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vendre un produit numérique (jour 1)
+title: Vendre un produit numérique (08 avril)
 author: gvincent
 lang: fr
 tags: entreprendre entrepreneur
