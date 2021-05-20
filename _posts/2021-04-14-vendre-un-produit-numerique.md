@@ -78,5 +78,6 @@ Si je commence par ça je devrais répondre à ces 2 questions:
 
 Sinon une autre strategie est de développer complètement le premier MVP (Minimum viable product). En regardant la page de concurrents ou produits similaires, je me suis aperçu qu'ils mettaient en avant beaucoup de retours de premiers beta testeurs. Comme je suis à trois jours de développement de terminer la première version, je me posais la question de faire ce MVP. Le donner à tester à deux trois copains Freelances en échange de mettre leurs retours sur la page Gumroad.
 
-
 [Alors MVP ou pub ?](https://twitter.com/messages/compose?recipient_id=81542742&text=Salut%20Guillaume%2C%0Aje%20te%20conseille%20de%20faire%20%3Cla%20pub%20%7C%20MVP%3E%20en%20premier)
+
+[Lire la suite de l'expérience]({% post_url 2021-05-20-vendre-un-produit-numerique %})
